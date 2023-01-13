@@ -2,9 +2,9 @@
   <div
   :class="{'hideNavbar': scrollNavbar}"
   class="container-fluid fixed-top bg-dark navbar-height"
-  style="z-index:10000;box-shadow: 0px 0px 2px white;">
+  style="z-index:10000">
     <div
-      :class="{'hideSubNavbar':scrollNavbar,'top50px':smallNavbar }"
+      :class="{'hideSubNavbar':scrollNavbar}"
       class="d-block d-md-none navbar-overlay position-absolute
       start-0 w-100 bg-dark tracking-wider">
         <div
@@ -151,7 +151,6 @@ export default {
       scrollNavbar: false,
       cartsNum: 0,
       cartsData: {},
-      smallNavbar: false,
       favoriteData: [],
     };
   },
@@ -184,12 +183,6 @@ export default {
           this.scrollNavbar = false;
         }
         this.lastScrollTop = scrollTop;
-      } else if (document.body.clientWidth <= 768) {
-        if (scrollTop >= 50) {
-          this.smallNavbar = true;
-        } else {
-          this.smallNavbar = false;
-        }
       }
     },
     getCarts() {

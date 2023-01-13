@@ -52,7 +52,7 @@
   @delete-coupon="deleteItem"></deleteModal>
 </template>
 <script>
-import couponModal from '@/components/CouponModal.vue';
+import couponModal from '@/components/couponModal.vue';
 import deleteModal from '@/components/back/DeleteCoupon.vue';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';

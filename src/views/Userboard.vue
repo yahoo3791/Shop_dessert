@@ -1,6 +1,6 @@
 <template>
   <div class="position-relative">
-    <ToastMessages></ToastMessages>
+    <ToastMessages />
     <router-view :key="$route.fullPath" />
   </div>
 </template>

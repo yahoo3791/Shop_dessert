@@ -7,7 +7,7 @@
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">檢視訂單</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"
-          aria-label="Close"></button>
+          aria-label="Close" />
         </div>
         <div class="modal-body">
           <div class="container">

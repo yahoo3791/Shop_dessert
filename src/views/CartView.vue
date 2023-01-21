@@ -135,7 +135,7 @@
               <div class="ms-auto ms-md-3 delete text-center cartsInput-trash cursor-pointer"
               @click="openDeleteCarts(item)"
               @keydown="openDeleteCarts(item)">
-                <i class="bi bi-trash3-fill fs-3"></i>
+                <i class="bi bi-trash3-fill fs-3" />
               </div>
             </div>
           </div>
@@ -158,8 +158,8 @@
         </div>
         </div>
     </div>
-    <DeleteCartsAll ref="DeleteCartsAll" @checkDeleteAll="deleteCarts()"></DeleteCartsAll>
-    <DeleteCarts ref="DeleteCarts" @checkDelete="deleteProduct()"></DeleteCarts>
+    <DeleteCartsAll ref="DeleteCartsAll" @checkDeleteAll="deleteCarts()" />
+    <DeleteCarts ref="DeleteCarts" @checkDelete="deleteProduct()" />
   </div>
   <Footer />
 </template>

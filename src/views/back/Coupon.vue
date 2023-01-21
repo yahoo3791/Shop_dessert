@@ -1,5 +1,5 @@
 <template>
-<loading :active="isLoading"></loading>
+<loading :active="isLoading" />
   <div>
     <div class="container pt-utility">
       <div class="text-end">
@@ -47,9 +47,9 @@
     </div>
   </div>
   <couponModal ref="couponModal" :coupon="this.tempCoupon"
-  @save-coupon="couponData"></couponModal>
+  @save-coupon="couponData" />
   <deleteModal ref="deleteModal" :delete-item="this.deleteCoupon"
-  @delete-coupon="deleteItem"></deleteModal>
+  @delete-coupon="deleteItem" />
 </template>
 <script>
 import couponModal from '@/components/couponModal.vue';

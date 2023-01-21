@@ -68,8 +68,7 @@
           :visible="visibleRef"
           :imgs="product.imageUrl"
           :index="indexRef"
-          @hide="onHide">
-        </vue-easy-lightbox>
+          @hide="onHide" />
       </div>
       <div class="col-12 col-md-5 offset-md-1 d-flex flex-column justify-content-between">
         <div class="">

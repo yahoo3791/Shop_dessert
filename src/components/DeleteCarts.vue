@@ -9,8 +9,7 @@
           <button type="button"
             class="btn-close"
             data-bs-dismiss="modal"
-            aria-label="Close">
-          </button>
+            aria-label="Close" />
         </div>
         <div class="modal-body title-01 text-center py-5">
           <p class="">{{deleteData.title}}</p>

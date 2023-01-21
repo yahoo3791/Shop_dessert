@@ -121,7 +121,7 @@
           </router-link>
         </div>
       </div>
-      <div class="line my-5"></div>
+      <div class="line my-5" />
     </div>
     <div class="container">
       <div class="row flex-column-reverse flex-md-row-reverse align-items-md-center">
@@ -153,7 +153,7 @@
               },
             }"
             class="mySwiper position-relative customized-container">
-            <div class="position-absolute swiper-bg top-0"></div>
+            <div class="position-absolute swiper-bg top-0" />
             <swiper-slide class="position-relative">
               <img class="" src="@/assets/pic/homepage/母親節蛋糕.png" alt="">
               <h2 class="position-absolute top-50 start-50 translate-middle
@@ -236,7 +236,7 @@
               class="sub-btn d-inline-block text-black tracking-wide">
                 <i class="bi bi-envelope footer-envelope"></i></button>
               <ErrorMessage :class="{ 'd-none': this.subMail == ''}"
-              name="信箱" style="color:orangered"></ErrorMessage>
+              name="信箱" style="color:orangered" />
             </div>
           </VForm>
         </div>

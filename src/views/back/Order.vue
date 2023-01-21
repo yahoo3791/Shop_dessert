@@ -55,14 +55,13 @@
       </tbody>
     </table>
     <Pagination class="position-fixed bottom-0 start-50 translate-middle-x"
-    :pages="pagination" @updatePage="getData">
-    </Pagination>
+    :pages="pagination" @updatePage="getData" />
   </div>
-  <orderModal ref="orderModal" :change-data="changeData"></orderModal>
+  <orderModal ref="orderModal" :change-data="changeData" />
   <deleteModal ref="deleteModal" :delete-data="deleteData"
-  @delete-item="deleteItem"></deleteModal>
+  @delete-item="deleteItem" />
   <deleteOrderAllModal ref="deleteOrderAllModal"
-  @delete-all="deleteAll"></deleteOrderAllModal>
+  @delete-all="deleteAll" />
 
 </template>
 <script>

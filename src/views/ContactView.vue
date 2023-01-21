@@ -22,7 +22,7 @@
                 data-aos="fade-up"
                 data-aos-anchor-placement="bottom-bottom">
                   <i class="bi bi-envelope text-5xl text-end"
-                  style="width:30%"></i>
+                  style="width:30%" />
                   <div class="ps-4">
                     <p class="p-01">發送EMAIL給客服中心</p>
                   </div>
@@ -37,7 +37,7 @@
                   data-aos-anchor-placement="bottom-bottom"
                   data-aos-delay="200">
                     <i class="bi bi-telephone text-5xl text-end"
-                    style="width:30%"></i>
+                    style="width:30%" />
                     <div class="ps-4">
                       <h3 class="p-01">撥打電話(02)1010101</h3>
                     </div>
@@ -52,7 +52,7 @@
                   data-aos-anchor-placement="bottom-bottom"
                   data-aos-delay="400">
                     <i class="bi bi-house text-5xl text-end"
-                    style="width:30%"></i>
+                    style="width:30%" />
                     <div class="ps-4">
                       <p class="p-01">客服中心：<br>台北市信義區市府路101號</p>
                     </div>
@@ -76,12 +76,10 @@
                 <VField id="name" name="姓名" rules="required" type="text"
                   class="carts-input w-100 p-2 border-0 border-bottom text-white"
                   placeholder="請輸入姓名"
-                  v-model="this.formData.user.name">
-                </VField>
+                  v-model="this.formData.user.name" />
                 <br>
                 <ErrorMessage style="color:#ff4343"
-                  class="ps-2 position-absolute text-xs" name="姓名">
-                </ErrorMessage>
+                  class="ps-2 position-absolute text-xs" name="姓名" />
               </div>
               <div class="py-3 position-relative">
                 <h3 class="tracking-wide text-lg">*性別</h3>
@@ -100,12 +98,10 @@
                   type="email" class="carts-input w-100 p-2
                   border-0 border-bottom text-white"
                   placeholder="請輸入電子信箱"
-                  v-model="formData.user.email">
-                </VField>
+                  v-model="formData.user.email" />
                 <br>
                 <ErrorMessage style="color:#ff4343"
-                  class="ps-2 position-absolute text-xs" name="信箱">
-                </ErrorMessage>
+                  class="ps-2 position-absolute text-xs" name="信箱" />
               </div>
               <div class="py-3 position-relative">
                   <h3 class="d-block formData-label
@@ -113,12 +109,10 @@
                   <VField id="phone" name="手機" rules="required" type="tel"
                     class="carts-input w-100 p-2 border-0 border-bottom text-white"
                     placeholder="請輸入手機號碼"
-                    v-model="formData.user.tel">
-                  </VField>
+                    v-model="formData.user.tel" />
                 <br>
                 <ErrorMessage style="color:#ff4343"
-                  class="ps-2 position-absolute text-xs" name="手機">
-                </ErrorMessage>
+                  class="ps-2 position-absolute text-xs" name="手機" />
               </div>
               <div class="py-3 position-relative">
                 <label ref="formMessage" class="d-block formData-label
@@ -127,8 +121,7 @@
                   <textarea name="" id="" cols="30" rows="10"
                     class="carts-textarea text-white border p-3 tracking-wide w-100"
                     placeholder="留下疑問或需求" maxlength="300"
-                    v-model="this.formData.message">
-                  </textarea>
+                    v-model="this.formData.message" />
                 </label>
               </div>
               <div class="text-end mb-5 mt-3">

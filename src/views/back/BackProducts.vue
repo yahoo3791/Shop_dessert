@@ -67,14 +67,14 @@
     </div>
     <div class="row" style="padding-top: calc(100vh-20vh)" v-if="this.Data.length !== 0">
       <div class="col-12 position-fixed bottom-0 start-50 translate-middle-x">
-        <pagination :pages="Pagination" @update-page="getData"></pagination>
+        <pagination :pages="Pagination" @update-page="getData" />
       </div>
     </div>
   </div>
   <productModal ref="productModal" :product="tempProduct"
-  @add="UpdateData" :is-new="isNew"></productModal>
+  @add="UpdateData" :is-new="isNew" />
   <deleteModal ref="deleteModal" :delete="deleteItem"
-  @delete-item="deleteProduct"></deleteModal>
+  @delete-item="deleteProduct" />
 </template>
 
 <script>

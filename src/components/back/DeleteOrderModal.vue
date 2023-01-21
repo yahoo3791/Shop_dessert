@@ -8,7 +8,7 @@
           <h5 class="modal-title text-danger"
           id="exampleModalLabel">刪除警告</h5>
           <button type="button" class="btn-close"
-          data-bs-dismiss="modal" aria-label="Close"></button>
+          data-bs-dismiss="modal" aria-label="Close" />
         </div>
         <div class="modal-body text-black">
           購買時間:{{this.deleteData.create_at}} <br>

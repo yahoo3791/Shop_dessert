@@ -3,9 +3,9 @@
     <Navbar />
   </div>
   <div class="container-fluid bg-white">
-    <router-view></router-view>
+    <router-view />
     <div class="container-fluid mt-3">
-      <ToastMessages></ToastMessages>
+      <ToastMessages />
     </div>
   </div>
 </template>

@@ -7,12 +7,12 @@
             <p class="footer-color font-medium tracking-wide pb-2
             text-base logo_font text-3xl">DESSERT</p>
             <a href="https://www.instagram.com/" target="_blank" rel="noreferrer noopenner"
-            class="footer-active-hover ins me-lg-2"><i class="bi bi-instagram"></i>
+            class="footer-active-hover ins me-lg-2"><i class="bi bi-instagram" />
               <p class="ps-2 d-inline-block tracking-wider">Instagram</p>
             </a>
             <a href="https://www.facebook.com/" target="_blank" rel="noreferrer noopenner"
             class="footer-active-hover meta">
-              <i class="bi bi-facebook"></i>
+              <i class="bi bi-facebook" />
               <p class="ps-2 d-inline-block tracking-wider">Facebook</p>
             </a>
           </div>

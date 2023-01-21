@@ -7,12 +7,12 @@
           style="box-shadow: 0px 0px 2px white;">
         <div class="modal-header border-0">
           <div data-bs-dismiss="modal" aria-label="Close" class="cursor-pointer ms-auto">
-            <i class="bi bi-x-lg text-white"></i>
+            <i class="bi bi-x-lg text-white" />
           </div>
         </div>
         <div class="modal-body border-0">
           <h1 class="text-center title-01 pb-3">登入</h1>
-          <Form @submit="submit">
+          <VForm @submit="submit">
             <div class="py-3 position-relative">
               <h3 class="d-block formData-label
                 tracking-widest text-xl"
@@ -23,11 +23,10 @@
                 rules="required"
                 type="account"
                 class="carts-input w-100 p-2 border-0 border-bottom text-white"
-                placeholder="請輸入電子信箱">
-              </VField>
+                placeholder="請輸入電子信箱" />
               <br>
               <ErrorMessage style="color:#ff4343"
-              class="ps-2 position-absolute text-sm" name="帳號"></ErrorMessage>
+              class="ps-2 position-absolute text-sm" name="帳號" />
             </div>
             <div class="py-3 position-relative">
               <h3 class="d-block formData-label
@@ -39,11 +38,10 @@
               rules="required"
               type="password"
               class="carts-input w-100 p-2 border-0 border-bottom text-white"
-              placeholder="請輸入密碼">
-              </VField>
+              placeholder="請輸入密碼" />
               <br>
               <ErrorMessage style="color:#ff4343"
-              class="ps-2 position-absolute text-sm" name="密碼"></ErrorMessage>
+              class="ps-2 position-absolute text-sm" name="密碼" />
             </div>
             <div class="modal-footer border-0 p-0 mt-5">
               <div class="me-auto">
@@ -60,7 +58,7 @@
               type="submit">登入
               </w-button>
             </div>
-          </Form>
+          </VForm>
           </div>
         </div>
     </div>

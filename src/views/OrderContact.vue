@@ -37,36 +37,31 @@
                 *聯絡人信箱</h3>
                 <VField id="email" v-model="formData.user.email" name="信箱"
                   rules="required|email" type="email" class="carts-input w-100 p-2
-                  border-0 border-bottom text-white" placeholder="請輸入電子信箱">
-                </VField>
+                  border-0 border-bottom text-white" placeholder="請輸入電子信箱" />
               <br>
               <ErrorMessage style="color:#ff4343"
-                class="ps-2 position-absolute text-xs" name="信箱">
-              </ErrorMessage>
+                class="ps-2 position-absolute text-xs" name="信箱" />
             </div>
             <div class="py-3 position-relative">
               <h3 class="d-block formData-label  tracking-widest text-lg"
                 for="phone">*聯絡人手機</h3>
                 <VField id="phone" v-model="formData.user.tel" name="手機" rules="required"
                   type="tel" class="carts-input w-100 p-2 border-0 border-bottom text-white"
-                  placeholder="請輸入手機號碼">
-                </VField>
+                  placeholder="請輸入手機號碼" />
               <br>
               <ErrorMessage style="color:#ff4343"
                 class="ps-2 position-absolute text-xs"
-                name="手機">
-              </ErrorMessage>
+                name="手機" />
             </div>
             <div class="py-3 position-relative">
               <h3 class="d-block formData-label
                 tracking-widest text-lg" for="address">*收件人地址</h3>
                 <VField id="address" v-model="formData.user.address" name="地址" rules="required"
                   type="address" class="carts-input w-100 p-2 border-0 border-bottom text-white"
-                  placeholder="請輸入完整地址">
-                </VField>
+                  placeholder="請輸入完整地址" />
               <br>
               <ErrorMessage style="color:#ff4343"
-              class="ps-2 position-absolute text-xs" name="地址"></ErrorMessage>
+              class="ps-2 position-absolute text-xs" name="地址" />
             </div>
             <div class="py-3 position-relative">
               <label ref="formMessage" class=" d-block formData-label
@@ -159,7 +154,6 @@
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
 import 'vue-loading-overlay/dist/vue-loading.css';
-// import { Field, Form, ErrorMessage } from 'vee-validate';
 import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 

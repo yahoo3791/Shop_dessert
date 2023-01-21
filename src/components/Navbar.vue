@@ -50,12 +50,12 @@
             <div @click="login" @keypress="login"
             class="nav-link px-3 py-3 position-relative cursor-pointer"
               data-bs-toggle="tooltip" data-bs-placement="bottom" title="會員">
-              <i class="bi bi-person-fill me-1" style="font-size:18px"></i>
+              <i class="bi bi-person-fill me-1" style="font-size:18px" />
             </div>
             <router-link to="/user/checkOrder"
             class="nav-link px-3 py-3 position-relative" data-bs-toggle="tooltip"
               data-bs-placement="bottom" title="查詢訂單">
-              <i class="bi bi-clipboard2-minus-fill me-1" style="font-size:18px"></i>
+              <i class="bi bi-clipboard2-minus-fill me-1" style="font-size:18px" />
             </router-link>
           </div>
         </div>
@@ -69,9 +69,9 @@
       @keydown="openOverlay"
         class="d-block d-md-none navbar-sm text-white ms-auto">
         <div class="navbar-icon" style="width:40px;height:40px">
-          <span class="d-block" ref="navbarSpan1"></span>
-          <span class="d-block" ref="navbarSpan2"></span>
-          <span class="d-block" ref="navbarSpan3"></span>
+          <span class="d-block" ref="navbarSpan1" />
+          <span class="d-block" ref="navbarSpan2" />
+          <span class="d-block" ref="navbarSpan3" />
         </div>
       </div>
       <div
@@ -127,17 +127,17 @@
           data-bs-placement="bottom"
           title="會員">
           <i class="bi bi-person-fill me-1"
-          style="font-size:1em"></i>
+          style="font-size:1em" />
         </div>
         <router-link to="/user/checkOrder"
           class="nav-link px-3 py-3 position-relative" data-bs-toggle="tooltip"
           data-bs-placement="bottom" title="查詢訂單">
-          <i class="bi bi-clipboard2-minus-fill me-1" style="font-size:1em"></i>
+          <i class="bi bi-clipboard2-minus-fill me-1" style="font-size:1em" />
         </router-link>
       </div>
     </div>
   </div>
-  <LoginModal ref="LoginModal"></LoginModal>
+  <LoginModal ref="LoginModal" />
 </template>
 <script>
 import emitter from '@/methods/emitter';

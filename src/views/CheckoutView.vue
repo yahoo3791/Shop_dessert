@@ -73,13 +73,6 @@
               <p v-if="this.details.create_at">訂單成立成功</p>
               <p class="py-1">訂單編號:<br>{{this.$route.params.orderId}}<br>
                 (查詢訂單時輸入此編號)</p>
-              <div class="">
-              </div>
-              <!-- <div v-for="item,k in details.products" :key="k">
-                <p v-if="!item.coupon == 0">{{ item.product.title }} 已使用優惠卷，
-                  折扣{{ Math.round($filters.currency(item.total - item.final_total)) }}$
-                </p>
-              </div> -->
               <p class="py-1">總金額{{ Math.round($filters.currency(details.total)) }}$</p>
               <p class="py-1" v-if="details.is_paid === true">付款完成</p>
               <p class="py-1" v-else-if="details.is_paid === false">尚未付款</p>

@@ -7,7 +7,7 @@
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">刪除警告</h5>
           <button type="button" class="btn-close"
-          data-bs-dismiss="modal" aria-label="Close"></button>
+          data-bs-dismiss="modal" aria-label="Close" />
         </div>
         <div class="modal-body">
           確定要刪除<span class="text-red">{{this.deleteItem.code}}</span>優惠碼<br>

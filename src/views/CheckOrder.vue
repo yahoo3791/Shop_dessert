@@ -31,7 +31,7 @@
               v-model="orderNumber" @keyup.enter="search">
             <i class="bi bi-search cursor-pointer d-block p-2 order-search"
             @click="search"
-            @keydown="search"></i>
+            @keydown="search" />
           </div>
         </div>
       </div>
@@ -71,9 +71,9 @@
                 <div class="text-sm d-flex flex-column justify-content-between ps-3">
                   <p class="text-2xl">{{item.product.title}}</p>
                   <p class="leading-7 tracking-wider text-lg">
-                    <i class="bi bi-x"></i>{{item.qty}}</p>
+                    <i class="bi bi-x" />{{item.qty}}</p>
                   <p class="leading-7 d-block tracking-wider text-xl">
-                    {{item.total}}<i class="bi bi-currency-dollar"></i></p>
+                    {{item.total}}<i class="bi bi-currency-dollar" /></p>
                 </div>
               </div>
             </div>
@@ -84,11 +84,6 @@
             <div class="col-12 tracking-widest text-lg">
               <p>訂單時間: {{ $filters.date(order.create_at)}}</p>
               <p class="py-1">訂單編號:<br>{{order.id}}</p>
-              <!-- <div v-for="item,k in order.products" :key="k">
-                <p v-if="!item.coupon == 0">{{ item.product.title }} 已使用優惠卷，
-                折扣{{ Math.round($filters.currency(item.total
-                - item.final_total)) }}$</p>
-              </div> -->
               <p class="py-1">金額 {{ Math.round($filters.currency(order.total)) }}$</p>
               <p class="py-1" v-if="order.is_paid === true">付款完成</p>
               <p class="py-1" v-else-if="order.is_paid === false">尚未付款</p>

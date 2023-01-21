@@ -68,7 +68,7 @@
         :key="index">
           <div class="text-white product-content-container
           mx-auto cursor-pointer position-relative"
-            @click.prevent="more(item.id,$event,index)"
+            @click="more(item.id,$event,index)"
             @keydown="more(item.id,$event,index)">
             <span class="badge bg-danger position-absolute"
             style="z-index:5; top:5%; left:5%">HOT</span>
@@ -246,7 +246,7 @@
   <div :class="{ 'scrollIconMoveIn':!scrollIcon  }"
     ref="scrollTop" class="scrollTop-container position-fixed text-center
     end-0 bottom-0 cursor-pointer m-3">
-    <div @click.prevent="scrollToTop"
+    <div @click="scrollToTop"
     @keydown="scrollToTop"
     class="scrollTop-btn d-block">
     </div>

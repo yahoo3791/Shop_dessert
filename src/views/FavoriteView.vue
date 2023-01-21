@@ -59,7 +59,7 @@
             v-for="item,index in filterData" :key="index">
               <div class="text-white product-content-container
               mx-auto cursor-pointer position-relative"
-              @click.prevent="more(item.id,$event,index)"
+              @click="more(item.id,$event,index)"
               @keydown="more(item.id,$event,index)">
                 <span class="badge bg-danger position-absolute"
                 v-if="(item.num <= 5 && item.num >= 1)"

@@ -31,7 +31,7 @@
               <h1 class="mb-0 text-center tracking-widest font-bold text-3xl">購物車</h1>
               <div class="">
                 <w-button class="w-btn"
-                  @click.prevent="this.$refs.DeleteCartsAll.modalShow()">刪除全部
+                  @click="this.$refs.DeleteCartsAll.modalShow()">刪除全部
                 </w-button>
                 <w-button class="w-btn ms-2"
                   @click="this.$router.push('/user/products')">繼續購物
@@ -55,7 +55,7 @@
               <div class="d-flex">
                 <div class="mx-auto cartsInput-sm-Item">
                   <div class="border text-center cartsInput-sm-add cursor-pointer"
-                  @click.prevent="add(item.id, key)"
+                  @click="add(item.id, key)"
                   @keydown="add(item.id, key)">
                     +
                   </div>
@@ -67,7 +67,7 @@
                       min="1" :value="item.qty">
                   </label>
                   <div class="border text-center cartsInput-sm-min cursor-pointer"
-                  @click.prevent="min(item.id, key)"
+                  @click="min(item.id, key)"
                   @keydown="min(item.id, key)">
                     -
                   </div>
@@ -96,7 +96,7 @@
               </div>
               <div class="ms-auto cartsInput-md-container d-none d-md-inline-block">
                 <div class="cartsInput-md-Item d-flex align-items-center">
-                  <div @click.prevent="min(item.id, key)"
+                  <div @click="min(item.id, key)"
                   @keydown="min(item.id, key)"
                   class="cartsInput-md-min cursor-pointer text-center border">-</div>
                   <div class="cartsInput-md-input text-xl">
@@ -110,7 +110,7 @@
                     </label>
                   </div>
                   <div
-                    @click.prevent="add(item.id, key)"
+                    @click="add(item.id, key)"
                     @keydown="add(item.id, key)"
                     class="cartsInput-md-add cursor-pointer text-center border">+</div>
                 </div>

@@ -83,7 +83,7 @@
           <div class="d-flex align-items-center justify-content-between mt-2">
             <div class="numInput-item d-flex justify-content-end align-items-center">
               <div
-              @click.prevent="min()"
+              @click="min()"
               @keypress="min()"
               class="cursor-pointer numInput-prev text-center">-</div>
               <div class="counter border">
@@ -93,7 +93,7 @@
                 </label>
               </div>
               <div
-              @click.prevent="add()"
+              @click="add()"
               @keydown="add()"
               class="cursor-pointer numInput-next text-center">+</div>
             </div>
@@ -106,7 +106,7 @@
             </div>
             <div v-if="product.num >= 1 "
               :class="{'opacity-75': this.isLoading === true }"
-              @click.prevent="addCart(product.id, $event)"
+              @click="addCart(product.id, $event)"
               @keydown="addCart(item, $event)" :disabled="this.isLoading ===true"
               class="w-btn-product cursor-pointer">
               <div

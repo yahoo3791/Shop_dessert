@@ -17,14 +17,14 @@
               <h3 class="d-block formData-label
                 tracking-widest text-xl"
                 for="account">*帳號</h3>
-              <Field id="account"
+              <VField id="account"
                 v-model="user.username"
                 name="帳號"
                 rules="required"
                 type="account"
                 class="carts-input w-100 p-2 border-0 border-bottom text-white"
                 placeholder="請輸入電子信箱">
-              </Field>
+              </VField>
               <br>
               <ErrorMessage style="color:#ff4343"
               class="ps-2 position-absolute text-sm" name="帳號"></ErrorMessage>
@@ -33,14 +33,14 @@
               <h3 class="d-block formData-label
                 tracking-widest text-xl"
                 for="password">*密碼</h3>
-              <Field id="password"
+              <VField id="password"
               v-model="user.password"
               name="密碼"
               rules="required"
               type="password"
               class="carts-input w-100 p-2 border-0 border-bottom text-white"
               placeholder="請輸入密碼">
-              </Field>
+              </VField>
               <br>
               <ErrorMessage style="color:#ff4343"
               class="ps-2 position-absolute text-sm" name="密碼"></ErrorMessage>
@@ -67,7 +67,6 @@
   </div>
 </template>
 <script>
-import { Field, Form, ErrorMessage } from 'vee-validate';
 import modalMixin from '../mixins/modalMixin';
 
 export default {
@@ -79,9 +78,6 @@ export default {
         password: '',
       },
     };
-  },
-  components: {
-    Field, Form, ErrorMessage,
   },
   mixins: [modalMixin],
   methods: {

@@ -8,14 +8,14 @@
           style="border-bottom: 1px solid #404040;">
             <h1 class="mb-0 tracking-widest font-bold text-3xl">訂購人資訊</h1>
           </div>
-          <Form @submit="submit">
+          <VForm @submit="submit">
             <div class="py-3 position-relative">
               <h3 class="d-block formData-label
                 tracking-wide text-lg" for="name">*聯絡人姓名</h3>
-                <Field id="name" v-model="this.formData.user.name" name="姓名" rules="required"
+                <VField id="name" v-model="this.formData.user.name" name="姓名" rules="required"
                   type="text" class="carts-input w-100 p-2 border-0 border-bottom text-white"
                   placeholder="請輸入姓名">
-                </Field>
+                </VField>
               <br>
               <ErrorMessage style="color:#ff4343"
               class="ps-2 position-absolute text-xs" name="姓名"></ErrorMessage>
@@ -35,10 +35,10 @@
               <h3 class="d-block formData-label
                 tracking-widest text-lg" for="email">
                 *聯絡人信箱</h3>
-                <Field id="email" v-model="formData.user.email" name="信箱"
+                <VField id="email" v-model="formData.user.email" name="信箱"
                   rules="required|email" type="email" class="carts-input w-100 p-2
                   border-0 border-bottom text-white" placeholder="請輸入電子信箱">
-                </Field>
+                </VField>
               <br>
               <ErrorMessage style="color:#ff4343"
                 class="ps-2 position-absolute text-xs" name="信箱">
@@ -47,10 +47,10 @@
             <div class="py-3 position-relative">
               <h3 class="d-block formData-label  tracking-widest text-lg"
                 for="phone">*聯絡人手機</h3>
-                <Field id="phone" v-model="formData.user.tel" name="手機" rules="required"
+                <VField id="phone" v-model="formData.user.tel" name="手機" rules="required"
                   type="tel" class="carts-input w-100 p-2 border-0 border-bottom text-white"
                   placeholder="請輸入手機號碼">
-                </Field>
+                </VField>
               <br>
               <ErrorMessage style="color:#ff4343"
                 class="ps-2 position-absolute text-xs"
@@ -60,10 +60,10 @@
             <div class="py-3 position-relative">
               <h3 class="d-block formData-label
                 tracking-widest text-lg" for="address">*收件人地址</h3>
-                <Field id="address" v-model="formData.user.address" name="地址" rules="required"
+                <VField id="address" v-model="formData.user.address" name="地址" rules="required"
                   type="address" class="carts-input w-100 p-2 border-0 border-bottom text-white"
                   placeholder="請輸入完整地址">
-                </Field>
+                </VField>
               <br>
               <ErrorMessage style="color:#ff4343"
               class="ps-2 position-absolute text-xs" name="地址"></ErrorMessage>
@@ -97,7 +97,7 @@
                 @click="submit()">付款
               </w-button>
             </div>
-          </Form>
+          </VForm>
         </div>
         <div class="col-12 col-md-5 offset-md-1">
           <h4 class="tracking-widest font-bold text-3xl pb-3"
@@ -159,7 +159,7 @@
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
 import 'vue-loading-overlay/dist/vue-loading.css';
-import { Field, Form, ErrorMessage } from 'vee-validate';
+// import { Field, Form, ErrorMessage } from 'vee-validate';
 import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 
@@ -183,7 +183,7 @@ export default {
     };
   },
   components: {
-    Navbar, Footer, Field, Form, ErrorMessage,
+    Navbar, Footer,
   },
   methods: {
     submit() {

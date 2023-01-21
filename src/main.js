@@ -31,8 +31,8 @@ configure({
 setLocale('zh_TW');
 const app = createApp(App);
 (() => new WaveUI(app, {}))();
-app.component('Form', Form);
-app.component('Field', Field);
+app.component('VForm', Form);
+app.component('VField', Field);
 app.component('ErrorMessage', ErrorMessage);
 app.config.globalProperties.$filters = {
   currency, date,

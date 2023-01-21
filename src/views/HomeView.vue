@@ -222,12 +222,12 @@
     <div class="container-fulid">
       <div class="subBg">
         <div class="mx-auto" style="max-width:450px;">
-          <Form @submit="submit" class="position-relative form-outline form-white my-5">
+          <VForm @submit="submit" class="position-relative form-outline form-white my-5">
             <h2 class="font-medium tracking-widest text-3xl d-block">
               訂閱甜點電子報<br>立馬獲得8折優惠卷
             </h2>
             <div class="sub d-flex flex-wrap justify-content-center pt-3">
-              <Field v-model="subMail" type="email"
+              <VField v-model="subMail" type="email"
               name="信箱" id="subscription" rules="required|email" :validateOnBlur="false"
                 :validateOnChange="false"
                 class="sub-input d-inline-block bg-transparent rounded-0 tracking-widest"
@@ -238,7 +238,7 @@
               <ErrorMessage :class="{ 'd-none': this.subMail == ''}"
               name="信箱" style="color:orangered"></ErrorMessage>
             </div>
-          </Form>
+          </VForm>
         </div>
       </div>
     </div>
@@ -263,9 +263,6 @@ import {
 } from 'swiper';
 import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
-import {
-  Field, Form, ErrorMessage,
-} from 'vee-validate';
 import emitter from '@/methods/emitter';
 import Navbar from '../components/Navbar.vue';
 import Footer from '../components/Footer.vue';
@@ -290,7 +287,7 @@ export default {
     };
   },
   components: {
-    Navbar, Footer, Swiper, SwiperSlide, Field, Form, ErrorMessage,
+    Navbar, Footer, Swiper, SwiperSlide,
   },
   setup() {
     return {

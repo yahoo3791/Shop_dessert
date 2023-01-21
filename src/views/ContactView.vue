@@ -69,15 +69,15 @@
           <div class="col-12 col-md-5 offset-md-1">
             <h4 class="tracking-widest font-bold text-3xl pb-3 mt-5"
             style="border-bottom: 1px solid #404040;">寄送表單聯絡我們</h4>
-            <Form action="" @submit="submit">
+            <VForm action="" @submit="submit">
               <div class="py-3 position-relative">
                 <h3 class="d-block formData-label
                     tracking-wide text-lg">*聯絡人姓名</h3>
-                <Field id="name" name="姓名" rules="required" type="text"
+                <VField id="name" name="姓名" rules="required" type="text"
                   class="carts-input w-100 p-2 border-0 border-bottom text-white"
                   placeholder="請輸入姓名"
                   v-model="this.formData.user.name">
-                </Field>
+                </VField>
                 <br>
                 <ErrorMessage style="color:#ff4343"
                   class="ps-2 position-absolute text-xs" name="姓名">
@@ -96,12 +96,12 @@
                 <h3 class="d-block formData-label
                   tracking-widest text-lg" for="email">
                   *聯絡人信箱</h3>
-                <Field id="email" name="信箱" rules="required|email"
+                <VField id="email" name="信箱" rules="required|email"
                   type="email" class="carts-input w-100 p-2
                   border-0 border-bottom text-white"
                   placeholder="請輸入電子信箱"
                   v-model="formData.user.email">
-                </Field>
+                </VField>
                 <br>
                 <ErrorMessage style="color:#ff4343"
                   class="ps-2 position-absolute text-xs" name="信箱">
@@ -110,11 +110,11 @@
               <div class="py-3 position-relative">
                   <h3 class="d-block formData-label
                   tracking-widest text-lg" for="phone">*聯絡人手機</h3>
-                  <Field id="phone" name="手機" rules="required" type="tel"
+                  <VField id="phone" name="手機" rules="required" type="tel"
                     class="carts-input w-100 p-2 border-0 border-bottom text-white"
                     placeholder="請輸入手機號碼"
                     v-model="formData.user.tel">
-                  </Field>
+                  </VField>
                 <br>
                 <ErrorMessage style="color:#ff4343"
                   class="ps-2 position-absolute text-xs" name="手機">
@@ -136,7 +136,7 @@
                   class="w-btn">寄送
                 </w-button>
               </div>
-            </Form>
+            </VForm>
           </div>
         </div>
       </div>

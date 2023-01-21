@@ -27,6 +27,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import emitter from '@/methods/emitter';
 import modalMixin from '../mixins/modalMixin';

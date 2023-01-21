@@ -139,6 +139,7 @@
   </div>
   <LoginModal ref="LoginModal" />
 </template>
+
 <script>
 import emitter from '@/methods/emitter';
 import LoginModal from '@/components/LoginModal.vue';

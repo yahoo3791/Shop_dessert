@@ -62,8 +62,8 @@
   @delete-item="deleteItem" />
   <deleteOrderAllModal ref="deleteOrderAllModal"
   @delete-all="deleteAll" />
-
 </template>
+
 <script>
 import orderModal from '@/components/back/OrderModal.vue';
 import Pagination from '@/components/back/Pagination.vue';

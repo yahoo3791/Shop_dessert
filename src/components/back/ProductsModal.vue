@@ -113,6 +113,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import Modalmixin from '@/mixins/modalMixin';
 import Loading from 'vue-loading-overlay';

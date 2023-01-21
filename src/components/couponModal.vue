@@ -63,6 +63,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import modalMixin from '@/mixins/modalMixin';
 

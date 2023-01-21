@@ -51,6 +51,7 @@
   <deleteModal ref="deleteModal" :delete-item="this.deleteCoupon"
   @delete-coupon="deleteItem" />
 </template>
+
 <script>
 import couponModal from '@/components/couponModal.vue';
 import deleteModal from '@/components/back/DeleteCoupon.vue';

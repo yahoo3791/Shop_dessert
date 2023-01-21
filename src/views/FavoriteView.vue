@@ -109,8 +109,7 @@
                     加入購物車
                   </div>
                   <div v-else
-                  class="w-btn-product mt-2 opacity-50"
-                  @click.stop>
+                  class="w-btn-product mt-2 opacity-50">
                     已售完
                   </div>
                 </div>

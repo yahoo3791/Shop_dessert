@@ -1,22 +1,5 @@
 <template>
-  <loading v-model:active="isLoading">
-    <div class="loadingio-spinner-interwind-il303leqtya">
-      <div class="ldio-k17d8xi3rys">
-        <div>
-          <div>
-            <div>
-              <div></div>
-            </div>
-          </div>
-          <div>
-            <div>
-              <div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </loading>
+  <loading v-model:active="isLoading" />
   <Navbar />
   <div class="bg-dark">
     <div class="container">
@@ -99,8 +82,7 @@
 <script>
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
-import Loading from 'vue-loading-overlay';
-import 'vue-loading-overlay/dist/vue-loading.css';
+import Loading from '@/components/Loading.vue';
 import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 

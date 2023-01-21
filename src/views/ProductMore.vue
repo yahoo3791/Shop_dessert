@@ -1,22 +1,5 @@
 <template>
-<loading v-model:active="isLoading">
-  <div class="loadingio-spinner-interwind-il303leqtya">
-    <div class="ldio-k17d8xi3rys">
-      <div>
-        <div>
-          <div>
-            <div></div>
-          </div>
-        </div>
-        <div>
-          <div>
-            <div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</loading>
+<Loading v-model:active="isLoading" />
 <div class="bg-dark pt-5">
   <Navbar />
   <!-- 麵包削 -->
@@ -217,8 +200,7 @@
 <script>
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
-import Loading from 'vue-loading-overlay';
-import 'vue-loading-overlay/dist/vue-loading.css';
+import Loading from '@/components/Loading.vue';
 import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import { Swiper, SwiperSlide } from 'swiper/vue';

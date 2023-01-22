@@ -18,7 +18,7 @@
           class="page-link text-secondary"
           href="#"
           @click.prevent="updatePage(page)">
-          {{page}}
+          {{ page }}
         </a>
       </li>
       <li class="page-item">

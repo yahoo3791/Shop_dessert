@@ -73,22 +73,22 @@
                 <span class="badge bg-secondary opacity-50"
                 v-else-if="(product.num === 0)">SOLD OUT
                 </span>
-                {{product.title}}
+                {{ product.title }}
             </h1>
           </div>
           <div class="p-01">
             <p class="mt-5 text-indent2rem">{{ product.content }}</p>
             <h5 class="mt-5">成份:</h5>
-            <p class="">{{product.description}}</p>
+            <p class="">{{ product.description }}</p>
             <h5 class="mt-5">尺寸:</h5>
-            <div class="type-btn">{{product.unit}}</div>
+            <div class="type-btn">{{ product.unit }}</div>
           </div>
         </div>
         <div class="productmore-item py-5">
           <div class="d-flex align-items-center">
-            <del class="text-white">原價{{product.origin_price}}$</del>
+            <del class="text-white">原價{{ product.origin_price }}$</del>
             <div class="productmore-price d-inline-block ps-2">
-              <p class="font-semibold text-2xl text-red">優惠價{{product.price}}$</p>
+              <p class="font-semibold text-2xl text-red">優惠價{{ product.price }}$</p>
             </div>
           </div>
           <div class="d-flex align-items-center justify-content-between mt-2">

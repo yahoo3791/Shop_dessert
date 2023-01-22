@@ -43,10 +43,10 @@
                 <p class="py-1">收件人地址</p>
               </div>
               <div class="ps-3 tracking-widest text-lg">
-                <p class="py-1">{{user.name}}</p>
-                <p class="py-1">{{user.email}}</p>
-                <p class="py-1">{{user.tel}}</p>
-                <p class="py-1">{{user.address}}</p>
+                <p class="py-1">{{ user.name }}</p>
+                <p class="py-1">{{ user.email }}</p>
+                <p class="py-1">{{ user.tel }}</p>
+                <p class="py-1">{{ user.address }}</p>
               </div>
             </div>
           </div>
@@ -65,13 +65,13 @@
                   style="max-width: 100px;"
                   alt="cartImage">
                 <div class="text-sm d-flex flex-column justify-content-between ps-3">
-                  <p class="text-2xl">{{item.product.title}}
+                  <p class="text-2xl">{{ item.product.title }}
                   </p>
                   <p class="leading-7 tracking-wider text-lg">
-                    <i class="bi bi-x" />{{item.qty}}
+                    <i class="bi bi-x" />{{ item.qty }}
                   </p>
                   <p class="leading-7 d-block tracking-wider text-xl">
-                    {{item.total}}<i class="bi bi-currency-dollar" />
+                    {{ item.total }}<i class="bi bi-currency-dollar" />
                   </p>
                 </div>
               </div>

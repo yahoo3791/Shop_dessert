@@ -33,8 +33,8 @@
               v-for="item in getCoupons"
               :key="item.id">
               <tr>
-                <td>{{item.title}}</td>
-                <td class="d-none d-md-table-cell">{{item.percent}}</td>
+                <td>{{ item.title }}</td>
+                <td class="d-none d-md-table-cell">{{ item.percent }}</td>
                 <td>{{ $filters.date(item.due_date) }}</td>
                 <td class="d-none d-md-table-cell">
                   <span

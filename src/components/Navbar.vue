@@ -43,7 +43,7 @@
                     :class="{'d-none': cartsNum == 0 }"
                     ref="cartsNum"
                     class="d-block position-absolute navbar-badge navbar-badge-md
-                    animated">{{cartsNum}}
+                    animated">{{ cartsNum }}
                   </span>
                 </i>
               </router-link>
@@ -59,7 +59,7 @@
                     :class="{'d-none': favoriteData.length == 0 }"
                     ref="fav"
                     class="d-block position-absolute navbar-badge navbar-badge-md
-                    animated">{{favoriteData.length}}
+                    animated">{{ favoriteData.length }}
                   </span>
                 </i>
               </router-link>
@@ -137,7 +137,7 @@
               ref="cartsNum"
               class="d-block position-absolute navbar-badge navbar-badge-md
               animated">
-              {{cartsNum}}
+              {{ cartsNum }}
             </span>
           </i>
         </router-link>
@@ -155,7 +155,7 @@
               ref="fav"
               class="d-block position-absolute navbar-badge navbar-badge-md
               animated">
-              {{favoriteData.length}}
+              {{ favoriteData.length }}
             </span>
           </i>
         </router-link>

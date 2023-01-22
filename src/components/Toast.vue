@@ -6,7 +6,7 @@
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body" v-if="msg.content">
-    {{msg.content}}
+    {{ msg.content }}
     </div>
   </div>
 </template>

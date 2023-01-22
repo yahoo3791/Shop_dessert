@@ -41,11 +41,11 @@
               :key="item.id">
               <td
                 style="overflow: hidden; text-overflow:ellipsis">
-                {{item.title}}
+                {{ item.title }}
               </td>
               <td
                 class="d-none d-md-table-cell">
-                {{item.category}}
+                {{ item.category }}
               </td>
               <td
                 class="d-none d-md-table-cell">

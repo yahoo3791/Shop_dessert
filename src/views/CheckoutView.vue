@@ -27,10 +27,10 @@
                 <p class="py-1">收件人地址</p>
               </div>
               <div class="ps-3 tracking-widest text-lg">
-                <p class="py-1">{{userData.name}}</p>
-                <p class="py-1">{{userData.email}}</p>
-                <p class="py-1">{{userData.tel}}</p>
-                <p class="py-1">{{userData.address}}</p>
+                <p class="py-1">{{ userData.name }}</p>
+                <p class="py-1">{{ userData.email }}</p>
+                <p class="py-1">{{ userData.tel }}</p>
+                <p class="py-1">{{ userData.address }}</p>
               </div>
             </div>
           </div>
@@ -49,11 +49,11 @@
                 style="max-width: 100px;"
                 alt="cartImage">
               <div class="text-sm d-flex flex-column justify-content-between ps-3">
-                <p class="text-2xl">{{item.product.title}}</p>
+                <p class="text-2xl">{{ item.product.title }}</p>
                 <p class="leading-7 tracking-wider text-lg">
-                  <i class="bi bi-x" />{{item.qty}}</p>
+                  <i class="bi bi-x" />{{ item.qty }}</p>
                 <p class="leading-7 d-block tracking-wider text-xl">
-                  {{item.total}}<i class="bi bi-currency-dollar" />
+                  {{ item.total }}<i class="bi bi-currency-dollar" />
                 </p>
               </div>
             </div>
@@ -67,7 +67,7 @@
               <p
               v-if="this.details.create_at">訂單成立成功
               </p>
-              <p class="py-1">訂單編號:<br>{{this.$route.params.orderId}}<br>
+              <p class="py-1">訂單編號:<br>{{ this.$route.params.orderId }}<br>
                 (查詢訂單時輸入此編號)
               </p>
               <p class="py-1">總金額{{ Math.round($filters.currency(details.total)) }}$

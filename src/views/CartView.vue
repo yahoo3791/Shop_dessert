@@ -60,7 +60,7 @@
                 @click="open(item,key)">
                 編輯
               </w-button>
-              <p>{{item.product.category}}類</p>
+              <p>{{ item.product.category }}類</p>
             </div>
             <div
               class="d-md-none cartsInput-sm-container

@@ -40,7 +40,7 @@
               class="align-middle"
               width="30"
               style="overflow:hidden;text-overflow: ellipsis;">
-              {{item.user.email}}
+              {{ item.user.email }}
             </td>
             <td
               class="align-middle"
@@ -56,7 +56,7 @@
               </ul>
             </td>
             <td class="d-none d-md-table-cell align-middle">
-              {{item.total}}
+              {{ item.total }}
             </td>
             <td class="d-none d-md-table-cell align-middle">
               <span

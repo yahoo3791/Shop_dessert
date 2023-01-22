@@ -3,18 +3,25 @@
   <div>
     <div class="container pt-utility">
       <div class="text-end">
-        <button class="btn btn-outline-primary"
-        @click="openCoupon(true)">新增優惠卷</button>
+        <button
+          class="btn btn-outline-primary"
+          @click="openCoupon(true)">
+          新增優惠卷
+        </button>
       </div>
       <div class="row">
-        <div class="col-12" v-if="this.getCoupons.length === 0">
+        <div
+          class="col-12"
+          v-if="this.getCoupons.length === 0">
           <h2 class="text-black text-center"
-          style="padding:30vh 0">尚未新增優惠卷。</h2>
+            style="padding:30vh 0">尚未新增優惠卷。
+          </h2>
         </div>
         <div class="col-12" v-else>
           <table class="table mt-4">
             <thead>
-              <tr class="font-medium tracking-wider">
+              <tr
+                class="font-medium tracking-wider">
                 <th>名稱</th>
                 <th class="d-none d-md-table-cell">折扣百分比</th>
                 <th>到期日</th>
@@ -22,21 +29,38 @@
                 <th>編輯</th>
               </tr>
             </thead>
-            <tbody v-for="item in getCoupons" :key="item.id">
+            <tbody
+              v-for="item in getCoupons"
+              :key="item.id">
               <tr>
                 <td>{{item.title}}</td>
                 <td class="d-none d-md-table-cell">{{item.percent}}</td>
                 <td>{{ $filters.date(item.due_date) }}</td>
                 <td class="d-none d-md-table-cell">
-                  <span class="text-success" v-if="item.is_enabled===1">啟用</span>
-                  <span class="text-muted" v-else>未起用</span>
+                  <span
+                    class="text-success"
+                    v-if="item.is_enabled===1">
+                    啟用
+                  </span>
+                  <span
+                    class="text-muted"
+                    v-else>
+                    未起用
+                  </span>
                 </td>
                 <td class="p-0">
-                  <div class="btn-group">
-                    <button class="btn btn-outline-primary btn-sm"
-                    @click="openCoupon(false, item)">編輯</button>
-                    <button class="btn btn-outline-danger btn-sm"
-                    @click="openDeleteModal(item)">刪除</button>
+                  <div
+                    class="btn-group">
+                    <button
+                      class="btn btn-outline-primary btn-sm"
+                      @click="openCoupon(false, item)">
+                      編輯
+                    </button>
+                    <button
+                      class="btn btn-outline-danger btn-sm"
+                      @click="openDeleteModal(item)">
+                      刪除
+                    </button>
                   </div>
                 </td>
               </tr>
@@ -46,10 +70,14 @@
       </div>
     </div>
   </div>
-  <couponModal ref="couponModal" :coupon="this.tempCoupon"
-  @save-coupon="couponData" />
-  <deleteModal ref="deleteModal" :delete-item="this.deleteCoupon"
-  @delete-coupon="deleteItem" />
+  <couponModal
+    ref="couponModal"
+    :coupon="this.tempCoupon"
+    @save-coupon="couponData" />
+  <deleteModal
+    ref="deleteModal"
+    :delete-item="this.deleteCoupon"
+    @delete-coupon="deleteItem" />
 </template>
 
 <script>

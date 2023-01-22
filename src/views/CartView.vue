@@ -3,82 +3,109 @@
   <Navbar />
   <div class="bg-dark w-100 h-100 pb-5 overflow-hidden position-relative">
     <div class="container pt-utility text-white position-relative">
-      <!-- 購物車空時 -->
       <div class="row">
-        <div class="col-12 text-center pt-5"
+        <div
+          class="col-12 text-center pt-5"
           :class="{ 'd-none': productLoading }">
-          <div class="spinner-border text-light" role="status"
-          style="width: 3rem; height: 3rem;">
+          <div
+            class="spinner-border text-light"
+            role="status"
+            style="width: 3rem; height: 3rem;">
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
-        <div class="col-12 text-center"
-        :class="{ 'd-none': orderOpen }"
+        <div
+          class="col-12 text-center"
+          :class="{ 'd-none': orderOpen }"
           style="padding: 20vh 0;">
           <h1 class="title-01">購物車無加入商品</h1>
-          <router-link to="/user/products" class="text-decoration-none">
+          <router-link
+            to="/user/products"
+            class="text-decoration-none">
             <w-button class="mt-5 w-btn">前往商城</w-button>
           </router-link>
         </div>
       </div>
-      <!-- 購物車主文 -->
       <div :class="{ 'd-none': orderHide }">
         <div class="row mx-0">
           <div class="col-12 p-0 my-4">
-            <!-- 購物車標題按鈕 -->
             <div class="d-flex justify-content-between align-items-center pb-3"
-            style="border-bottom: 1px solid #404040;">
+              style="border-bottom: 1px solid #404040;">
               <h1 class="mb-0 text-center tracking-widest font-bold text-3xl">購物車</h1>
-              <div class="">
-                <w-button class="w-btn"
-                  @click="this.$refs.DeleteCartsAll.modalShow()">刪除全部
+              <div>
+                <w-button
+                  class="w-btn"
+                  @click="this.$refs.DeleteCartsAll.modalShow()">
+                  刪除全部
                 </w-button>
-                <w-button class="w-btn ms-2"
-                  @click="this.$router.push('/user/products')">繼續購物
+                <w-button
+                  class="w-btn ms-2"
+                  @click="this.$router.push('/user/products')">
+                  繼續購物
                 </w-button>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-12 mt-4 mb-2" v-for="item,key in cartsData" :key="item.id">
-            <div class="d-flex d-md-none justify-content-between pb-2 mb-2 tracking-wide">
-              <w-button class="w-btn ms-2"
-                @click="open(item,key)">編輯
+          <div
+            class="col-12 mt-4 mb-2"
+            v-for="item,key in cartsData"
+            :key="item.id">
+            <div
+              class="d-flex d-md-none justify-content-between
+              pb-2 mb-2 tracking-wide">
+              <w-button
+                class="w-btn ms-2"
+                @click="open(item,key)">
+                編輯
               </w-button>
               <p>{{item.product.category}}類</p>
             </div>
-            <div class="d-md-none cartsInput-sm-container
+            <div
+              class="d-md-none cartsInput-sm-container
               position-absolute mx-auto mt-1 mb-2 text-white"
               ref="left"
               style="transform: translateX(-500px);">
               <div class="d-flex">
                 <div class="mx-auto cartsInput-sm-Item">
                   <div class="border text-center cartsInput-sm-add cursor-pointer"
-                  @click="add(item.id, key)"
-                  @keydown="add(item.id, key)">
+                    @click="add(item.id, key)"
+                    @keydown="add(item.id, key)">
                     +
                   </div>
                   <label for="smNum">
-                    <input name="smNum" id="smNum" :disabled="this.isLoading" ref="updateValue"
-                    @change="updateQty(item.id,key)"
-                    class="d-block text-center text-white border
-                    cartsInput-sm-input" type="text"
-                      min="1" :value="item.qty">
+                    <input
+                      name="smNum"
+                      id="smNum"
+                      :disabled="this.isLoading"
+                      ref="updateValue"
+                      @change="updateQty(item.id,key)"
+                      class="d-block text-center text-white border
+                      cartsInput-sm-input"
+                      type="text"
+                      min="1"
+                      :value="item.qty">
                   </label>
-                  <div class="border text-center cartsInput-sm-min cursor-pointer"
-                  @click="min(item.id, key)"
-                  @keydown="min(item.id, key)">
+                  <div
+                    class="border text-center cartsInput-sm-min cursor-pointer"
+                    @click="min(item.id, key)"
+                    @keydown="min(item.id, key)">
                     -
                   </div>
                 </div>
               </div>
             </div>
-            <div class="d-flex align-items-center cartsItem pb-5" ref="right"
+            <div
+              class="d-flex align-items-center cartsItem pb-5"
+              ref="right"
               style="transform:translateX(0px);">
               <div class="d-flex">
                 <div class="carts-pic">
-                  <img :src="item.product.imageUrl" class="carts-img" alt="">
+                  <img
+                    :src="item.product.imageUrl"
+                    class="carts-img"
+                    alt="">
                 </div>
                 <div class="ms-3 d-flex flex-column justify-content-between text-2xl">
                   <p class="tracking-wide font-semibold">{{ item.product.title }}
@@ -96,12 +123,21 @@
               </div>
               <div class="ms-auto cartsInput-md-container d-none d-md-inline-block">
                 <div class="cartsInput-md-Item d-flex align-items-center">
-                  <div @click="min(item.id, key)"
-                  @keydown="min(item.id, key)"
-                  class="cartsInput-md-min cursor-pointer text-center border">-</div>
+                  <div
+                    @click="min(item.id, key)"
+                    @keydown="min(item.id, key)"
+                    class="cartsInput-md-min cursor-pointer text-center border">-
+                  </div>
                   <div class="cartsInput-md-input text-xl">
-                    <label for="num" class="d-block h-100">
-                      <input id="num" name="num" v-model="item.qty" type="text" min="1"
+                    <label
+                      for="num"
+                      class="d-block h-100">
+                      <input
+                        id="num"
+                        name="num"
+                        v-model="item.qty"
+                        type="text"
+                        min="1"
                         style="max-width:120px"
                         class="d-block border rounded-0 bg-dark
                         text-center text-white border w-100"
@@ -115,9 +151,11 @@
                     class="cartsInput-md-add cursor-pointer text-center border">+</div>
                 </div>
               </div>
-              <div class="ms-auto ms-md-3 delete text-center cartsInput-trash cursor-pointer"
-              @click="openDeleteCarts(item)"
-              @keydown="openDeleteCarts(item)">
+              <div
+                class="ms-auto ms-md-3 delete text-center
+                cartsInput-trash cursor-pointer"
+                @click="openDeleteCarts(item)"
+                @keydown="openDeleteCarts(item)">
                 <i class="bi bi-trash3-fill fs-3" />
               </div>
             </div>
@@ -129,8 +167,12 @@
         <div class="row">
           <div class="col-12 mb-5">
             <w-flex class="align-center tracking-wide">
-              <w-checkbox class="ms-auto" color="grey" v-model="selection1">
-                <p class="text-white text-xl">我已確認商品資訊</p></w-checkbox>
+              <w-checkbox
+                class="ms-auto"
+                color="grey"
+                v-model="selection1">
+                <p class="text-white text-xl">我已確認商品資訊</p>
+              </w-checkbox>
             </w-flex>
           </div>
           <div class="col-12 text-end">

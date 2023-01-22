@@ -4,23 +4,29 @@
     <div class="row">
       <div class="col-12 px-0 px-md-2">
         <div class="text-end">
-          <button @click="openModal(true)" type="button"
-          class="btn btn-outline-primary"
+          <button
+            @click="openModal(true)"
+            type="button"
+            class="btn btn-outline-primary"
             data-bs-target="#exampleModal">
             新增
           </button>
         </div>
       </div>
-      <div class="col-12"
+      <div
+        class="col-12"
         v-if="this.Data.length === 0">
         <h2
         class="text-black text-center"
         style="padding:30vh 0">尚未新增商品。</h2>
       </div>
       <div class="col-12 px-0 px-md-2" v-else>
-        <table class="table mt-4 text-nowrap" style="table-layout: fixed">
+        <table
+          class="table mt-4 text-nowrap"
+          style="table-layout: fixed">
           <thead>
-            <tr class="font-medium tracking-wider">
+            <tr
+              class="font-medium tracking-wider">
               <th>品名</th>
               <th class="d-none d-md-table-cell">分類</th>
               <th class="d-none d-md-table-cell">原價</th>
@@ -30,34 +36,48 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in this.Data" :key="item.id">
+            <tr
+              v-for="item in this.Data"
+              :key="item.id">
               <td
-              style="overflow: hidden; text-overflow:ellipsis">
+                style="overflow: hidden; text-overflow:ellipsis">
                 {{item.title}}
               </td>
-              <td class="d-none d-md-table-cell">
+              <td
+                class="d-none d-md-table-cell">
                 {{item.category}}
               </td>
-              <td class="d-none d-md-table-cell">
+              <td
+                class="d-none d-md-table-cell">
                 {{ $filters.currency(item.origin_price)}}
               </td>
               <td>
                 {{item.price}}
               </td>
               <td>
-                <span class="text-success"
-                v-if="item.is_enabled === 1">啟用
+                <span
+                  class="text-success"
+                  v-if="item.is_enabled === 1">
+                  啟用
                 </span>
-                <span class="text-success"
-                v-else>未啟用
+                <span
+                  class="text-success"
+                  v-else>
+                  未啟用
                 </span>
               </td>
               <td class="p-0">
                 <div class="btn-group">
-                  <button class="btn btn-outline-primary btn-sm"
-                  @click="openModal(false, item)">編輯</button>
-                  <button class="btn btn-outline-danger btn-sm"
-                  @click="openDeleteModal(item)">刪除</button>
+                  <button
+                    class="btn btn-outline-primary btn-sm"
+                    @click="openModal(false, item)">
+                    編輯
+                  </button>
+                  <button
+                    class="btn btn-outline-danger btn-sm"
+                    @click="openDeleteModal(item)">
+                    刪除
+                  </button>
                 </div>
               </td>
             </tr>
@@ -65,16 +85,27 @@
         </table>
       </div>
     </div>
-    <div class="row" style="padding-top: calc(100vh-20vh)" v-if="this.Data.length !== 0">
-      <div class="col-12 position-fixed bottom-0 start-50 translate-middle-x">
-        <pagination :pages="Pagination" @update-page="getData" />
+    <div
+      class="row"
+      style="padding-top: calc(100vh-20vh)"
+      v-if="this.Data.length !== 0">
+      <div
+        class="col-12 position-fixed bottom-0 start-50 translate-middle-x">
+        <pagination
+          :pages="Pagination"
+          @update-page="getData" />
       </div>
     </div>
   </div>
-  <productModal ref="productModal" :product="tempProduct"
-  @add="UpdateData" :is-new="isNew" />
-  <deleteModal ref="deleteModal" :delete="deleteItem"
-  @delete-item="deleteProduct" />
+  <productModal
+    ref="productModal"
+    :product="tempProduct"
+    @add="UpdateData"
+    :is-new="isNew" />
+  <deleteModal
+    ref="deleteModal"
+    :delete="deleteItem"
+    @delete-item="deleteProduct" />
 </template>
 
 <script>

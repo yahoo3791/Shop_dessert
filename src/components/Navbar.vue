@@ -1,74 +1,103 @@
 <template>
   <div
-  :class="{'hideNavbar': scrollNavbar}"
-  class="container-fluid fixed-top bg-dark navbar-height"
-  style="z-index:10000">
+    :class="{'hideNavbar': scrollNavbar}"
+    class="container-fluid fixed-top bg-dark navbar-height"
+    style="z-index:10000">
     <div
       :class="{'hideSubNavbar':scrollNavbar}"
       class="d-block d-md-none navbar-overlay position-absolute
       start-0 w-100 bg-dark tracking-wider">
         <div
-        :class="{'d-none': togglerOverlay }"
-        class="text-lg navbar-nav
-        text-white text-center w-75 mx-auto tracking-wider">
-          <router-link to="/#/"
-            class="nav-link py-3 animated fadeInDown"
-            style="animation-duration: .5s;">首頁
-          </router-link>
-          <router-link to="/user/contact"
-          class="nav-link py-3 animated fadeInDown"
-          style="animation-duration: .5s;">聯絡我們
-          </router-link>
-          <router-link to="/user/products"
-            class="nav-link py-3 animated fadeInDown"
-            style="animation-duration: .5s;">商品
-          </router-link>
-          <div class="d-flex justify-content-center animated fadeInDown"
-          style="animation-duration: .5s;">
-            <router-link to="/user/carts"
-            class="nav-link px-3 py-3 position-relative" data-bs-toggle="tooltip"
-              data-bs-placement="bottom" title="購物車">
-              <i class="bi bi-cart-fill me-1 position-relative"
-              style="font-size:18px">
-                <span :class="{'d-none': cartsNum == 0 }" ref="cartsNum"
-                class="d-block position-absolute navbar-badge navbar-badge-md
-                  animated">{{cartsNum}}
-                </span>
-              </i>
+          :class="{'d-none': togglerOverlay }"
+          class="text-lg navbar-nav
+          text-white text-center w-75 mx-auto tracking-wider">
+            <router-link
+              to="/#/"
+              class="nav-link py-3 animated fadeInDown"
+              style="animation-duration: .5s;">
+              首頁
             </router-link>
-            <router-link to="/user/favorite"
-            class="nav-link px-3 py-3 position-relative" data-bs-toggle="tooltip"
-              data-bs-placement="bottom" title="我的最愛">
-              <i class="bi bi-heart-fill me-1 position-relative"
-              style="font-size:18px">
-                <span :class="{'d-none': favoriteData.length == 0 }" ref="fav"
-                class="d-block position-absolute navbar-badge navbar-badge-md
-                  animated">{{favoriteData.length}}
-                </span>
-              </i>
+            <router-link
+              to="/user/contact"
+              class="nav-link py-3 animated fadeInDown"
+              style="animation-duration: .5s;">
+              聯絡我們
             </router-link>
-            <div @click="login" @keypress="login"
-            class="nav-link px-3 py-3 position-relative cursor-pointer"
-              data-bs-toggle="tooltip" data-bs-placement="bottom" title="會員">
-              <i class="bi bi-person-fill me-1" style="font-size:18px" />
+            <router-link
+              to="/user/products"
+              class="nav-link py-3 animated fadeInDown"
+              style="animation-duration: .5s;">
+              商品
+            </router-link>
+          <div
+            class="d-flex justify-content-center animated fadeInDown"
+            style="animation-duration: .5s;">
+              <router-link to="/user/carts"
+                class="nav-link px-3 py-3 position-relative"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                title="購物車">
+                <i class="bi bi-cart-fill me-1 position-relative"
+                  style="font-size:18px">
+                  <span
+                    :class="{'d-none': cartsNum == 0 }"
+                    ref="cartsNum"
+                    class="d-block position-absolute navbar-badge navbar-badge-md
+                    animated">{{cartsNum}}
+                  </span>
+                </i>
+              </router-link>
+              <router-link
+                to="/user/favorite"
+                class="nav-link px-3 py-3 position-relative"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                title="我的最愛">
+                <i class="bi bi-heart-fill me-1 position-relative"
+                  style="font-size:18px">
+                  <span
+                    :class="{'d-none': favoriteData.length == 0 }"
+                    ref="fav"
+                    class="d-block position-absolute navbar-badge navbar-badge-md
+                    animated">{{favoriteData.length}}
+                  </span>
+                </i>
+              </router-link>
+            <div
+              @click="login"
+              @keypress="login"
+              class="nav-link px-3 py-3 position-relative cursor-pointer"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              title="會員">
+                <i class="bi bi-person-fill me-1"
+                style="font-size:18px" />
             </div>
-            <router-link to="/user/checkOrder"
-            class="nav-link px-3 py-3 position-relative" data-bs-toggle="tooltip"
-              data-bs-placement="bottom" title="查詢訂單">
-              <i class="bi bi-clipboard2-minus-fill me-1" style="font-size:18px" />
+            <router-link
+              to="/user/checkOrder"
+              class="nav-link px-3 py-3 position-relative"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              title="查詢訂單">
+              <i class="bi bi-clipboard2-minus-fill me-1"
+              style="font-size:18px" />
             </router-link>
           </div>
         </div>
     </div>
     <div class="d-flex align-items-center">
-      <a href="#" class="d-block logo href-none logo_font text-4xl">
-          DESSERT
+      <a
+        href="#"
+        class="d-block logo href-none logo_font text-4xl">
+        DESSERT
       </a>
       <div
-      @click="openOverlay"
-      @keydown="openOverlay"
+        @click="openOverlay"
+        @keydown="openOverlay"
         class="d-block d-md-none navbar-sm text-white ms-auto">
-        <div class="navbar-icon" style="width:40px;height:40px">
+        <div
+          class="navbar-icon"
+          style="width:40px;height:40px">
           <span class="d-block" ref="navbarSpan1" />
           <span class="d-block" ref="navbarSpan2" />
           <span class="d-block" ref="navbarSpan3" />
@@ -76,46 +105,57 @@
       </div>
       <div
         class="navbar-md d-none d-md-flex ms-auto tracking-wider text-lg">
-        <router-link to="/#/" class="nav-link px-3 py-3"
-        data-bs-toggle="tooltip"
-        data-bs-placement="bottom"
-        title="回到首頁">
-        首頁
+        <router-link
+          to="/#/"
+          class="nav-link px-3 py-3"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          title="回到首頁">
+          首頁
         </router-link>
-        <router-link to="/user/contact"
-        class="nav-link py-3">
-        聯絡我們
+        <router-link
+          to="/user/contact"
+          class="nav-link py-3">
+          聯絡我們
         </router-link>
-        <router-link to="/user/products"
-        class="nav-link px-3 py-3">
-        商品
+        <router-link
+          to="/user/products"
+          class="nav-link px-3 py-3">
+          商品
         </router-link>
-        <router-link to="/user/carts"
-        class="nav-link px-3 py-3 position-relative"
+        <router-link
+          to="/user/carts"
+          class="nav-link px-3 py-3 position-relative"
           data-bs-toggle="tooltip"
           data-bs-placement="bottom"
           title="購物車">
-          <i class="bi bi-cart-fill me-1 position-relative"
-          style="font-size:1em">
+          <i
+            class="bi bi-cart-fill me-1 position-relative"
+            tyle="font-size:1em">
             <span
               :class="{'d-none': cartsNum == 0 }"
               ref="cartsNum"
               class="d-block position-absolute navbar-badge navbar-badge-md
-              animated">{{cartsNum}}
+              animated">
+              {{cartsNum}}
             </span>
           </i>
         </router-link>
-        <router-link to="/user/favorite" class="nav-link px-3 py-3 position-relative"
+        <router-link
+          to="/user/favorite"
+          class="nav-link px-3 py-3 position-relative"
           data-bs-toggle="tooltip"
           data-bs-placement="bottom"
           title="我的最愛">
-          <i class="bi bi-heart-fill me-1 position-relative"
-          style="font-size:1em">
+          <i
+            class="bi bi-heart-fill me-1 position-relative"
+            style="font-size:1em">
             <span
               :class="{ 'd-none': favoriteData.length == 0 }"
               ref="fav"
               class="d-block position-absolute navbar-badge navbar-badge-md
-              animated">{{favoriteData.length}}
+              animated">
+              {{favoriteData.length}}
             </span>
           </i>
         </router-link>
@@ -129,10 +169,14 @@
           <i class="bi bi-person-fill me-1"
           style="font-size:1em" />
         </div>
-        <router-link to="/user/checkOrder"
-          class="nav-link px-3 py-3 position-relative" data-bs-toggle="tooltip"
-          data-bs-placement="bottom" title="查詢訂單">
-          <i class="bi bi-clipboard2-minus-fill me-1" style="font-size:1em" />
+        <router-link
+          to="/user/checkOrder"
+          class="nav-link px-3 py-3 position-relative"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          title="查詢訂單">
+          <i class="bi bi-clipboard2-minus-fill me-1"
+            style="font-size:1em" />
         </router-link>
       </div>
     </div>

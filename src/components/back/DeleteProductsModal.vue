@@ -30,7 +30,7 @@
           <button
             type="button"
             class="btn btn-primary"
-            @click="deleteItem()">確定刪除
+            @click="deleteItem">確定刪除
           </button>
         </div>
       </div>

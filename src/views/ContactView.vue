@@ -87,7 +87,7 @@
                   type="text"
                   class="carts-input w-100 p-2 border-0 border-bottom text-white"
                   placeholder="請輸入姓名"
-                  v-model="this.formData.user.name" />
+                  v-model="formData.user.name" />
                 <br>
                 <ErrorMessage
                   style="color:#ff4343"
@@ -168,13 +168,13 @@
                     class="carts-textarea text-white border p-3 tracking-wide w-100"
                     placeholder="留下疑問或需求"
                     maxlength="300"
-                    v-model="this.formData.message" />
+                    v-model="formData.message" />
                 </label>
               </div>
               <div class="text-end mb-5 mt-3">
                 <w-button
                   type="submit"
-                  @click="submit()"
+                  @click="submit"
                   class="w-btn">寄送
                 </w-button>
               </div>

@@ -3,7 +3,7 @@
   <div
     class="container-fluid text-center text-black"
     style="padding:40vh 0"
-    v-if="this.data.length === 0">
+    v-if="data.length === 0">
     <h2>尚未有訂單。</h2>
   </div>
   <div

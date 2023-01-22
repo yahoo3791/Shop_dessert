@@ -72,11 +72,11 @@
   </div>
   <couponModal
     ref="couponModal"
-    :coupon="this.tempCoupon"
+    :coupon="tempCoupon"
     @save-coupon="couponData" />
   <deleteModal
     ref="deleteModal"
-    :delete-item="this.deleteCoupon"
+    :delete-item="deleteCoupon"
     @delete-coupon="deleteItem" />
 </template>
 

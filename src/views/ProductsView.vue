@@ -97,10 +97,10 @@
                   </div>
                   <div
                     v-if="item.num >= 1"
-                    :class="{'opacity-75': this.isLoading === true }"
+                    :class="{'opacity-75': isLoading === true }"
                     @click.stop="addCart(item, $event)"
                     @keydown="addCart(item, $event)"
-                    :disabled="this.isLoading ===true"
+                    :disabled="isLoading ===true"
                     class="w-btn-product mt-2 w-100">
                     <div
                     class="d-none spinner-border spinner-border-sm"

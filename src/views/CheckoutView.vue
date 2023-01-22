@@ -85,7 +85,7 @@
           <div class="col-12 pt-2 pb-5 text-end my-5">
             <w-button
               class="w-btn"
-              @click="this.$router.push('/user/products')">繼續購物
+              @click="$router.push('/user/products')">繼續購物
             </w-button>
           </div>
         </div>

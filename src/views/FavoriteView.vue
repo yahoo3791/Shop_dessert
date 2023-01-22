@@ -19,7 +19,7 @@
         </div>
         <div
           class="col-12 d-n text-center"
-          :class="{ 'd-block' : this.favoriteData.length == 0}"
+          :class="{ 'd-block' : favoriteData.length == 0}"
           style="padding:20vh 0;">
           <h1 class="title-01">
             目前無收藏商品
@@ -33,7 +33,7 @@
         </div>
         <div
           class="col-12 col-md-3"
-          :class="{ 'd-none' :this.favoriteData.length <= 1 }">
+          :class="{ 'd-none' :favoriteData.length <= 1 }">
           <div
             class="px-0 px-md-0 d-flex flex-wrap justify-content-end
             justify-content-md-center align-items-center mt-3">
@@ -73,7 +73,7 @@
         <div
           class="col-12 text-center pt-5"
           :class="{ 'd-none': productLoading }"
-          v-if="this.favoriteData.length !== 0">
+          v-if="favoriteData.length !== 0">
           <div
             class="spinner-border text-light"
             role="status"
@@ -83,7 +83,7 @@
         </div>
         <div
           class="col-12 col-md-9 text-white mt-3"
-          :class="{ 'd-none' :this.favoriteData.length == 0 }">
+          :class="{ 'd-none' :favoriteData.length == 0 }">
           <div class="row d-flex flex-wrap align-items-center">
             <div class="col-6 col-md-6 col-lg-4 mb-5"
               v-for="item,index in filterData"
@@ -133,10 +133,10 @@
                     </p>
                   </div>
                   <div v-if="item.num >= 1"
-                    :class="{'opacity-75': this.isLoading === true }"
+                    :class="{'opacity-75': isLoading === true }"
                     @click.stop="addCart(item, $event)"
                     @keydown="addCart(item, $event)"
-                    :disabled="this.isLoading ===true"
+                    :disabled="isLoading ===true"
                     class="w-btn-product mt-2">
                     <div
                     @click.stop

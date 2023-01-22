@@ -36,7 +36,7 @@
             class="modal-btn"
             bg-color="red"
             color="white"
-            @click="this.$emit('checkDelete')">確定刪除
+            @click="$emit('checkDelete')">確定刪除
           </w-button>
         </div>
       </div>

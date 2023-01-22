@@ -35,12 +35,12 @@
               <div>
                 <w-button
                   class="w-btn"
-                  @click="this.$refs.DeleteCartsAll.modalShow()">
+                  @click="$refs.DeleteCartsAll.modalShow()">
                   刪除全部
                 </w-button>
                 <w-button
                   class="w-btn ms-2"
-                  @click="this.$router.push('/user/products')">
+                  @click="$router.push('/user/products')">
                   繼續購物
                 </w-button>
               </div>
@@ -78,7 +78,7 @@
                     <input
                       name="smNum"
                       id="smNum"
-                      :disabled="this.isLoading"
+                      :disabled="isLoading"
                       ref="updateValue"
                       @change="updateQty(item.id,key)"
                       class="d-block text-center text-white border
@@ -161,7 +161,7 @@
             </div>
           </div>
           <p class="text-white text-end tracking-widest font-semibold text-xl
-            pb-3">總計 {{ $filters.currency( this.orderTotal.total ) }} $
+            pb-3">總計 {{ $filters.currency( orderTotal.total ) }} $
           </p>
         </div>
         <div class="row">
@@ -183,8 +183,8 @@
         </div>
         </div>
     </div>
-    <DeleteCartsAll ref="DeleteCartsAll" @checkDeleteAll="deleteCarts()" />
-    <DeleteCarts ref="DeleteCarts" @checkDelete="deleteProduct()" />
+    <DeleteCartsAll ref="DeleteCartsAll" @checkDeleteAll="deleteCarts" />
+    <DeleteCarts ref="DeleteCarts" @checkDelete="deleteProduct" />
   </div>
   <Footer />
 </template>

@@ -94,8 +94,8 @@
           <div class="d-flex align-items-center justify-content-between mt-2">
             <div class="numInput-item d-flex justify-content-end align-items-center">
               <div
-                @click="min()"
-                @keypress="min()"
+                @click="min"
+                @keypress="min"
                 class="cursor-pointer numInput-prev text-center">-
               </div>
               <div class="counter border">
@@ -103,7 +103,7 @@
                   <input
                     id="num"
                     name="num"
-                    v-model="this.num"
+                    v-model="num"
                     type="text"
                     min="1"
                     class="d-block rounded-0 bg-dark border-0
@@ -111,8 +111,8 @@
                 </label>
               </div>
               <div
-                @click="add()"
-                @keydown="add()"
+                @click="add"
+                @keydown="add"
                 class="cursor-pointer numInput-next text-center">+
               </div>
             </div>
@@ -126,10 +126,10 @@
             </div>
             <div
               v-if="product.num >= 1 "
-              :class="{'opacity-75': this.isLoading === true }"
+              :class="{'opacity-75': isLoading === true }"
               @click="addCart(product.id, $event)"
               @keydown="addCart(item, $event)"
-              :disabled="this.isLoading ===true"
+              :disabled="isLoading ===true"
               class="w-btn-product cursor-pointer">
                 <div
                   @click.stop
@@ -210,8 +210,8 @@
                 </p>
                 <div
                   v-if="item.num >= 1"
-                  :class="{'opacity-75': this.isLoading === true }"
-                  :disabled="this.isLoading === true"
+                  :class="{'opacity-75': isLoading === true }"
+                  :disabled="isLoading === true"
                   class="mt-2 w-btn-product"
                   @click.stop="addCart(item.id, $event)"
                   @keydown="addCart(item.id, $event)">

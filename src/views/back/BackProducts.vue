@@ -37,7 +37,7 @@
           </thead>
           <tbody>
             <tr
-              v-for="item in this.Data"
+              v-for="item in Data"
               :key="item.id">
               <td
                 style="overflow: hidden; text-overflow:ellipsis">
@@ -88,7 +88,7 @@
     <div
       class="row"
       style="padding-top: calc(100vh-20vh)"
-      v-if="this.Data.length !== 0">
+      v-if="Data.length !== 0">
       <div
         class="col-12 position-fixed bottom-0 start-50 translate-middle-x">
         <pagination

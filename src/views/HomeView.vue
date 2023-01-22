@@ -126,10 +126,10 @@
               </div>
               <div
                 v-if="item.num >= 1"
-                :class="{'opacity-75': this.isLoading === true }"
+                :class="{'opacity-75': isLoading === true }"
                 @click.stop="addCart(item, $event)"
                 @keydown="addCart(item, $event)"
-                :disabled="this.isLoading ===true"
+                :disabled="isLoading ===true"
                 class="w-btn-product mt-2 w-100">
                 <div
                   @click.stop
@@ -297,7 +297,7 @@
                 <i class="bi bi-envelope footer-envelope" />
               </button>
               <ErrorMessage
-                :class="{ 'd-none': this.subMail == ''}"
+                :class="{ 'd-none': subMail == ''}"
                 name="信箱"
                 style="color:orangered" />
             </div>

@@ -20,7 +20,7 @@
               </h3>
               <VField
                 id="name"
-                v-model="this.formData.user.name"
+                v-model="formData.user.name"
                 name="姓名"
                 rules="required"
                 type="text"
@@ -157,7 +157,7 @@
               </w-flex>
               <w-button
                 class="ms-2 w-btn"
-                @click="submit()">付款
+                @click="submit">付款
               </w-button>
             </div>
           </VForm>
@@ -217,7 +217,7 @@
             </label>
             <div class="input-group-append">
               <button
-                @click="useCoupon()"
+                @click="useCoupon"
                 class="btn btn-outline-secondary
                 tracking-widest rounded-0"
                 type="button"
@@ -238,7 +238,7 @@
             </w-flex>
             <w-button
               class="ms-2 w-btn"
-              @click="submit()">付款
+              @click="submit">付款
             </w-button>
           </div>
         </div>

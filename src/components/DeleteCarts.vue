@@ -27,12 +27,14 @@
         </div>
         <div class="modal-footer">
           <w-button
+            type="button"
             class="modal-btn"
             bg-color="black"
             color="white"
             data-bs-dismiss="modal">取消
           </w-button>
           <w-button
+            type="button"
             class="modal-btn"
             bg-color="red"
             color="white"

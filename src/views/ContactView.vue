@@ -32,7 +32,7 @@
                 </a>
               </div>
               <div class="col-12">
-                <a href="tel:(02)1010101"
+                <a href="tel:+(02)1010101"
                   class="salesServer-item d-block text-decoration-none text-white py-3 my-3">
                   <div class="d-flex align-items-center"
                     data-aos="fade-up"

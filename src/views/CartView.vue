@@ -105,7 +105,7 @@
                   <img
                     :src="item.product.imageUrl"
                     class="carts-img"
-                    alt="">
+                    alt="新增至購物車內的圖片">
                 </div>
                 <div class="ms-3 d-flex flex-column justify-content-between text-2xl">
                   <p class="tracking-wide font-semibold">{{ item.product.title }}

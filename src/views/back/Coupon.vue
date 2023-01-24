@@ -4,6 +4,7 @@
     <div class="container pt-utility">
       <div class="text-end">
         <button
+          type="button"
           class="btn btn-outline-primary"
           @click="openCoupon(true)">
           新增優惠卷
@@ -52,11 +53,13 @@
                   <div
                     class="btn-group">
                     <button
+                      type="button"
                       class="btn btn-outline-primary btn-sm"
                       @click="openCoupon(false, item)">
                       編輯
                     </button>
                     <button
+                      type="button"
                       class="btn btn-outline-danger btn-sm"
                       @click="openDeleteModal(item)">
                       刪除

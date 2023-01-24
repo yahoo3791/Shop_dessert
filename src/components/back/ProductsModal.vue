@@ -57,7 +57,6 @@
                       class="form-control">
                   </label>
                 </div>
-                <img class="img-fluid" alt="">
               </div>
               <div class="col-12">
                 <div class="mb-3">

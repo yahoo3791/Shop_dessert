@@ -71,11 +71,13 @@
             <td class="align-middle">
               <div class="btn-group">
                 <button
+                  type="button"
                   class="btn btn-outline-primary btn-sm"
                   @click="ChangeModal(item)">
                   檢視
                 </button>
                 <button
+                  type="button"
                   class="btn btn-outline-danger btn-sm"
                   @click="DeleteModal(item)">
                   刪除

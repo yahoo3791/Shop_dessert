@@ -21,7 +21,9 @@
             <h2 class="tracking-widest mb-5">軟在口中，甜在心上。
             </h2>
             <router-link to="/user/products" class="href-none d-block text-center">
-              <w-button class="w-btn">前往商店
+              <w-button
+                type="button"
+                class="w-btn">前往商店
               </w-button>
             </router-link>
           </div>
@@ -37,7 +39,7 @@
           <img src="../assets/pic/banner/grocery01.png"
             style="border:1px solid white; border-radius:5px"
             class="w-100"
-            alt="">
+            alt="巧克力打折系列圖片">
           <div class="position-absolute top-50
             translate-middle-y ps-5 tracking-widest">
             <h3>巧克力系列</h3>
@@ -57,7 +59,7 @@
             src="../assets/pic/banner/grocery02.png"
             style="border:1px solid white; border-radius:5px"
             class="w-100"
-            alt="">
+            alt="杯子蛋糕打折系列圖片">
           <div class="position-absolute top-50
             translate-middle-y ps-5 tracking-widest">
             <h3>杯子蛋糕系列</h3>
@@ -194,19 +196,19 @@
             class="mySwiper position-relative customized-container">
             <div class="position-absolute swiper-bg top-0" />
             <swiper-slide class="position-relative">
-              <img class="" src="@/assets/pic/homepage/母親節蛋糕.png" alt="">
+              <img src="@/assets/pic/homepage/母親節蛋糕.png" alt="母親節蛋糕圖片">
               <h2 class="position-absolute top-50 start-50 translate-middle
                 text-xl font-medium tracking-wider text-nowrap">母親節蛋糕
               </h2>
             </swiper-slide>
             <swiper-slide class="position-relative">
-              <img class="" src="@/assets/pic/homepage/聖誕節餅乾.png" alt="">
+              <img class="" src="@/assets/pic/homepage/聖誕節餅乾.png" alt="聖誕節餅乾圖片">
               <h2 class="position-absolute top-50 start-50 translate-middle
                 text-xl font-medium tracking-wider">暖心餅乾
               </h2>
             </swiper-slide>
             <swiper-slide class="position-relative">
-              <img class="" src="@/assets/pic/homepage/萬聖節餅乾.png" alt="">
+              <img class="" src="@/assets/pic/homepage/萬聖節餅乾.png" alt="萬聖節餅乾圖片">
               <h2 class="position-absolute top-50 start-50 translate-middle
                 text-xl font-medium tracking-wider">搞怪餅乾
               </h2>
@@ -230,7 +232,7 @@
           <img
             src="@/assets/pic/icon/CAS.png"
             style="width:50px;height:50px"
-            alt="">
+            alt="CAS優良食品標誌">
           <div class="ps-2">
             <h5>CAS優良食品標誌</h5>
             <p>經學者、專家嚴格評核通過標準</p>
@@ -241,7 +243,7 @@
           data-aos="fade-left"
           data-aos-delay="100">
           <img src="@/assets/pic/icon/GMP.png"
-            style="width:50px;height:50px" alt="">
+            style="width:50px;height:50px" alt="GMP認證標章">
           <div class="ps-2">
             <h5>GMP認證標章</h5>
             <p>製造過程中，品質與衛生安全都符合規範</p>
@@ -252,7 +254,7 @@
           data-aos="fade-left"
           data-aos-delay="200">
           <img src="@/assets/pic/icon/TAP.png"
-            style="width:50px;height:50px" alt="">
+            style="width:50px;height:50px" alt="TAP產銷履歷農產品">
           <div class="ps-2">
             <h5>TAP產銷履歷農產品</h5>
             <p>驗證機構以親自前往生產場地，且也已通過產品進行抽驗。</p>
@@ -262,7 +264,7 @@
           data-aos="fade-left"
           data-aos-delay="300">
           <img src="@/assets/pic/icon/安全蔬果.png"
-            style="width:50px;height:50px" alt="">
+            style="width:50px;height:50px" alt="安全蔬果吉園圃標章">
           <div class="ps-2">
             <h5>安全蔬果吉園圃標章</h5>
             <p>輔導農民正確使用農藥，以生產優質安全蔬果。</p>

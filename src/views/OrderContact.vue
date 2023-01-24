@@ -156,6 +156,7 @@
                 </w-checkbox>
               </w-flex>
               <w-button
+                type="button"
                 class="ms-2 w-btn"
                 @click="submit">付款
               </w-button>
@@ -279,7 +280,6 @@ export default {
   },
   methods: {
     submit() {
-      // 欄位勾選 ｏｋ
       if (this.formData.user.name === '' || this.formData.user.email === '' || this.formData.user.tel === '' || this.formData.user.address === '') {
         const Toast = Swal.mixin({
           toast: true,

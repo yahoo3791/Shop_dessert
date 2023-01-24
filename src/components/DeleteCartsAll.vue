@@ -35,7 +35,7 @@
             class="modal-btn"
             bg-color="red"
             color="white"
-            @click="$emit('checkDeleteAll')">確定刪除1
+            @click="$emit('checkDeleteAll')">確定刪除
           </w-button>
         </div>
       </div>

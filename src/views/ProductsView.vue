@@ -217,7 +217,6 @@ export default {
       this.history.push(id);
       this.history = localStorage.setItem('setHistory', JSON.stringify(this.history));
     },
-    // !!
     addCart(item, e) {
       e.target.childNodes[0].classList.remove('d-none');
       const data = {
@@ -226,71 +225,27 @@ export default {
       };
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.isLoading = true;
-      this.axios.post(api, { data }).then((res) => {
-        this.isLoading = false;
-        e.target.childNodes[0].classList.add('d-none');
-        if (res.data.success) {
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer);
-              toast.addEventListener('mouseleave', Swal.resumeTimer);
-            },
-          });
-          Toast.fire({
-            icon: 'success',
-            title: '成功加入購物車',
-          });
-        } else {
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer);
-              toast.addEventListener('mouseleave', Swal.resumeTimer);
-            },
-          });
-          Toast.fire({
-            icon: 'error',
-            title: '加入購物車失敗',
-          });
-        }
-      });
-      this.axios.get(api).then((res) => {
-        const { carts } = res.data.data;
-        if (res.data.success) {
-          let num = 1;
-          carts.forEach((i) => {
-            num += i.qty;
-          });
-          this.cartsNum = num;
-        }
-        this.getCarts();
-      });
-      this.renderCarts();
-      emitter.emit('updateCartsNum');
-    },
-    getCarts() {
-      if (!this.cartsNum) {
-        const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-        this.axios.get(api)
-          .then((res) => {
-            const { carts } = res.data.data;
-            let num = 0;
-            carts.forEach((i) => {
-              num += i.qty;
-              this.cartsNum = num;
+      this.axios.post(api, { data })
+        .then((res) => {
+          this.isLoading = false;
+          e.target.childNodes[0].classList.add('d-none');
+          if (res.data.success) {
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+              },
             });
-          })
-          .catch((error) => {
-            console.log(error);
+            Toast.fire({
+              icon: 'success',
+              title: '成功加入購物車',
+            });
+          } else {
             const Toast = Swal.mixin({
               toast: true,
               position: 'top-end',
@@ -304,10 +259,30 @@ export default {
             });
             Toast.fire({
               icon: 'error',
-              title: '連線異常',
+              title: '加入購物車失敗',
             });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
           });
-      }
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
+      this.renderCarts();
+      emitter.emit('updateCartsNum');
     },
     renderCarts() {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;

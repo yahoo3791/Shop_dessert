@@ -399,7 +399,6 @@ export default {
         localStorage.setItem('setHistory', JSON.stringify(this.history));
       }
     },
-    // !!
     addCart(item, e) {
       e.target.childNodes[0].classList.remove('d-none');
       const data = {
@@ -445,51 +444,8 @@ export default {
           });
         }
       });
-      this.axios.get(api).then((res) => {
-        const { carts } = res.data.data;
-        if (res.data.success) {
-          let num = 1;
-          carts.forEach((i) => {
-            num += i.qty;
-          });
-          this.cartsNum = num;
-        }
-        this.getCarts();
-      });
       this.renderCarts();
       emitter.emit('updateCartsNum');
-    },
-    getCarts() {
-      if (!this.cartsNum) {
-        const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-        this.axios.get(api)
-          .then((res) => {
-            const { carts } = res.data.data;
-            let num = 0;
-            carts.forEach((i) => {
-              num += i.qty;
-              this.cartsNum = num;
-            });
-          })
-          .catch((error) => {
-            console.log(error);
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: 'error',
-              title: '連線異常',
-            });
-          });
-      }
     },
     renderCarts() {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;

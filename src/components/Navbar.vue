@@ -274,16 +274,21 @@ export default {
       this.$refs.navbarSpan3.classList.remove('rotate-45');
     },
   },
-  mounted() {
-    window.addEventListener('scroll', this.scrollHandling);
-    this.getCarts();
+  created() {
     emitter.on('updateNum', () => {
       this.updateFav();
     });
     emitter.on('updateCartsNum', () => {
       this.getCarts();
     });
+  },
+  mounted() {
+    window.addEventListener('scroll', this.scrollHandling);
+    this.getCarts();
     this.updateFav();
+  },
+  unmouned() {
+    emitter.off('updateCartsNum');
   },
 };
 </script>

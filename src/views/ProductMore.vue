@@ -348,7 +348,7 @@ export default {
           this.isLoading = false;
           e.target.children[0].classList.add('d-none');
           if (res.data.success) {
-            emitter.emit('updateNum');
+            emitter.emit('updateCartsNum');
             const Toast = Swal.mixin({
               toast: true,
               position: 'top-end',

@@ -185,6 +185,8 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2/dist/sweetalert2';
+import 'sweetalert2/src/sweetalert2.scss';
 import emitter from '@/methods/emitter';
 import LoginModal from '@/components/LoginModal.vue';
 
@@ -232,15 +234,34 @@ export default {
     },
     getCarts() {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      this.axios.get(api).then((res) => {
-        this.cartsData = res.data.data.carts;
-        const { carts } = res.data.data;
-        let num = 0;
-        carts.forEach((i) => {
-          num += i.qty;
+      this.axios.get(api)
+        .then((res) => {
+          this.cartsData = res.data.data.carts;
+          const { carts } = res.data.data;
+          let num = 0;
+          carts.forEach((i) => {
+            num += i.qty;
+          });
+          this.cartsNum = num;
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
         });
-        this.cartsNum = num;
-      });
     },
     updateFav() {
       this.favoriteData = JSON.parse(localStorage.getItem('fav')) || [];

@@ -185,13 +185,32 @@ export default {
     getData() {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
       this.productLoading = false;
-      this.axios.get(api).then((res) => {
-        this.products = res.data.products;
-        if (res.data.success) {
-          this.productLoading = true;
-          this.getFavoriteData();
-        }
-      });
+      this.axios.get(api)
+        .then((res) => {
+          this.products = res.data.products;
+          if (res.data.success) {
+            this.productLoading = true;
+            this.getFavoriteData();
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
     },
     updateFav() {
       this.favoriteData = JSON.parse(localStorage.getItem('fav')) || [];
@@ -248,9 +267,28 @@ export default {
     },
     more(id) {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`;
-      this.axios.get(api).then(() => {
-        this.$router.push(`/user/product/${id}`);
-      });
+      this.axios.get(api)
+        .then(() => {
+          this.$router.push(`/user/product/${id}`);
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
     },
     addFav(item) {
       if (this.favoriteData.includes(item.id)) {
@@ -302,8 +340,6 @@ export default {
         this.filterData.sort((a, b) => a.num - b.num);
       }
     },
-  },
-  created() {
   },
   mounted() {
     this.getData();

@@ -332,48 +332,18 @@ export default {
         return;
       }
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order`;
-      this.axios.post(api, { data: this.formData }).then((res) => {
-        console.log(res);
-        const { orderId } = res.data;
-        if (res.data.success) {
-          this.$router.push(`/user/checkout/${orderId}`);
-        } else {
-          console.log('error');
-        }
-      });
-    },
-    getData() {
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      this.axios.get(api).then((res) => {
-        this.cartsData = res.data.data;
-      });
-    },
-    useCoupon() {
-      const codeData = {
-        code: this.codeValue,
-      };
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/coupon`;
-      this.axios.post(api, { data: codeData }).then((res) => {
-        this.getData();
-        if (res.data.success) {
-          this.coupon = true;
-          this.$refs.codeValue.disabled = true;
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer);
-              toast.addEventListener('mouseleave', Swal.resumeTimer);
-            },
-          });
-          Toast.fire({
-            icon: 'success',
-            title: '使用優惠卷成功',
-          });
-        } else {
+      this.axios.post(api, { data: this.formData })
+        .then((res) => {
+          console.log(res);
+          const { orderId } = res.data;
+          if (res.data.success) {
+            this.$router.push(`/user/checkout/${orderId}`);
+          } else {
+            console.log('error');
+          }
+        })
+        .catch((error) => {
+          console.log(error);
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -387,10 +357,97 @@ export default {
           });
           Toast.fire({
             icon: 'error',
-            title: '使用優惠卷異常',
+            title: '連線異常',
           });
-        }
-      });
+        });
+    },
+    getData() {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
+      this.axios.get(api)
+        .then((res) => {
+          this.cartsData = res.data.data;
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
+    },
+    useCoupon() {
+      const codeData = {
+        code: this.codeValue,
+      };
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/coupon`;
+      this.axios.post(api, { data: codeData })
+        .then((res) => {
+          this.getData();
+          if (res.data.success) {
+            this.coupon = true;
+            this.$refs.codeValue.disabled = true;
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+              },
+            });
+            Toast.fire({
+              icon: 'success',
+              title: '使用優惠卷成功',
+            });
+          } else {
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+              },
+            });
+            Toast.fire({
+              icon: 'error',
+              title: '使用優惠卷異常',
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
     },
   },
   mounted() {

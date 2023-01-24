@@ -86,6 +86,8 @@
 <script>
 import couponModal from '@/components/couponModal.vue';
 import deleteModal from '@/components/back/DeleteCoupon.vue';
+import Swal from 'sweetalert2/dist/sweetalert2';
+import 'sweetalert2/src/sweetalert2.scss';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 
@@ -128,31 +130,69 @@ export default {
         httpMethod = 'put';
       }
       this.isLoading = true;
-      this.axios[httpMethod](api, { data: this.tempCoupon }).then((res) => {
-        this.isLoading = false;
-        if (res.data.success) {
-          this.updateData();
-          this.emitter.emit('push-message', {
-            style: 'success',
-            title: '更新成功',
+      this.axios[httpMethod](api, { data: this.tempCoupon })
+        .then((res) => {
+          this.isLoading = false;
+          if (res.data.success) {
+            this.updateData();
+            this.emitter.emit('push-message', {
+              style: 'success',
+              title: '更新成功',
+            });
+          } else {
+            this.emitter.emit('push-message', {
+              style: 'danger',
+              title: '更新失敗',
+              content: res.data.message.join('、'),
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
           });
-        } else {
-          this.emitter.emit('push-message', {
-            style: 'danger',
-            title: '更新失敗',
-            content: res.data.message.join('、'),
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
           });
-        }
-      });
+        });
     },
     updateData(page = 1) {
       this.isLoading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/coupons?page=${page}`;
-      this.axios.get(api).then((res) => {
-        this.isLoading = false;
-        this.getCoupons = res.data.coupons;
-        this.pagination = res.data.pagination;
-      });
+      this.axios.get(api)
+        .then((res) => {
+          this.isLoading = false;
+          this.getCoupons = res.data.coupons;
+          this.pagination = res.data.pagination;
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
     },
     openDeleteModal(item) {
       this.$refs.deleteModal.modalShow();
@@ -163,21 +203,40 @@ export default {
       this.isLoading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/coupon/${id}`;
       this.isLoading = false;
-      this.axios.delete(api).then((res) => {
-        if (res.data.success) {
-          this.updateData();
-          this.emitter.emit('push-message', {
-            style: 'success',
-            title: '刪除成功',
+      this.axios.delete(api)
+        .then((res) => {
+          if (res.data.success) {
+            this.updateData();
+            this.emitter.emit('push-message', {
+              style: 'success',
+              title: '刪除成功',
+            });
+          } else {
+            this.emitter.emit('push-message', {
+              style: 'danger',
+              title: '刪除失敗',
+              content: res.data.message.join('、'),
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
           });
-        } else {
-          this.emitter.emit('push-message', {
-            style: 'danger',
-            title: '刪除失敗',
-            content: res.data.message.join('、'),
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
           });
-        }
-      });
+        });
     },
   },
   components: {

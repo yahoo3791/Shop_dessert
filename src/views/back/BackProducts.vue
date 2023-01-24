@@ -112,6 +112,8 @@
 
 <script>
 import Loading from 'vue-loading-overlay';
+import Swal from 'sweetalert2/dist/sweetalert2';
+import 'sweetalert2/src/sweetalert2.scss';
 import productModal from '../../components/back/ProductsModal.vue';
 import deleteModal from '../../components/back/DeleteProductsModal.vue';
 import 'vue-loading-overlay/dist/vue-loading.css';
@@ -139,12 +141,31 @@ export default {
     getData(page = 1) {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products?page=${page}`;
       this.isLoading = true;
-      this.axios.get(api).then((res) => {
-        console.log(res);
-        this.isLoading = false;
-        this.Data = res.data.products;
-        this.Pagination = res.data.pagination;
-      });
+      this.axios.get(api)
+        .then((res) => {
+          console.log(res);
+          this.isLoading = false;
+          this.Data = res.data.products;
+          this.Pagination = res.data.pagination;
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
     },
     UpdateData(item) {
       this.tempProduct = item;
@@ -158,24 +179,43 @@ export default {
       }
       // 傳送
       this.isLoading = true;
-      this.axios[httpMethod](api, { data: this.tempProduct }).then((res) => {
-        this.isLoading = false;
-        this.$refs.productModal.modalHide();
-        this.tempProduct = {};
-        if (res.data.success) {
-          this.getData();
-          this.emitter.emit('push-message', {
-            style: 'success',
-            title: '更新成功',
+      this.axios[httpMethod](api, { data: this.tempProduct })
+        .then((res) => {
+          this.isLoading = false;
+          this.$refs.productModal.modalHide();
+          this.tempProduct = {};
+          if (res.data.success) {
+            this.getData();
+            this.emitter.emit('push-message', {
+              style: 'success',
+              title: '更新成功',
+            });
+          } else {
+            this.emitter.emit('push-message', {
+              style: 'danger',
+              title: '更新失敗',
+              content: res.data.message.join('、'),
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
           });
-        } else {
-          this.emitter.emit('push-message', {
-            style: 'danger',
-            title: '更新失敗',
-            content: res.data.message.join('、'),
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
           });
-        }
-      });
+        });
     },
     openModal(isNew, item) {
       if (isNew) {
@@ -194,22 +234,41 @@ export default {
       this.isLoading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${this.deleteItem.id}`;
       this.isLoading = false;
-      this.axios.delete(api).then((res) => {
-        this.$refs.deleteModal.modalHide();
-        if (res.data.success) {
-          this.getData();
-          this.emitter.emit('push-message', {
-            style: 'success',
-            title: '刪除成功',
+      this.axios.delete(api)
+        .then((res) => {
+          this.$refs.deleteModal.modalHide();
+          if (res.data.success) {
+            this.getData();
+            this.emitter.emit('push-message', {
+              style: 'success',
+              title: '刪除成功',
+            });
+          } else {
+            this.emitter.emit('push-message', {
+              style: 'danger',
+              title: '刪除失敗',
+              content: res.data.message.join('、'),
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
           });
-        } else {
-          this.emitter.emit('push-message', {
-            style: 'danger',
-            title: '刪除失敗',
-            content: res.data.message.join('、'),
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
           });
-        }
-      });
+        });
     },
   },
   created() {

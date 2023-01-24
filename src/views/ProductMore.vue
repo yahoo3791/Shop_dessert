@@ -292,10 +292,29 @@ export default {
       const id = this.$route.params.productId;
       this.productLoading = false;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`;
-      this.axios.get(api).then((res) => {
-        this.productLoading = true;
-        this.product = res.data.product;
-      });
+      this.axios.get(api)
+        .then((res) => {
+          this.productLoading = true;
+          this.product = res.data.product;
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
     },
     addCart(id, e) {
       e.target.children[0].classList.remove('d-none');
@@ -324,11 +343,48 @@ export default {
       };
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.isLoading = true;
-      this.axios.post(api, { data: cartData }).then((res) => {
-        this.isLoading = false;
-        e.target.children[0].classList.add('d-none');
-        if (res.data.success) {
-          emitter.emit('updateNum');
+      this.axios.post(api, { data: cartData })
+        .then((res) => {
+          this.isLoading = false;
+          e.target.children[0].classList.add('d-none');
+          if (res.data.success) {
+            emitter.emit('updateNum');
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+              },
+            });
+            Toast.fire({
+              icon: 'success',
+              title: '成功加入購物車',
+            });
+            this.num = 1;
+          } else {
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+              },
+            });
+            Toast.fire({
+              icon: 'error',
+              title: '加入購物車失敗',
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -341,28 +397,10 @@ export default {
             },
           });
           Toast.fire({
-            icon: 'success',
-            title: '成功加入購物車',
-          });
-          this.num = 1;
-        } else {
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer);
-              toast.addEventListener('mouseleave', Swal.resumeTimer);
-            },
-          });
-          Toast.fire({
             icon: 'error',
-            title: '加入購物車失敗',
+            title: '連線異常',
           });
-        }
-      });
+        });
     },
     add() {
       this.num += 1;
@@ -378,12 +416,32 @@ export default {
     },
     getDataAll() {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
-      this.axios.get(api).then((res) => {
-        this.productAll = res.data.products;
-        if (res.data.success) {
-          this.updateHistory();
-        }
-      });
+      this.axios.get(api)
+        .then((res) => {
+          this.productAll = res.data.products;
+          if (res.data.success) {
+            this.updateHistory();
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
     },
     updateHistory() {
       const data = JSON.parse(localStorage.getItem('setHistory')) || [];

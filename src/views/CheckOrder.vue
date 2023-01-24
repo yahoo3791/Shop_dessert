@@ -128,23 +128,42 @@ export default {
         this.isLoading = false;
         return;
       }
-      this.axios.get(api).then((res) => {
-        this.isLoading = false;
-        this.orderNumber = '';
-        console.log(res.data);
-        if (res.data.order === null) {
-          Swal.fire({
-            icon: 'error',
-            title: '訂單編號錯誤',
-            text: '如有需要請聯絡客服人員,感謝您!',
-            footer: '辦公室地址:台北市信義區市府路101號<br>客服電話:(02)1010101<br>客服時間:週一至週五上午07:00~下午17:00<br>Email:DessertOfficer010@gmail.com',
+      this.axios.get(api)
+        .then((res) => {
+          this.isLoading = false;
+          this.orderNumber = '';
+          console.log(res.data);
+          if (res.data.order === null) {
+            Swal.fire({
+              icon: 'error',
+              title: '訂單編號錯誤',
+              text: '如有需要請聯絡客服人員,感謝您!',
+              footer: '辦公室地址:台北市信義區市府路101號<br>客服電話:(02)1010101<br>客服時間:週一至週五上午07:00~下午17:00<br>Email:DessertOfficer010@gmail.com',
+            });
+          } else {
+            this.getOrder = true;
+            this.order = res.data.order;
+            this.user = res.data.order.user;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
           });
-        } else {
-          this.getOrder = true;
-          this.order = res.data.order;
-          this.user = res.data.order.user;
-        }
-      });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
     },
   },
 };

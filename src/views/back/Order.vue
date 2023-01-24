@@ -108,6 +108,8 @@ import orderModal from '@/components/back/OrderModal.vue';
 import Pagination from '@/components/back/Pagination.vue';
 import deleteModal from '@/components/back/DeleteOrderModal.vue';
 import deleteOrderAllModal from '@/components/back/DeleteOrderAllModal.vue';
+import Swal from 'sweetalert2/dist/sweetalert2';
+import 'sweetalert2/src/sweetalert2.scss';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 
@@ -127,10 +129,29 @@ export default {
   methods: {
     getData(page = 1) {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/orders?page=${page}`;
-      this.axios.get(api).then((res) => {
-        this.data = res.data.orders;
-        this.pagination = res.data.pagination;
-      });
+      this.axios.get(api)
+        .then((res) => {
+          this.data = res.data.orders;
+          this.pagination = res.data.pagination;
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
     },
     deleteAllModal() {
       this.$refs.deleteOrderAllModal.modalShow();
@@ -146,17 +167,55 @@ export default {
     deleteItem() {
       const { id } = this.deleteData;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/order/${id}`;
-      this.axios.delete(api).then(() => {
-        this.$refs.deleteModal.modalHide();
-        this.getData();
-      });
+      this.axios.delete(api)
+        .then(() => {
+          this.$refs.deleteModal.modalHide();
+          this.getData();
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
     },
     deleteAll() {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/orders/all`;
-      this.axios.delete(api).then(() => {
-        this.$refs.deleteOrderAllModal.modalHide();
-        this.getData();
-      });
+      this.axios.delete(api)
+        .then(() => {
+          this.$refs.deleteOrderAllModal.modalHide();
+          this.getData();
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
     },
   },
   created() {

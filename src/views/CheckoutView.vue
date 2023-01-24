@@ -117,37 +117,75 @@ export default {
       const { orderId } = this.$route.params;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/pay/${orderId}`;
       this.isLoading = true;
-      this.axios.post(api).then((res) => {
-        this.isLoading = false;
-        console.log(res);
-        if (res.data.success) {
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: '付款成功',
+      this.axios.post(api)
+        .then((res) => {
+          this.isLoading = false;
+          console.log(res);
+          if (res.data.success) {
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: '付款成功',
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            this.render();
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: '付款失敗',
+              text: '請聯絡我們客服人員',
+              footer: '辦公室地址:台北市信義區市府路101號,客服電話:(02)1010101,客服時間:週一至週五上午07:00~下午17:00,Email:MgzOfficer010@gmail.com',
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
             showConfirmButton: false,
-            timer: 1500,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
           });
-          this.render();
-        } else {
-          Swal.fire({
+          Toast.fire({
             icon: 'error',
-            title: '付款失敗',
-            text: '請聯絡我們客服人員',
-            footer: '辦公室地址:台北市信義區市府路101號,客服電話:(02)1010101,客服時間:週一至週五上午07:00~下午17:00,Email:MgzOfficer010@gmail.com',
+            title: '連線異常',
           });
-        }
-      });
+        });
     },
     render() {
       const { orderId } = this.$route.params;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order/${orderId}`;
       this.isLoading = true;
-      this.axios.get(api).then((res) => {
-        this.isLoading = false;
-        this.details = res.data.order;
-        this.userData = res.data.order.user;
-      });
+      this.axios.get(api)
+        .then((res) => {
+          this.isLoading = false;
+          this.details = res.data.order;
+          this.userData = res.data.order.user;
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
     },
   },
   mounted() {

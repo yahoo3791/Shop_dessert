@@ -195,6 +195,21 @@ export default {
         })
         .catch((error) => {
           console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
         });
       this.productHistory(id);
     },
@@ -202,6 +217,7 @@ export default {
       this.history.push(id);
       this.history = localStorage.setItem('setHistory', JSON.stringify(this.history));
     },
+    // !!
     addCart(item, e) {
       e.target.childNodes[0].classList.remove('d-none');
       const data = {
@@ -275,6 +291,21 @@ export default {
           })
           .catch((error) => {
             console.log(error);
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+              },
+            });
+            Toast.fire({
+              icon: 'error',
+              title: '連線異常',
+            });
           });
       }
     },
@@ -286,6 +317,21 @@ export default {
         })
         .catch((error) => {
           console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
         });
     },
     onChange(e) {

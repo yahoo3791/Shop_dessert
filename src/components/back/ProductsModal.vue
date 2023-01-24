@@ -201,6 +201,8 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2/dist/sweetalert2';
+import 'sweetalert2/src/sweetalert2.scss';
 import Modalmixin from '@/mixins/modalMixin';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
@@ -238,12 +240,31 @@ export default {
       formData.append('file-to-upload', uploadFile);
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/upload`;
       this.isLoading = true;
-      this.axios.post(url, formData).then((res) => {
-        this.isLoading = false;
-        if (res.data.success) {
-          this.data.imageUrl = res.data.imageUrl;
-        }
-      });
+      this.axios.post(url, formData)
+        .then((res) => {
+          this.isLoading = false;
+          if (res.data.success) {
+            this.data.imageUrl = res.data.imageUrl;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
     },
   },
   mixins: [Modalmixin],

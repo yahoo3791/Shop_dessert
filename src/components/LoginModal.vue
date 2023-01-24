@@ -90,6 +90,8 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2/dist/sweetalert2';
+import 'sweetalert2/src/sweetalert2.scss';
 import modalMixin from '../mixins/modalMixin';
 
 export default {
@@ -106,14 +108,33 @@ export default {
   methods: {
     submit() {
       const api = `${process.env.VUE_APP_API}admin/signin`;
-      this.axios.post(api, this.user).then((res) => {
-        if (res.data.success) {
-          const { token, expired } = res.data;
-          document.cookie = `dessertToken=${token}; expires=${new Date(expired)}`;
-          this.$router.push('/dashboard/backproducts');
-          this.modal.hide();
-        }
-      });
+      this.axios.post(api, this.user)
+        .then((res) => {
+          if (res.data.success) {
+            const { token, expired } = res.data;
+            document.cookie = `dessertToken=${token}; expires=${new Date(expired)}`;
+            this.$router.push('/dashboard/backproducts');
+            this.modal.hide();
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
     },
     contact() {
       this.modal.hide();

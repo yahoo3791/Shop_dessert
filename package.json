@@ -20,6 +20,7 @@
     "json-server": "^0.17.0",
     "mitt": "^3.0.0",
     "node-polyfill-webpack-plugin": "^2.0.1",
+    "prettier": "^2.8.3",
     "sweetalert2": "^11.4.32",
     "swiper": "^8.4.2",
     "vee-validate": "^4.6.7",

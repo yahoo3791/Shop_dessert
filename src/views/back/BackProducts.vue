@@ -233,17 +233,18 @@ export default {
     deleteProduct() {
       this.isLoading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${this.deleteItem.id}`;
-      this.isLoading = false;
       this.axios.delete(api)
         .then((res) => {
           this.$refs.deleteModal.modalHide();
           if (res.data.success) {
+            this.isLoading = false;
             this.getData();
             this.emitter.emit('push-message', {
               style: 'success',
               title: '刪除成功',
             });
           } else {
+            this.isLoading = false;
             this.emitter.emit('push-message', {
               style: 'danger',
               title: '刪除失敗',

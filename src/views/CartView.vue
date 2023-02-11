@@ -408,9 +408,9 @@ export default {
       this.isLoading = true;
       this.axios.put(api, { data: updateData })
         .then((res) => {
-          this.isLoading = false;
           this.getData();
           if (res.data.success) {
+            this.isLoading = false;
             const Toast = Swal.mixin({
               toast: true,
               position: 'top-end',
@@ -427,6 +427,7 @@ export default {
               title: '更新品項成功',
             });
           } else {
+            this.isLoading = false;
             const Toast = Swal.mixin({
               toast: true,
               position: 'top-end',
@@ -527,8 +528,8 @@ export default {
       this.isLoading = true;
       this.axios.put(api, { data: updateData })
         .then((res) => {
-          this.isLoading = false;
           if (res.data.success) {
+            this.isLoading = false;
             const Toast = Swal.mixin({
               toast: true,
               position: 'top-end',
@@ -547,6 +548,7 @@ export default {
             this.getData();
             emitter.emit('updateCartsNum');
           } else {
+            this.isLoading = false;
             const Toast = Swal.mixin({
               toast: true,
               position: 'top-end',
@@ -612,8 +614,8 @@ export default {
       this.isLoading = true;
       this.axios.put(api, { data: updateData })
         .then((res) => {
-          this.isLoading = false;
           if (res.data.success) {
+            this.isLoading = false;
             const Toast = Swal.mixin({
               toast: true,
               position: 'top-end',
@@ -632,6 +634,7 @@ export default {
             this.getData();
             emitter.emit('updateCartsNum');
           } else {
+            this.isLoading = false;
             const Toast = Swal.mixin({
               toast: true,
               position: 'top-end',

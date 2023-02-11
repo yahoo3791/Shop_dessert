@@ -132,14 +132,15 @@ export default {
       this.isLoading = true;
       this.axios[httpMethod](api, { data: this.tempCoupon })
         .then((res) => {
-          this.isLoading = false;
           if (res.data.success) {
+            this.isLoading = false;
             this.updateData();
             this.emitter.emit('push-message', {
               style: 'success',
               title: '更新成功',
             });
           } else {
+            this.isLoading = false;
             this.emitter.emit('push-message', {
               style: 'danger',
               title: '更新失敗',

@@ -110,11 +110,43 @@ export default {
       const api = `${process.env.VUE_APP_API}admin/signin`;
       this.axios.post(api, this.user)
         .then((res) => {
+          console.log(res);
           if (res.data.success) {
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+              },
+            });
+            Toast.fire({
+              icon: 'success',
+              title: '登入成功',
+            });
             const { token, expired } = res.data;
             document.cookie = `dessertToken=${token}; expires=${new Date(expired)}`;
             this.$router.push('/dashboard/backproducts');
             this.modal.hide();
+          } else {
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+              },
+            });
+            Toast.fire({
+              icon: 'error',
+              title: '登入失敗',
+            });
           }
         })
         .catch((error) => {

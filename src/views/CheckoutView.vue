@@ -119,9 +119,9 @@ export default {
       this.isLoading = true;
       this.axios.post(api)
         .then((res) => {
-          this.isLoading = false;
           console.log(res);
           if (res.data.success) {
+            this.isLoading = false;
             Swal.fire({
               position: 'center',
               icon: 'success',
@@ -131,6 +131,7 @@ export default {
             });
             this.render();
           } else {
+            this.isLoading = false;
             Swal.fire({
               icon: 'error',
               title: '付款失敗',

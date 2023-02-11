@@ -130,10 +130,10 @@ export default {
       }
       this.axios.get(api)
         .then((res) => {
-          this.isLoading = false;
           this.orderNumber = '';
           console.log(res.data);
           if (res.data.order === null) {
+            this.isLoading = false;
             Swal.fire({
               icon: 'error',
               title: '訂單編號錯誤',
@@ -141,6 +141,7 @@ export default {
               footer: '辦公室地址:台北市信義區市府路101號<br>客服電話:(02)1010101<br>客服時間:週一至週五上午07:00~下午17:00<br>Email:DessertOfficer010@gmail.com',
             });
           } else {
+            this.isLoading = false;
             this.getOrder = true;
             this.order = res.data.order;
             this.user = res.data.order.user;

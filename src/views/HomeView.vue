@@ -408,9 +408,9 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.isLoading = true;
       this.axios.post(api, { data }).then((res) => {
-        this.isLoading = false;
         e.target.childNodes[0].classList.add('d-none');
         if (res.data.success) {
+          this.isLoading = false;
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -427,6 +427,7 @@ export default {
             title: '成功加入購物車',
           });
         } else {
+          this.isLoading = false;
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

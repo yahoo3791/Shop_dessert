@@ -5,16 +5,6 @@
     <div class="container pt-utility text-white position-relative">
       <div class="row">
         <div
-          class="col-12 text-center pt-5"
-          :class="{ 'd-none': productLoading }">
-          <div
-            class="spinner-border text-light"
-            role="status"
-            style="width: 3rem; height: 3rem;">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-        </div>
-        <div
           class="col-12 text-center"
           :class="{ 'd-none': orderOpen }"
           style="padding: 20vh 0;">
@@ -176,7 +166,7 @@
             </w-flex>
           </div>
           <div class="col-12 text-end">
-            <w-button class="w-btn"
+            <w-button class="w-btn" :class="{'not-allowed': !selection1}"
               @click="contactMethod">下一步
             </w-button>
           </div>
@@ -211,7 +201,6 @@ export default {
       selection1: false,
       deleteItem: {},
       num: 1,
-      productLoading: true,
     };
   },
   components: {
@@ -221,12 +210,12 @@ export default {
     getData() {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.orderOpen = true;
-      this.productLoading = false;
+      this.isLoading = true;
       this.axios.get(api)
         .then((res) => {
           this.orderTotal = res.data.data;
           this.cartsData = res.data.data.carts;
-          this.productLoading = true;
+          this.isLoading = false;
           if (this.cartsData.length === 0) {
             this.orderHide = true;
             this.orderOpen = false;

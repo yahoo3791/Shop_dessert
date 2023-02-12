@@ -21,14 +21,13 @@ body {
 .text-indent2rem {
   text-indent: 2rem;
 }
+.not-allowed {
+  cursor: not-allowed !important;
+}
 /* 麵包削 */
 .breadcrumb-style {
   margin-top: 20px;
   border-radius: 5px;
-  background: $base-color;
-  .breadcrumb-item-none {
-    color: #6c757D
-  }
 }
 .pt-utility {
   padding-top: 60px;

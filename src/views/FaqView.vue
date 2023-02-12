@@ -7,7 +7,7 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb p-2 breadcrumb-style tracking-wider">
               <li class="breadcrumb-item">
-                <a class="text-black text-decoration-none" href="#">首頁</a>
+                <a class="text-white text-decoration-none" href="#">首頁</a>
               </li>
               <li class="breadcrumb-item breadcrumb-item-none">公告&常見問題FAQ</li>
             </ol>

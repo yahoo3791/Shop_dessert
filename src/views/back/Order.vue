@@ -2,12 +2,13 @@
   <loading v-model:active="isLoading" />
   <div
     class="container-fluid text-center text-black"
-    style="padding:40vh 0"
+    style="padding:40vh 0; height: 100vh;"
     v-if="data.length === 0">
     <h2>尚未有訂單。</h2>
   </div>
   <div
     class="container-fluid pt-utility"
+    style="height: 100vh"
     v-else>
     <div class="text-end">
       <button

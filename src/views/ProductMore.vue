@@ -8,24 +8,15 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb py-2 px-1 p-md-2 breadcrumb-style tracking-normal">
               <li class="breadcrumb-item">
-                <a class="text-black text-decoration-none" href="#">首頁</a>
+                <a class="text-white text-decoration-none" href="#">首頁</a>
               </li>
-              <li class="breadcrumb-item breadcrumb-item-none">商品列表</li>
+              <li class="breadcrumb-item breadcrumb-item-none">
+                <a class="text-white text-decoration-none" href="/#/user/products">商品列表</a>
+              </li>
               <li class="breadcrumb-item breadcrumb-item-none" aria-current="page">
                 {{ product.category }}類
               </li>
               <li class="breadcrumb-item breadcrumb-item-none">內容</li>
-              <li class="ms-auto">
-                <router-link
-                  to="/user/products"
-                  class="breadcrumb-item-back text-black text-decoration-none"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="bottom"
-                  title="前往商品頁"
-                >
-                  返回
-                </router-link>
-              </li>
             </ol>
           </nav>
         </div>

@@ -2,6 +2,25 @@
   <Navbar />
   <div class="pt-5">
     <div class="container pt-utility">
+      <div class="row pb-5">
+        <div class="col-12 d-flex justify-content-around pb-2">
+          <div class="p-01">
+            1.確認商品並填寫資料
+          </div>
+          <div class="p-01">
+            2.完成訂單
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="progress">
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+              style="width: 50%">
+            </div>
+            </div>
+        </div>
+      </div>
       <div class="row text-white flex-column-reverse flex-md-row">
         <div class="col-12 col-md-6">
           <div
@@ -135,7 +154,7 @@
                 <select
                   name="payment"
                   id="payment"
-                  class="carts-input text-white w-100 border-0 border-bottom
+                  class="bg-white text-black w-100 border-0 border-bottom
                   p-2 text-center text-lg"
                   style="text-align-last: center"
                 >
@@ -150,7 +169,8 @@
                   <p class="text-white text-xl">我已確認資料無誤</p>
                 </w-checkbox>
               </w-flex>
-              <w-button type="button" class="ms-2 w-btn" @click="submit">付款 </w-button>
+              <w-button type="button" class="ms-2 w-btn" @click="submit"
+              :class="{'not-allowed': !selection1}">付款 </w-button>
             </div>
           </VForm>
         </div>
@@ -219,7 +239,8 @@
                 <p class="text-white text-xl">我已確認資料無誤</p>
               </w-checkbox>
             </w-flex>
-            <w-button class="ms-2 w-btn" @click="submit">付款 </w-button>
+            <w-button class="ms-2 w-btn" @click="submit"
+            :class="{'not-allowed': !selection1}">付款 </w-button>
           </div>
         </div>
       </div>

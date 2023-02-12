@@ -3,10 +3,30 @@
   <Navbar />
   <div class="bg-dark">
     <div class="container">
+      <div class="row pb-5"
+      style="padding-top: 20vh">
+        <div class="col-12 d-flex justify-content-around pb-2">
+          <div class="p-01">
+            1.確認商品並填寫資料
+          </div>
+          <div class="p-01">
+            2.完成訂單
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="progress">
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+              style="width: 100%">
+            </div>
+            </div>
+        </div>
+      </div>
       <div class="row">
         <div
           class="col-12 text-white text-center"
-          style="padding-top: 20vh">
+          style="padding-top: 10vh">
           <h1 class="tracking-widest font-bold">付款成功! 感謝您的惠顧</h1>
           <p>以下是您的訂單資訊</p>
         </div>

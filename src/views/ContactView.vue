@@ -6,7 +6,7 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb py-2 px-1 p-md-2 breadcrumb-style tracking-wider">
               <li class="breadcrumb-item">
-                <a class="text-black text-decoration-none" href="#">首頁</a>
+                <a class="text-white text-decoration-none" href="#">首頁</a>
               </li>
               <li class="breadcrumb-item breadcrumb-item-none">聯絡方式</li>
             </ol>

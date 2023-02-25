@@ -59,5 +59,4 @@ app.use(VueEasyLightbox);
 AOS.init({
   duration: 1200,
 });
-
 app.mount('#app');

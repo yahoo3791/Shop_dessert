@@ -21,10 +21,9 @@
             <h2 class="tracking-widest mb-5">軟在口中，甜在心上。
             </h2>
             <router-link to="/user/products" class="href-none d-block text-center">
-              <w-button
-                type="button"
-                class="w-btn">前往商店
-              </w-button>
+              <button type="button"
+                class="btn btn-light fw-bold">前往商店
+              </button>
             </router-link>
           </div>
         </div>
@@ -47,8 +46,9 @@
             <router-link
               to="/user/products"
               class="href-none">
-              <w-button class="w-btn">前往商店
-              </w-button>
+              <button type="button"
+                class="btn btn-light fw-bold">前往商店
+              </button>
             </router-link>
           </div>
         </div>
@@ -67,8 +67,9 @@
             <router-link
               to="/user/products"
               class="href-none">
-              <w-button class="w-btn">前往商店
-              </w-button>
+              <button type="button"
+                class="btn btn-light fw-bold">前往商店
+              </button>
             </router-link>
           </div>
         </div>
@@ -99,11 +100,11 @@
                 style="z-index:5; top:5%; left:5%">HOT
               </span>
               <div class="product-item position-relative">
-                <w-image
+                <img
                   :src="item.imageUrl"
                   class="position-relative w-100 h-100 product-img"
-                  alt="雜誌圖片">
-                </w-image>
+                  style="object-fit: cover;"
+                  alt="雜誌圖片" />
               <div class="w-100 productNotes-container position-absolute bottom-0 start-50">
                 <i class="productNotes-icon d-block bi bi-info-square text-4xl
                   position-relative top-50 start-50 text-center" />
@@ -153,8 +154,9 @@
           <router-link
             to="/user/products"
             class="href-none">
-            <w-button class="w-btn">看更多
-            </w-button>
+              <button type="button"
+                class="btn btn-light fw-bold">看更多
+              </button>
           </router-link>
         </div>
       </div>
@@ -171,49 +173,13 @@
           <router-link
             to="/user/contact"
             class="href-none">
-            <w-button class="w-btn">聯絡我們
-            </w-button>
+              <button type="button"
+                class="btn btn-light fw-bold">聯絡我們
+              </button>
           </router-link>
         </div>
         <div class="col-12 col-md-6">
-          <swiper ref="{swiperRef}"
-            :slidesPerView="1"
-            :centeredSlides="true"
-            :spaceBetween="30"
-            :navigation="true"
-            :modules="modules"
-            :autoplay="{
-              delay: 2500,
-              disableOnInteraction: false,
-            }"
-            :speed="600"
-            :breakpoints="{
-              '768': {
-                slidesPerView: 2,
-                spaceBetween: 40,
-              },
-            }"
-            class="mySwiper position-relative customized-container">
-            <div class="position-absolute swiper-bg top-0" />
-            <swiper-slide class="position-relative">
-              <img src="@/assets/pic/homepage/母親節蛋糕.png" alt="母親節蛋糕圖片">
-              <h2 class="position-absolute top-50 start-50 translate-middle
-                text-xl font-medium tracking-wider text-nowrap">母親節蛋糕
-              </h2>
-            </swiper-slide>
-            <swiper-slide class="position-relative">
-              <img class="" src="@/assets/pic/homepage/聖誕節餅乾.png" alt="聖誕節餅乾圖片">
-              <h2 class="position-absolute top-50 start-50 translate-middle
-                text-xl font-medium tracking-wider">暖心餅乾
-              </h2>
-            </swiper-slide>
-            <swiper-slide class="position-relative">
-              <img class="" src="@/assets/pic/homepage/萬聖節餅乾.png" alt="萬聖節餅乾圖片">
-              <h2 class="position-absolute top-50 start-50 translate-middle
-                text-xl font-medium tracking-wider">搞怪餅乾
-              </h2>
-            </swiper-slide>
-          </swiper>
+          <Swiper />
         </div>
       </div>
     </div>
@@ -323,21 +289,22 @@
 </template>
 
 <script>
-import {
-  Swiper, SwiperSlide,
-} from 'swiper/vue';
-import {
-  Parallax, Autoplay, Navigation,
-} from 'swiper';
+// import {
+//   Swiper, SwiperSlide,
+// } from 'swiper/vue';
+// import {
+//   Parallax, Autoplay, Navigation,
+// } from 'swiper';
 import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import emitter from '@/methods/emitter';
 import Navbar from '../components/Navbar.vue';
 import Footer from '../components/Footer.vue';
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import '../assets/scss/swiper/homePageSwiper.css';
-import 'swiper/css/navigation';
+import Swiper from '../components/swiper/Swiper.vue';
+// import 'swiper/css';
+// import 'swiper/css/effect-fade';
+// import '../assets/scss/swiper/homePageSwiper.css';
+// import 'swiper/css/navigation';
 import scrollMixins from '../mixins/scroll';
 
 export default {
@@ -355,13 +322,13 @@ export default {
     };
   },
   components: {
-    Navbar, Footer, Swiper, SwiperSlide,
+    Navbar, Footer, Swiper,
   },
-  setup() {
-    return {
-      modules: [Parallax, Autoplay, Navigation],
-    };
-  },
+  // setup() {
+  //   return {
+  //     modules: [Parallax, Autoplay, Navigation],
+  //   };
+  // },
   mixins: [scrollMixins],
   methods: {
     submit() {

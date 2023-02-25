@@ -96,22 +96,30 @@
               </div>
               <div class="py-3 position-relative">
                 <h3 class="tracking-wide text-lg">*性別</h3>
-                <w-radio
-                  class="ps-2"
-                  color="white"
-                  value="male"
-                  name="gendor"
-                  v-model="gendor">
-                  <p class="text-white">男</p>
-                </w-radio>
-                <w-radio
-                  class="ps-3"
-                  color="white"
-                  value="female"
-                  name="gendor"
-                  v-model="gendor">
-                  <p class="text-white">女</p>
-                </w-radio>
+                <div class="form-check">
+                  <label class="form-check-label" for="male">
+                    男
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="gendor"
+                      v-model="gendor"
+                      id="male"
+                      value="male" checked>
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label" for="female">
+                    女
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="gendor"
+                      v-model="gendor"
+                      id="female"
+                      value="female">
+                  </label>
+                </div>
               </div>
               <div class="py-3 position-relative">
                 <h3
@@ -172,11 +180,10 @@
                 </label>
               </div>
               <div class="text-end mb-5 mt-3">
-                <w-button
-                  type="submit"
-                  @click="submit"
-                  class="w-btn">寄送
-                </w-button>
+                <button type="submit"
+                  class="btn btn-light fw-bold"
+                  >寄送
+                </button>
               </div>
             </VForm>
           </div>
@@ -224,22 +231,6 @@ export default {
         Toast.fire({
           icon: 'info',
           title: '資料未完整填寫',
-        });
-      } else if (this.gendor !== true) {
-        const Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer);
-            toast.addEventListener('mouseleave', Swal.resumeTimer);
-          },
-        });
-        Toast.fire({
-          icon: 'info',
-          title: '請填寫性別欄位 <i class="bi bi-emoji-smile-fill"></i>',
         });
       } else {
         const Toast = Swal.mixin({

@@ -70,7 +70,7 @@
                 >SOLD OUT</span
               >
               <div class="product-item position-relative">
-                <w-image
+                <img
                   :src="item.imageUrl"
                   class="position-relative w-100 h-100 product-img"
                   alt="雜誌圖片"

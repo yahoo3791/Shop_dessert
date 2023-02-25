@@ -212,13 +212,11 @@
                 <router-link
                   to="/user/companyContact"
                   class="text-decoration-none">
-                  <w-button
-                  type="button"
-                  class="offset-btn text-white ms-4 px-3
-                  py-md-2 px-md-3 py-lg-3 px-lg-4 border border-2"
-                  lg bg-color="transparent" tile>
-                  聯絡客服人員<i class="bi bi-headset" />
-                  </w-button>
+                  <button type="button"
+                    class="offset-btn text-white ms-4 px-3
+                    py-md-2 px-md-3 py-lg-3 px-lg-4 border border-2"
+                    >聯絡客服人員<i class="bi bi-headset" />
+                  </button>
               </router-link>
             </div>
           </div>

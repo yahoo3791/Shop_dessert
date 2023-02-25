@@ -12,7 +12,11 @@
           <router-link
             to="/user/products"
             class="text-decoration-none">
-            <w-button class="mt-5 w-btn">前往商城</w-button>
+            <button
+              type="button"
+              class="btn btn-light fw-bold mt-5"
+              >前往商城
+            </button>
           </router-link>
         </div>
       </div>

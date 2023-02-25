@@ -27,10 +27,11 @@
           <router-link
             to="/user/products"
             class="text-decoration-none">
-            <w-button
-              type="button"
-              class="mt-5 w-btn">前往商城
-            </w-button>
+            <button type="button"
+              class="btn btn-light fw-bold mt-5"
+              :class="{'not-allowed': !selection1}"
+              >前往商城
+            </button>
           </router-link>
         </div>
         <!-- <div
@@ -107,10 +108,9 @@
                     >SOLD OUT
                   </span>
                   <div class="product-item position-relative">
-                    <w-image :src="item.imageUrl"
+                    <img :src="item.imageUrl"
                       class="position-relative w-100 h-100 product-img"
-                      alt="雜誌圖片">
-                    </w-image>
+                      alt="雜誌圖片" />
                     <div class="w-100 productNotes-container position-absolute bottom-0 start-50">
                       <i
                         class="productNotes-icon d-block bi bi-info-square text-4xl

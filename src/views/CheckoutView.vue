@@ -103,11 +103,12 @@
             </div>
           </div>
           <div class="col-12 pt-2 pb-5 text-end my-5">
-            <w-button
+            <button
               type="button"
-              class="w-btn"
-              @click="$router.push('/user/products')">繼續購物
-            </w-button>
+              class="btn btn-light fw-bold"
+              @click="$router.push('/user/products')"
+              >繼續購物
+            </button>
           </div>
         </div>
       </div>

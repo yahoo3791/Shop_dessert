@@ -10,9 +10,6 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import 'animate.css';
 
-import WaveUI from 'wave-ui';
-import 'wave-ui/dist/wave-ui.css';
-
 import 'vue-loading-overlay/dist/vue-loading.css';
 
 import VueEasyLightbox from 'vue-easy-lightbox';
@@ -41,7 +38,6 @@ configure({
 });
 setLocale('zh_TW');
 const app = createApp(App);
-(() => new WaveUI(app, {}))();
 
 app.component('VForm', Form);
 app.component('VField', Field);

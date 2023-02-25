@@ -169,8 +169,11 @@
                   <p class="text-white text-xl">我已確認資料無誤</p>
                 </w-checkbox>
               </w-flex>
-              <w-button type="button" class="ms-2 w-btn" @click="submit"
-              :class="{'not-allowed': !selection1}">付款 </w-button>
+              <button type="submit"
+                class="btn btn-light fw-bold ms-2"
+                :class="{'not-allowed': !selection1}"
+                >付款
+              </button>
             </div>
           </VForm>
         </div>
@@ -239,8 +242,11 @@
                 <p class="text-white text-xl">我已確認資料無誤</p>
               </w-checkbox>
             </w-flex>
-            <w-button class="ms-2 w-btn" @click="submit"
-            :class="{'not-allowed': !selection1}">付款 </w-button>
+            <button type="submit"
+              class="btn btn-light fw-bold ms-2"
+              :class="{'not-allowed': !selection1}"
+              >付款
+            </button>
           </div>
         </div>
       </div>

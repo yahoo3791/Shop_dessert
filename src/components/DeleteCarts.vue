@@ -26,20 +26,18 @@
           <p class="">{{ deleteNum.qty }}/{{ deleteData.unit }}</p>
         </div>
         <div class="modal-footer">
-          <w-button
+          <button
             type="button"
-            class="modal-btn"
-            bg-color="black"
-            color="white"
-            data-bs-dismiss="modal">取消
-          </w-button>
-          <w-button
+            class="btn btn-light fw-bold"
+            data-bs-dismiss="modal"
+            >取消
+          </button>
+          <button
             type="button"
-            class="modal-btn"
-            bg-color="red"
-            color="white"
-            @click="$emit('checkDelete')">確定刪除
-          </w-button>
+            class="btn btn-light fw-bold"
+            @click="$emit('checkDelete')"
+            >確定刪除
+          </button>
         </div>
       </div>
     </div>

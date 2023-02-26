@@ -139,9 +139,9 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/pay/${orderId}`;
       this.isLoading = true;
       this.axios.post(api)
-        .then((res) => {
-          console.log(res);
-          if (res.data.success) {
+        .then((response) => {
+          console.log(response);
+          if (response.data.success) {
             this.isLoading = false;
             Swal.fire({
               position: 'center',
@@ -185,10 +185,10 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order/${orderId}`;
       this.isLoading = true;
       this.axios.get(api)
-        .then((res) => {
+        .then((response) => {
           this.isLoading = false;
-          this.details = res.data.order;
-          this.userData = res.data.order.user;
+          this.details = response.data.order;
+          this.userData = response.data.order.user;
         })
         .catch((error) => {
           console.log(error);

@@ -132,8 +132,8 @@ export default {
       }
       this.isLoading = true;
       this.axios[httpMethod](api, { data: this.tempCoupon })
-        .then((res) => {
-          if (res.data.success) {
+        .then((response) => {
+          if (response.data.success) {
             this.isLoading = false;
             this.updateData();
             this.emitter.emit('push-message', {
@@ -145,7 +145,7 @@ export default {
             this.emitter.emit('push-message', {
               style: 'danger',
               title: '更新失敗',
-              content: res.data.message.join('、'),
+              content: response.data.message.join('、'),
             });
           }
         })
@@ -172,10 +172,10 @@ export default {
       this.isLoading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/coupons?page=${page}`;
       this.axios.get(api)
-        .then((res) => {
+        .then((response) => {
           this.isLoading = false;
-          this.getCoupons = res.data.coupons;
-          this.pagination = res.data.pagination;
+          this.getCoupons = response.data.coupons;
+          this.pagination = response.data.pagination;
         })
         .catch((error) => {
           console.log(error);
@@ -206,8 +206,8 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/coupon/${id}`;
       this.isLoading = false;
       this.axios.delete(api)
-        .then((res) => {
-          if (res.data.success) {
+        .then((response) => {
+          if (response.data.success) {
             this.updateData();
             this.emitter.emit('push-message', {
               style: 'success',
@@ -217,7 +217,7 @@ export default {
             this.emitter.emit('push-message', {
               style: 'danger',
               title: '刪除失敗',
-              content: res.data.message.join('、'),
+              content: response.data.message.join('、'),
             });
           }
         })

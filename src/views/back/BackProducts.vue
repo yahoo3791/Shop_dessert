@@ -142,11 +142,11 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products?page=${page}`;
       this.isLoading = true;
       this.axios.get(api)
-        .then((res) => {
-          console.log(res);
+        .then((response) => {
+          console.log(response);
           this.isLoading = false;
-          this.Data = res.data.products;
-          this.Pagination = res.data.pagination;
+          this.Data = response.data.products;
+          this.Pagination = response.data.pagination;
         })
         .catch((error) => {
           console.log(error);
@@ -180,11 +180,11 @@ export default {
       // 傳送
       this.isLoading = true;
       this.axios[httpMethod](api, { data: this.tempProduct })
-        .then((res) => {
+        .then((response) => {
           this.isLoading = false;
           this.$refs.productModal.modalHide();
           this.tempProduct = {};
-          if (res.data.success) {
+          if (response.data.success) {
             this.getData();
             this.emitter.emit('push-message', {
               style: 'success',
@@ -194,7 +194,7 @@ export default {
             this.emitter.emit('push-message', {
               style: 'danger',
               title: '更新失敗',
-              content: res.data.message.join('、'),
+              content: response.data.message.join('、'),
             });
           }
         })
@@ -234,9 +234,9 @@ export default {
       this.isLoading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${this.deleteItem.id}`;
       this.axios.delete(api)
-        .then((res) => {
+        .then((response) => {
           this.$refs.deleteModal.modalHide();
-          if (res.data.success) {
+          if (response.data.success) {
             this.isLoading = false;
             this.getData();
             this.emitter.emit('push-message', {
@@ -248,7 +248,7 @@ export default {
             this.emitter.emit('push-message', {
               style: 'danger',
               title: '刪除失敗',
-              content: res.data.message.join('、'),
+              content: response.data.message.join('、'),
             });
           }
         })

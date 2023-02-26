@@ -161,9 +161,9 @@ export default {
       this.productLoading = false;
       this.axios
         .get(api)
-        .then((res) => {
-          this.pagination = res.data.pagination;
-          this.products = res.data.products;
+        .then((response) => {
+          this.pagination = response.data.pagination;
+          this.products = response.data.products;
           this.productLoading = true;
         })
         .catch((error) => {
@@ -189,8 +189,8 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`;
       this.axios
         .get(api)
-        .then((res) => {
-          if (res.data.success) {
+        .then((response) => {
+          if (response.data.success) {
             this.$router.push(`/user/product/${id}`);
           }
         })
@@ -228,9 +228,9 @@ export default {
       this.isLoading = true;
       this.axios
         .post(api, { data })
-        .then((res) => {
+        .then((response) => {
           e.target.childNodes[0].classList.add('d-none');
-          if (res.data.success) {
+          if (response.data.success) {
             this.isLoading = false;
             const Toast = Swal.mixin({
               toast: true,
@@ -291,8 +291,8 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.axios
         .get(api)
-        .then((res) => {
-          this.carts = res.data.data.carts;
+        .then((response) => {
+          this.carts = response.data.data.carts;
         })
         .catch((error) => {
           console.log(error);

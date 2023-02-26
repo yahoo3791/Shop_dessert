@@ -131,9 +131,9 @@ export default {
     getData(page = 1) {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/orders?page=${page}`;
       this.axios.get(api)
-        .then((res) => {
-          this.data = res.data.orders;
-          this.pagination = res.data.pagination;
+        .then((response) => {
+          this.data = response.data.orders;
+          this.pagination = response.data.pagination;
         })
         .catch((error) => {
           console.log(error);

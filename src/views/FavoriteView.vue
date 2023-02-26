@@ -187,9 +187,9 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
       this.productLoading = false;
       this.axios.get(api)
-        .then((res) => {
-          this.products = res.data.products;
-          if (res.data.success) {
+        .then((response) => {
+          this.products = response.data.products;
+          if (response.data.success) {
             this.productLoading = true;
             this.getFavoriteData();
           }
@@ -227,9 +227,9 @@ export default {
       };
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.isLoading = true;
-      this.axios.post(api, { data }).then((res) => {
+      this.axios.post(api, { data }).then((response) => {
         e.target.childNodes[0].classList.add('d-none');
-        if (res.data.success) {
+        if (response.data.success) {
           this.isLoading = false;
           emitter.emit('updateCartsNum');
           const Toast = Swal.mixin({

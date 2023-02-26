@@ -338,9 +338,9 @@ export default {
     getData() {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
       this.productLoading = false;
-      this.axios.get(api).then((res) => {
+      this.axios.get(api).then((response) => {
         this.productLoading = true;
-        this.products = res.data.products.filter((item) => {
+        this.products = response.data.products.filter((item) => {
           if (item.num <= 5 && item.num > 0) {
             return item;
           }
@@ -350,8 +350,8 @@ export default {
     },
     more(id) {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`;
-      this.axios.get(api).then((res) => {
-        if (res.data.success) {
+      this.axios.get(api).then((response) => {
+        if (response.data.success) {
           this.$router.push(`/user/product/${id}`);
         }
       });
@@ -374,9 +374,9 @@ export default {
       };
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.isLoading = true;
-      this.axios.post(api, { data }).then((res) => {
+      this.axios.post(api, { data }).then((response) => {
         e.target.childNodes[0].classList.add('d-none');
-        if (res.data.success) {
+        if (response.data.success) {
           this.isLoading = false;
           const Toast = Swal.mixin({
             toast: true,
@@ -418,8 +418,8 @@ export default {
     renderCarts() {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.axios.get(api)
-        .then((res) => {
-          this.carts = res.data.data.carts;
+        .then((response) => {
+          this.carts = response.data.data.carts;
         })
         .catch((error) => {
           console.log(error);

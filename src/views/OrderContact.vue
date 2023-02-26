@@ -304,8 +304,8 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.axios
         .get(api)
-        .then((res) => {
-          this.cartsData = res.data.data;
+        .then((response) => {
+          this.cartsData = response.data.data;
         })
         .catch((error) => {
           console.log(error);
@@ -333,8 +333,8 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/coupon`;
       this.axios
         .post(api, { data: codeData })
-        .then((res) => {
-          if (res.data.success) {
+        .then((response) => {
+          if (response.data.success) {
             this.getData();
             this.coupon = true;
             this.$refs.codeValue.disabled = true;
@@ -447,10 +447,10 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order`;
       this.axios
         .post(api, { data: this.formData })
-        .then((res) => {
-          console.log(res);
-          const { orderId } = res.data;
-          if (res.data.success) {
+        .then((response) => {
+          console.log(response);
+          const { orderId } = response.data;
+          if (response.data.success) {
             this.$router.push(`/user/checkout/${orderId}`);
           } else {
             console.log('error');

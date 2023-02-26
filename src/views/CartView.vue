@@ -223,9 +223,9 @@ export default {
       this.orderOpen = true;
       this.isLoading = true;
       this.axios.get(api)
-        .then((res) => {
-          this.orderTotal = res.data.data;
-          this.cartsData = res.data.data.carts;
+        .then((response) => {
+          this.orderTotal = response.data.data;
+          this.cartsData = response.data.data.carts;
           this.isLoading = false;
           if (this.cartsData.length === 0) {
             this.orderHide = true;
@@ -257,9 +257,9 @@ export default {
       const { id } = this.deleteItem;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`;
       this.axios.delete(api)
-        .then((res) => {
+        .then((response) => {
           this.$refs.DeleteCarts.modalHide();
-          if (res.data.success) {
+          if (response.data.success) {
             emitter.emit('updateCartsNum', 0);
             const Toast = Swal.mixin({
               toast: true,
@@ -323,10 +323,10 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/carts`;
       this.$refs.DeleteCartsAll.modalHide();
       this.axios.delete(api)
-        .then((res) => {
+        .then((response) => {
           this.getData();
           emitter.emit('updateCartsNum', 0);
-          if (res.data.success) {
+          if (response.data.success) {
             const Toast = Swal.mixin({
               toast: true,
               position: 'top-end',
@@ -407,9 +407,9 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`;
       this.isLoading = true;
       this.axios.put(api, { data: updateData })
-        .then((res) => {
+        .then((response) => {
           this.getData();
-          if (res.data.success) {
+          if (response.data.success) {
             this.isLoading = false;
             const Toast = Swal.mixin({
               toast: true,
@@ -527,8 +527,8 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`;
       this.isLoading = true;
       this.axios.put(api, { data: updateData })
-        .then((res) => {
-          if (res.data.success) {
+        .then((response) => {
+          if (response.data.success) {
             this.isLoading = false;
             const Toast = Swal.mixin({
               toast: true,
@@ -613,8 +613,8 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`;
       this.isLoading = true;
       this.axios.put(api, { data: updateData })
-        .then((res) => {
-          if (res.data.success) {
+        .then((response) => {
+          if (response.data.success) {
             this.isLoading = false;
             const Toast = Swal.mixin({
               toast: true,

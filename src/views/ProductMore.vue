@@ -201,9 +201,9 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`;
       this.axios
         .get(api)
-        .then((res) => {
+        .then((response) => {
           this.productLoading = true;
-          this.product = res.data.product;
+          this.product = response.data.product;
         })
         .catch((error) => {
           console.log(error);
@@ -253,9 +253,9 @@ export default {
       this.isLoading = true;
       this.axios
         .post(api, { data: cartData })
-        .then((res) => {
+        .then((response) => {
           e.target.children[0].classList.add('d-none');
-          if (res.data.success) {
+          if (response.data.success) {
             this.isLoading = false;
             emitter.emit('updateCartsNum');
             const Toast = Swal.mixin({
@@ -328,9 +328,9 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
       this.axios
         .get(api)
-        .then((res) => {
-          this.productAll = res.data.products;
-          if (res.data.success) {
+        .then((response) => {
+          this.productAll = response.data.products;
+          if (response.data.success) {
             this.updateHistory();
           }
         })

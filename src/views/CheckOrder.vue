@@ -129,10 +129,10 @@ export default {
         return;
       }
       this.axios.get(api)
-        .then((res) => {
+        .then((response) => {
           this.orderNumber = '';
-          console.log(res.data);
-          if (res.data.order === null) {
+          console.log(response.data);
+          if (response.data.order === null) {
             this.isLoading = false;
             Swal.fire({
               icon: 'error',
@@ -143,8 +143,8 @@ export default {
           } else {
             this.isLoading = false;
             this.getOrder = true;
-            this.order = res.data.order;
-            this.user = res.data.order.user;
+            this.order = response.data.order;
+            this.user = response.data.order.user;
           }
         })
         .catch((error) => {

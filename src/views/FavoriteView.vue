@@ -29,50 +29,10 @@
             class="text-decoration-none">
             <button type="button"
               class="btn btn-light fw-bold mt-5"
-              :class="{'not-allowed': !selection1}"
               >前往商城
             </button>
           </router-link>
         </div>
-        <!-- <div
-          class="col-12 col-md-3"
-          :class="{ 'd-none' :favoriteData.length <= 1 }">
-          <div
-            class="px-0 px-md-0 d-flex flex-wrap justify-content-end
-            justify-content-md-center align-items-center mt-3">
-            <label
-              for="sort"
-              class="text-white pe-2 pb-md-2 d-inline-block">顯示方法
-              <div
-                class="bg-white tracking-wide
-                font-medium d-inline-block"
-                style="max-width:300px;border-radius: 5px;">
-                <select
-                  name="sort"
-                  id="sort"
-                  class="text-black tracking-wide
-                  font-medium px-4 py-1 border-0"
-                  @change="onChange($event)">
-                  <option
-                    selected="selected"
-                    disabled="disabled"
-                    style='display: none'
-                    value=''>選擇顯示方法
-                  </option>
-                  <option
-                  value="熱銷商品">熱銷商品
-                  </option>
-                  <option
-                  value="價格排序低到高">價格排序低到高
-                  </option>
-                  <option
-                  value="價格排序高到低">價格排序高到低
-                  </option>
-                </select>
-              </div>
-            </label>
-          </div>
-        </div> -->
         <div
           class="col-12 text-center pt-5"
           :class="{ 'd-none': productLoading }"

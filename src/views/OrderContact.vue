@@ -50,26 +50,33 @@
             </div>
             <div class="py-3 position-relative">
               <h3 class="tracking-wide text-lg">*性別</h3>
-              <w-radio
-                class="ps-2"
-                color="white"
-                value="male"
-                name="gendor"
-                id="gendor"
-                v-model="gendor"
-              >
-                <p class="text-white">男</p>
-              </w-radio>
-              <w-radio
-                class="ps-3"
-                color="white"
-                value="female"
-                name="gendor"
-                id="gendor"
-                v-model="gendor"
-              >
-                <p class="text-white">女</p>
-              </w-radio>
+                <div class="form-check">
+                  <label class="form-check-label" for="male">
+                    男
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="gendor"
+                      v-model="gendor"
+                      id="male"
+                      value="male"
+                      checked
+                    />
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label" for="female">
+                    女
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="gendor"
+                      v-model="gendor"
+                      id="female"
+                      value="female"
+                    />
+                  </label>
+                </div>
             </div>
             <div class="py-3 position-relative">
               <h3 class="d-block formData-label tracking-widest text-lg" for="email">
@@ -164,11 +171,14 @@
               </label>
             </div>
             <div class="text-end mb-5 mt-3 d-block d-md-none">
-              <w-flex class="align-center tracking-wide">
-                <w-checkbox class="ms-auto mb-5" color="grey" v-model="selection1">
-                  <p class="text-white text-xl">我已確認資料無誤</p>
-                </w-checkbox>
-              </w-flex>
+              <div class="form-check text-end">
+                <label
+                  class="form-check-label text-white text-xl ms-auto"
+                  for="check">
+                  <input class="form-check-input" type="checkbox"
+                  value="" id="check" v-model="selection1">我已確認商品資訊
+                </label>
+              </div>
               <button type="submit"
                 class="btn btn-light fw-bold ms-2"
                 :class="{'not-allowed': !selection1}"
@@ -237,12 +247,16 @@
             </div>
           </div>
           <div class="text-end mb-5 d-none d-md-block">
-            <w-flex class="align-center tracking-wide">
-              <w-checkbox class="ms-auto mb-5" color="grey" v-model="selection1">
-                <p class="text-white text-xl">我已確認資料無誤</p>
-              </w-checkbox>
-            </w-flex>
-            <button type="submit"
+            <div class="form-check text-end">
+              <label
+                class="form-check-label text-white text-xl ms-auto"
+                for="check">
+                <input class="form-check-input" type="checkbox"
+                value="" id="check" v-model="selection1">我已確認商品資訊
+              </label>
+            </div>
+            <button type="button"
+              @click="submit"
               class="btn btn-light fw-bold ms-2"
               :class="{'not-allowed': !selection1}"
               >付款
@@ -395,7 +409,7 @@ export default {
           icon: 'info',
           title: '資料未完整填寫',
         });
-      } else if (this.gendor !== true) {
+      } else if (this.gendor !== '') {
         const Toast = Swal.mixin({
           toast: true,
           position: 'top-end',

@@ -27,16 +27,18 @@
               style="border-bottom: 1px solid #404040;">
               <h1 class="mb-0 text-center tracking-widest font-bold text-3xl">購物車</h1>
               <div>
-                <w-button
-                  class="w-btn"
+                <button
+                  type="button"
+                  class="btn btn-light fw-bold"
                   @click="$refs.DeleteCartsAll.modalShow()">
                   刪除全部
-                </w-button>
-                <w-button
-                  class="w-btn ms-2"
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-light fw-bold ms-2"
                   @click="$router.push('/user/products')">
                   繼續購物
-                </w-button>
+                </button>
               </div>
             </div>
           </div>
@@ -49,11 +51,12 @@
             <div
               class="d-flex d-md-none justify-content-between
               pb-2 mb-2 tracking-wide">
-              <w-button
-                class="w-btn ms-2"
-                @click="open(item,key)">
-                編輯
-              </w-button>
+              <button
+                  type="button"
+                  class="btn btn-light fw-bold ms-2"
+                  @click="open(item,key)">
+                  編輯
+                </button>
               <p>{{ item.product.category }}類</p>
             </div>
             <div
@@ -160,19 +163,23 @@
         </div>
         <div class="row">
           <div class="col-12 mb-5">
-            <w-flex class="align-center tracking-wide">
-              <w-checkbox
-                class="ms-auto"
-                color="grey"
-                v-model="selection1">
-                <p class="text-white text-xl">我已確認商品資訊</p>
-              </w-checkbox>
-            </w-flex>
+            <div class="form-check text-end">
+              <label
+                class="form-check-label text-white text-xl ms-auto"
+                for="check">
+                <input class="form-check-input" type="checkbox"
+                value="" id="check" v-model="selection1">我已確認商品資訊
+              </label>
+            </div>
           </div>
           <div class="col-12 text-end">
-            <w-button class="w-btn" :class="{'not-allowed': !selection1}"
-              @click="contactMethod">下一步
-            </w-button>
+            <button
+              type="button"
+              class="btn btn-light fw-bold"
+              :class="{'not-allowed': !selection1}"
+              @click="contactMethod">
+              下一步
+            </button>
           </div>
         </div>
         </div>

@@ -23,20 +23,18 @@
           清除購物車
         </div>
         <div class="modal-footer">
-          <w-button
+          <button
             type="button"
-            class="modal-btn"
-            bg-color="black"
-            color="white"
-            data-bs-dismiss="modal">取消
-          </w-button>
-          <w-button
+            class="btn btn-primary fw-bold"
+            data-bs-dismiss="modal"
+            >取消
+          </button>
+          <button
             type="button"
-            class="modal-btn"
-            bg-color="red"
-            color="white"
-            @click="$emit('checkDeleteAll')">確定刪除
-          </w-button>
+            class="btn btn-danger fw-bold"
+            @click="$emit('checkDeleteAll')"
+            >確定刪除
+          </button>
         </div>
       </div>
     </div>

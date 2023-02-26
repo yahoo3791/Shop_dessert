@@ -28,13 +28,13 @@
         <div class="modal-footer">
           <button
             type="button"
-            class="btn btn-light fw-bold"
+            class="btn btn-primary fw-bold"
             data-bs-dismiss="modal"
             >取消
           </button>
           <button
             type="button"
-            class="btn btn-light fw-bold"
+            class="btn btn-danger fw-bold"
             @click="$emit('checkDelete')"
             >確定刪除
           </button>

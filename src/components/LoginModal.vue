@@ -77,10 +77,10 @@
                   其他疑問
                 </div>
               </div>
-              <w-button
-                class="w-btn"
-                type="submit">登入
-              </w-button>
+              <button
+                type="submit"
+                class="btn btn-light fw-bold">登入
+              </button>
             </div>
           </VForm>
           </div>

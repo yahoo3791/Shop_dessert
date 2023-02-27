@@ -87,7 +87,8 @@
               <h3 class="d-block formData-label tracking-wide text-lg">*聯絡人姓名</h3>
               <VField
                 id="name"
-                name="姓名"
+                name="name"
+                label="姓名"
                 rules="required"
                 type="text"
                 class="carts-input w-100 p-2 border-0 border-bottom text-white"
@@ -98,7 +99,7 @@
               <ErrorMessage
                 style="color: #ff4343"
                 class="ps-2 position-absolute text-xs"
-                name="姓名"
+                name="name"
               />
             </div>
             <div class="py-3 position-relative">
@@ -137,7 +138,8 @@
               </h3>
               <VField
                 id="email"
-                name="信箱"
+                name="email"
+                label="信箱"
                 rules="required|email"
                 type="email"
                 class="carts-input w-100 p-2 border-0 border-bottom text-white"
@@ -148,7 +150,7 @@
               <ErrorMessage
                 style="color: #ff4343"
                 class="ps-2 position-absolute text-xs"
-                name="信箱"
+                name="email"
               />
             </div>
             <div class="py-3 position-relative">
@@ -157,7 +159,8 @@
               </h3>
               <VField
                 id="phone"
-                name="手機"
+                name="phone"
+                label="手機"
                 rules="required"
                 type="tel"
                 class="carts-input w-100 p-2 border-0 border-bottom text-white"
@@ -168,7 +171,7 @@
               <ErrorMessage
                 style="color: #ff4343"
                 class="ps-2 position-absolute text-xs"
-                name="手機"
+                name="phone"
               />
             </div>
             <div class="py-3 position-relative">

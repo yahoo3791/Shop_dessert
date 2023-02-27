@@ -31,7 +31,8 @@
               <VField
                 id="account"
                 v-model="user.username"
-                name="帳號"
+                name="account"
+                label="帳號"
                 rules="required"
                 type="account"
                 class="carts-input w-100 p-2 border-0 border-bottom text-white"
@@ -40,7 +41,7 @@
               <ErrorMessage
                 style="color:#ff4343"
                 class="ps-2 position-absolute text-sm"
-                name="帳號" />
+                name="account" />
             </div>
             <div class="py-3 position-relative">
               <h3 class="d-block formData-label
@@ -50,7 +51,8 @@
               <VField
                 id="password"
                 v-model="user.password"
-                name="密碼"
+                name="password"
+                label="密碼"
                 rules="required"
                 type="password"
                 class="carts-input w-100 p-2 border-0 border-bottom text-white"
@@ -59,7 +61,7 @@
               <ErrorMessage
                 style="color:#ff4343"
                 class="ps-2 position-absolute text-sm"
-                name="密碼" />
+                name="password" />
             </div>
             <div class="modal-footer border-0 p-0 mt-5">
               <div

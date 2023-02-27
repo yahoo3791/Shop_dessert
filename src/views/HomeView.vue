@@ -252,9 +252,10 @@
               <VField
                 v-model="subMail"
                 type="email"
-                name="信箱"
+                name="email"
                 id="subscription"
                 rules="required|email"
+                label="信箱"
                 :validateOnBlur="false"
                 :validateOnChange="false"
                 class="sub-input d-inline-block bg-transparent
@@ -266,7 +267,7 @@
               </button>
               <ErrorMessage
                 :class="{ 'd-none': subMail == ''}"
-                name="信箱"
+                name="email"
                 style="color:orangered" />
             </div>
           </VForm>

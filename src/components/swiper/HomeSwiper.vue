@@ -44,7 +44,7 @@
 import {
   Swiper, SwiperSlide,
 } from 'swiper/vue';
-import 'swiper/css';
+// import 'swiper/css';
 import '@/assets/scss/swiper/homePageSwiper.css';
 // import { Navigation, Pagination } from 'swiper';
 

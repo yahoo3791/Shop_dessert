@@ -299,9 +299,9 @@
 import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import emitter from '@/methods/emitter';
-import Navbar from '../components/Navbar.vue';
-import Footer from '../components/Footer.vue';
-import Swiper from '../components/swiper/Swiper.vue';
+import Navbar from '../components/FrontNavbar.vue';
+import Footer from '../components/FrontFooter.vue';
+import Swiper from '../components/swiper/HomeSwiper.vue';
 // import 'swiper/css';
 // import 'swiper/css/effect-fade';
 // import '../assets/scss/swiper/homePageSwiper.css';

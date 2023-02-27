@@ -117,7 +117,7 @@ import 'sweetalert2/src/sweetalert2.scss';
 import productModal from '@/components/back/ProductsModal.vue';
 import deleteModal from '@/components/back/DeleteProductsModal.vue';
 import 'vue-loading-overlay/dist/vue-loading.css';
-import pagination from '@/components/back/Pagination.vue';
+import pagination from '@/components/back/BackPagination.vue';
 
 export default {
   data() {

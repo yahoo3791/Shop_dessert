@@ -12,16 +12,16 @@
 </template>
 
 <script>
-import Toast from 'bootstrap/js/dist/toast';
+import ToastMessages from 'bootstrap/js/dist/toast';
 
 export default {
-  name: 'Toast',
+  name: 'ToastMessages',
   props: [
     'msg',
   ],
   mounted() {
     const toastEl = this.$refs.toast;
-    const toast = new Toast(toastEl, {
+    const toast = new ToastMessages(toastEl, {
       delay: 6000,
     });
     toast.show();

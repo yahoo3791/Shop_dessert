@@ -9,7 +9,7 @@ const routes = [
   },
   {
     path: '/user',
-    component: () => import('../views/Userboard.vue'),
+    component: () => import('../views/UserBoard.vue'),
     children: [
       {
         path: 'products',
@@ -61,7 +61,7 @@ const routes = [
   {
     path: '/dashboard',
     name: 'dashboard',
-    component: () => import('../views/Dashboard.vue'),
+    component: () => import('../views/DashBoard.vue'),
     children: [
       {
         path: 'backproducts',
@@ -71,12 +71,12 @@ const routes = [
       {
         path: 'order',
         name: '管理訂單',
-        component: () => import('../views/back/Order.vue'),
+        component: () => import('../views/back/BackOrder.vue'),
       },
       {
         path: 'coupon',
         name: '管理優惠卷',
-        component: () => import('../views/back/Coupon.vue'),
+        component: () => import('../views/back/BackCoupon.vue'),
       },
     ],
   },

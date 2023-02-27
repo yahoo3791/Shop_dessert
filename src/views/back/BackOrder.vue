@@ -106,7 +106,7 @@
 
 <script>
 import orderModal from '@/components/back/OrderModal.vue';
-import Pagination from '@/components/back/Pagination.vue';
+import Pagination from '@/components/back/BackPagination.vue';
 import deleteModal from '@/components/back/DeleteOrderModal.vue';
 import deleteOrderAllModal from '@/components/back/DeleteOrderAllModal.vue';
 import Swal from 'sweetalert2/dist/sweetalert2';

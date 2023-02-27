@@ -162,7 +162,7 @@
       </div>
       <div class="line my-5" />
     </div>
-    <div class="container">
+    <!-- <div class="container">
       <div class="row flex-column-reverse flex-md-row-reverse align-items-md-center">
         <div class="col-12 col-md-6 text-center py-5 py-md-0">
           <h1 class="title-01">客製化訂單</h1>
@@ -182,7 +182,7 @@
           <Swiper />
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="container">
       <div class="row py-5">
         <div class="col-12 mb-5"
@@ -301,7 +301,7 @@ import 'sweetalert2/src/sweetalert2.scss';
 import emitter from '@/methods/emitter';
 import Navbar from '../components/FrontNavbar.vue';
 import Footer from '../components/FrontFooter.vue';
-import Swiper from '../components/swiper/HomeSwiper.vue';
+// import Swiper from '../components/swiper/HomeSwiper.vue';
 // import 'swiper/css';
 // import 'swiper/css/effect-fade';
 // import '../assets/scss/swiper/homePageSwiper.css';
@@ -323,7 +323,7 @@ export default {
     };
   },
   components: {
-    Navbar, Footer, Swiper,
+    Navbar, Footer, // Swiper
   },
   // setup() {
   //   return {

@@ -6,7 +6,7 @@
       <div class="row">
         <div
           class="col-12 text-center"
-          :class="{ 'd-none': orderOpen }"
+          :class="{ 'd-none': cartsSwitch }"
           style="padding: 20vh 0;">
           <h1 class="title-01">購物車無加入商品</h1>
           <router-link
@@ -20,7 +20,7 @@
           </router-link>
         </div>
       </div>
-      <div :class="{ 'd-none': orderHide }">
+      <div :class="{ 'd-none': !cartsSwitch }">
         <div class="row mx-0">
           <div class="col-12 p-0 my-4">
             <div class="d-flex justify-content-between align-items-center pb-3"
@@ -46,7 +46,7 @@
         <div class="row">
           <div
             class="col-12 mt-4 mb-2"
-            v-for="item,key in cartsData"
+            v-for="item,key in cartsData.carts"
             :key="item.id">
             <div
               class="d-flex d-md-none justify-content-between
@@ -158,7 +158,7 @@
             </div>
           </div>
           <p class="text-white text-end tracking-widest font-semibold text-xl
-            pb-3">總計 {{ $filters.currency( orderTotal.total ) }} $
+            pb-3">總計 {{ $filters.currency( cartsData.total ) }} $
           </p>
         </div>
         <div class="row">
@@ -204,13 +204,11 @@ export default {
   data() {
     return {
       cartsData: {},
+      deleteItem: {},
       isLoading: false,
-      orderHide: true,
-      orderOpen: false,
-      orderTotal: {},
+      cartsSwitch: false,
       openDoor: false,
       selection1: false,
-      deleteItem: {},
       num: 1,
     };
   },
@@ -220,18 +218,15 @@ export default {
   methods: {
     getData() {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      this.orderOpen = true;
+      this.cartsSwitch = true;
       this.isLoading = true;
       this.axios.get(api)
         .then((response) => {
-          this.orderTotal = response.data.data;
-          this.cartsData = response.data.data.carts;
+          console.log(response);
+          this.cartsData = response.data.data;
           this.isLoading = false;
-          if (this.cartsData.length === 0) {
-            this.orderHide = true;
-            this.orderOpen = false;
-          } else {
-            this.orderHide = false;
+          if (this.cartsData.carts.length === 0) {
+            this.cartsSwitch = false;
           }
         })
         .catch((error) => {
@@ -491,14 +486,14 @@ export default {
         this.$refs.right[k].style.transform = 'translateX(0px)';
         this.$refs.left[k].style.transform = 'translateX(-500px)';
         this.openDoor = false;
-      } else if (this.openDoor === false) {
+      } else if (this.openDoor !== true) {
         this.$refs.right[k].style.transform = 'translateX(100px)';
         this.$refs.left[k].style.transform = 'translateX(0px)';
         this.openDoor = true;
       }
     },
     add(id, k) {
-      this.num = this.cartsData[k].qty;
+      this.num = this.cartsData.carts[k].qty;
       this.num += 1;
       if (this.num >= 50) {
         this.$refs.updateValue[k].value = 1;
@@ -586,7 +581,7 @@ export default {
         });
     },
     min(id, k) {
-      this.num = this.cartsData[k].qty;
+      this.num = this.cartsData.carts[k].qty;
       this.num -= 1;
       if (this.num <= 0) {
         const Toast = Swal.mixin({

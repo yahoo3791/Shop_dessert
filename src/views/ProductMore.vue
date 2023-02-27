@@ -145,7 +145,7 @@
         </div>
       </div>
     </div>
-    <div class="container" v-if="sameProduct.length !== 0">
+    <!-- <div class="container" v-if="sameProduct.length !== 0">
       <div class="row justify-content-center">
         <div class="col-12 col-md-9 py-5 text-white">
           <h4
@@ -154,11 +154,11 @@
           >
             您可能喜歡這些...
           </h4>
-          <!-- swiper -->
-          <!-- <productMoreSwiper /> -->
+          // swiper
+          // <productMoreSwiper />
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   <Footer />
 </template>

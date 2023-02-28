@@ -64,3 +64,26 @@ body {
     font-size: 10px;
   }
 }
+.auto-height {
+  height: calc(100vh - 149px) !important;
+}
+@media (max-width:375px) {
+  .auto-height {
+    height: calc(100vh - 184px) !important;
+  }
+}
+@media (max-width:425px) {
+  .auto-height {
+    height: calc(100vh - 205px) !important;
+  }
+}
+@media (max-width:1023px) {
+  .auto-height {
+    height: calc(100vh - 237px) !important;
+  }
+}
+@media (min-width:1024px) {
+  .auto-height {
+    height: calc(100vh - 237px) !important;
+  }
+}

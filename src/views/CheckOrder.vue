@@ -1,7 +1,7 @@
 <template>
   <loading v-model:active="isLoading" />
   <Navbar />
-  <div class="bg-dark" style="min-height: calc(100vh - 205px)">
+  <div class="bg-dark auto-height">
     <div class="container">
       <div class="row">
         <div

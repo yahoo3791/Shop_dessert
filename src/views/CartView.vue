@@ -1,8 +1,9 @@
 <template>
   <loading v-model:active="isLoading" />
   <Navbar />
-  <div class="bg-dark w-100 h-100 pb-5 overflow-hidden position-relative">
-    <div class="container pt-utility text-white position-relative">
+  <div class="bg-dark w-100 h-100 overflow-hidden position-relative">
+    <div class="container pt-utility text-white position-relative"
+    :class="{ 'auto-height': !cartsSwitch }">
       <div class="row">
         <div
           class="col-12 text-center"
@@ -161,7 +162,7 @@
             pb-3">總計 {{ $filters.currency( cartsData.total ) }} $
           </p>
         </div>
-        <div class="row">
+        <div class="row pb-5">
           <div class="col-12 mb-5">
             <div class="form-check text-end">
               <label

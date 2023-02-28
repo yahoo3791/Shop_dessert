@@ -2,9 +2,10 @@
   <Navbar />
   <Loading v-model:active="isLoading" />
   <div class="bg-dark">
-    <div class="container pt-utility">
+    <div class="container pt-utility auto-height">
       <div class="row">
-        <div class="col-12">
+        <div class="col-12"
+        :class="{ 'd-none' : favoriteData.length == 0}">
           <nav aria-label="breadcrumb">
             <ol
               class="breadcrumb py-2 px-1 p-md-2

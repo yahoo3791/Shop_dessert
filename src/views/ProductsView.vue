@@ -27,7 +27,7 @@
                 name="sort"
                 id="sort"
                 class="text-black tracking-wide font-medium px-4 py-1 border-0"
-                @change="onChange(e)"
+                @change="onChange($event)"
               >
                 <option selected="selected" disabled="disabled" style="display: none" value="">
                   選擇顯示方法
@@ -315,13 +315,16 @@ export default {
     },
     onChange(e) {
       const { value } = e.target;
-      if (value === '價格排序低到高' && this.products.length > 1) {
-        this.products.sort((a, b) => a.price - b.price);
-      } else if (value === '價格排序高到低' && this.products.length > 1) {
-        this.products.sort((b, a) => a.price - b.price);
-      } else if (value === '熱銷商品' && this.products.length > 1) {
-        this.products.sort((a, b) => a.num - b.num);
+      switch (value) {
+        case '價格排序低到高':
+          return this.products.sort((a, b) => a.price - b.price);
+        case '價格排序高到低':
+          return this.products.sort((b, a) => a.price - b.price);
+        case '熱銷商品':
+          return this.products.sort((a, b) => a.num - b.num);
+        default: this.products();
       }
+      return false;
     },
     addFav(item) {
       if (this.favoriteData.includes(item.id)) {
@@ -377,12 +380,6 @@ export default {
   mounted() {
     this.getData();
     this.updateFav();
-  },
-  computed: {
-    sortedItems() {
-      console.log('a');
-      return true;
-    },
   },
 };
 </script>

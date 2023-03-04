@@ -106,29 +106,29 @@
               <h3 class="tracking-wide text-lg">*性別</h3>
               <div class="form-check">
                 <label class="form-check-label" for="male">
-                  男
                   <input
-                    class="form-check-input"
-                    type="radio"
-                    name="gendor"
-                    v-model="gendor"
-                    id="male"
-                    value="male"
-                    checked
+                  class="form-check-input"
+                  type="radio"
+                  name="gendor"
+                  v-model="gendor"
+                  id="male"
+                  value="male"
+                  checked
                   />
+                  男
                 </label>
               </div>
               <div class="form-check">
                 <label class="form-check-label" for="female">
-                  女
                   <input
-                    class="form-check-input"
-                    type="radio"
-                    name="gendor"
-                    v-model="gendor"
-                    id="female"
-                    value="female"
+                  class="form-check-input"
+                  type="radio"
+                  name="gendor"
+                  v-model="gendor"
+                  id="female"
+                  value="female"
                   />
+                  女
                 </label>
               </div>
             </div>

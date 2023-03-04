@@ -31,19 +31,13 @@
       <div class="row justify-content-center align-items-center">
         <div class="col-12 col-md-4">
           <div
-            class="position-relative cursor-pointer overflow-hidden"
+            class="position-relative overflow-hidden"
             @click="showSingle"
             @keypress="showSingle"
           >
             <img :src="product.imageUrl" class="w-100 h-100" alt="productImage" />
             <div class="position-absolute swiper-bg top-0" />
           </div>
-          <vue-easy-lightbox
-            :visible="visibleRef"
-            :imgs="product.imageUrl"
-            :index="indexRef"
-            @hide="onHide"
-          />
         </div>
         <div class="col-12 col-md-5 offset-md-1 d-flex flex-column justify-content-between">
           <div>
@@ -210,7 +204,6 @@ import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 
 import emitter from '@/methods/emitter';
-import VueEasyLightbox from 'vue-easy-lightbox';
 
 register();
 
@@ -231,7 +224,6 @@ export default {
     Loading,
     Navbar,
     Footer,
-    VueEasyLightbox,
   },
   methods: {
     getData() {
@@ -374,6 +366,7 @@ export default {
           }
         })
         .catch((error) => {
+          console.log(error);
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

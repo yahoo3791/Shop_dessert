@@ -27,7 +27,7 @@
                 name="sort"
                 id="sort"
                 class="text-black tracking-wide font-medium px-4 py-1 border-0"
-                @change="onChange($event)"
+                @change="onChange(e)"
               >
                 <option selected="selected" disabled="disabled" style="display: none" value="">
                   選擇顯示方法
@@ -73,7 +73,7 @@
                 <img
                   :src="item.imageUrl"
                   class="position-relative w-100 h-100 product-img"
-                  alt="雜誌圖片"
+                  alt="商品圖片"
                 />
                 <div class="w-100 productNotes-container position-absolute bottom-0 start-50">
                   <i
@@ -378,6 +378,11 @@ export default {
     this.getData();
     this.updateFav();
   },
-  computed: {},
+  computed: {
+    sortedItems() {
+      console.log('a');
+      return true;
+    },
+  },
 };
 </script>

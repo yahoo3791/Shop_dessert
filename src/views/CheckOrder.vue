@@ -1,7 +1,8 @@
 <template>
   <loading v-model:active="isLoading" />
   <Navbar />
-  <div class="bg-dark auto-height">
+  <div class="bg-dark"
+  :class="{'auto-height' : !getOrder}">
     <div class="container">
       <div class="row">
         <div

@@ -170,7 +170,7 @@
                 @keydown="more(item.id, index)"
                 style="max-width: 250px"
               >
-                <img :src="item.imageUrl" alt="您可能喜歡的圖片" />
+                <img :src="item.imageUrl" class="w-100" alt="您可能喜歡的圖片" />
                 <h5 class="product-content-h5 text-base font-medium tracking-wide py-2">
                   {{ item.title }}
                 </h5>
@@ -374,8 +374,6 @@ export default {
           }
         })
         .catch((error) => {
-          console.log(error);
-          console.log(error);
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

@@ -162,7 +162,7 @@
       </div>
       <div class="line my-5" />
     </div>
-    <!-- <div class="container">
+    <div class="container">
       <div class="row flex-column-reverse flex-md-row-reverse align-items-md-center">
         <div class="col-12 col-md-6 text-center py-5 py-md-0">
           <h1 class="title-01">客製化訂單</h1>
@@ -179,10 +179,46 @@
           </router-link>
         </div>
         <div class="col-12 col-md-6">
-          <Swiper />
+          <swiper-container
+            :slidesPerView="1"
+            :centeredSlides="true"
+            :spaceBetween="30"
+            :navigation="true"
+            :autoplay="{
+              delay: 2500,
+              disableOnInteraction: false,
+            }"
+            :speed="600"
+            :breakpoints="{
+              '768': {
+                slidesPerView: 2,
+                spaceBetween: 40,
+              },
+            }"
+            class="mySwiper position-relative customized-container">
+          <div class="position-absolute swiper-bg top-0" />
+            <swiper-slide class="position-relative">
+              <img class="w-100" src="../assets/pic/homepage/母親節蛋糕.png" alt="母親節蛋糕">
+              <h2 class="position-absolute top-50 start-50 translate-middle
+                text-xl font-medium tracking-wider text-nowrap">母親節蛋糕
+              </h2>
+            </swiper-slide>
+            <swiper-slide class="position-relative">
+              <img class="w-100" src="@/assets/pic/homepage/聖誕節餅乾.png" alt="聖誕節餅乾圖片">
+              <h2 class="position-absolute top-50 start-50 translate-middle
+                text-xl font-medium tracking-wider">暖心餅乾
+              </h2>
+            </swiper-slide>
+            <swiper-slide class="position-relative">
+              <img class="w-100" src="@/assets/pic/homepage/萬聖節餅乾.png" alt="萬聖節餅乾圖片">
+              <h2 class="position-absolute top-50 start-50 translate-middle
+                text-xl font-medium tracking-wider">搞怪餅乾
+              </h2>
+            </swiper-slide>
+          </swiper-container>
         </div>
       </div>
-    </div> -->
+    </div>
     <div class="container">
       <div class="row py-5">
         <div class="col-12 mb-5"
@@ -290,23 +326,16 @@
 </template>
 
 <script>
-// import {
-//   Swiper, SwiperSlide,
-// } from 'swiper/vue';
-// import {
-//   Parallax, Autoplay, Navigation,
-// } from 'swiper';
 import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import emitter from '@/methods/emitter';
+import { register } from 'swiper/element/bundle';
+import '@/assets/scss/swiper/homePageSwiper.css';
 import Navbar from '../components/FrontNavbar.vue';
 import Footer from '../components/FrontFooter.vue';
-// import Swiper from '../components/swiper/HomeSwiper.vue';
-// import 'swiper/css';
-// import 'swiper/css/effect-fade';
-// import '../assets/scss/swiper/homePageSwiper.css';
-// import 'swiper/css/navigation';
 import scrollMixins from '../mixins/scroll';
+
+register();
 
 export default {
   data() {
@@ -323,13 +352,8 @@ export default {
     };
   },
   components: {
-    Navbar, Footer, // Swiper
+    Navbar, Footer,
   },
-  // setup() {
-  //   return {
-  //     modules: [Parallax, Autoplay, Navigation],
-  //   };
-  // },
   mixins: [scrollMixins],
   methods: {
     submit() {

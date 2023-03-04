@@ -22,7 +22,7 @@
     "node-polyfill-webpack-plugin": "^2.0.1",
     "prettier": "^2.8.3",
     "sweetalert2": "^11.4.32",
-    "swiper": "^8.4.7",
+    "swiper": "^9.1.0",
     "vee-validate": "^4.6.7",
     "vue": "^3.2.13",
     "vue-axios": "^3.4.1",

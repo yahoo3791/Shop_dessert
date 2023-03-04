@@ -145,7 +145,7 @@
         </div>
       </div>
     </div>
-    <!-- <div class="container" v-if="sameProduct.length !== 0">
+    <div class="container" v-if="sameProduct.length !== 0">
       <div class="row justify-content-center">
         <div class="col-12 col-md-9 py-5 text-white">
           <h4
@@ -154,16 +154,55 @@
           >
             您可能喜歡這些...
           </h4>
-          // swiper
-          // <productMoreSwiper />
+          <swiper-container class="mySwiper"
+            :slidesPerView="2"
+            :centeredSlides="false"
+            :spaceBetween="30"
+            :navigation="true"
+            :autoplay="{
+              delay: 2500,
+              disableOnInteraction: false,
+            }">
+            <swiper-slide v-for="(item, index) in sameProduct" :key="index" class="flex-column">
+              <div
+                class="mx-auto product-content-container cursor-pointer"
+                @click.stop="more(item.id, index)"
+                @keydown="more(item.id, index)"
+                style="max-width: 250px"
+              >
+                <img :src="item.imageUrl" alt="您可能喜歡的圖片" />
+                <h5 class="product-content-h5 text-base font-medium tracking-wide py-2">
+                  {{ item.title }}
+                </h5>
+                <p class="product-content">
+                  <del>{{ item.origin_price }}$</del>/
+                  <span class="product-p">優惠價{{ item.price }}$</span>
+                </p>
+                <div
+                  v-if="item.num >= 1"
+                  :class="{ 'opacity-75': isLoading === true }"
+                  :disabled="isLoading === true"
+                  class="mt-2 w-btn-product"
+                  @click.stop="addCart(item.id, $event)"
+                  @keydown="addCart(item.id, $event)"
+                >
+                  <div class="d-none spinner-border spinner-border-sm" role="status" />
+                  加入購物車
+                </div>
+                <div v-else class="w-btn-product mt-2 opacity-50">已售完</div>
+              </div>
+            </swiper-slide>
+          </swiper-container>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
   <Footer />
 </template>
 
 <script>
+import { register } from 'swiper/element/bundle';
+import '@/assets/scss/swiper/productMoreSwiper.css';
 import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
 import Loading from '@/components/isLoading.vue';
@@ -172,7 +211,8 @@ import 'sweetalert2/src/sweetalert2.scss';
 
 import emitter from '@/methods/emitter';
 import VueEasyLightbox from 'vue-easy-lightbox';
-// import productMoreSwiper from '@/components/swiper/productMoreSwiper.vue';
+
+register();
 
 export default {
   data() {
@@ -192,7 +232,6 @@ export default {
     Navbar,
     Footer,
     VueEasyLightbox,
-    // productMoreSwiper,
   },
   methods: {
     getData() {

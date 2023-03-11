@@ -49,7 +49,7 @@
         <div class="row">
           <div
             class="col-6 col-md-6 col-lg-4 col-xl-3 mb-5"
-            v-for="(item, index) in products"
+            v-for="(item, index) in updateProducts"
             :key="index"
           >
             <div
@@ -151,6 +151,7 @@ export default {
       history: [],
       productLoading: true,
       pagination: {},
+      clickName: '',
     };
   },
   components: { Navbar, Footer, Loading },
@@ -315,16 +316,8 @@ export default {
     },
     onChange(e) {
       const { value } = e.target;
-      switch (value) {
-        case '價格排序低到高':
-          return this.products.sort((a, b) => a.price - b.price);
-        case '價格排序高到低':
-          return this.products.sort((b, a) => a.price - b.price);
-        case '熱銷商品':
-          return this.products.sort((a, b) => a.num - b.num);
-        default: this.products();
-      }
-      return false;
+      this.clickName = value;
+      return value;
     },
     addFav(item) {
       if (this.favoriteData.includes(item.id)) {
@@ -375,6 +368,20 @@ export default {
         this.renderCarts();
       },
       immediate: true,
+    },
+  },
+  computed: {
+    updateProducts() {
+      let arr = [];
+      arr = this.products;
+      if (this.clickName === '價格排序低到高') {
+        arr.sort((a, b) => a.price - b.price);
+      } else if (this.clickName === '價格排序高到低') {
+        arr.sort((a, b) => b.price - a.price);
+      } else if (this.clickName === '熱銷商品') {
+        arr.sort((a, b) => a.num - b.num);
+      }
+      return arr;
     },
   },
   mounted() {

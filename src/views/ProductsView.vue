@@ -167,8 +167,7 @@ export default {
           this.products = response.data.products;
           this.productLoading = true;
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -195,8 +194,7 @@ export default {
             this.$router.push(`/user/product/${id}`);
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -267,8 +265,7 @@ export default {
             });
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -295,8 +292,7 @@ export default {
         .then((response) => {
           this.carts = response.data.data.carts;
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

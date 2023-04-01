@@ -23,7 +23,7 @@
         <div class="modal-body border-0">
           <h1 class="text-center title-01 pb-3">登入</h1>
           <VForm
-            @submit="submit">
+            @submit="submitAccount">
             <div class="py-3 position-relative">
               <h3 class="d-block formData-label
                 tracking-widest text-xl"
@@ -108,51 +108,31 @@ export default {
   },
   mixins: [modalMixin],
   methods: {
-    submit() {
+    submitAccount() {
       const api = `${process.env.VUE_APP_API}admin/signin`;
       this.axios.post(api, this.user)
         .then((res) => {
-          console.log(res);
-          if (res.data.success) {
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: 'success',
-              title: '登入成功',
-            });
-            const { token, expired } = res.data;
-            document.cookie = `dessertToken=${token}; expires=${new Date(expired)}`;
-            this.$router.push('/dashboard/backproducts');
-            this.modal.hide();
-          } else {
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: 'error',
-              title: '登入失敗',
-            });
-          }
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'success',
+            title: '登入成功',
+          });
+          const { token, expired } = res.data;
+          document.cookie = `dessertToken=${token}; expires=${new Date(expired)}`;
+          this.$router.push('/dashboard/backproducts');
+          this.modal.hide();
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -166,7 +146,7 @@ export default {
           });
           Toast.fire({
             icon: 'error',
-            title: '連線異常',
+            title: '登入失敗',
           });
         });
     },

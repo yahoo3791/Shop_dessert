@@ -139,30 +139,25 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/pay/${orderId}`;
       this.isLoading = true;
       this.axios.post(api)
-        .then((response) => {
-          console.log(response);
-          if (response.data.success) {
-            this.isLoading = false;
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: '付款成功',
-              showConfirmButton: false,
-              timer: 1500,
-            });
-            this.render();
-          } else {
-            this.isLoading = false;
-            Swal.fire({
-              icon: 'error',
-              title: '付款失敗',
-              text: '請聯絡我們客服人員',
-              footer: '辦公室地址:台北市信義區市府路101號,客服電話:(02)1010101,客服時間:週一至週五上午07:00~下午17:00,Email:MgzOfficer010@gmail.com',
-            });
-          }
+        .then(() => {
+          this.isLoading = false;
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: '付款成功',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          this.render();
+          this.isLoading = false;
+          Swal.fire({
+            icon: 'error',
+            title: '付款失敗',
+            text: '請聯絡我們客服人員',
+            footer: '辦公室地址:台北市信義區市府路101號,客服電話:(02)1010101,客服時間:週一至週五上午07:00~下午17:00,Email:MgzOfficer010@gmail.com',
+          });
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -190,8 +185,7 @@ export default {
           this.details = response.data.order;
           this.userData = response.data.order.user;
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

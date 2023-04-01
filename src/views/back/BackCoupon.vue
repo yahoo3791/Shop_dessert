@@ -149,8 +149,7 @@ export default {
             });
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -177,8 +176,7 @@ export default {
           this.getCoupons = response.data.coupons;
           this.pagination = response.data.pagination;
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -221,8 +219,7 @@ export default {
             });
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

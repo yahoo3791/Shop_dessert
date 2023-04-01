@@ -3,7 +3,7 @@
     <Navbar />
   </div>
   <div class="container-fluid bg-white">
-    <router-view />
+    <RouterView />
     <div class="container-fluid mt-3">
       <ToastMessages />
     </div>

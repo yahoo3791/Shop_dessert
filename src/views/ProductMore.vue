@@ -127,11 +127,9 @@
             >
               保存方式
             </h4>
-            <p>
-              ｜最佳賞味期限｜<br />
-              可冷藏保存1週，冷凍保存2週。請見商品標示日期。<br />
-              建議放入冷藏前請將蛋糕用保鮮盒密封好，再存放食用前於室溫回溫20-30分鐘風味更佳！開封後請儘速食用完畢。<br />
-            </p>
+            <p>-最佳賞味期限-</p>
+            <p>可冷藏保存1週，冷凍保存2週。請見商品標示日期。</p>
+            <p>建議放入冷藏前請將蛋糕用保鮮盒密封好，再存放食用前於室溫回溫20-30分鐘風味更佳！開封後請儘速食用完畢。</p>
             <p class="mt-3">餅乾：常溫密封約可保存2週，冷凍密封約可保存2-3個月，回溫即可食用。</p>
             <p>蛋糕：放置冷藏約可保存5天。</p>
             <p>慕斯：密封冷藏約可保存2-3天，密封冷凍約可保存7-10天，回溫即可食用。</p>
@@ -236,8 +234,7 @@ export default {
           this.productLoading = true;
           this.product = response.data.product;
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -324,8 +321,7 @@ export default {
             });
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -365,8 +361,7 @@ export default {
             this.updateHistory();
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

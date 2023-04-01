@@ -143,13 +143,11 @@ export default {
       this.isLoading = true;
       this.axios.get(api)
         .then((response) => {
-          console.log(response);
           this.isLoading = false;
           this.Data = response.data.products;
           this.Pagination = response.data.pagination;
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -198,8 +196,7 @@ export default {
             });
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -252,8 +249,7 @@ export default {
             });
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

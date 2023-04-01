@@ -247,8 +247,7 @@ export default {
             this.data.imageUrl = res.data.imageUrl;
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

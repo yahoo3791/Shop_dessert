@@ -132,7 +132,6 @@ export default {
       this.axios.get(api)
         .then((response) => {
           this.orderNumber = '';
-          console.log(response.data);
           if (response.data.order === null) {
             this.isLoading = false;
             Swal.fire({
@@ -148,8 +147,7 @@ export default {
             this.user = response.data.order.user;
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

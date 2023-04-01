@@ -10,7 +10,7 @@
           :class="{ 'd-none': cartsSwitch }"
           style="padding: 20vh 0;">
           <h1 class="title-01">購物車無加入商品</h1>
-          <router-link
+          <RouterLink
             to="/user/products"
             class="text-decoration-none">
             <button
@@ -18,7 +18,7 @@
               class="btn btn-light fw-bold mt-5"
               >前往商城
             </button>
-          </router-link>
+          </RouterLink>
         </div>
       </div>
       <div :class="{ 'd-none': !cartsSwitch }">
@@ -223,15 +223,13 @@ export default {
       this.isLoading = true;
       this.axios.get(api)
         .then((response) => {
-          console.log(response);
           this.cartsData = response.data.data;
           this.isLoading = false;
           if (this.cartsData.carts.length === 0) {
             this.cartsSwitch = false;
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -291,8 +289,7 @@ export default {
             });
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -356,8 +353,7 @@ export default {
             });
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -441,8 +437,7 @@ export default {
             });
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -562,8 +557,7 @@ export default {
             });
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -648,8 +642,7 @@ export default {
             });
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

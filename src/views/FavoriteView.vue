@@ -26,14 +26,14 @@
           <h1 class="title-01">
             目前無收藏商品
           </h1>
-          <router-link
+          <RouterLink
             to="/user/products"
             class="text-decoration-none">
             <button type="button"
               class="btn btn-light fw-bold mt-5"
               >前往商城
             </button>
-          </router-link>
+          </RouterLink>
         </div>
         <div
           class="col-12 text-center pt-5"
@@ -49,7 +49,7 @@
         <div class="d-flex flex-column-reverse flex-md-row">
           <div
             class="col-12 col-md-9 text-white mt-3"
-            :class="{ 'd-none' :favoriteData.length == 0 }">
+            :class="{'d-none': favoriteData.length == 0}">
             <div class="row d-flex flex-wrap align-items-center">
               <div class="col-6 col-md-6 col-lg-4 mb-5"
                 v-for="item,index in filterData"
@@ -196,8 +196,7 @@ export default {
             this.getFavoriteData();
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -275,8 +274,7 @@ export default {
         .then(() => {
           this.$router.push(`/user/product/${id}`);
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

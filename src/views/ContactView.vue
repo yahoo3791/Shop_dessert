@@ -82,7 +82,7 @@
           >
             寄送表單聯絡我們
           </h4>
-          <VForm @submit="submit()">
+          <VForm @submit="submitContact()">
             <div class="py-3 position-relative">
               <h3 class="d-block formData-label tracking-wide text-lg">*聯絡人姓名</h3>
               <VField
@@ -229,7 +229,7 @@ export default {
   },
   components: { Navbar, Footer },
   methods: {
-    submit() {
+    submitContact() {
       if (
         this.formData.message === ''
       ) {

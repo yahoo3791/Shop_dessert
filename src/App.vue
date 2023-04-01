@@ -1,7 +1,5 @@
 <template>
-  <w-app>
-    <router-view />
-  </w-app>
+    <RouterView />
 </template>
 
 <style lang="scss">

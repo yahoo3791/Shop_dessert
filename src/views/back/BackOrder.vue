@@ -135,8 +135,7 @@ export default {
           this.data = response.data.orders;
           this.pagination = response.data.pagination;
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -173,8 +172,7 @@ export default {
           this.$refs.deleteModal.modalHide();
           this.getData();
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -199,8 +197,7 @@ export default {
           this.$refs.deleteOrderAllModal.modalHide();
           this.getData();
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

@@ -209,7 +209,7 @@
           <div class="col-12 col-md-6 offset-md-3 text-white text-center mb-5">
             <div class="d-flex justify-content-end align-items-center">
               <p>以上未解決問題</p>
-                <router-link
+                <RouterLink
                   to="/user/companyContact"
                   class="text-decoration-none">
                   <button type="button"
@@ -217,7 +217,7 @@
                     py-md-2 px-md-3 py-lg-3 px-lg-4 border border-2"
                     >聯絡客服人員<i class="bi bi-headset" />
                   </button>
-              </router-link>
+              </RouterLink>
             </div>
           </div>
       </div>

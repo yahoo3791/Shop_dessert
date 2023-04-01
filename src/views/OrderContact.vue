@@ -18,7 +18,7 @@
               role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
               style="width: 50%">
             </div>
-            </div>
+          </div>
         </div>
       </div>
       <div class="row text-white flex-column-reverse flex-md-row">
@@ -29,7 +29,7 @@
           >
             <h1 class="mb-0 tracking-widest font-bold text-3xl">訂購人資訊</h1>
           </div>
-          <VForm @submit="submit">
+          <VForm @submit="submitContact">
             <div class="py-3 position-relative">
               <h3 class="d-block formData-label tracking-wide text-lg" for="name">*聯絡人姓名</h3>
               <VField
@@ -179,7 +179,7 @@
                   value="" id="check" v-model="selection1">我已確認商品資訊
                 </label>
               </div>
-              <button type="submit"
+              <button type="submitContact"
                 class="btn btn-light fw-bold ms-2"
                 :class="{'not-allowed': !selection1}"
                 >付款
@@ -240,7 +240,7 @@
                 @click="useCoupon"
                 class="btn btn-outline-secondary tracking-widest rounded-0"
                 type="button"
-                :disabled="this.codeValue === ''"
+                :disabled="codeValue === ''"
               >
                 套用優惠碼
               </button>
@@ -256,7 +256,7 @@
               </label>
             </div>
             <button type="button"
-              @click="submit"
+              @click="submitContact"
               class="btn btn-light fw-bold ms-2"
               :class="{'not-allowed': !selection1}"
               >付款
@@ -307,8 +307,7 @@ export default {
         .then((response) => {
           this.cartsData = response.data.data;
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -371,8 +370,7 @@ export default {
             });
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -390,7 +388,7 @@ export default {
           });
         });
     },
-    submit() {
+    submitContact() {
       if (
         this.formData.user.name === '' || this.formData.user.email === '' || this.formData.user.tel === '' || this.formData.user.address === ''
       ) {
@@ -448,16 +446,10 @@ export default {
       this.axios
         .post(api, { data: this.formData })
         .then((response) => {
-          console.log(response);
           const { orderId } = response.data;
-          if (response.data.success) {
-            this.$router.push(`/user/checkout/${orderId}`);
-          } else {
-            console.log('error');
-          }
+          this.$router.push(`/user/checkout/${orderId}`);
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

@@ -11,28 +11,28 @@
           :class="{'d-none': togglerOverlay }"
           class="text-lg navbar-nav
           text-white text-center w-75 mx-auto tracking-wider">
-            <router-link
+            <RouterLink
               to="/#/"
               class="nav-link py-3 animated fadeInDown"
               style="animation-duration: .5s;">
               首頁
-            </router-link>
-            <router-link
+            </RouterLink>
+            <RouterLink
               to="/user/contact"
               class="nav-link py-3 animated fadeInDown"
               style="animation-duration: .5s;">
               聯絡我們
-            </router-link>
-            <router-link
+            </RouterLink>
+            <RouterLink
               to="/user/products"
               class="nav-link py-3 animated fadeInDown"
               style="animation-duration: .5s;">
               商品
-            </router-link>
+            </RouterLink>
           <div
             class="d-flex justify-content-center animated fadeInDown"
             style="animation-duration: .5s;">
-              <router-link to="/user/carts"
+              <RouterLink to="/user/carts"
                 class="nav-link px-3 py-3 position-relative"
                 data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
@@ -46,8 +46,8 @@
                     animated">{{ cartsNum }}
                   </span>
                 </i>
-              </router-link>
-              <router-link
+              </RouterLink>
+              <RouterLink
                 to="/user/favorite"
                 class="nav-link px-3 py-3 position-relative"
                 data-bs-toggle="tooltip"
@@ -62,7 +62,7 @@
                     animated">{{ favoriteData.length }}
                   </span>
                 </i>
-              </router-link>
+              </RouterLink>
             <div
               @click="login"
               @keypress="login"
@@ -73,7 +73,7 @@
                 <i class="bi bi-person-fill me-1"
                 style="font-size:18px" />
             </div>
-            <router-link
+            <RouterLink
               to="/user/checkOrder"
               class="nav-link px-3 py-3 position-relative"
               data-bs-toggle="tooltip"
@@ -81,7 +81,7 @@
               title="查詢訂單">
               <i class="bi bi-clipboard2-minus-fill me-1"
               style="font-size:18px" />
-            </router-link>
+            </RouterLink>
           </div>
         </div>
     </div>
@@ -105,25 +105,25 @@
       </div>
       <div
         class="navbar-md d-none d-md-flex ms-auto tracking-wider text-lg">
-        <router-link
+        <RouterLink
           to="/#/"
           class="nav-link px-3 py-3"
           data-bs-toggle="tooltip"
           data-bs-placement="bottom"
           title="回到首頁">
           首頁
-        </router-link>
-        <router-link
+        </RouterLink>
+        <RouterLink
           to="/user/contact"
           class="nav-link py-3">
           聯絡我們
-        </router-link>
-        <router-link
+        </RouterLink>
+        <RouterLink
           to="/user/products"
           class="nav-link px-3 py-3">
           商品
-        </router-link>
-        <router-link
+        </RouterLink>
+        <RouterLink
           to="/user/carts"
           class="nav-link px-3 py-3 position-relative"
           data-bs-toggle="tooltip"
@@ -140,8 +140,8 @@
               {{ cartsNum }}
             </span>
           </i>
-        </router-link>
-        <router-link
+        </RouterLink>
+        <RouterLink
           to="/user/favorite"
           class="nav-link px-3 py-3 position-relative"
           data-bs-toggle="tooltip"
@@ -158,7 +158,7 @@
               {{ favoriteData.length }}
             </span>
           </i>
-        </router-link>
+        </RouterLink>
         <div
           @click="login"
           @keypress="login"
@@ -169,7 +169,7 @@
           <i class="bi bi-person-fill me-1"
           style="font-size:1em" />
         </div>
-        <router-link
+        <RouterLink
           to="/user/checkOrder"
           class="nav-link px-3 py-3 position-relative"
           data-bs-toggle="tooltip"
@@ -177,7 +177,7 @@
           title="查詢訂單">
           <i class="bi bi-clipboard2-minus-fill me-1"
             style="font-size:1em" />
-        </router-link>
+        </RouterLink>
       </div>
     </div>
   </div>
@@ -244,8 +244,7 @@ export default {
           });
           this.cartsNum = num;
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

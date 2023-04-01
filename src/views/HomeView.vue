@@ -20,11 +20,11 @@
             </h1>
             <h2 class="tracking-widest mb-5">軟在口中，甜在心上。
             </h2>
-            <router-link to="/user/products" class="href-none d-block text-center">
+            <RouterLink to="/user/products" class="href-none d-block text-center">
               <button type="button"
                 class="btn btn-light fw-bold">前往商店
               </button>
-            </router-link>
+            </RouterLink>
           </div>
         </div>
       </div>
@@ -43,13 +43,13 @@
             translate-middle-y ps-5 tracking-widest">
             <h3>巧克力系列</h3>
             <p class="mb-2 mb-md-3">現正7折優惠中！</p>
-            <router-link
+            <RouterLink
               to="/user/products"
               class="href-none">
               <button type="button"
                 class="btn btn-light fw-bold">前往商店
               </button>
-            </router-link>
+            </RouterLink>
           </div>
         </div>
         <div
@@ -64,13 +64,13 @@
             translate-middle-y ps-5 tracking-widest">
             <h3>杯子蛋糕系列</h3>
             <p class="mb-2 mb-md-3">現正7折優惠中！</p>
-            <router-link
+            <RouterLink
               to="/user/products"
               class="href-none">
               <button type="button"
                 class="btn btn-light fw-bold">前往商店
               </button>
-            </router-link>
+            </RouterLink>
           </div>
         </div>
       </div>
@@ -151,13 +151,13 @@
           </div>
         </div>
         <div class="col-12 text-center my-5">
-          <router-link
+          <RouterLink
             to="/user/products"
             class="href-none">
               <button type="button"
                 class="btn btn-light fw-bold">看更多
               </button>
-          </router-link>
+          </RouterLink>
         </div>
       </div>
       <div class="line my-5" />
@@ -170,13 +170,13 @@
             始終找不到您心中幻想的甜點嗎？<br>
             <span>( 聯絡我們提供想法、溝通報價 )</span>
           </p>
-          <router-link
+          <RouterLink
             to="/user/contact"
             class="href-none">
               <button type="button"
                 class="btn btn-light fw-bold">聯絡我們
               </button>
-          </router-link>
+          </RouterLink>
         </div>
         <div class="col-12 col-md-6">
           <swiper-container
@@ -279,7 +279,7 @@
         <div class="mx-auto"
           style="max-width:450px;">
           <VForm
-            @submit="submit"
+            @submit="submitEmail"
             class="position-relative form-outline form-white my-5">
             <h2 class="font-medium tracking-widest text-3xl d-block">
               訂閱甜點電子報<br>立馬獲得8折優惠卷
@@ -297,7 +297,7 @@
                 class="sub-input d-inline-block bg-transparent
                 rounded-0 tracking-widest"
                 placeholder="EMAIL" />
-              <button type="submit"
+              <button type="submitEmail"
                 class="sub-btn d-inline-block text-black tracking-wide">
                 <i class="bi bi-envelope footer-envelope" />
               </button>
@@ -356,7 +356,7 @@ export default {
   },
   mixins: [scrollMixins],
   methods: {
-    submit() {
+    submitEmail() {
       this.subMail = '';
       Swal.fire('感謝您的訂閱，<br>8折優惠碼:coupon012');
     },
@@ -446,8 +446,7 @@ export default {
         .then((response) => {
           this.carts = response.data.data.carts;
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

@@ -1,67 +1,19 @@
-.footer-logo {
-  width: 60px;
-  height: 60px;
-  filter: contrast(50%);
-}
 .footer {
   box-shadow: 0px -5px 20px black;
-}
-.subInput {
-  border: none;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-.subBtn {
-  border: none;
-  border-bottom: 1px solid white;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  &:active {
-    box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, 1.0);
+  .footer-color {
+    color: $secondary-BF;
   }
-}
-.footer-active-hover {
-  transition: .2s all;
-  color: $secondary-BF;
-  &:hover,
-  &:active {
-    color: $base-color;
+  .ins,
+  .meta {
+    padding: 10px;
+    line-height: 40px;
   }
-}
-.ins,
-.meta {
-  padding: 10px;
-  line-height: 40px;
-}
-.footer-color {
-  color: $secondary-BF;
-}
-/* 訂閱Ｆorm */
-.sub-input {
-  width: 70%;
-  border: 1px solid white;
-  padding: 5px 20px;
-  color: white;
-  &:focus {
-    border: 1px solid $secondary-BF;
-  }
-}
-.sub-btn {
-  width: 30%;
-  border: 1px solid $base-color;
-  background: $base-color;
-  padding: 5px;
-  transition: all .3s;
-  &:hover,
-  &:active {
-    border: 1px solid $secondary-BF;
-    background: $secondary-BF;
-    .footer-envelope {
-        color: $base-color;
-      
+  .footer-active-hover {
+    transition: .2s all;
+    color: $secondary-BF;
+    &:hover,
+    &:active {
+      color: $base-color;
     }
   }
 }

@@ -7,14 +7,12 @@
           <a href="#recommend"
             class="slider-icon position-absolute bottom-0 start-50
             translate-middle-x border border-3 text-center"
-            :class="{ 'btn-hidden-toggle': slider }"
-            style="width:30px;height:50px;z-index:10;border-radius: 30px;">
+            :class="{ 'btn-hidden-toggle': slider }">
             <span class="d-none">eslint</span>
           </a>
           <div
             class="position-absolute top-50 start-50 translate-middle">
-            <span class="badge bg-warning text-dark"
-              style="font-size: 1rem">全站免運費中
+            <span class="badge bg-warning text-dark fs-6">全站免運費中
             </span>
             <h1 class="font-bold text-nowrap pt-2">專業、健康、新鮮現做的甜點店
             </h1>
@@ -29,36 +27,32 @@
         </div>
       </div>
     </div>
-    <div
-      class="container main"
+    <div class="container main"
       id="recommend">
       <div class="row">
         <div class="col-12 col-md-6 my-2 position-relative"
           data-aos="fade-right">
-          <img src="../assets/pic/banner/grocery01.png"
-            style="border:1px solid white; border-radius:5px"
-            class="w-100"
-            alt="巧克力打折系列圖片">
-          <div class="position-absolute top-50
-            translate-middle-y ps-5 tracking-widest">
-            <h3>巧克力系列</h3>
-            <p class="mb-2 mb-md-3">現正7折優惠中！</p>
-            <RouterLink
-              to="/user/products"
-              class="href-none">
-              <button type="button"
-                class="btn btn-light fw-bold">前往商店
-              </button>
-            </RouterLink>
-          </div>
+            <img src="../assets/pic/banner/grocery01.png"
+              class="w-100 groceryImg"
+              alt="巧克力打折系列圖片">
+            <div class="position-absolute top-50
+              translate-middle-y ps-5 tracking-widest">
+              <h3>巧克力系列</h3>
+              <p class="mb-2 mb-md-3">現正7折優惠中！</p>
+              <RouterLink
+                to="/user/products"
+                class="href-none">
+                <button type="button"
+                  class="btn btn-light fw-bold">前往商店
+                </button>
+              </RouterLink>
+            </div>
         </div>
-        <div
-          class="col-12 col-md-6 my-2 position-relative"
+        <div class="col-12 col-md-6 my-2 position-relative "
           data-aos="fade-left">
           <img
             src="../assets/pic/banner/grocery02.png"
-            style="border:1px solid white; border-radius:5px"
-            class="w-100"
+            class="w-100 groceryImg"
             alt="杯子蛋糕打折系列圖片">
           <div class="position-absolute top-50
             translate-middle-y ps-5 tracking-widest">
@@ -74,13 +68,12 @@
           </div>
         </div>
       </div>
-      <div class="line my-5"></div>
+      <div class="line my-5" />
       <div class="row">
         <div class="col-12 text-center my-5">
           <h3 class="title-01">熱銷商品</h3>
         </div>
-        <div
-          class="col-12 text-center pt-5"
+        <div class="col-12 text-center pt-5"
           :class="{ 'd-none': productLoading }">
           <div
             class="spinner-border text-light"
@@ -196,7 +189,7 @@
               },
             }"
             class="mySwiper position-relative customized-container">
-          <div class="position-absolute swiper-bg top-0" />
+            <div class="position-absolute swiper-bg top-0" />
             <swiper-slide class="position-relative">
               <img class="w-100" src="../assets/pic/homepage/母親節蛋糕.png" alt="母親節蛋糕">
               <h2 class="position-absolute top-50 start-50 translate-middle
@@ -221,19 +214,17 @@
     </div>
     <div class="container">
       <div class="row py-5">
-        <div class="col-12 mb-5"
-          style="border-top:1px solid rgb(64, 64, 64);">
-        </div>
+        <div class="line" />
         <div class="col-12 text-center mb-5">
           <h4 class="title-01">榮獲標章</h4>
           <p class="p-01">食在好安心</p>
         </div>
         <div
-          class="col-12 col-md-3 d-flex my-3 my-md-0"
+          class="col-12 col-md-3 d-flex my-3 py-3 my-md-0 markContainer"
           data-aos="fade-left">
           <img
+            class="markImg"
             src="@/assets/pic/icon/CAS.png"
-            style="width:50px;height:50px"
             alt="CAS優良食品標誌">
           <div class="ps-2">
             <h5>CAS優良食品標誌</h5>
@@ -241,32 +232,36 @@
           </div>
         </div>
         <div
-          class="col-12 col-md-3 d-flex my-3 my-md-0"
+          class="col-12 col-md-3 d-flex my-3 py-3 my-md-0 markContainer"
           data-aos="fade-left"
           data-aos-delay="100">
           <img src="@/assets/pic/icon/GMP.png"
-            style="width:50px;height:50px" alt="GMP認證標章">
+            class="markImg"
+            alt="GMP認證標章">
           <div class="ps-2">
             <h5>GMP認證標章</h5>
             <p>製造過程中，品質與衛生安全都符合規範</p>
           </div>
         </div>
         <div
-          class="col-12 col-md-3 d-flex my-3 my-md-0"
+          class="col-12 col-md-3 d-flex my-3 py-3 my-md-0 markContainer"
           data-aos="fade-left"
           data-aos-delay="200">
           <img src="@/assets/pic/icon/TAP.png"
-            style="width:50px;height:50px" alt="TAP產銷履歷農產品">
+            class="markImg"
+            alt="TAP產銷履歷農產品">
           <div class="ps-2">
             <h5>TAP產銷履歷農產品</h5>
             <p>驗證機構以親自前往生產場地，且也已通過產品進行抽驗。</p>
           </div>
         </div>
-        <div class="col-12 col-md-3 d-flex my-3 my-md-0"
+        <div
+        class="col-12 col-md-3 d-flex my-3 py-3 my-md-0 markContainer"
           data-aos="fade-left"
           data-aos-delay="300">
           <img src="@/assets/pic/icon/安全蔬果.png"
-            style="width:50px;height:50px" alt="安全蔬果吉園圃標章">
+            class="markImg"
+            alt="安全蔬果吉園圃標章">
           <div class="ps-2">
             <h5>安全蔬果吉園圃標章</h5>
             <p>輔導農民正確使用農藥，以生產優質安全蔬果。</p>
@@ -330,7 +325,7 @@ import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import emitter from '@/methods/emitter';
 import { register } from 'swiper/element/bundle';
-import '@/assets/scss/swiper/homePageSwiper.css';
+// import '@/assets/scss/swiper/homePageSwiper.css';
 import Navbar from '../components/FrontNavbar.vue';
 import Footer from '../components/FrontFooter.vue';
 import scrollMixins from '../mixins/scroll';

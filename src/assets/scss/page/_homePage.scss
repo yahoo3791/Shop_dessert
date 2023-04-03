@@ -1,4 +1,4 @@
-/* banner */
+// homeContainer
 .homeContainer {
   height: calc(100vh - 60px);
   .homeBanner {
@@ -12,47 +12,54 @@
       display: block;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle, 
+      background: radial-gradient(
+      circle, 
       rgba(233, 217, 217, 0.1) 0%,
       rgba(123, 128, 129, 0.1) 48%,
-        rgba(123, 128, 129, 0.1) 80%,
+      rgba(123, 128, 129, 0.1) 80%,
       rgba(143, 143, 143, 0.1) 100%);
     }
   }
 }
+// main
 .main {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  .fruitPic-container {
-    h2 {
-      display: none;
-    }
+  padding: 40px 0 40px 0;
+  .groceryImg {
+    border: 1px solid white;
+    border-radius: 5px;
     &:hover,
     &:active {
-      img {
-        transition: all 1s;
-        opacity: 0.7;
-        animation: rotate360 infinite 10s linear;
-      }
-      h2 {
-        display: block;
-      }
+      background: linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.15),
+      #2f2026,
+      #2c3436,
+      #153c33);
+      background-size: 400% 400%;
+      animation: gradient 2s ease infinite;
+      border: 1px solid rgb(0, 0, 0);
+      box-shadow: inset 0px 0px 10px rgba(0, 0, 0, .75),
+      0 0 8px rgba(0, 0, 0, 0);
     }
   }
 }
-@keyframes rotate360 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+// swiper-container
 .customized-container {
-  h2 {
-    opacity: 0;
-    transition: all .3s;
-  }
+  .swiper-bg {
+    background: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 40%,
+      rgba(0, 0, 0, 0.5) 70%,
+      rgba(0, 0, 0, 1) 100%);
+      width: 100%;
+      height: 100%;
+      z-index: 12;
+    }
+    h2 {
+      opacity: 0;
+      transition: all .3s;
+    }
     &:hover,
     &:active {
       img {
@@ -63,25 +70,6 @@
         opacity: 1;
       }
     }
-}
-.hot-product-container {
-  .content {
-    opacity: 0;
-    transition: all .3s;
-    }
-    &:hover,
-    &:active {
-      img {
-        transition: all .3s;
-        opacity: 0.7;
-      }
-      .content {
-        opacity: 1;
-      }
-    }
-}
-.main2 {
-  padding-bottom: 40px;
 }
 .line {
   background-image: url('@/assets/pic/icon/line.png');
@@ -90,6 +78,18 @@
   margin-bottom: 40px;
   opacity: 0.5;
 }
+.markContainer {
+    border: 1px solid transparent;
+  &:hover {
+    border: 1px solid rgba(255, 255, 255, 0.326);
+    border-radius: 5px;
+  }
+  .markImg {
+    width: 50px;
+    height: 50px
+  }
+}
+// sub
 .subBg {
   background-image: url('@/assets/pic/homepage/訂閱區背景.png');
   width: 100%;
@@ -110,28 +110,65 @@
     background-color: rgba(0, 0, 0, 0.4);
   }
 }
-.swiper-bg {
-  background: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%,
-  rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 1) 100%);
-  width: 100%;
-  height: 100%;
-  z-index: 12;
+.sub-btn {
+  width: 30%;
+  border: 1px solid $base-color;
+  background: $base-color;
+  padding: 5px;
+  transition: all .1s;
+  border: none;
+  border-bottom: 1px solid white;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  &:hover,
+  &:active {
+    border: 1px solid $secondary-BF;
+    background: $secondary-BF;
+    .footer-envelope {
+      color: $base-color;
+    }
+  }
+}
+.sub-input {
+  width: 70%;
+  border: 1px solid white;
+  padding: 5px 20px;
+  color: white;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  &:focus {
+    border: 1px solid $secondary-BF;
+  }
 }
 @include media-breakpoint-up(md) {
-.homeContainer {
-  height: calc(100vh - 70px);
-  .homeBanner {
+  .homeContainer {
+    height: calc(100vh - 70px);
+    .homeBanner {
+      background-attachment: fixed;
+    }
+  }
+  .main {
+    padding-top: 140px;
+    padding-bottom: 140px;
+  }
+  .line {
+    margin-bottom: 140px;
+  }
+  .subBg {
     background-attachment: fixed;
   }
 }
-.main {
-  padding-top: 140px;
-  padding-bottom: 140px;
-}
-.main2 {
-  padding-bottom: 140px;
-}
-.line {
-  margin-bottom: 140px;
-}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

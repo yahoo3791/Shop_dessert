@@ -19,8 +19,8 @@
   background-position: top 10px;
 }
 .product-content-container {
-  box-shadow: 0px 0px 15px black;
-  transition: all .3s;
+  box-shadow: 0px 10px 10px rgba(233, 231, 231, 0.2);
+  transition: all 2s;
   max-width: 250px;
   .product-item {
     height: 165px;
@@ -36,6 +36,7 @@
       transition: all .3s;
       opacity: 0;
         .productNotes-icon {
+          transition: .2s all;
           transform: translate(-50%, 200%);
         }
       }
@@ -45,7 +46,8 @@
   }
   &:hover,
   &:active {
-    box-shadow: 0px 10px 30px black;
+    transition: all 1s;
+    transform: translateY(-10px) !important;
     .product-item {
       border-radius: 3px !important;
     }
@@ -55,9 +57,9 @@
     opacity: 1;
     transform: translate(-50%, 0px);
     .productNotes-icon {
-    transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       transition-delay: .2s;
-      transition: all 1s;
+      transition: all 2s;
     }
   }
 }

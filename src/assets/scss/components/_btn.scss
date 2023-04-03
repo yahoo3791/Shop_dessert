@@ -26,6 +26,11 @@
 // 首頁banner滑動提示紐 start
 .slider-icon {
   margin-bottom: 10px;
+  width: 30px;
+  height: 50px;
+  z-index: 10;
+  border-radius: 30px;
+  transition: all 2s;
   &:after {
     content: '';
     display: inline-block;
@@ -36,6 +41,12 @@
     background: white;
     border-radius: 5px;
     animation: move 1.2s linear .3s infinite;
+  }
+  &:active,
+  &:hover {
+    transform: translate(-50%, -10px) !important;
+    transition: all 1s;
+    box-shadow: 0 10px 0 rgba(0, 0, 0, 0.2);
   }
 }
 @keyframes move {

@@ -61,8 +61,8 @@
           <div class="col-12 text-white mb-5">
             <div
               class="payCart-item border-bottom d-flex py-3"
-              v-for="item,k in details.products"
-              :key="k">
+              v-for="item in details.products"
+              :key="item.id">
               <img
                 :src="item.product.imageUrl"
                 class="d-block"
@@ -120,7 +120,7 @@
 <script>
 import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
-import Loading from '@/components/isLoading.vue';
+import Loading from '@/components/IsLoading.vue';
 import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 

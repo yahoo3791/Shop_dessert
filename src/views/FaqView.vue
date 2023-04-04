@@ -1,11 +1,11 @@
 <template>
   <Navbar />
   <div class="bg-dark">
-    <div class="container-fluid pt-utility">
+    <div class="container pt-utility">
       <div class="row">
         <div class="col-12">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb p-2 breadcrumb-style tracking-wider">
+            <ol class="breadcrumb py-2 px-1 p-md-2 breadcrumb-style tracking-wider">
               <li class="breadcrumb-item">
                 <a class="text-white text-decoration-none" href="#">首頁</a>
               </li>
@@ -33,7 +33,7 @@
             <span class="text-red font-semibold tracking-wide">
               【活動】
             </span>
-            電子優待券及促銷說明：您在結帳時輸入Coupon012，可以獲得我們目前的折扣、
+            電子優待券及促銷說明：您在結帳時輸入coupon012，可以獲得我們目前的折扣、
             特別提供與交易。我們也將最新的電子優惠卷郵寄給我們的訂閱者，快去訂閱享受折扣。
           </a>
         </div>
@@ -59,7 +59,7 @@
                   <div
                     class="accordion-body leading-7">
                     <p>
-                      下單後24HR內送達，未與時間內送達贈與現金回饋補償
+                      下單後4天內送達，未與時間如期送達贈與現金回饋補償
                     </p>
                   </div>
                 </div>
@@ -83,9 +83,7 @@
                   aria-labelledby="panelsStayOpen-headingTwo">
                   <div class="accordion-body leading-7">
                     <p>退換貨說明<br>
-                      請注意！請務必詳閱商品說明並再次確認確有購買該項商品之需求及意願時始下單購買，有任何疑問並請先聯繫客服詢問：<br>
-                      3天內無條件退貨，3天後10天內辦理退換貨時，商品必須是完整包裝(請注意保持商品本體
-                      、配件、贈品、保證書、原廠包裝及所有附隨文件或資料的完整性，切勿缺漏任何配件或損毀原廠外盒)</p>
+                      請注意！請務必詳閱商品說明並再次確認確有購買該項商品之需求及意願時始下單購買，有任何疑問並請先聯繫客服詢問</p>
                   </div>
                 </div>
               </div>
@@ -128,7 +126,8 @@
                 <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse rounded-0"
                   aria-labelledby="panelsStayOpen-headingFour">
                   <div class="accordion-body leading-7">
-                    線上刷卡：使用信用卡(VISA、MASTER、JCB)即時線上刷卡，馬上就可以付款完成。
+                    1.線上刷卡：使用信用卡(VISA、MASTER、JCB)即時線上刷卡，馬上就可以付款完成。
+                    2.超商取貨付款
                   </div>
                 </div>
               </div>
@@ -208,16 +207,10 @@
           </div>
           <div class="col-12 col-md-6 offset-md-3 text-white text-center mb-5">
             <div class="d-flex justify-content-end align-items-center">
-              <p>以上未解決問題</p>
-                <RouterLink
-                  to="/user/companyContact"
-                  class="text-decoration-none">
-                  <button type="button"
-                    class="offset-btn text-white ms-4 px-3
-                    py-md-2 px-md-3 py-lg-3 px-lg-4 border border-2"
-                    >聯絡客服人員<i class="bi bi-headset" />
-                  </button>
-              </RouterLink>
+              <a
+                href="/eshop/#/user/contact"
+                class="btn btn-light fw-bold">聯絡客服人員
+              </a>
             </div>
           </div>
       </div>

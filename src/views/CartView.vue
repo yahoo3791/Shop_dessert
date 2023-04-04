@@ -78,7 +78,7 @@
                       id="smNum"
                       :disabled="isLoading"
                       ref="updateValue"
-                      @change="updateQty(item.id,key)"
+                      @change="updateQty(item.id, key)"
                       class="d-block text-center text-white border
                       cartsInput-sm-input"
                       type="text"
@@ -194,7 +194,7 @@
 <script>
 import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
-import Loading from '@/components/isLoading.vue';
+import Loading from '@/components/IsLoading.vue';
 import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import emitter from '@/methods/emitter';
@@ -371,8 +371,8 @@ export default {
           });
         });
     },
-    updateQty(id, k) {
-      const num = Number(this.$refs.updateValue[k].value);
+    updateQty(id, key) {
+      const num = Number(this.$refs.updateValue[key].value);
       if (num <= 0 || num >= 50) {
         const Toast = Swal.mixin({
           toast: true,
@@ -477,22 +477,22 @@ export default {
       }
       this.$router.push('/user/ordercontact');
     },
-    open(i, k) {
+    open(i, key) {
       if (this.openDoor === true) {
-        this.$refs.right[k].style.transform = 'translateX(0px)';
-        this.$refs.left[k].style.transform = 'translateX(-500px)';
+        this.$refs.right[key].style.transform = 'translateX(0px)';
+        this.$refs.left[key].style.transform = 'translateX(-500px)';
         this.openDoor = false;
       } else if (this.openDoor !== true) {
-        this.$refs.right[k].style.transform = 'translateX(100px)';
-        this.$refs.left[k].style.transform = 'translateX(0px)';
+        this.$refs.right[key].style.transform = 'translateX(100px)';
+        this.$refs.left[key].style.transform = 'translateX(0px)';
         this.openDoor = true;
       }
     },
-    add(id, k) {
-      this.num = this.cartsData.carts[k].qty;
+    add(id, key) {
+      this.num = this.cartsData.carts[key].qty;
       this.num += 1;
       if (this.num >= 50) {
-        this.$refs.updateValue[k].value = 1;
+        this.$refs.updateValue[key].value = 1;
         this.getData();
         const Toast = Swal.mixin({
           toast: true,
@@ -518,44 +518,25 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`;
       this.isLoading = true;
       this.axios.put(api, { data: updateData })
-        .then((response) => {
-          if (response.data.success) {
-            this.isLoading = false;
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: 'success',
-              title: '更新品項成功',
-            });
-            this.getData();
-            emitter.emit('updateCartsNum');
-          } else {
-            this.isLoading = false;
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: 'error',
-              title: '更新異常',
-            });
-          }
+        .then(() => {
+          this.isLoading = false;
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'success',
+            title: '更新品項成功',
+          });
+          this.getData();
+          emitter.emit('updateCartsNum');
         })
         .catch(() => {
           const Toast = Swal.mixin({
@@ -571,12 +552,12 @@ export default {
           });
           Toast.fire({
             icon: 'error',
-            title: '連線異常',
+            title: '更新異常',
           });
         });
     },
-    min(id, k) {
-      this.num = this.cartsData.carts[k].qty;
+    min(id, key) {
+      this.num = this.cartsData.carts[key].qty;
       this.num -= 1;
       if (this.num <= 0) {
         const Toast = Swal.mixin({
@@ -603,44 +584,25 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`;
       this.isLoading = true;
       this.axios.put(api, { data: updateData })
-        .then((response) => {
-          if (response.data.success) {
-            this.isLoading = false;
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: 'success',
-              title: '更新品項成功',
-            });
-            this.getData();
-            emitter.emit('updateCartsNum');
-          } else {
-            this.isLoading = false;
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: 'error',
-              title: '更新異常',
-            });
-          }
+        .then(() => {
+          this.isLoading = false;
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'success',
+            title: '更新品項成功',
+          });
+          this.getData();
+          emitter.emit('updateCartsNum');
         })
         .catch(() => {
           const Toast = Swal.mixin({
@@ -656,7 +618,7 @@ export default {
           });
           Toast.fire({
             icon: 'error',
-            title: '連線異常',
+            title: '更新異常',
           });
         });
     },

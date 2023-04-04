@@ -11,12 +11,11 @@
                 <a class="text-white text-decoration-none" href="#">首頁</a>
               </li>
               <li class="breadcrumb-item breadcrumb-item-none">
-                <a class="text-white text-decoration-none" href="/#/user/products">商品列表</a>
+                <a class="text-white text-decoration-none" href="/eshop/#/user/products">商品列表</a>
               </li>
-              <li class="breadcrumb-item breadcrumb-item-none" aria-current="page">
-                {{ product.category }}類
+              <li class="breadcrumb-item breadcrumb-item-none">
+                內容
               </li>
-              <li class="breadcrumb-item breadcrumb-item-none">內容</li>
             </ol>
           </nav>
         </div>
@@ -57,7 +56,7 @@
               <h5 class="mt-5">成份:</h5>
               <p class="">{{ product.description }}</p>
               <h5 class="mt-5">尺寸:</h5>
-              <div class="type-btn">{{ product.unit }}</div>
+              <div class="productUnitBtn">{{ product.unit }}</div>
             </div>
           </div>
           <div class="productmore-item py-5">
@@ -123,8 +122,7 @@
           <div class="mb-5">
             <h4
               class="pb-2 tracking-wide font-medium text-xl"
-              style="border-bottom: 1px solid #404040"
-            >
+              style="border-bottom: 1px solid #404040">
               保存方式
             </h4>
             <p>-最佳賞味期限-</p>
@@ -142,8 +140,7 @@
         <div class="col-12 col-md-9 py-5 text-white">
           <h4
             class="pb-2 tracking-wide font-medium text-xl"
-            style="border-bottom: 1px solid #404040"
-          >
+            style="border-bottom: 1px solid #404040">
             您可能喜歡這些...
           </h4>
           <swiper-container class="mySwiper"
@@ -197,7 +194,7 @@ import { register } from 'swiper/element/bundle';
 import '@/assets/scss/swiper/productMoreSwiper.css';
 import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
-import Loading from '@/components/isLoading.vue';
+import Loading from '@/components/IsLoading.vue';
 import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 

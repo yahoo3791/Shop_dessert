@@ -85,7 +85,7 @@
 </template>
 
 <script>
-import couponModal from '@/components/couponModal.vue';
+import couponModal from '@/components/CouponModal.vue';
 import deleteModal from '@/components/back/DeleteCoupon.vue';
 import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';

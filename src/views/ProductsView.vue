@@ -121,6 +121,13 @@
       </div>
     </div>
   </div>
+  <RouterLink to="/user/contact"
+  class="position-fixed text-center
+  end-0 bottom-0 cursor-pointer m-3 border chat-container"
+  :class="{ 'translateY-70px':!scrollIcon }">
+  <i
+    class="bi bi-chat-dots-fill chat-icon" />
+  </RouterLink>
   <div
     :class="{ scrollIconMoveIn: !scrollIcon }"
     ref="scrollTop"
@@ -134,7 +141,7 @@
 <script>
 import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
-import Loading from '@/components/isLoading.vue';
+import Loading from '@/components/IsLoading.vue';
 import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import emitter from '@/methods/emitter';

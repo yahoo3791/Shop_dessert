@@ -305,6 +305,13 @@
       </div>
     </div>
   </div>
+  <RouterLink to="/user/contact"
+    class="position-fixed text-center
+    end-0 bottom-0 cursor-pointer m-3 border chat-container"
+    :class="{ 'translateY-70px':!scrollIcon }">
+    <i
+      class="bi bi-chat-dots-fill chat-icon" />
+  </RouterLink>
   <div
     :class="{ 'scrollIconMoveIn':!scrollIcon  }"
     ref="scrollTop"

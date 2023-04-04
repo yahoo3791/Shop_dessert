@@ -101,7 +101,7 @@
 <script>
 import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
-import Loading from '@/components/isLoading.vue';
+import Loading from '@/components/IsLoading.vue';
 import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 

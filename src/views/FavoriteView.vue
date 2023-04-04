@@ -141,8 +141,8 @@
                     <option
                       selected="selected"
                       disabled="disabled"
-                      style='display: none'
-                      value=''>選擇顯示方法
+                      style="display: none"
+                      value="">選擇顯示方法
                     </option>
                     <option
                     value="熱銷商品">熱銷商品
@@ -168,7 +168,7 @@
 <script>
 import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
-import Loading from '@/components/isLoading.vue';
+import Loading from '@/components/IsLoading.vue';
 import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import emitter from '@/methods/emitter';

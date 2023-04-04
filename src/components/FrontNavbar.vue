@@ -130,7 +130,7 @@
           title="購物車">
           <i
             class="bi bi-cart-fill me-1 position-relative"
-            tyle="font-size:1em">
+            style="font-size:1em">
             <span
               :class="{'d-none': cartsNum == 0 }"
               ref="cartsNum"

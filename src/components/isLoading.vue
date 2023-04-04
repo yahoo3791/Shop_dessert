@@ -1,7 +1,7 @@
 <template>
   <loading>
-    <div class="loadingio-spinner-interwind-il303leqtya">
-      <div class="ldio-k17d8xi3rys">
+    <div class="loadingio-spinner">
+      <div class="loading-container">
         <div>
           <div>
             <div>

@@ -6,8 +6,7 @@
         <div class="homeBanner w-100 h-100 position-relative">
           <a href="#recommend"
             class="slider-icon position-absolute bottom-0 start-50
-            translate-middle-x border border-3 text-center"
-            :class="{ 'btn-hidden-toggle': slider }">
+            translate-middle-x border border-3 text-center">
             <span class="d-none">eslint</span>
           </a>
           <div
@@ -336,7 +335,6 @@ export default {
   data() {
     return {
       subMail: '',
-      slider: false,
       products: {},
       isLoading: false,
       cartsNum: 0,

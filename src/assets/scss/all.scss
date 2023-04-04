@@ -5,15 +5,15 @@
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/bootstrap";                            
 @import "./themes/theme";
+@import "./themes/utility";
 @import "./page/homePage";
 @import "./page/loginPage";
 @import "./page/products";
 @import './page/productMore';
 @import "./layout/navbar";
 @import "./layout/footer";
-@import "./page/checkout";
 @import "./page/carts";
-@import "./page/faq";
 @import "./page/contact";
 @import "./page/ordercontact";
+@import "../scss/components/overlay";
 @import "../scss/components/btn";

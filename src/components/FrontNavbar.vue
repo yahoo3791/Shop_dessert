@@ -96,8 +96,7 @@
         @keydown="openOverlay"
         class="d-block d-md-none navbar-sm text-white ms-auto">
         <div
-          class="navbar-icon"
-          style="width:40px;height:40px">
+          class="navbar-icon">
           <span class="d-block" ref="navbarSpan1" />
           <span class="d-block" ref="navbarSpan2" />
           <span class="d-block" ref="navbarSpan3" />

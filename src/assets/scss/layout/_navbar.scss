@@ -4,6 +4,10 @@
 }
 .navbar-sm {
   cursor: pointer;
+  .navbar-icon {
+    width: 40px;
+    height: 40px
+  }
   .navbar-icon span {
     height: 2px;
     background: $base-color;
@@ -16,39 +20,29 @@
     transition: all .2s;
   }
 }
+.navbar-md {
+  color: $base-color;
+}
+// js classList start
 .rotate45 {
   transition: all .3s;
   transform: translateY(8px) rotate(45deg);
 }
 .rotate-45 {
   transition: all .3s;
-  transform: translateY(-5px) rotate(-45deg);
+  transform: translateY(-4px) rotate(-45deg);
 }
 .rotate-none {
   display: none !important;
 }
-.navbar-md {
-  color: $base-color;
-}
-a.router-link-active {
-  color: $secondary-BF;
-  font-weight: 500;
-}
+// js classList end
 .hideNavbar {
   top: -100px;
 }
 .hideSubNavbar {
   transform: translateY(-250px);
 }
-.smallNavbar {
-  width: 100px;
-  height: 50px;
-  margin: 5px 0;
-  transition: all .3s;
-}
-.top50px {
-  top:50px !important;
-}
+// badge-number start
 .navbar-badge {
   width: 20px;
   height: 20px;
@@ -69,18 +63,8 @@ a.router-link-active {
   top: -7px;
   right: -12px;
 }
-@include media-breakpoint-down(md) {
-  .logo {
-    height: 60px;
-    line-height: 60px;
-  }
-  .navbar-overlay {
-    top: 60px;
-    .nav-link {
-      border-bottom: 1px solid $secondary-40
-    }
-  }
-}
+// badge-number end
+// nav-link start
 .nav-link {
   position: relative;
 }
@@ -114,16 +98,16 @@ a.router-link-active {
   width: 50%;
   transition: all .2s ease-in-out;
 }
-.aaa {
-  transition: all .3s;
-  animation: name02 1s;
-}
-@keyframes name02 {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
+// nav-link end
+@include media-breakpoint-down(md) {
+  .logo {
+    height: 60px;
+    line-height: 60px;
   }
-  100% {
-    transform: translateY(0px);
+  .navbar-overlay {
+    top: 60px;
+    .nav-link {
+      border-bottom: 1px solid $secondary-40
+    }
   }
 }

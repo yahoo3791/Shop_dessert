@@ -1,0 +1,109 @@
+.active-E6 {
+  color: $secondary-E6 !important;
+  border-color: $secondary-40;
+  background: $secondary-40;
+  &:active,
+  &:hover {
+    color: $secondary-E6;
+    border-color: $secondary-40;
+    background: $secondary-40;
+    box-shadow: 0px 0px 5px black !important;
+  }
+  &:focus {
+    box-shadow: 0px 0px 5px black;
+    background: $secondary-40;
+    color: $secondary-E6;
+  }
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 0.5em;
+  transition: all .3s;
+  &:hover,
+  &:active {
+    box-shadow: inset 0px 0px 3px black;
+  }
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.cursor-pointer {
+  cursor: pointer
+}
+.d-n {
+  display: none;
+}
+.text-red {
+  color: red;
+}
+.text-indent2rem {
+  text-indent: 2rem;
+}
+.href-none {
+  text-decoration: none;
+  color: white;
+  &:hover {
+    color: white;
+  }
+}
+.not-allowed {
+  cursor: not-allowed !important;
+}
+/* 麵包削 */
+.breadcrumb-style {
+  margin-top: 20px;
+  border-radius: 5px;
+}
+// sweetalert
+body.swal2-toast-shown .swal2-container.swal2-top-end,
+body.swal2-toast-shown .swal2-container.swal2-top-right {
+  top: 75px !important;
+}
+// navbar active color
+a.router-link-active {
+  color: $secondary-BF;
+  font-weight: 500;
+}
+@media (max-width: 767px) {
+  :target {
+    scroll-margin-top: 50px;
+  }
+}
+// 通用padding
+.pt-utility {
+  padding-top: 60px;
+}
+@include media-breakpoint-up(md) {
+  .pt-utility {
+    padding-top: 80px;
+  }
+}
+// 通用高
+.auto-height {
+  height: calc(100vh - 149px) !important;
+}
+@media (max-width:375px) {
+  .auto-height {
+    height: calc(100vh - 184px) !important;
+  }
+}
+@media (max-width:425px) {
+  .auto-height {
+    height: calc(100vh - 205px) !important;
+  }
+}
+@media (max-width:1023px) {
+  .auto-height {
+    height: calc(100vh - 237px) !important;
+  }
+}
+@media (min-width:1024px) {
+  .auto-height {
+    height: calc(100vh - 237px) !important;
+  }
+}

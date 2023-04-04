@@ -1,14 +1,11 @@
-.carts-container {
-  padding-top: 15vh;
-  z-index: 2;
-}
-.carts-img {
-  height: 150px;
-  object-fit: contain;
-}
+// CartView
 .cartsItem {
   transition: all .3s;
   border-bottom: 1px solid #404040;
+  .carts-img {
+    height: 150px;
+    object-fit: contain;
+  }
 }
 .cartsInput-sm-container {
   left: 7%;
@@ -36,7 +33,6 @@
     }
   }
 }
-
 .cartsInput-md-container {
   width: 30%;
   .cartsInput-md-Item {

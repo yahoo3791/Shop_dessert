@@ -23,7 +23,7 @@
   transform: translateY(0px);
 }
 /* 全局置頂按鈕 end */
-// 首頁banner滑動提示紐 start
+// 首頁 slider-icon start
 .slider-icon {
   margin-bottom: 10px;
   width: 30px;
@@ -65,24 +65,8 @@
     transform: translateY(15px);
   }
 }
-.btn-hidden-toggle {
-  transition: all 1s;
-  transform: translate(-50%, 100px) !important;
-  opacity: 0;
-}
 // 首頁banner滑動提示紐 end
 // 全局共用按鈕 start
-.offset-btn {
-  background-color: #fff;
-  transition: all .3s !important;
-  box-shadow: 0.3em 0.3em 0 white;
-  color: black;
-  cursor: pointer;
-  &:hover,
-  &:active {
-    box-shadow: 0 0 0 white, inset 0.2em 0.2em 0 white;
-  }
-}
 .w-btn {
   font-size: 1.125rem !important;
   font-weight: 700;
@@ -90,12 +74,6 @@
   color: black !important;
   padding: 1rem 1.5rem !important;
   background: white !important;
-}
-.modal-btn {
-  font-size: 1.125rem !important;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  padding: 1rem 1.5rem !important;
 }
 .w-btn-product {
   font-size: 1.125rem !important;
@@ -107,22 +85,8 @@
   text-align: center;
   border-radius: 3px;
 }
-.type-btn {
-  display: inline-block;
-  cursor: pointer;
-  background: white;
-  border: 1px solid $secondary-80;
-  color: black;
-  padding: 0 3rem;
-  &:active {
-    box-shadow: inset 1px 1px 5px $secondary-40
-  }
-}
 @include media-breakpoint-up(md) {
   .w-btn {
-    padding: 1.2rem 2rem !important;
-  }
-  .modal-btn {
     padding: 1.2rem 2rem !important;
   }
   .slider-icon {

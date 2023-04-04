@@ -464,14 +464,6 @@ export default {
           });
         });
     },
-    onChange(e) {
-      const { value } = e.target;
-      if (value === '價格排序低到高' && this.products.length > 1) {
-        this.products.sort((a, b) => a.price - b.price);
-      } else if (value === '價格排序高到低' && this.products.length > 1) {
-        this.products.sort((b, a) => a.price - b.price);
-      }
-    },
     addFav(item) {
       if (this.favoriteData.includes(item.id)) {
         this.favoriteData.splice(this.favoriteData.indexOf(item.id), 1);

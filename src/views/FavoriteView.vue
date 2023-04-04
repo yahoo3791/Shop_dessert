@@ -52,7 +52,7 @@
             :class="{'d-none': favoriteData.length == 0}">
             <div class="row d-flex flex-wrap align-items-center">
               <div class="col-6 col-md-6 col-lg-4 mb-5"
-                v-for="item,index in filterData"
+                v-for="item,index in updateProducts"
                 :key="index">
                 <div
                   class="text-white product-content-container
@@ -181,6 +181,7 @@ export default {
       filterData: [],
       isLoading: false,
       productLoading: true,
+      clickName: '',
     };
   },
   components: { Navbar, Footer, Loading },
@@ -334,13 +335,22 @@ export default {
     },
     onChange(e) {
       const { value } = e.target;
-      if (value === '價格排序低到高' && this.filterData.length > 1) {
-        this.filterData.sort((a, b) => a.price - b.price);
-      } else if (value === '價格排序高到低' && this.filterData.length > 1) {
-        this.filterData.sort((b, a) => a.price - b.price);
-      } else if (value === '熱銷商品' && this.products.length > 1) {
-        this.filterData.sort((a, b) => a.num - b.num);
+      this.clickName = value;
+      return value;
+    },
+  },
+  computed: {
+    updateProducts() {
+      let arr = [];
+      arr = this.filterData;
+      if (this.clickName === '價格排序低到高') {
+        arr.sort((a, b) => a.price - b.price);
+      } else if (this.clickName === '價格排序高到低') {
+        arr.sort((a, b) => b.price - a.price);
+      } else if (this.clickName === '熱銷商品') {
+        arr.sort((a, b) => a.num - b.num);
       }
+      return arr;
     },
   },
   mounted() {

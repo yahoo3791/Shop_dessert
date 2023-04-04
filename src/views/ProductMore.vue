@@ -143,7 +143,8 @@
             style="border-bottom: 1px solid #404040">
             您可能喜歡這些...
           </h4>
-          <swiper-container class="mySwiper"
+          <swiper-container
+            class="mySwiper"
             :slidesPerView="2"
             :centeredSlides="false"
             :spaceBetween="30"
@@ -152,7 +153,10 @@
               delay: 2500,
               disableOnInteraction: false,
             }">
-            <swiper-slide v-for="(item, index) in sameProduct" :key="index" class="flex-column">
+            <swiper-slide
+              v-for="item in sameProduct"
+              :key="item.id"
+              class="flex-column">
               <div
                 class="mx-auto product-content-container cursor-pointer"
                 @click.stop="more(item.id, index)"
@@ -207,12 +211,11 @@ export default {
     return {
       productAll: {},
       product: {},
+      favoriteData: [],
+      sameProduct: [],
       num: 1,
       isLoading: false,
       productLoading: true,
-      productHistory: [],
-      sameProduct: [],
-      favoriteData: [],
     };
   },
   components: {
@@ -354,9 +357,7 @@ export default {
         .get(api)
         .then((response) => {
           this.productAll = response.data.products;
-          if (response.data.success) {
-            this.updateHistory();
-          }
+          this.updateData();
         })
         .catch(() => {
           const Toast = Swal.mixin({
@@ -376,22 +377,15 @@ export default {
           });
         });
     },
-    updateHistory() {
+    updateData() {
       const data = JSON.parse(localStorage.getItem('setHistory')) || [];
-      const clickData = [];
-      this.productAll.forEach((item) => {
-        if (data.length === 0) {
-          return;
-        }
-        if (item.id === data[0]) {
-          clickData.push(item);
-        }
-      });
-      this.productAll.forEach((item) => {
-        if (data.length === 0) {
-          return;
-        }
-        if (clickData[0].category === item.category) {
+      if (data.length === 0) {
+        return;
+      }
+      const clickProduct = this.productAll.filter((item) => item.id === data[0]);
+      const updateProducts = this.productAll.filter((item) => item.id !== data[0]);
+      updateProducts.forEach((item) => {
+        if (clickProduct[0].category === item.category) {
           this.sameProduct.push(item);
         }
       });
@@ -446,9 +440,6 @@ export default {
     this.getData();
     this.getDataAll();
     this.updateFav();
-    setInterval(() => {
-      localStorage.removeItem('setHistory');
-    }, 3600000);
   },
 };
 </script>

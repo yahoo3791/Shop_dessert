@@ -423,7 +423,6 @@ export default {
           icon: 'info',
           title: '請填寫性別欄位 <i class="bi bi-emoji-smile-fill"></i>',
         });
-        return;
       } else if (this.selection1 === false) {
         const Toast = Swal.mixin({
           toast: true,
@@ -440,32 +439,32 @@ export default {
           icon: 'info',
           title: '確認資訊完成後<br>記得勾選確認欄位 <i class="bi bi-emoji-smile-fill"></i>',
         });
-        return;
+      } else {
+        const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order`;
+        this.axios
+          .post(api, { data: this.formData })
+          .then((response) => {
+            const { orderId } = response.data;
+            this.$router.push(`/user/checkout/${orderId}`);
+          })
+          .catch(() => {
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+              },
+            });
+            Toast.fire({
+              icon: 'error',
+              title: '連線異常',
+            });
+          });
       }
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order`;
-      this.axios
-        .post(api, { data: this.formData })
-        .then((response) => {
-          const { orderId } = response.data;
-          this.$router.push(`/user/checkout/${orderId}`);
-        })
-        .catch(() => {
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer);
-              toast.addEventListener('mouseleave', Swal.resumeTimer);
-            },
-          });
-          Toast.fire({
-            icon: 'error',
-            title: '連線異常',
-          });
-        });
     },
   },
   mounted() {

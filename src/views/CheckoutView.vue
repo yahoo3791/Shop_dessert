@@ -150,28 +150,13 @@ export default {
           });
           this.render();
           this.isLoading = false;
+        })
+        .catch(() => {
           Swal.fire({
+            position: 'center',
             icon: 'error',
             title: '付款失敗',
             text: '請聯絡我們客服人員',
-            footer: '辦公室地址:台北市信義區市府路101號,客服電話:(02)1010101,客服時間:週一至週五上午07:00~下午17:00,Email:MgzOfficer010@gmail.com',
-          });
-        })
-        .catch(() => {
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer);
-              toast.addEventListener('mouseleave', Swal.resumeTimer);
-            },
-          });
-          Toast.fire({
-            icon: 'error',
-            title: '連線異常',
           });
         });
     },

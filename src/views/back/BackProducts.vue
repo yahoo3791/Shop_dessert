@@ -39,8 +39,8 @@
             <tr
               v-for="item in Data"
               :key="item.id">
-              <td
-                style="overflow: hidden; text-overflow:ellipsis">
+              <td class="overflow-hidden"
+                style="text-overflow:ellipsis">
                 {{ item.title }}
               </td>
               <td
@@ -178,23 +178,15 @@ export default {
       // 傳送
       this.isLoading = true;
       this.axios[httpMethod](api, { data: this.tempProduct })
-        .then((response) => {
+        .then(() => {
           this.isLoading = false;
           this.$refs.productModal.modalHide();
           this.tempProduct = {};
-          if (response.data.success) {
-            this.getData();
-            this.emitter.emit('push-message', {
-              style: 'success',
-              title: '更新成功',
-            });
-          } else {
-            this.emitter.emit('push-message', {
-              style: 'danger',
-              title: '更新失敗',
-              content: response.data.message.join('、'),
-            });
-          }
+          this.getData();
+          this.emitter.emit('push-message', {
+            style: 'success',
+            title: '更新成功',
+          });
         })
         .catch(() => {
           const Toast = Swal.mixin({
@@ -231,23 +223,14 @@ export default {
       this.isLoading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${this.deleteItem.id}`;
       this.axios.delete(api)
-        .then((response) => {
+        .then(() => {
           this.$refs.deleteModal.modalHide();
-          if (response.data.success) {
-            this.isLoading = false;
-            this.getData();
-            this.emitter.emit('push-message', {
-              style: 'success',
-              title: '刪除成功',
-            });
-          } else {
-            this.isLoading = false;
-            this.emitter.emit('push-message', {
-              style: 'danger',
-              title: '刪除失敗',
-              content: response.data.message.join('、'),
-            });
-          }
+          this.isLoading = false;
+          this.getData();
+          this.emitter.emit('push-message', {
+            style: 'success',
+            title: '刪除成功',
+          });
         })
         .catch(() => {
           const Toast = Swal.mixin({

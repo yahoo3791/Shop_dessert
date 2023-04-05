@@ -39,7 +39,7 @@
         </div>
           <div class="col-12 col-md-6 offset-md-3 my-5">
             <div class="accordion" id="accordionPanelsStayOpenExample">
-              <div class="accordion-item" style="border-radius:0">
+              <div class="accordion-item rounded-0">
                 <h2 class="accordion-header"
                   id="panelsStayOpen-headingOne">
                   <button

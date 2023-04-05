@@ -40,9 +40,8 @@
           :class="{ 'd-none': productLoading }"
           v-if="favoriteData.length !== 0">
           <div
-            class="spinner-border text-light"
-            role="status"
-            style="width: 3rem; height: 3rem;">
+            class="spinner-border text-light spinner-border-3rem"
+            role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
@@ -59,20 +58,16 @@
                   mx-auto cursor-pointer position-relative"
                   @click="more(item.id,$event,index)"
                   @keydown="more(item.id,$event,index)">
-                  <span class="badge bg-danger position-absolute"
-                    v-if="(item.num <= 5 && item.num >= 1)"
-                    style="z-index:5; top:5%; left:5%"
-                    >HOT
+                  <span class="badge bg-danger position-absolute badge-position"
+                    v-if="(item.num <= 5 && item.num >= 1)">HOT
                   </span>
-                  <span class="badge bg-dark opacity-50 position-absolute"
-                    v-else-if="(item.num === 0)"
-                    style="z-index:5; top:5%; left:5%"
-                    >SOLD OUT
+                  <span class="badge bg-dark opacity-50 position-absolute badge-position"
+                    v-else-if="(item.num === 0)">SOLD OUT
                   </span>
                   <div class="product-item position-relative">
                     <img :src="item.imageUrl"
                       class="position-relative w-100 h-100 product-img"
-                      alt="雜誌圖片" />
+                      alt="商品圖片" />
                     <div class="w-100 productNotes-container position-absolute bottom-0 start-50">
                       <i
                         class="productNotes-icon d-block bi bi-info-square text-4xl
@@ -141,7 +136,7 @@
                     <option
                       selected="selected"
                       disabled="disabled"
-                      style="display: none"
+                      class="d-n"
                       value="">選擇顯示方法
                     </option>
                     <option
@@ -192,10 +187,8 @@ export default {
       this.axios.get(api)
         .then((response) => {
           this.products = response.data.products;
-          if (response.data.success) {
-            this.productLoading = true;
-            this.getFavoriteData();
-          }
+          this.productLoading = true;
+          this.getFavoriteData();
         })
         .catch(() => {
           const Toast = Swal.mixin({
@@ -229,44 +222,25 @@ export default {
       };
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.isLoading = true;
-      this.axios.post(api, { data }).then((response) => {
+      this.axios.post(api, { data }).then(() => {
         e.target.childNodes[0].classList.add('d-none');
-        if (response.data.success) {
-          this.isLoading = false;
-          emitter.emit('updateCartsNum');
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer);
-              toast.addEventListener('mouseleave', Swal.resumeTimer);
-            },
-          });
-          Toast.fire({
-            icon: 'success',
-            title: '成功加入購物車',
-          });
-        } else {
-          this.isLoading = false;
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer);
-              toast.addEventListener('mouseleave', Swal.resumeTimer);
-            },
-          });
-          Toast.fire({
-            icon: 'error',
-            title: '加入購物車失敗',
-          });
-        }
+        this.isLoading = false;
+        emitter.emit('updateCartsNum');
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: 'success',
+          title: '成功加入購物車',
+        });
       });
     },
     more(id) {

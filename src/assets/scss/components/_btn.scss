@@ -106,6 +106,12 @@
     font-size: 2em;
     color: white;
   }
+  .chat-span {
+    left: -90px !important;
+    top: -15px !important;
+    animation-duration: 1s;
+    animation-delay: 5s;
+  }
 }
 .translateY-70px {
   transition: all 1s;

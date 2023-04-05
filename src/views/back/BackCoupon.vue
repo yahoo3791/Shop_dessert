@@ -132,22 +132,13 @@ export default {
       }
       this.isLoading = true;
       this.axios[httpMethod](api, { data: this.tempCoupon })
-        .then((response) => {
-          if (response.data.success) {
-            this.isLoading = false;
-            this.updateData();
-            this.emitter.emit('push-message', {
-              style: 'success',
-              title: '更新成功',
-            });
-          } else {
-            this.isLoading = false;
-            this.emitter.emit('push-message', {
-              style: 'danger',
-              title: '更新失敗',
-              content: response.data.message.join('、'),
-            });
-          }
+        .then(() => {
+          this.isLoading = false;
+          this.updateData();
+          this.emitter.emit('push-message', {
+            style: 'success',
+            title: '更新成功',
+          });
         })
         .catch(() => {
           const Toast = Swal.mixin({
@@ -204,20 +195,12 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/coupon/${id}`;
       this.isLoading = false;
       this.axios.delete(api)
-        .then((response) => {
-          if (response.data.success) {
-            this.updateData();
-            this.emitter.emit('push-message', {
-              style: 'success',
-              title: '刪除成功',
-            });
-          } else {
-            this.emitter.emit('push-message', {
-              style: 'danger',
-              title: '刪除失敗',
-              content: response.data.message.join('、'),
-            });
-          }
+        .then(() => {
+          this.updateData();
+          this.emitter.emit('push-message', {
+            style: 'success',
+            title: '刪除成功',
+          });
         })
         .catch(() => {
           const Toast = Swal.mixin({

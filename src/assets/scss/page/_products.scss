@@ -28,6 +28,7 @@
     overflow: hidden;
     .product-img {
       transition: all .3s;
+      object-fit: cover;
     }
     .productNotes-container {
       transform: translate(-50%, 100px);
@@ -83,6 +84,8 @@
 }
 .productBanner {
   height: 200px;
+  object-fit: cover;
+  border-radius: 5px
 }
 @include media-breakpoint-up(md) {
   .product-content-h5 {

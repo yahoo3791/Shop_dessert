@@ -24,8 +24,8 @@
       <div :class="{ 'd-none': !cartsSwitch }">
         <div class="row mx-0">
           <div class="col-12 p-0 my-4">
-            <div class="d-flex justify-content-between align-items-center pb-3"
-              style="border-bottom: 1px solid #404040;">
+            <div class="d-flex justify-content-between
+              align-items-center pb-3 border-bottom-404040">
               <h1 class="mb-0 text-center tracking-widest font-bold text-3xl">購物車</h1>
               <div>
                 <button
@@ -251,43 +251,25 @@ export default {
       const { id } = this.deleteItem;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`;
       this.axios.delete(api)
-        .then((response) => {
+        .then(() => {
           this.$refs.DeleteCarts.modalHide();
-          if (response.data.success) {
-            emitter.emit('updateCartsNum', 0);
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: 'success',
-              title: '刪除品項成功',
-            });
-            this.getData();
-          } else {
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: 'error',
-              title: '更新異常',
-            });
-          }
+          emitter.emit('updateCartsNum', 0);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'success',
+            title: '刪除品項成功',
+          });
+          this.getData();
         })
         .catch(() => {
           const Toast = Swal.mixin({

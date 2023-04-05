@@ -13,10 +13,9 @@
             <input
               id="message"
               name="留言"
-              class="carts-input p-2 border-0 border-bottom text-white tracking-wider"
+              class="carts-input p-2 border-0 border-bottom text-white tracking-wider w-75"
               maxlength="100"
               placeholder="輸入您的訂單編號"
-              style="width:80%"
               v-model="orderNumber"
               @keyup.enter="search">
             <i
@@ -33,8 +32,7 @@
       <div class="row">
         <div class="col-10 col-md-6 mx-auto">
           <h3
-            class="tracking-widest font-bold text-3xl pb-3 mt-5"
-            style="border-bottom: 1px solid #404040;">訂購人資訊</h3>
+            class="tracking-widest font-bold text-3xl pb-3 mt-5 border-bottom-404040">訂購人資訊</h3>
           <div class="row">
             <div class="col-12 text-white mb-5 d-flex">
               <div class="text-base tracking-widest text-lg">
@@ -53,8 +51,7 @@
           </div>
           <div class="row">
             <h3
-              class="tracking-widest font-bold text-3xl pb-3 mt-3"
-              style="border-bottom: 1px solid #404040;">商品資訊</h3>
+              class="tracking-widest font-bold text-3xl pb-3 mt-3 border-bottom-404040">商品資訊</h3>
             <div class="col-12 text-white mb-5">
               <div
                 class="payCart-item border-bottom d-flex py-3"
@@ -80,8 +77,7 @@
           </div>
           <div class="row">
             <h3
-              class="tracking-widest font-bold text-3xl pb-3 mt-3"
-              style="border-bottom: 1px solid #404040;">付款資訊
+              class="tracking-widest font-bold text-3xl pb-3 mt-3 border-bottom-404040">付款資訊
             </h3>
             <div class="col-12 tracking-widest text-lg">
               <p>訂單時間: {{ $filters.date(order.create_at)}}</p>
@@ -95,6 +91,16 @@
       </div>
     </div>
   </div>
+  <RouterLink to="/user/contact"
+    class="position-fixed text-center
+    end-0 bottom-0 cursor-pointer m-3 border chat-container">
+    <i
+    class="bi bi-chat-dots-fill chat-icon" />
+      <span class="position-absolute chat-span
+      badge rounded-pill bg-light text-black animated pulse infinite delay-5s">
+      有問題能幫助您嗎？
+  </span>
+  </RouterLink>
   <Footer />
 </template>
 

@@ -241,11 +241,9 @@ export default {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/upload`;
       this.isLoading = true;
       this.axios.post(url, formData)
-        .then((res) => {
+        .then((response) => {
           this.isLoading = false;
-          if (res.data.success) {
-            this.data.imageUrl = res.data.imageUrl;
-          }
+          this.data.imageUrl = response.data.imageUrl;
         })
         .catch(() => {
           const Toast = Swal.mixin({

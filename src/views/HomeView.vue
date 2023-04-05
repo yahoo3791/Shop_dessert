@@ -1,4 +1,5 @@
 <template>
+  <Loading v-model:active="isLoading" />
   <Navbar />
   <div class="bg-dark overflow-hidden ">
     <div class="container-fulid pt-utility">
@@ -75,9 +76,8 @@
         <div class="col-12 text-center pt-5"
           :class="{ 'd-none': productLoading }">
           <div
-            class="spinner-border text-light"
-            role="status"
-            style="width: 3rem; height: 3rem;">
+            class="spinner-border text-light spinner-border-3rem"
+            role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
@@ -88,15 +88,13 @@
             mx-auto cursor-pointer position-relative"
             @click="more(item.id,$event,index)"
             @keydown="more(item.id,$event,index)">
-              <span class="badge bg-danger position-absolute"
-                style="z-index:5; top:5%; left:5%">HOT
+              <span class="badge bg-danger position-absolute badge-position">HOT
               </span>
               <div class="product-item position-relative">
                 <img
                   :src="item.imageUrl"
                   class="position-relative w-100 h-100 product-img"
-                  style="object-fit: cover;"
-                  alt="雜誌圖片" />
+                  alt="商品圖片" />
               <div class="w-100 productNotes-container position-absolute bottom-0 start-50">
                 <i class="productNotes-icon d-block bi bi-info-square text-4xl
                   position-relative top-50 start-50 text-center" />
@@ -296,9 +294,9 @@
                 <i class="bi bi-envelope footer-envelope" />
               </button>
               <ErrorMessage
+                class="text-orange"
                 :class="{ 'd-none': subMail == ''}"
-                name="email"
-                style="color:orangered" />
+                name="email" />
             </div>
           </VForm>
         </div>
@@ -332,6 +330,7 @@ import 'sweetalert2/src/sweetalert2.scss';
 import emitter from '@/methods/emitter';
 import { register } from 'swiper/element/bundle';
 import '@/assets/scss/swiper/homePageSwiper.css';
+import Loading from '@/components/IsLoading.vue';
 import Navbar from '../components/FrontNavbar.vue';
 import Footer from '../components/FrontFooter.vue';
 import scrollMixins from '../mixins/scroll';
@@ -352,7 +351,7 @@ export default {
     };
   },
   components: {
-    Navbar, Footer,
+    Navbar, Footer, Loading,
   },
   mixins: [scrollMixins],
   methods: {
@@ -375,10 +374,8 @@ export default {
     },
     more(id) {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`;
-      this.axios.get(api).then((response) => {
-        if (response.data.success) {
-          this.$router.push(`/user/product/${id}`);
-        }
+      this.axios.get(api).then(() => {
+        this.$router.push(`/user/product/${id}`);
       });
       this.productHistory(id);
     },
@@ -399,43 +396,24 @@ export default {
       };
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.isLoading = true;
-      this.axios.post(api, { data }).then((response) => {
+      this.axios.post(api, { data }).then(() => {
         e.target.childNodes[0].classList.add('d-none');
-        if (response.data.success) {
-          this.isLoading = false;
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer);
-              toast.addEventListener('mouseleave', Swal.resumeTimer);
-            },
-          });
-          Toast.fire({
-            icon: 'success',
-            title: '成功加入購物車',
-          });
-        } else {
-          this.isLoading = false;
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer);
-              toast.addEventListener('mouseleave', Swal.resumeTimer);
-            },
-          });
-          Toast.fire({
-            icon: 'error',
-            title: '加入購物車失敗',
-          });
-        }
+        this.isLoading = false;
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+          },
+        });
+        Toast.fire({
+          icon: 'success',
+          title: '成功加入購物車',
+        });
       });
       this.renderCarts();
       emitter.emit('updateCartsNum');

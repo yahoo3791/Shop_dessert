@@ -24,9 +24,8 @@
       <div class="row text-white flex-column-reverse flex-md-row">
         <div class="col-12 col-md-6">
           <div
-            class="d-flex justify-content-between align-items-center pb-3 mb-3"
-            style="border-bottom: 1px solid #404040"
-          >
+            class="d-flex justify-content-between
+            align-items-center pb-3 mb-3 border-bottom-404040">
             <h1 class="mb-0 tracking-widest font-bold text-3xl">訂購人資訊</h1>
           </div>
           <VForm @submit="submitContact">
@@ -43,8 +42,7 @@
               />
               <br />
               <ErrorMessage
-                style="color: #ff4343"
-                class="ps-2 position-absolute text-xs"
+                class="ps-2 position-absolute text-xs text-orange"
                 name="姓名"
               />
             </div>
@@ -93,8 +91,7 @@
               />
               <br />
               <ErrorMessage
-                style="color: #ff4343"
-                class="ps-2 position-absolute text-xs"
+                class="ps-2 position-absolute text-xs text-orange"
                 name="信箱"
               />
             </div>
@@ -113,8 +110,7 @@
               />
               <br />
               <ErrorMessage
-                style="color: #ff4343"
-                class="ps-2 position-absolute text-xs"
+                class="ps-2 position-absolute text-xs text-orange"
                 name="手機"
               />
             </div>
@@ -133,8 +129,7 @@
               />
               <br />
               <ErrorMessage
-                style="color: #ff4343"
-                class="ps-2 position-absolute text-xs"
+                class="ps-2 position-absolute text-xs text-orange"
                 name="地址"
               />
             </div>
@@ -189,9 +184,7 @@
         </div>
         <div class="col-12 col-md-5 offset-md-1">
           <h4
-            class="tracking-widest font-bold text-3xl pb-3"
-            style="border-bottom: 1px solid #404040"
-          >
+            class="tracking-widest font-bold text-3xl pb-3 border-bottom-404040">
             商品資訊
           </h4>
           <div
@@ -332,43 +325,25 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/coupon`;
       this.axios
         .post(api, { data: codeData })
-        .then((response) => {
-          if (response.data.success) {
-            this.getData();
-            this.coupon = true;
-            this.$refs.codeValue.disabled = true;
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: 'success',
-              title: '使用優惠卷成功',
-            });
-          } else {
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: 'error',
-              title: '使用優惠卷異常',
-            });
-          }
+        .then(() => {
+          this.getData();
+          this.coupon = true;
+          this.$refs.codeValue.disabled = true;
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'success',
+            title: '使用優惠卷成功',
+          });
         })
         .catch(() => {
           const Toast = Swal.mixin({

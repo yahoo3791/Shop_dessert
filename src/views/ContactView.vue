@@ -25,7 +25,7 @@
                   data-aos="fade-up"
                   data-aos-anchor-placement="bottom-bottom"
                 >
-                  <i class="bi bi-envelope text-5xl text-end" style="width: 30%" />
+                  <i class="bi bi-envelope text-5xl text-end w-25" />
                   <div class="ps-4">
                     <p class="p-01">發送EMAIL給客服中心</p>
                   </div>
@@ -43,7 +43,7 @@
                   data-aos-anchor-placement="bottom-bottom"
                   data-aos-delay="200"
                 >
-                  <i class="bi bi-telephone text-5xl text-end" style="width: 30%" />
+                  <i class="bi bi-telephone text-5xl text-end w-25" />
                   <div class="ps-4">
                     <h3 class="p-01">撥打電話(02)1010101</h3>
                   </div>
@@ -63,7 +63,7 @@
                   data-aos-anchor-placement="bottom-bottom"
                   data-aos-delay="400"
                 >
-                  <i class="bi bi-house text-5xl text-end" style="width: 30%" />
+                  <i class="bi bi-house text-5xl text-end w-25" />
                   <div class="ps-4">
                     <p class="p-01">客服中心：<br />台北市信義區市府路101號</p>
                   </div>
@@ -77,9 +77,7 @@
         </div>
         <div class="col-12 col-md-5 offset-md-1">
           <h4
-            class="tracking-widest font-bold text-3xl pb-3 mt-5"
-            style="border-bottom: 1px solid #404040"
-          >
+            class="tracking-widest font-bold text-3xl pb-3 mt-5 border-bottom-404040">
             寄送表單聯絡我們
           </h4>
           <VForm @submit="submitContact()">
@@ -97,8 +95,7 @@
               />
               <br />
               <ErrorMessage
-                style="color: #ff4343"
-                class="ps-2 position-absolute text-xs"
+                class="ps-2 position-absolute text-xs text-orange"
                 name="name"
               />
             </div>
@@ -148,8 +145,7 @@
               />
               <br />
               <ErrorMessage
-                style="color: #ff4343"
-                class="ps-2 position-absolute text-xs"
+                class="ps-2 position-absolute text-xs text-orange"
                 name="email"
               />
             </div>
@@ -169,8 +165,7 @@
               />
               <br />
               <ErrorMessage
-                style="color: #ff4343"
-                class="ps-2 position-absolute text-xs"
+                class="ps-2 position-absolute text-xs text-orange"
                 name="phone"
               />
             </div>

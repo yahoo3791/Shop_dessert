@@ -39,8 +39,7 @@
               placeholder="請輸入電子信箱" />
             <br>
             <ErrorMessage
-              style="color:#ff4343"
-              class="ps-2 position-absolute text-sm"
+              class="ps-2 position-absolute text-sm text-orange"
               name="account" />
           </div>
           <div class="py-3 position-relative">
@@ -59,8 +58,7 @@
               placeholder="請輸入密碼" />
             <br>
             <ErrorMessage
-              style="color:#ff4343"
-              class="ps-2 position-absolute text-sm"
+              class="ps-2 position-absolute text-sm text-orange"
               name="password" />
           </div>
           <div class="modal-footer border-0 p-0 mt-5">

@@ -8,7 +8,6 @@
           <img
             src="@/assets/pic/banner/productBanner.png"
             class="w-100 productBanner"
-            style="object-fit: cover; border-radius: 5px"
             alt="全部商品圖片"
           />
           <div class="position-absolute top-50 translate-middle-y" style="right: 20%">
@@ -29,7 +28,7 @@
                 class="text-black tracking-wide font-medium px-4 py-1 border-0"
                 @change="onChange($event)"
               >
-                <option selected="selected" disabled="disabled" style="display: none" value="">
+                <option selected="selected" disabled="disabled" class="d-n" value="">
                   選擇顯示方法
                 </option>
                 <option value="熱銷商品">熱銷商品</option>
@@ -41,7 +40,7 @@
         </div>
       </div>
       <div class="col-12 text-center pt-5" :class="{ 'd-none': productLoading }">
-        <div class="spinner-border text-light" role="status" style="width: 3rem; height: 3rem">
+        <div class="spinner-border text-light spinner-border-3rem" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
@@ -58,16 +57,12 @@
               @keydown="more(item.id, $event, index)"
             >
               <span
-                class="badge bg-danger position-absolute"
-                v-if="item.num <= 5 && item.num >= 1"
-                style="z-index: 5; top: 5%; left: 5%"
-                >HOT</span
+                class="badge bg-danger position-absolute badge-position"
+                v-if="item.num <= 5 && item.num >= 1">HOT</span
               >
               <span
-                class="badge bg-dark opacity-50 position-absolute"
-                v-else-if="item.num === 0"
-                style="z-index: 5; top: 5%; left: 5%"
-                >SOLD OUT</span
+                class="badge bg-dark opacity-50 position-absolute badge-position"
+                v-else-if="item.num === 0">SOLD OUT</span
               >
               <div class="product-item position-relative">
                 <img
@@ -196,10 +191,8 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`;
       this.axios
         .get(api)
-        .then((response) => {
-          if (response.data.success) {
-            this.$router.push(`/user/product/${id}`);
-          }
+        .then(() => {
+          this.$router.push(`/user/product/${id}`);
         })
         .catch(() => {
           const Toast = Swal.mixin({
@@ -234,43 +227,24 @@ export default {
       this.isLoading = true;
       this.axios
         .post(api, { data })
-        .then((response) => {
+        .then(() => {
           e.target.childNodes[0].classList.add('d-none');
-          if (response.data.success) {
-            this.isLoading = false;
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: 'success',
-              title: '成功加入購物車',
-            });
-          } else {
-            this.isLoading = false;
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: 'error',
-              title: '加入購物車失敗',
-            });
-          }
+          this.isLoading = false;
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'success',
+            title: '成功加入購物車',
+          });
         })
         .catch(() => {
           const Toast = Swal.mixin({
@@ -286,7 +260,7 @@ export default {
           });
           Toast.fire({
             icon: 'error',
-            title: '連線異常',
+            title: '加入購物車失敗',
           });
         });
       this.renderCarts();

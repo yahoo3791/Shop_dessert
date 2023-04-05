@@ -20,7 +20,7 @@
           </nav>
         </div>
         <div class="col-12 text-center pt-5" :class="{ 'd-none': productLoading }">
-          <div class="spinner-border text-light" role="status" style="width: 3rem; height: 3rem">
+          <div class="spinner-border text-light spinner-border-3rem" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
@@ -121,8 +121,7 @@
         <div class="col-12 col-md-9 mx-auto">
           <div class="mb-5">
             <h4
-              class="pb-2 tracking-wide font-medium text-xl"
-              style="border-bottom: 1px solid #404040">
+              class="pb-2 tracking-wide font-medium text-xl border-bottom-404040">
               保存方式
             </h4>
             <p>-最佳賞味期限-</p>
@@ -139,8 +138,7 @@
       <div class="row justify-content-center">
         <div class="col-12 col-md-9 py-5 my-5 text-white">
           <h4
-            class="pb-2 tracking-wide font-medium text-xl"
-            style="border-bottom: 1px solid #404040">
+            class="pb-2 tracking-wide font-medium text-xl border-bottom-404040">
             您可能喜歡這些...
           </h4>
           <swiper-container
@@ -160,9 +158,7 @@
               <div
                 class="mx-auto product-content-container cursor-pointer"
                 @click.stop="more(item.id, index)"
-                @keydown="more(item.id, index)"
-                style="max-width: 250px"
-              >
+                @keydown="more(item.id, index)">
                 <img :src="item.imageUrl" class="w-100" alt="您可能喜歡的圖片" />
                 <h5 class="product-content-h5 text-base font-medium tracking-wide py-2">
                   {{ item.title }}
@@ -281,45 +277,26 @@ export default {
       this.isLoading = true;
       this.axios
         .post(api, { data: cartData })
-        .then((response) => {
+        .then(() => {
           e.target.children[0].classList.add('d-none');
-          if (response.data.success) {
-            this.isLoading = false;
-            emitter.emit('updateCartsNum');
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: 'success',
-              title: '成功加入購物車',
-            });
-            this.num = 1;
-          } else {
-            this.isLoading = false;
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-              },
-            });
-            Toast.fire({
-              icon: 'error',
-              title: '加入購物車失敗',
-            });
-          }
+          this.isLoading = false;
+          emitter.emit('updateCartsNum');
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'success',
+            title: '成功加入購物車',
+          });
+          this.num = 1;
         })
         .catch(() => {
           const Toast = Swal.mixin({
@@ -335,7 +312,7 @@ export default {
           });
           Toast.fire({
             icon: 'error',
-            title: '連線異常',
+            title: '加入購物車失敗',
           });
         });
     },

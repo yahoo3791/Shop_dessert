@@ -38,14 +38,13 @@
           <tr>
             <td class="align-middle d-none d-md-table-cell">{{ $filters.date(item.create_at)}}</td>
             <td
-              class="align-middle"
+              class="align-middle overflow-hidden"
               width="30"
-              style="overflow:hidden;text-overflow: ellipsis;">
+              style="text-overflow: ellipsis;">
               {{ item.user.email }}
             </td>
             <td
-              class="align-middle"
-              style="overflow: auto;">
+              class="align-middle overflow-auto">
               <ul class="list-unstyled">
                 <li
                   v-for="(product, i) in item.products"

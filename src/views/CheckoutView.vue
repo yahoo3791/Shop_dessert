@@ -16,9 +16,8 @@
         <div class="col-12">
           <div class="progress">
             <div
-              class="progress-bar progress-bar-striped progress-bar-animated"
-              role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-              style="width: 100%">
+              class="progress-bar progress-bar-striped progress-bar-animated w-100"
+              role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
             </div>
             </div>
         </div>
@@ -36,8 +35,7 @@
       <div class="row">
         <div class="col-10 col-md-6 mx-auto">
           <h3
-            class="tracking-widest font-bold text-3xl pb-3 mt-5"
-            style="border-bottom: 1px solid #404040;">訂購人資訊</h3>
+            class="tracking-widest font-bold text-3xl pb-3 mt-5 border-bottom-404040">訂購人資訊</h3>
           <div class="row">
             <div class="col-12 text-white mb-5 d-flex">
               <div class="tracking-widest text-lg">
@@ -56,8 +54,7 @@
           </div>
           <div class="row">
           <h3
-            class="pb-3 mt-3 tracking-widest font-bold text-3xl"
-            style="border-bottom: 1px solid #404040;">商品資訊</h3>
+            class="pb-3 mt-3 tracking-widest font-bold text-3xl border-bottom-404040">商品資訊</h3>
           <div class="col-12 text-white mb-5">
             <div
               class="payCart-item border-bottom d-flex py-3"
@@ -80,8 +77,7 @@
           </div>
           </div>
           <div class="row">
-            <h3 class="pb-3 mt-3 tracking-widest font-bold text-3xl"
-              style="border-bottom: 1px solid #404040;">付款資訊</h3>
+            <h3 class="pb-3 mt-3 tracking-widest font-bold text-3xl border-bottom-404040">付款資訊</h3>
             <div
               class="col-12 tracking-widest text-lg">
               <p
@@ -103,6 +99,12 @@
             </div>
           </div>
           <div class="col-12 pt-2 pb-5 text-end my-5">
+            <button
+              type="button"
+              class="btn btn-light fw-bold me-2"
+              @click="$router.push('/user/checkOrder')"
+              >查詢訂單
+            </button>
             <button
               type="button"
               class="btn btn-light fw-bold"

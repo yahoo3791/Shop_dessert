@@ -20,18 +20,18 @@
             <RouterLink
               to="/user/contact"
               class="nav-link py-3 animated fadeInDown"
-              style="animation-duration: .5s;">
+              style="animation-duration: .6s;">
               聯絡我們
             </RouterLink>
             <RouterLink
               to="/user/products"
               class="nav-link py-3 animated fadeInDown"
-              style="animation-duration: .5s;">
+              style="animation-duration: .7s;">
               商品
             </RouterLink>
           <div
             class="d-flex justify-content-center animated fadeInDown"
-            style="animation-duration: .5s;">
+            style="animation-duration: .8;">
               <RouterLink to="/user/carts"
                 class="nav-link px-3 py-3 position-relative"
                 data-bs-toggle="tooltip"
@@ -129,8 +129,7 @@
           data-bs-placement="bottom"
           title="購物車">
           <i
-            class="bi bi-cart-fill me-1 position-relative"
-            style="font-size:1em">
+            class="bi bi-cart-fill me-1 position-relative text-1em">
             <span
               :class="{'d-none': cartsNum == 0 }"
               ref="cartsNum"
@@ -147,8 +146,7 @@
           data-bs-placement="bottom"
           title="我的最愛">
           <i
-            class="bi bi-heart-fill me-1 position-relative"
-            style="font-size:1em">
+            class="bi bi-heart-fill me-1 position-relative text-1em">
             <span
               :class="{ 'd-none': favoriteData.length == 0 }"
               ref="fav"
@@ -165,8 +163,7 @@
           data-bs-toggle="tooltip"
           data-bs-placement="bottom"
           title="會員">
-          <i class="bi bi-person-fill me-1"
-          style="font-size:1em" />
+          <i class="bi bi-person-fill me-1 text-1em" />
         </div>
         <RouterLink
           to="/user/checkOrder"
@@ -174,8 +171,7 @@
           data-bs-toggle="tooltip"
           data-bs-placement="bottom"
           title="查詢訂單">
-          <i class="bi bi-clipboard2-minus-fill me-1"
-            style="font-size:1em" />
+          <i class="bi bi-clipboard2-minus-fill me-1 text-1em" />
         </RouterLink>
       </div>
     </div>

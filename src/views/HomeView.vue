@@ -378,13 +378,8 @@ export default {
       this.productHistory(id);
     },
     productHistory(id) {
-      this.history = JSON.parse(localStorage.getItem('setHistory')) || [];
-      if (this.history.includes(id)) {
-        this.history.splice(this.history.indexOf(id), 1);
-      } else {
-        this.history.push(id);
-        localStorage.setItem('setHistory', JSON.stringify(this.history));
-      }
+      this.history.push(id);
+      this.history = localStorage.setItem('setHistory', JSON.stringify(this.history));
     },
     addCart(item, e) {
       e.target.childNodes[0].classList.remove('d-none');

@@ -19,8 +19,8 @@
             aria-label="Close" />
         </div>
         <div class="modal-body">
-          確定要刪除<span class="text-red">{{this.deleteItem.code}}</span>優惠碼<br>
-          刪除後無法復原
+          <p>確定要刪除<span class="text-red">{{deleteItem.code}}</span>優惠碼</p>
+          <p>刪除後無法復原</p>
         </div>
         <div class="modal-footer">
           <button

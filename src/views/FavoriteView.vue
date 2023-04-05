@@ -51,13 +51,13 @@
             :class="{'d-none': favoriteData.length == 0}">
             <div class="row d-flex flex-wrap align-items-center">
               <div class="col-6 col-md-6 col-lg-4 mb-5"
-                v-for="item,index in updateProducts"
-                :key="index">
+                v-for="item in updateProducts"
+                :key="item.id">
                 <div
                   class="text-white product-content-container
                   mx-auto cursor-pointer position-relative"
-                  @click="more(item.id,$event,index)"
-                  @keydown="more(item.id,$event,index)">
+                  @click="more(item.id)"
+                  @keydown="more(item.id)">
                   <span class="badge bg-danger position-absolute badge-position"
                     v-if="(item.num <= 5 && item.num >= 1)">HOT
                   </span>

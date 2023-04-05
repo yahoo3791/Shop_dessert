@@ -13,7 +13,7 @@
               class="modal-title"
               id="exampleModalLabel">
               <span
-                v-if="this.isNew === true">
+                v-if="isNew === true">
                 新增產品
               </span>
               <span

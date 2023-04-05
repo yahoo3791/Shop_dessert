@@ -47,8 +47,8 @@
               class="align-middle overflow-auto">
               <ul class="list-unstyled">
                 <li
-                  v-for="(product, i) in item.products"
-                  :key="i">
+                  v-for="product in item.products"
+                  :key="product.id">
                   {{ product.product.title }}<br>
                   {{ product.qty }}
                   {{ product.product.unit }}

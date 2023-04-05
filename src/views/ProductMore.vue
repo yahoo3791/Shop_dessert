@@ -109,8 +109,7 @@
                 <div
                   @click.stop
                   class="d-none spinner-border spinner-border-sm"
-                  role="status"
-                ></div>
+                  role="status"/>
                 加入購物車
               </div>
               <div v-else class="w-btn-product opacity-50">已售完</div>
@@ -157,8 +156,8 @@
               class="py-5">
               <div
                 class="mx-auto product-content-container cursor-pointer"
-                @click.stop="more(item.id, index)"
-                @keydown="more(item.id, index)">
+                @click.stop="more(item.id)"
+                @keydown="more(item.id)">
                 <img :src="item.imageUrl" class="w-100" alt="您可能喜歡的圖片" />
                 <h5 class="product-content-h5 text-base font-medium tracking-wide py-2">
                   {{ item.title }}

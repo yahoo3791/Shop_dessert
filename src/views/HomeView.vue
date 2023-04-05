@@ -82,12 +82,12 @@
           </div>
         </div>
         <div class="col-6 col-md-6 col-lg-4 col-xl-3 mb-5"
-          v-for="item,index in products"
-          :key="index">
+          v-for="item in products"
+          :key="item.id">
           <div class="text-white product-content-container
             mx-auto cursor-pointer position-relative"
-            @click="more(item.id,$event,index)"
-            @keydown="more(item.id,$event,index)">
+            @click="more(item.id)"
+            @keydown="more(item.id)">
               <span class="badge bg-danger position-absolute badge-position">HOT
               </span>
               <div class="product-item position-relative">
@@ -101,8 +101,8 @@
               </div>
               <div
                 class="fav position-absolute end-0 top-0"
-                @click.stop="addFav(item,index)"
-                @keydown="addFav(item,index)">
+                @click.stop="addFav(item)"
+                @keydown="addFav(item)">
                 <i class="bi mx-2 fs-1"
                 :class="favoriteData.includes(item.id) ? 'bi-heart-fill' : 'bi-heart'" />
               </div>
@@ -156,10 +156,8 @@
       <div class="row flex-column-reverse flex-md-row-reverse align-items-md-center">
         <div class="col-12 col-md-6 text-center py-5 py-md-0">
           <h1 class="title-01">客製化訂單</h1>
-          <p class="pb-5 p-01">
-            始終找不到您心中幻想的甜點嗎？<br>
-            <span>( 聯絡我們提供想法、溝通報價 )</span>
-          </p>
+          <p class="p-01">始終找不到您心中幻想的甜點嗎？</p>
+          <p class="pb-5">( 聯絡我們提供想法、溝通報價 )</p>
           <RouterLink
             to="/user/contact"
             class="href-none">

@@ -55,8 +55,8 @@
             <div class="col-12 text-white mb-5">
               <div
                 class="payCart-item border-bottom d-flex py-3"
-                v-for="item,k in order.products"
-                :key="k">
+                v-for="item in order.products"
+                :key="item.id">
                 <img
                   :src="item.product.imageUrl"
                   class="d-block"
@@ -81,7 +81,8 @@
             </h3>
             <div class="col-12 tracking-widest text-lg">
               <p>訂單時間: {{ $filters.date(order.create_at)}}</p>
-              <p class="py-1">訂單編號:<br>{{order.id}}</p>
+              <p class="py-1">訂單編號:</p>
+              <p>{{order.id}}</p>
               <p class="py-1">金額 {{ Math.round($filters.currency(order.total)) }}$</p>
               <p class="py-1" v-if="order.is_paid === true">付款完成</p>
               <p class="py-1" v-else-if="order.is_paid === false">尚未付款</p>

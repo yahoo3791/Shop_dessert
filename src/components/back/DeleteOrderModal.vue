@@ -20,20 +20,20 @@
         </div>
         <div
           class="modal-body text-black">
-          購買時間:{{ deleteData.create_at }} <br>
-          訂單編號:{{ deleteData.id }} <br>
+          <p>購買時間:{{ deleteData.create_at }}</p>
+          <p>訂單編號:{{ deleteData.id }}</p>
           <h5>購買款項</h5>
           <div
-            v-for="item,k in deleteData.products"
-            :key="k">
-            {{ item.product.title }} <br>
-            {{ item.qty }} / {{ item.product.unit }} <br>
+            v-for="item in deleteData.products"
+            :key="item.id">
+            <p>{{ item.product.title }}</p>
+            <p>{{ item.qty }} / {{ item.product.unit }}</p>
           </div>
           {{ deleteData.total }}$
           <h5>顧客資訊</h5>
           <div
-            v-for="item,k in deleteData.user"
-            :key="k">
+            v-for="item in deleteData.user"
+            :key="item.id">
             {{ item }}
           </div>
         </div>

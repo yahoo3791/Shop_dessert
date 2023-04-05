@@ -48,13 +48,13 @@
         <div class="row">
           <div
             class="col-6 col-md-6 col-lg-4 col-xl-3 mb-5"
-            v-for="(item, index) in updateProducts"
-            :key="index"
+            v-for="item in updateProducts"
+            :key="item.id"
           >
             <div
               class="text-white product-content-container mx-auto cursor-pointer position-relative"
-              @click="more(item.id, $event, index)"
-              @keydown="more(item.id, $event, index)"
+              @click="more(item.id)"
+              @keydown="more(item.id)"
             >
               <span
                 class="badge bg-danger position-absolute badge-position"
@@ -78,8 +78,8 @@
                 </div>
                 <div
                   class="fav position-absolute end-0 top-0"
-                  @click.stop="addFav(item, index)"
-                  @keydown="addFav(item, index)"
+                  @click.stop="addFav(item)"
+                  @keydown="addFav(item)"
                 >
                   <i
                     class="bi fs-1 mx-2"
@@ -128,7 +128,7 @@
     ref="scrollTop"
     class="scrollTop-container position-fixed text-center end-0 bottom-0 cursor-pointer m-3"
   >
-    <div @click="scrollToTop" @keydown="scrollToTop" class="scrollTop-btn d-block"></div>
+    <div @click="scrollToTop" @keydown="scrollToTop" class="scrollTop-btn d-block" />
   </div>
   <Footer />
 </template>

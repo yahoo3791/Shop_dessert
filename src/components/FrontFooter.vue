@@ -31,8 +31,8 @@
     </div>
     <div
       class="copyright opacity-50 tracking-wider pb-5">
-      Copyright © 2022 Dessert. All rights reserved.<br>
-      <span class="footer-color copyright-span">(作品練習用途無商業行為)</span>
+      <p>Copyright © 2022 Dessert. All rights reserved.</p>
+      <p class="footer-color copyright-span">(作品練習用途無商業行為)</p>
     </div>
   </footer>
 </template>

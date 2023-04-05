@@ -82,8 +82,8 @@
                   class="accordion-collapse collapse show"
                   aria-labelledby="panelsStayOpen-headingTwo">
                   <div class="accordion-body leading-7">
-                    <p>退換貨說明<br>
-                      請注意！請務必詳閱商品說明並再次確認確有購買該項商品之需求及意願時始下單購買，有任何疑問並請先聯繫客服詢問</p>
+                    <p>退換貨說明</p>
+                    <p>請注意！請務必詳閱商品說明並再次確認確有購買該項商品之需求及意願時始下單購買，有任何疑問並請先聯繫客服詢問</p>
                   </div>
                 </div>
               </div>

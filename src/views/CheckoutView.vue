@@ -81,11 +81,11 @@
             <div
               class="col-12 tracking-widest text-lg">
               <p
-              v-if="this.details.create_at">訂單成立成功
+              v-if="details.create_at">訂單成立成功
               </p>
-              <p class="py-1">訂單編號:<br>{{ this.$route.params.orderId }}<br>
-                (查詢訂單時輸入此編號)
-              </p>
+              <p class="py-1">訂單編號:</p>
+              <p>{{ $route.params.orderId }}</p>
+              <p>(查詢訂單時輸入此編號)</p>
               <p class="py-1">總金額{{ Math.round($filters.currency(details.total)) }}$
               </p>
               <p class="py-1"

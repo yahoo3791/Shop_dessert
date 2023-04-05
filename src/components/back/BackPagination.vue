@@ -12,8 +12,8 @@
       </li>
       <li
         class="page-item"
-        v-for="page,k in pages.total_pages"
-        :key="k">
+        v-for="page in pages.total_pages"
+        :key="page.id">
         <a
           class="page-link text-secondary"
           href="#"

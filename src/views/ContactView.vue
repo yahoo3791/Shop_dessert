@@ -190,9 +190,9 @@
             </div>
             <div class="text-end mb-5 mt-3">
               <button type="submit" class="btn btn-light fw-bold"
-              :disabled="this.formData.user.name === '' ||
-              this.formData.user.email === '' ||
-              this.formData.user.tel === ''">寄送</button>
+              :disabled="formData.user.name === '' ||
+              formData.user.email === '' ||
+              formData.user.tel === ''">寄送</button>
             </div>
           </VForm>
         </div>

@@ -15,7 +15,7 @@
       </div>
       <div
         class="col-12"
-        v-if="this.Data.length === 0">
+        v-if="Data.length === 0">
         <h2
         class="text-black text-center"
         style="padding:30vh 0">尚未新增商品。</h2>

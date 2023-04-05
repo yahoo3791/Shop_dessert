@@ -26,25 +26,23 @@
             <div class="row">
               <div class="col-12">
                 <div>
-                  <p>訂單時間:{{ changeData.create_at }}<br>
-                    訂單編號:{{ changeData.id }}
-                  </p>
+                  <p>訂單時間:{{ changeData.create_at }}</p>
+                  <p>訂單編號:{{ changeData.id }}</p>
                 </div>
               </div>
               <div class="col-12">
                 <h5>購買商品資訊</h5>
                 <div
-                  v-for="item,k in changeData.products"
-                  :key="k">
-                  <p>書名:{{ item.product.title }} <br>
-                    數量:{{ item.qty }}/{{ item.product.unit }}
-                  </p>
+                  v-for="item in changeData.products"
+                  :key="item.id">
+                  <p>書名:{{ item.product.title }}</p>
+                  <p>數量:{{ item.qty }}/{{ item.product.unit }}</p>
                 </div>
                 應付金額:{{ changeData.total }}$
               </div>
               <div class="col-12">
                 <h5>客戶資料</h5>
-                <div v-for="item,k in changeData.user" :key="k">
+                <div v-for="item in changeData.user" :key="item.id">
                   {{ item }}
                 </div>
                 <p>

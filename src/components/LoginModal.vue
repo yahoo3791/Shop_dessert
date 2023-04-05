@@ -37,9 +37,8 @@
               type="account"
               class="carts-input w-100 p-2 border-0 border-bottom text-white"
               placeholder="請輸入電子信箱" />
-            <br>
             <ErrorMessage
-              class="ps-2 position-absolute text-sm text-orange"
+              class="ps-2 position-absolute text-sm text-orange d-block"
               name="account" />
           </div>
           <div class="py-3 position-relative">
@@ -56,9 +55,8 @@
               type="password"
               class="carts-input w-100 p-2 border-0 border-bottom text-white"
               placeholder="請輸入密碼" />
-            <br>
             <ErrorMessage
-              class="ps-2 position-absolute text-sm text-orange"
+              class="ps-2 position-absolute text-sm text-orange d-block"
               name="password" />
           </div>
           <div class="modal-footer border-0 p-0 mt-5">

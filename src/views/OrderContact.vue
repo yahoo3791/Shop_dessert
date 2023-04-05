@@ -171,7 +171,7 @@
                   class="form-check-label text-white text-xl ms-auto"
                   for="check">
                   <input class="form-check-input" type="checkbox"
-                  value="" id="check" v-model="selection1">我已確認商品資訊
+                  id="check" v-model="selection1">我已確認商品資訊
                 </label>
               </div>
               <button type="submitContact"
@@ -189,8 +189,8 @@
           </h4>
           <div
             class="payCart-item border-bottom d-flex py-3"
-            v-for="(item, k) in cartsData.carts"
-            :key="k"
+            v-for="item in cartsData.carts"
+            :key="item.id"
           >
             <img :src="item.product.imageUrl" class="d-block" alt="cartImage" />
             <div class="text-2xl d-flex flex-column justify-content-between ps-3">
@@ -245,7 +245,7 @@
                 class="form-check-label text-white text-xl ms-auto"
                 for="check">
                 <input class="form-check-input" type="checkbox"
-                value="" id="check" v-model="selection1">我已確認商品資訊
+                id="check" v-model="selection1">我已確認商品資訊
               </label>
             </div>
             <button type="button"

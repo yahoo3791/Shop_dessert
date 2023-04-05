@@ -14,7 +14,7 @@
       <div class="row">
         <div
           class="col-12"
-          v-if="this.getCoupons.length === 0">
+          v-if="getCoupons.length === 0">
           <h2 class="text-black text-center"
             style="padding:30vh 0">尚未新增優惠卷。
           </h2>

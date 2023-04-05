@@ -20,6 +20,8 @@ import {
 import { required, email, min } from '@vee-validate/rules';
 import { localize, setLocale } from '@vee-validate/i18n';
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/swiper-bundle.css';
 
 import AOS from 'aos';
 
@@ -42,7 +44,8 @@ const app = createApp(App);
 app.component('VForm', Form);
 app.component('VField', Field);
 app.component('ErrorMessage', ErrorMessage);
-
+app.component('swiper-slide', SwiperSlide);
+app.component('swiper-container', Swiper);
 app.config.globalProperties.$filters = {
   currency, date,
 };

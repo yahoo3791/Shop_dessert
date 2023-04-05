@@ -137,7 +137,7 @@
     </div>
     <div class="container" v-if="sameProduct.length !== 0">
       <div class="row justify-content-center">
-        <div class="col-12 col-md-9 py-5 text-white">
+        <div class="col-12 col-md-9 py-5 my-5 text-white">
           <h4
             class="pb-2 tracking-wide font-medium text-xl"
             style="border-bottom: 1px solid #404040">
@@ -156,7 +156,7 @@
             <swiper-slide
               v-for="item in sameProduct"
               :key="item.id"
-              class="flex-column">
+              class="py-5">
               <div
                 class="mx-auto product-content-container cursor-pointer"
                 @click.stop="more(item.id, index)"

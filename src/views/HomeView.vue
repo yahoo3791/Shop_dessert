@@ -331,7 +331,7 @@ import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import emitter from '@/methods/emitter';
 import { register } from 'swiper/element/bundle';
-// import '@/assets/scss/swiper/homePageSwiper.css';
+import '@/assets/scss/swiper/homePageSwiper.css';
 import Navbar from '../components/FrontNavbar.vue';
 import Footer from '../components/FrontFooter.vue';
 import scrollMixins from '../mixins/scroll';

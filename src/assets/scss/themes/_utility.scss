@@ -74,6 +74,11 @@ a.router-link-active {
     scroll-margin-top: 50px;
   }
 }
+// change input color
+.form-check-input:checked {
+  background-color: $secondary-80;
+  border-color: $secondary-80;
+}
 // 通用padding
 .pt-utility {
   padding-top: 60px;

@@ -368,6 +368,7 @@ export default {
     },
     more(id) {
       this.$router.replace(`/user/product/${id}`);
+      localStorage.setItem('setHistory', JSON.stringify([id]));
     },
     addFav(item) {
       if (this.favoriteData.includes(item.id)) {

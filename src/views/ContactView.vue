@@ -13,7 +13,7 @@
         </nav>
       </div>
       <div class="row">
-        <div class="col-12 col-md-4 offset-md-1">
+        <div class="col-12 col-lg-4 offset-lg-1">
           <div class="row">
             <div class="col-12">
               <a
@@ -75,7 +75,7 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-5 offset-md-1">
+        <div class="col-12 col-lg-5 offset-lg-1">
           <h4
             class="tracking-widest font-bold text-3xl pb-3 mt-5 border-bottom-404040">
             寄送表單聯絡我們

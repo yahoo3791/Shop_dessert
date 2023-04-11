@@ -30,7 +30,7 @@
     <div class="container main"
       id="recommend">
       <div class="row">
-        <div class="col-12 col-md-6 my-2 position-relative"
+        <div class="col-12 col-lg-6 my-2 position-relative"
           data-aos="fade-right">
             <img src="../assets/pic/banner/grocery01.png"
               class="w-100 groceryImg"
@@ -48,7 +48,7 @@
               </RouterLink>
             </div>
         </div>
-        <div class="col-12 col-md-6 my-2 position-relative "
+        <div class="col-12 col-lg-6 my-2 position-relative "
           data-aos="fade-left">
           <img
             src="../assets/pic/banner/grocery02.png"
@@ -153,8 +153,8 @@
       <div class="line my-5" />
     </div>
     <div class="container">
-      <div class="row flex-column-reverse flex-md-row-reverse align-items-md-center">
-        <div class="col-12 col-md-6 text-center py-5 py-md-0">
+      <div class="row flex-column-reverse flex-lg-row-reverse align-items-lg-center">
+        <div class="col-12 col-lg-6 text-center py-5 py-lg-0">
           <h1 class="title-01">客製化訂單</h1>
           <p class="p-01">始終找不到您心中幻想的甜點嗎？</p>
           <p class="pb-5">( 聯絡我們提供想法、溝通報價 )</p>
@@ -166,7 +166,7 @@
               </button>
           </RouterLink>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-lg-6">
           <swiper-container
             :slidesPerView="1"
             :centeredSlides="true"
@@ -215,7 +215,7 @@
           <p class="p-01">食在好安心</p>
         </div>
         <div
-          class="col-12 col-md-3 d-flex my-3 py-3 my-md-0 markContainer"
+          class="col-12 col-md-6 col-lg-3 d-flex my-3 py-3 my-md-0 markContainer"
           data-aos="fade-left">
           <img
             class="markImg"
@@ -227,7 +227,7 @@
           </div>
         </div>
         <div
-          class="col-12 col-md-3 d-flex my-3 py-3 my-md-0 markContainer"
+          class="col-12 col-md-6 col-lg-3 d-flex my-3 py-3 my-md-0 markContainer"
           data-aos="fade-left"
           data-aos-delay="100">
           <img src="@/assets/pic/icon/GMP.png"
@@ -239,7 +239,7 @@
           </div>
         </div>
         <div
-          class="col-12 col-md-3 d-flex my-3 py-3 my-md-0 markContainer"
+          class="col-12 col-md-6 col-lg-3 d-flex my-3 py-3 my-md-0 markContainer"
           data-aos="fade-left"
           data-aos-delay="200">
           <img src="@/assets/pic/icon/TAP.png"
@@ -251,7 +251,7 @@
           </div>
         </div>
         <div
-        class="col-12 col-md-3 d-flex my-3 py-3 my-md-0 markContainer"
+        class="col-12 col-md-6 col-lg-3 d-flex my-3 py-3 my-md-0 markContainer"
           data-aos="fade-left"
           data-aos-delay="300">
           <img src="@/assets/pic/icon/安全蔬果.png"

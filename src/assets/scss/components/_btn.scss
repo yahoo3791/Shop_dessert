@@ -133,4 +133,13 @@
         height: 40px;
       }
     }
+  .chat-container {
+    width: 40px;
+    height: 40px;
+    line-height: 35px;
+  }
+  .translateY-70px {
+    transition: all 1s;
+    transform: translateY(-50px);
+  }
 }

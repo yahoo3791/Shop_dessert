@@ -232,12 +232,7 @@ export default {
       this.axios.get(api)
         .then((res) => {
           this.cartsData = res.data.data.carts;
-          const { carts } = res.data.data;
-          let num = 0;
-          carts.forEach((i) => {
-            num += i.qty;
-          });
-          this.cartsNum = num;
+          this.cartsNum = res.data.data.carts.length;
         })
         .catch(() => {
           const Toast = Swal.mixin({

@@ -39,18 +39,23 @@
       :class="{'d-none': !productLoading}">
       <div class="row justify-content-center align-items-center">
         <div class="col-12 col-md-4">
-            <img :src="product.imageUrl" class="w-100 h-100" alt="productImage" />
+            <img
+              :src="product.imageUrl"
+              class="w-100 h-100"
+              alt="productImage" />
             <div class="position-absolute swiper-bg top-0" />
         </div>
         <div class="col-12 col-md-5 offset-md-1 d-flex flex-column justify-content-between">
           <div>
             <div>
               <h1 class="text-2xl font-bold tracking-wider my-4 mb-md-4 text-white">
-                <span class="badge bg-danger"
+                <span
+                  class="badge bg-danger"
                   v-if="product.num <= 5 && product.num >= 1"
                   >HOT
                 </span>
-                <span class="badge bg-secondary opacity-50"
+                <span
+                  class="badge bg-secondary opacity-50"
                   v-else-if="product.num === 0"
                   >SOLD OUT
                 </span>
@@ -74,11 +79,16 @@
             </div>
             <div class="d-flex align-items-center justify-content-between mt-2">
               <div class="numInput-item d-flex justify-content-end align-items-center">
-                <div @click="min" @keypress="min" class="cursor-pointer numInput-prev text-center">
+                <div
+                  @click="min"
+                  @keypress="min"
+                  class="cursor-pointer numInput-prev text-center">
                   -
                 </div>
                 <div class="counter border">
-                  <label for="num" class="d-block h-100">
+                  <label
+                    for="num"
+                    class="d-block h-100">
                     <input
                       id="num"
                       name="num"
@@ -89,7 +99,10 @@
                     />
                   </label>
                 </div>
-                <div @click="add" @keydown="add" class="cursor-pointer numInput-next text-center">
+                <div
+                  @click="add"
+                  @keydown="add"
+                  class="cursor-pointer numInput-next text-center">
                   +
                 </div>
               </div>
@@ -104,7 +117,7 @@
               </div>
               <div
                 v-if="product.num >= 1"
-                :class="{ 'opacity-75': isLoading === true }"
+                :class="{'opacity-75': isLoading === true}"
                 @click="addCart(product.id, $event)"
                 @keydown="addCart(item, $event)"
                 :disabled="isLoading === true"
@@ -136,7 +149,9 @@
         </div>
       </div>
     </div>
-    <div class="container" v-if="sameProduct.length !== 0">
+    <div
+      class="container"
+      v-if="sameProduct.length !== 0">
       <div class="row justify-content-center">
         <div class="col-12 col-md-9 py-5 my-5 text-white">
           <h4
@@ -278,8 +293,8 @@ export default {
       this.axios
         .post(api, { data: cartData })
         .then(() => {
-          e.target.children[0].classList.add('d-none');
           this.isLoading = false;
+          e.target.children[0].classList.add('d-none');
           emitter.emit('updateCartsNum');
           const Toast = Swal.mixin({
             toast: true,

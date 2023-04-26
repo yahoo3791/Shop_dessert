@@ -21,7 +21,8 @@
           </RouterLink>
         </div>
       </div>
-      <div :class="{'d-none': !cartsSwitch}">
+      <div
+        :class="{'d-none': !cartsSwitch}">
         <div class="row mx-0">
           <div class="col-12 p-0 my-4">
             <div class="d-flex justify-content-between
@@ -53,11 +54,11 @@
               class="d-flex d-md-none justify-content-between
               pb-2 mb-2 tracking-wide">
               <button
-                  type="button"
-                  class="btn btn-light fw-bold ms-2"
-                  @click="open(item,key)">
-                  編輯
-                </button>
+                type="button"
+                class="btn btn-light fw-bold ms-2"
+                @click="open(item,key)">
+                編輯
+              </button>
               <p>{{ item.product.category }}類</p>
             </div>
             <div
@@ -124,7 +125,8 @@
                   <div
                     @click="min(item.id, key)"
                     @keydown="min(item.id, key)"
-                    class="cartsInput-md-min cursor-pointer text-center border">-
+                    class="cartsInput-md-min cursor-pointer text-center border">
+                    -
                   </div>
                   <div class="cartsInput-md-input text-xl">
                     <label
@@ -146,7 +148,9 @@
                   <div
                     @click="add(item.id, key)"
                     @keydown="add(item.id, key)"
-                    class="cartsInput-md-add cursor-pointer text-center border">+</div>
+                    class="cartsInput-md-add cursor-pointer text-center border">
+                    +
+                  </div>
                 </div>
               </div>
               <div
@@ -168,8 +172,13 @@
               <label
                 class="form-check-label text-white text-xl ms-auto"
                 for="check">
-                <input class="form-check-input" type="checkbox"
-                value="" id="check" v-model="selection">我已確認商品資訊
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="check"
+                  v-model="selection">
+                  我已確認商品資訊
               </label>
             </div>
           </div>
@@ -195,11 +204,12 @@
 import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
 import Loading from '@/components/IsLoading.vue';
-import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import emitter from '@/methods/emitter';
 import DeleteCartsAll from '@/components/DeleteCartsAll.vue';
 import DeleteCarts from '@/components/DeleteCarts.vue';
+
+const Swal = require('sweetalert2');
 
 export default {
   data() {

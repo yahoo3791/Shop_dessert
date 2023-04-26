@@ -2,8 +2,9 @@
   <Navbar />
   <Loading v-model:active="isLoading" />
   <div class="bg-dark">
-    <div class="container pt-utility"
-    :class="{'auto-height': favoriteData.length == 0}">
+    <div
+      class="container pt-utility"
+      :class="{'auto-height': favoriteData.length == 0}">
       <div class="row">
         <div class="col-12"
         :class="{'d-none': favoriteData.length == 0}">
@@ -33,7 +34,8 @@
           <RouterLink
             to="/user/products"
             class="text-decoration-none">
-            <button type="button"
+            <button
+              type="button"
               class="btn btn-light fw-bold mt-5"
               >前往商城
             </button>
@@ -144,13 +146,16 @@
                       value="">選擇顯示方法
                     </option>
                     <option
-                    value="熱銷商品">熱銷商品
+                    value="熱銷商品">
+                    熱銷商品
                     </option>
                     <option
-                    value="價格排序低到高">價格排序低到高
+                    value="價格排序低到高">
+                    價格排序低到高
                     </option>
                     <option
-                    value="價格排序高到低">價格排序高到低
+                    value="價格排序高到低">
+                    價格排序高到低
                     </option>
                   </select>
                 </div>
@@ -228,8 +233,8 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.isLoading = true;
       this.axios.post(api, { data }).then(() => {
-        e.target.childNodes[0].classList.add('d-none');
         this.isLoading = false;
+        e.target.childNodes[0].classList.add('d-none');
         emitter.emit('updateCartsNum');
         const Toast = Swal.mixin({
           toast: true,
@@ -315,7 +320,6 @@ export default {
     onChange(e) {
       const { value } = e.target;
       this.clickName = value;
-      return value;
     },
   },
   computed: {

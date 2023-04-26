@@ -1,6 +1,6 @@
 <template>
   <div class="container pt-utility" style="height: 100vh">
-    <loading v-model:active="isLoading" />
+    <Loading v-model:active="isLoading" />
     <div class="row">
       <div class="col-12 px-0 px-md-2">
         <div class="text-end">
@@ -17,10 +17,14 @@
         class="col-12"
         v-if="Data.length === 0">
         <h2
-        class="text-black text-center"
-        style="padding:30vh 0">尚未新增商品。</h2>
+          class="text-black text-center"
+          style="padding:30vh 0">
+          尚未新增商品。
+        </h2>
       </div>
-      <div class="col-12 px-0 px-md-2" v-else>
+      <div
+        class="col-12 px-0 px-md-2"
+        v-else>
         <table
           class="table mt-4 text-nowrap"
           style="table-layout: fixed">
@@ -49,7 +53,7 @@
               </td>
               <td
                 class="d-none d-md-table-cell">
-                {{ $filters.currency(item.origin_price)}}
+                {{ $filters.currency(item.origin_price) }}
               </td>
               <td>
                 {{item.price}}

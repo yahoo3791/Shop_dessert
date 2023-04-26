@@ -10,7 +10,9 @@ import ToastMessages from '@/components/ToastMessages.vue';
 import emitter from '@/methods/emitter';
 
 export default {
-  components: { ToastMessages },
+  components: {
+    ToastMessages,
+  },
   provide() {
     return { emitter };
   },

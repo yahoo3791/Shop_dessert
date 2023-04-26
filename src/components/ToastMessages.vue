@@ -8,7 +8,9 @@
 import Toast from '@/components/BackToast.vue';
 
 export default {
-  components: { Toast },
+  components: {
+    Toast,
+  },
   data() {
     return {
       messages: [],

@@ -4,7 +4,7 @@
   <div class="bg-dark">
     <div class="container">
       <div class="row pb-5"
-      style="padding-top: 20vh">
+        style="padding-top: 20vh">
         <div class="col-12 d-flex justify-content-around pb-2">
           <div class="p-01">
             1.確認商品並填寫資料
@@ -84,7 +84,8 @@
             <div
               class="col-12 tracking-widest text-lg">
               <p
-              v-if="details.create_at">訂單成立成功
+                v-if="details.create_at">
+                訂單成立成功
               </p>
               <p class="py-1">訂單編號:</p>
               <p>{{ $route.params.orderId }}</p>
@@ -96,7 +97,7 @@
               付款完成
               </p>
               <p class="py-1"
-              v-else-if="details.is_paid === false">
+              v-else>
               尚未付款
               </p>
             </div>
@@ -138,7 +139,9 @@ export default {
       isLoading: false,
     };
   },
-  components: { Navbar, Footer, Loading },
+  components: {
+    Navbar, Footer, Loading,
+  },
   methods: {
     payOrder() {
       const { orderId } = this.$route.params;
@@ -155,7 +158,6 @@ export default {
             timer: 1500,
           });
           this.render();
-          this.isLoading = false;
         })
         .catch(() => {
           Swal.fire({

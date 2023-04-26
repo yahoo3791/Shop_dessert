@@ -20,73 +20,78 @@
             <i class="bi bi-x-lg text-white" />
           </div>
         </div>
-      <div class="modal-body border-0">
-        <h1 class="text-center title-01 pb-3">登入</h1>
-        <VForm
-          @submit="submitAccount">
-          <div class="py-3 position-relative">
-            <h3 class="d-block formData-label
-              tracking-widest text-xl"
-              for="account">*帳號</h3>
-            <VField
-              id="account"
-              v-model="user.username"
-              name="account"
-              label="帳號"
-              rules="required"
-              type="account"
-              class="carts-input w-100 p-2 border-0 border-bottom text-white"
-              placeholder="請輸入電子信箱" />
-            <ErrorMessage
-              class="ps-2 position-absolute text-sm text-orange d-block"
-              name="account" />
-          </div>
-          <div class="py-3 position-relative">
-            <h3 class="d-block formData-label
-              tracking-widest text-xl"
-              for="password">*密碼
-            </h3>
-            <VField
-              id="password"
-              v-model="user.password"
-              name="password"
-              label="密碼"
-              rules="required"
-              type="password"
-              class="carts-input w-100 p-2 border-0 border-bottom text-white"
-              placeholder="請輸入密碼" />
-            <ErrorMessage
-              class="ps-2 position-absolute text-sm text-orange d-block"
-              name="password" />
-          </div>
-          <div class="modal-footer border-0 p-0 mt-5">
-            <div
-              class="me-auto">
-              <a href=""
-                class="text-decoration-none text-white">加入會員
-              </a> |
-              <a href=""
-                class="text-decoration-none text-white">忘記密碼
-              </a> |
-              <div
-                class="text-decoration-none text-white cursor-pointer d-inline-block"
-                @click="faq"
-                @keypress="faq">
-                疑難雜症
-              </div> |
-              <div
-                class="d-inline-block cursor-pointer"
-                @click="contact"
-                @keypress="contact">
-                聯絡客服
-              </div>
+        <div class="modal-body border-0">
+          <h1 class="text-center title-01 pb-3">登入</h1>
+          <VForm
+            @submit="submitAccount">
+            <div class="py-3 position-relative">
+              <h3 class="d-block formData-label
+                tracking-widest text-xl"
+                for="account">*帳號</h3>
+              <VField
+                id="account"
+                v-model="user.username"
+                name="account"
+                label="帳號"
+                rules="required"
+                type="account"
+                class="carts-input w-100 p-2 border-0 border-bottom text-white"
+                placeholder="請輸入電子信箱" />
+              <ErrorMessage
+                class="ps-2 position-absolute text-sm text-orange d-block"
+                name="account" />
             </div>
-            <button
-              type="submit"
-              class="btn btn-light fw-bold">登入
-            </button>
-          </div>
-        </VForm>
+            <div class="py-3 position-relative">
+              <h3 class="d-block formData-label
+                tracking-widest text-xl">
+                *密碼
+              </h3>
+              <VField
+                id="password"
+                v-model="user.password"
+                name="password"
+                label="密碼"
+                rules="required"
+                type="password"
+                class="carts-input w-100 p-2 border-0 border-bottom text-white"
+                placeholder="請輸入密碼" />
+              <ErrorMessage
+                class="ps-2 position-absolute text-sm text-orange d-block"
+                name="password" />
+            </div>
+            <div class="modal-footer border-0 p-0 mt-5">
+              <div
+                class="me-auto">
+                <a
+                  href="#"
+                  class="text-decoration-none text-white">
+                  加入會員
+                </a> |
+                <a
+                  href="#"
+                  class="text-decoration-none text-white">
+                  忘記密碼
+                </a> |
+                <div
+                  class="text-decoration-none text-white cursor-pointer d-inline-block"
+                  @click="faq"
+                  @keypress="faq">
+                  疑難雜症
+                </div> |
+                <div
+                  class="d-inline-block cursor-pointer"
+                  @click="contact"
+                  @keypress="contact">
+                  聯絡客服
+                </div>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-light fw-bold">
+                登入
+              </button>
+            </div>
+          </VForm>
         </div>
       </div>
     </div>

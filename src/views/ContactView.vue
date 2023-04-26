@@ -84,7 +84,8 @@
             class="tracking-widest font-bold text-3xl pb-3 mt-5 border-bottom-404040">
             寄送表單聯絡我們
           </h4>
-          <VForm @submit="submitContact">
+          <VForm
+            @submit="submitContact">
             <div class="py-3 position-relative">
               <h3 class="d-block formData-label tracking-wide text-lg">*聯絡人姓名</h3>
               <VField
@@ -134,7 +135,7 @@
               </div>
             </div>
             <div class="py-3 position-relative">
-              <h3 class="d-block formData-label tracking-widest text-lg" for="email">
+              <h3 class="d-block formData-label tracking-widest text-lg">
                 *聯絡人信箱
               </h3>
               <VField
@@ -154,7 +155,7 @@
               />
             </div>
             <div class="py-3 position-relative">
-              <h3 class="d-block formData-label tracking-widest text-lg" for="phone">
+              <h3 class="d-block formData-label tracking-widest text-lg">
                 *聯絡人手機
               </h3>
               <VField
@@ -193,10 +194,14 @@
               </label>
             </div>
             <div class="text-end mb-5 mt-3">
-              <button type="submit" class="btn btn-light fw-bold"
-              :disabled="formData.user.name === '' ||
-              formData.user.email === '' ||
-              formData.user.tel === ''">寄送</button>
+              <button
+                type="submit"
+                class="btn btn-light fw-bold"
+                :disabled="formData.user.name === '' ||
+                formData.user.email === '' ||
+                formData.user.tel === ''">
+                寄送
+              </button>
             </div>
           </VForm>
         </div>
@@ -227,7 +232,9 @@ export default {
       gendor: '',
     };
   },
-  components: { Navbar, Footer },
+  components: {
+    Navbar, Footer,
+  },
   methods: {
     submitContact() {
       if (

@@ -88,8 +88,10 @@
         </template>
       </tbody>
     </table>
-    <Pagination class="position-fixed bottom-0 start-50 translate-middle-x"
-    :pages="pagination" @updatePage="getData" />
+    <Pagination
+      class="position-fixed bottom-0 start-50 translate-middle-x"
+      :pages="pagination"
+      @updatePage="getData" />
   </div>
   <orderModal
     ref="orderModal"

@@ -1,8 +1,9 @@
 <template>
-<loading :active="isLoading" />
+<Loading :active="isLoading" />
   <div>
-    <div class="container pt-utility"
-    style="height:100vh">
+    <div
+      class="container pt-utility"
+      style="height:100vh">
       <div class="text-end">
         <button
           type="button"
@@ -19,7 +20,9 @@
             style="padding:30vh 0">尚未新增優惠卷。
           </h2>
         </div>
-        <div class="col-12" v-else>
+        <div
+          class="col-12"
+          v-else>
           <table class="table mt-4">
             <thead>
               <tr

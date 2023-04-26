@@ -1,8 +1,9 @@
 <template>
   <Loading v-model:active="isLoading" />
   <Navbar />
-  <div class="bg-dark"
-  :class="{'auto-height': !getOrder}">
+  <div
+    class="bg-dark"
+    :class="{'auto-height': !getOrder}">
     <div class="container">
       <div class="row">
         <div
@@ -26,7 +27,8 @@
         </div>
       </div>
     </div>
-    <div class="container text-white"
+    <div
+      class="container text-white"
       style="padding-bottom:20vh;padding-top:10vh"
       :class="{'d-none': !getOrder}">
       <div class="row">
@@ -84,8 +86,16 @@
               <p class="py-1">訂單編號:</p>
               <p>{{ order.id }}</p>
               <p class="py-1">金額 {{ Math.round($filters.currency(order.total)) }}$</p>
-              <p class="py-1" v-if="order.is_paid === true">付款完成</p>
-              <p class="py-1" v-else>尚未付款</p>
+              <p
+                class="py-1"
+                v-if="order.is_paid === true">
+                付款完成
+              </p>
+              <p
+                class="py-1"
+                v-else>
+                尚未付款
+              </p>
             </div>
           </div>
         </div>

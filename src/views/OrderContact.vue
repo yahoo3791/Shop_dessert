@@ -157,10 +157,17 @@
                   id="payment"
                   class="bg-white text-black w-100 border-0 border-bottom
                   p-2 text-center text-lg"
-                  style="text-align-last: center"
-                >
-                  <option value="信用卡" name="payment">信用卡</option>
-                  <option value="超商取貨付款" name="payment">超商取貨付款</option>
+                  style="text-align-last: center">
+                  <option
+                    value="信用卡"
+                    name="payment">
+                    信用卡
+                  </option>
+                  <option
+                    value="超商取貨付款"
+                    name="payment">
+                    超商取貨付款
+                  </option>
                 </select>
               </label>
             </div>
@@ -196,7 +203,10 @@
             v-for="item in cartsData.carts"
             :key="item.id"
           >
-            <img :src="item.product.imageUrl" class="d-block" alt="cartImage" />
+            <img
+              :src="item.product.imageUrl"
+              class="d-block"
+              alt="cartImage" />
             <div class="text-2xl d-flex flex-column justify-content-between ps-3">
               <p class="tracking-wide font-semibold">
                 {{ item.product.title }}
@@ -208,14 +218,22 @@
             </div>
           </div>
           <div class="text-white text-end tracking-widest font-semibold text-xl">
-            <div :class="{'d-none': coupon}">總金額{{ cartsData.total }}$</div>
+            <div
+              :class="{'d-none': coupon}">
+              總金額{{ cartsData.total }}$
+            </div>
             <div>
-              <del :class="{'d-none': !coupon}" style="text-decoration-color: red"
-                >總金額{{ cartsData.total }}$
+              <del
+                :class="{'d-none': !coupon}"
+                style="text-decoration-color: red">
+                總金額{{ cartsData.total }}$
               </del>
             </div>
-            <div class="col-12 pt-2 pb-3 text-red text-end tracking-widest font-semibold text-base">
-              <p :class="{'d-none': !coupon}">
+            <div
+              class="col-12 pt-2 pb-3 text-red text-end tracking-widest
+              font-semibold text-base">
+              <p
+                :class="{'d-none': !coupon}">
                 折扣價{{ Math.round($filters.currency(cartsData.final_total)) }}$
               </p>
             </div>
@@ -237,8 +255,7 @@
                 @click="useCoupon"
                 class="btn btn-outline-secondary tracking-widest rounded-0"
                 type="button"
-                :disabled="codeValue === ''"
-              >
+                :disabled="codeValue === ''">
                 套用優惠碼
               </button>
             </div>
@@ -248,11 +265,16 @@
               <label
                 class="form-check-label text-white text-xl ms-auto"
                 for="check">
-                <input class="form-check-input" type="checkbox"
-                id="check" v-model="selection">我已確認商品資訊
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="check"
+                  v-model="selection">
+                  我已確認商品資訊
               </label>
             </div>
-            <button type="button"
+            <button
+              type="button"
               @click="submitContact"
               class="btn btn-light fw-bold ms-2"
               :class="{'not-allowed': !selection}"

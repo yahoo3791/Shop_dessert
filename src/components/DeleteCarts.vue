@@ -22,8 +22,8 @@
             aria-label="Close" />
         </div>
         <div class="modal-body title-01 text-center py-5">
-          <p class="">{{ deleteData.title }}</p>
-          <p class="">{{ deleteNum.qty }}/{{ deleteData.unit }}</p>
+          <p>{{ deleteData.title }}</p>
+          <p>{{ deleteNum.qty }}/{{ deleteData.unit }}</p>
         </div>
         <div class="modal-footer">
           <button

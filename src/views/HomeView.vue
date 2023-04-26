@@ -160,7 +160,8 @@
             class="href-none">
             <button
               type="button"
-              class="btn btn-light fw-bold">看更多
+              class="btn btn-light fw-bold">
+              看更多
             </button>
           </RouterLink>
         </div>
@@ -206,9 +207,14 @@
               class="position-relative"
               v-for="item, key in customizedImage"
               :key="key">
-              <img class="w-100" :src="item.url" :alt="item.name">
-              <h2 class="position-absolute top-50 start-50 translate-middle
-                text-xl font-medium tracking-wider text-nowrap"> {{ item.name }}
+              <img
+                class="w-100"
+                :src="item.url"
+                :alt="item.name">
+              <h2
+                class="position-absolute top-50 start-50 translate-middle
+                text-xl font-medium tracking-wider text-nowrap">
+                {{ item.name }}
               </h2>
             </swiper-slide>
           </swiper-container>
@@ -226,8 +232,8 @@
           class="col-12 col-md-6 col-lg-3 d-flex my-3 py-3 my-md-0 markContainer"
           data-aos="fade-left">
           <img
-            class="markImg"
             src="@/assets/pic/icon/CAS.png"
+            class="markImg"
             alt="CAS優良食品標誌">
           <div class="ps-2">
             <h5>CAS優良食品標誌</h5>
@@ -238,7 +244,8 @@
           class="col-12 col-md-6 col-lg-3 d-flex my-3 py-3 my-md-0 markContainer"
           data-aos="fade-left"
           data-aos-delay="100">
-          <img src="@/assets/pic/icon/GMP.png"
+          <img
+            src="@/assets/pic/icon/GMP.png"
             class="markImg"
             alt="GMP認證標章">
           <div class="ps-2">
@@ -250,7 +257,8 @@
           class="col-12 col-md-6 col-lg-3 d-flex my-3 py-3 my-md-0 markContainer"
           data-aos="fade-left"
           data-aos-delay="200">
-          <img src="@/assets/pic/icon/TAP.png"
+          <img
+            src="@/assets/pic/icon/TAP.png"
             class="markImg"
             alt="TAP產銷履歷農產品">
           <div class="ps-2">
@@ -262,7 +270,8 @@
         class="col-12 col-md-6 col-lg-3 d-flex my-3 py-3 my-md-0 markContainer"
           data-aos="fade-left"
           data-aos-delay="300">
-          <img src="@/assets/pic/icon/安全蔬果.png"
+          <img
+            src="@/assets/pic/icon/安全蔬果.png"
             class="markImg"
             alt="安全蔬果吉園圃標章">
           <div class="ps-2">
@@ -310,7 +319,8 @@
       </div>
     </div>
   </div>
-  <RouterLink to="/user/contact"
+  <RouterLink
+    to="/user/contact"
     class="position-fixed text-center
     end-0 bottom-0 cursor-pointer m-3 border chat-container"
     :class="{'translateY-70px': !scrollIcon}">
@@ -332,7 +342,6 @@
 </template>
 
 <script>
-import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import emitter from '@/methods/emitter';
 import { register } from 'swiper/element/bundle';
@@ -346,19 +355,17 @@ import halloweenImg from '../assets/pic/homepage/萬聖節餅乾.png';
 import christmasImg from '../assets/pic/homepage/聖誕節餅乾.png';
 import motherImg from '../assets/pic/homepage/母親節蛋糕.png';
 
+const Swal = require('sweetalert2');
+
 register();
 
 export default {
   data() {
     return {
-      subMail: '',
       products: {},
-      isLoading: false,
-      cartsNum: 0,
       carts: {},
-      favoriteData: [],
       history: [],
-      productLoading: true,
+      favoriteData: [],
       customizedImage: [
         {
           url: halloweenImg,
@@ -373,6 +380,10 @@ export default {
           name: '母親節蛋糕',
         },
       ],
+      productLoading: true,
+      isLoading: false,
+      subMail: '',
+      cartsNum: 0,
     };
   },
   components: {

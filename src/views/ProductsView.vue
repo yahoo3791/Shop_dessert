@@ -10,7 +10,9 @@
             class="w-100 productBanner"
             alt="全部商品圖片"
           />
-          <div class="position-absolute top-50 translate-middle-y" style="right: 20%">
+          <div
+            class="position-absolute top-50 translate-middle-y"
+            style="right: 20%">
             <h2 class="text-3xl font-medium tracking-widest">全部甜點</h2>
           </div>
         </div>
@@ -19,27 +21,45 @@
         <div class="ps-3 px-md-0 d-flex flex-wrap justify-content-end align-items-center my-3">
           <label
             for="sort"
-            class="text-white tracking-wide font-medium pe-2 pe-md-0 pb-md-1 d-inline-block"
+            class="text-white tracking-wide font-medium
+            pe-2 pe-md-0 pb-md-1 d-inline-block"
             >顯示方法
-            <div class="bg-white d-inline-block" style="max-width: 300px; border-radius: 5px">
+            <div
+              class="bg-white d-inline-block"
+              style="max-width: 300px; border-radius: 5px">
               <select
                 name="sort"
                 id="sort"
                 class="text-black tracking-wide font-medium px-4 py-1 border-0"
                 @change="onChange($event)"
               >
-                <option selected="selected" disabled="disabled" class="d-n" value="">
+                <option
+                  selected="selected"
+                  disabled="disabled"
+                  class="d-n"
+                  value="">
                   選擇顯示方法
                 </option>
-                <option value="熱銷商品">熱銷商品</option>
-                <option value="價格排序低到高">價格排序低到高</option>
-                <option value="價格排序高到低">價格排序高到低</option>
+                <option
+                  value="熱銷商品">
+                  熱銷商品
+                </option>
+                <option
+                  value="價格排序低到高">
+                  價格排序低到高
+                </option>
+                <option
+                  value="價格排序高到低">
+                  價格排序高到低
+                </option>
               </select>
             </div>
           </label>
         </div>
       </div>
-      <div class="col-12 text-center pt-5" :class="{'d-none': productLoading}">
+      <div
+        class="col-12 text-center pt-5"
+        :class="{'d-none': productLoading}">
         <div class="spinner-border text-light spinner-border-3rem" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
@@ -151,7 +171,6 @@ export default {
     return {
       products: {},
       carts: {},
-      pagination: {},
       favoriteData: [],
       history: [],
       productLoading: true,
@@ -171,9 +190,9 @@ export default {
       this.axios
         .get(api)
         .then((response) => {
+          this.productLoading = true;
           this.pagination = response.data.pagination;
           this.products = response.data.products;
-          this.productLoading = true;
         })
         .catch(() => {
           const Toast = Swal.mixin({
@@ -204,8 +223,8 @@ export default {
       this.axios
         .post(api, { data })
         .then(() => {
-          e.target.childNodes[0].classList.add('d-none');
           this.isLoading = false;
+          e.target.childNodes[0].classList.add('d-none');
           const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -342,7 +361,6 @@ export default {
     onChange(e) {
       const { value } = e.target;
       this.clickName = value;
-      return value;
     },
   },
   watch: {

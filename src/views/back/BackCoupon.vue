@@ -87,22 +87,21 @@
 <script>
 import couponModal from '@/components/CouponModal.vue';
 import deleteModal from '@/components/back/DeleteCoupon.vue';
-import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 
+const Swal = require('sweetalert2');
+
 export default {
   data() {
     return {
-      // modal資料
       tempCoupon: {},
       pagination: {},
-      // 存已建立優惠卷資料
       getCoupons: {},
-      isNew: false,
       deleteCoupon: {},
       isLoading: false,
+      isNew: false,
     };
   },
   inject: ['emitter'],

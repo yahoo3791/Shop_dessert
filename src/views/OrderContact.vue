@@ -28,9 +28,10 @@
             align-items-center pb-3 mb-3 border-bottom-404040">
             <h1 class="mb-0 tracking-widest font-bold text-3xl">訂購人資訊</h1>
           </div>
-          <VForm @submit="submitContact">
+          <VForm
+            @submit="submitContact">
             <div class="py-3 position-relative">
-              <h3 class="d-block formData-label tracking-wide text-lg" for="name">*聯絡人姓名</h3>
+              <h3 class="d-block formData-label tracking-wide text-lg">*聯絡人姓名</h3>
               <VField
                 id="name"
                 v-model="formData.user.name"
@@ -40,44 +41,43 @@
                 class="carts-input w-100 p-2 border-0 border-bottom text-white"
                 placeholder="請輸入姓名"
               />
-              <br />
               <ErrorMessage
-                class="ps-2 position-absolute text-xs text-orange"
+                class="ps-2 position-absolute text-xs text-orange d-block"
                 name="姓名"
               />
             </div>
             <div class="py-3 position-relative">
               <h3 class="tracking-wide text-lg">*性別</h3>
-                <div class="form-check">
-                  <label class="form-check-label" for="male">
-                    <input
-                    class="form-check-input"
-                    type="radio"
-                    name="gendor"
-                    v-model="gendor"
-                    id="male"
-                    value="male"
-                    checked
-                    />
-                    男
-                  </label>
-                </div>
-                <div class="form-check">
-                  <label class="form-check-label" for="female">
-                    <input
-                    class="form-check-input"
-                    type="radio"
-                    name="gendor"
-                    v-model="gendor"
-                    id="female"
-                    value="female"
-                    />
-                    女
-                  </label>
-                </div>
+              <div class="form-check">
+                <label class="form-check-label" for="male">
+                  <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gendor"
+                  v-model="gendor"
+                  id="male"
+                  value="male"
+                  checked
+                  />
+                  男
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label" for="female">
+                  <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gendor"
+                  v-model="gendor"
+                  id="female"
+                  value="female"
+                  />
+                  女
+                </label>
+              </div>
             </div>
             <div class="py-3 position-relative">
-              <h3 class="d-block formData-label tracking-widest text-lg" for="email">
+              <h3 class="d-block formData-label tracking-widest text-lg">
                 *聯絡人信箱
               </h3>
               <VField
@@ -89,14 +89,13 @@
                 class="carts-input w-100 p-2 border-0 border-bottom text-white"
                 placeholder="請輸入電子信箱"
               />
-              <br />
               <ErrorMessage
-                class="ps-2 position-absolute text-xs text-orange"
+                class="ps-2 position-absolute text-xs text-orange d-block"
                 name="信箱"
               />
             </div>
             <div class="py-3 position-relative">
-              <h3 class="d-block formData-label tracking-widest text-lg" for="phone">
+              <h3 class="d-block formData-label tracking-widest text-lg">
                 *聯絡人手機
               </h3>
               <VField
@@ -105,17 +104,16 @@
                 name="手機"
                 rules="required"
                 type="tel"
-                class="carts-input w-100 p-2 border-0 border-bottom text-white"
+                class="carts-input w-100 p-2 border-0 border-bottom text-white d-block"
                 placeholder="請輸入手機號碼"
               />
-              <br />
               <ErrorMessage
                 class="ps-2 position-absolute text-xs text-orange"
                 name="手機"
               />
             </div>
             <div class="py-3 position-relative">
-              <h3 class="d-block formData-label tracking-widest text-lg" for="address">
+              <h3 class="d-block formData-label tracking-widest text-lg">
                 *收件人地址
               </h3>
               <VField
@@ -124,10 +122,9 @@
                 name="地址"
                 rules="required"
                 type="address"
-                class="carts-input w-100 p-2 border-0 border-bottom text-white"
+                class="carts-input w-100 p-2 border-0 border-bottom text-white d-block"
                 placeholder="請輸入完整地址"
               />
-              <br />
               <ErrorMessage
                 class="ps-2 position-absolute text-xs text-orange"
                 name="地址"
@@ -151,7 +148,9 @@
               </label>
             </div>
             <div class="py-3 position-relative">
-              <label for="payment" class="d-block text-lg"
+              <label
+                for="payment"
+                class="d-block text-lg"
                 >*付款方式
                 <select
                   name="payment"
@@ -170,13 +169,18 @@
                 <label
                   class="form-check-label text-white text-xl ms-auto"
                   for="check">
-                  <input class="form-check-input" type="checkbox"
-                  id="check" v-model="selection1">我已確認商品資訊
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="check"
+                    v-model="selection">
+                    我已確認商品資訊
                 </label>
               </div>
-              <button type="submitContact"
+              <button
+                type="submitContact"
                 class="btn btn-light fw-bold ms-2"
-                :class="{'not-allowed': !selection1}"
+                :class="{'not-allowed': !selection}"
                 >付款
               </button>
             </div>
@@ -204,14 +208,14 @@
             </div>
           </div>
           <div class="text-white text-end tracking-widest font-semibold text-xl">
-            <div :class="{ 'd-none': coupon }">總金額{{ cartsData.total }}$</div>
+            <div :class="{'d-none': coupon}">總金額{{ cartsData.total }}$</div>
             <div>
-              <del :class="{ 'd-none': !coupon }" style="text-decoration-color: red"
+              <del :class="{'d-none': !coupon}" style="text-decoration-color: red"
                 >總金額{{ cartsData.total }}$
               </del>
             </div>
             <div class="col-12 pt-2 pb-3 text-red text-end tracking-widest font-semibold text-base">
-              <p :class="{ 'd-none': !coupon }">
+              <p :class="{'d-none': !coupon}">
                 折扣價{{ Math.round($filters.currency(cartsData.final_total)) }}$
               </p>
             </div>
@@ -245,13 +249,13 @@
                 class="form-check-label text-white text-xl ms-auto"
                 for="check">
                 <input class="form-check-input" type="checkbox"
-                id="check" v-model="selection1">我已確認商品資訊
+                id="check" v-model="selection">我已確認商品資訊
               </label>
             </div>
             <button type="button"
               @click="submitContact"
               class="btn btn-light fw-bold ms-2"
-              :class="{'not-allowed': !selection1}"
+              :class="{'not-allowed': !selection}"
               >付款
             </button>
           </div>
@@ -266,14 +270,16 @@
 import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
 import 'vue-loading-overlay/dist/vue-loading.css';
-import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
+
+const Swal = require('sweetalert2');
 
 export default {
   data() {
     return {
       cartsData: {},
-      selection1: false,
+      selection: false,
+      coupon: false,
       formData: {
         user: {
           name: '',
@@ -284,13 +290,11 @@ export default {
         message: '',
       },
       codeValue: '',
-      coupon: false,
       gendor: '',
     };
   },
   components: {
-    Navbar,
-    Footer,
+    Navbar, Footer,
   },
   methods: {
     getData() {
@@ -398,7 +402,7 @@ export default {
           icon: 'info',
           title: '請填寫性別欄位 <i class="bi bi-emoji-smile-fill"></i>',
         });
-      } else if (this.selection1 === false) {
+      } else if (this.selection === false) {
         const Toast = Swal.mixin({
           toast: true,
           position: 'top-end',

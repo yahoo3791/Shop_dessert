@@ -1,13 +1,13 @@
 <template>
-  <loading v-model:active="isLoading" />
+  <Loading v-model:active="isLoading" />
   <Navbar />
   <div class="bg-dark w-100 h-100 overflow-hidden position-relative">
     <div class="container pt-utility text-white position-relative"
-    :class="{ 'auto-height': !cartsSwitch }">
+    :class="{'auto-height': !cartsSwitch}">
       <div class="row">
         <div
           class="col-12 text-center"
-          :class="{ 'd-none': cartsSwitch }"
+          :class="{'d-none': cartsSwitch}"
           style="padding: 20vh 0;">
           <h1 class="title-01">購物車無加入商品</h1>
           <RouterLink
@@ -21,7 +21,7 @@
           </RouterLink>
         </div>
       </div>
-      <div :class="{ 'd-none': !cartsSwitch }">
+      <div :class="{'d-none': !cartsSwitch}">
         <div class="row mx-0">
           <div class="col-12 p-0 my-4">
             <div class="d-flex justify-content-between
@@ -169,7 +169,7 @@
                 class="form-check-label text-white text-xl ms-auto"
                 for="check">
                 <input class="form-check-input" type="checkbox"
-                value="" id="check" v-model="selection1">我已確認商品資訊
+                value="" id="check" v-model="selection">我已確認商品資訊
               </label>
             </div>
           </div>
@@ -177,7 +177,7 @@
             <button
               type="button"
               class="btn btn-light fw-bold"
-              :class="{'not-allowed': !selection1}"
+              :class="{'not-allowed': !selection}"
               @click="contactMethod">
               下一步
             </button>
@@ -209,7 +209,7 @@ export default {
       isLoading: false,
       cartsSwitch: false,
       openDoor: false,
-      selection1: false,
+      selection: false,
       num: 1,
     };
   },
@@ -439,7 +439,7 @@ export default {
       emitter.emit('updateCartsNum');
     },
     contactMethod() {
-      if (this.selection1 === false) {
+      if (this.selection === false) {
         const Toast = Swal.mixin({
           toast: true,
           position: 'top-end',

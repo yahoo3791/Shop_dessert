@@ -7,7 +7,11 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb py-2 px-1 p-md-2 breadcrumb-style tracking-wider">
               <li class="breadcrumb-item">
-                <a class="text-white text-decoration-none" href="#">首頁</a>
+                <RouterLink
+                  to="/"
+                  class="text-white text-decoration-none"
+                  >首頁
+                </RouterLink>
               </li>
               <li class="breadcrumb-item breadcrumb-item-none">公告&常見問題FAQ</li>
             </ol>
@@ -15,14 +19,17 @@
         </div>
         <div class="col-12 col-md-6 offset-md-3 text-white">
           <i class="bi bi-megaphone fs-1" />
-          <a href="#" class="text-white text-decoration-none d-inline-block py-1">
+          <a href="https://165.npa.gov.tw/#/"
+            class="text-white text-decoration-none d-inline-block py-1">
             <span class="text-red font-semibold tracking-wide">
               【反詐騙提醒】
             </span>
             近來詐騙猖獗，行騙手法也不斷更新，提醒您：本司不會以任何名義透過電話、
             簡訊或Email等方式核對銀行帳戶、信用卡卡號等私人資訊
           </a>
-          <a href="#" class="text-white text-decoration-none d-inline-block py-1">
+          <a
+            href="https://www.epa.gov.tw/Page/A0D5208FDB52DE77"
+            class="text-white text-decoration-none d-inline-block py-1">
             <span class="text-red font-semibold tracking-wide">
               【公告】
             </span>
@@ -207,10 +214,10 @@
           </div>
           <div class="col-12 col-md-6 offset-md-3 text-white text-center mb-5">
             <div class="d-flex justify-content-end align-items-center">
-              <a
-                href="/eshop/#/user/contact"
+              <RouterLink
+                to="/user/contact"
                 class="btn btn-light fw-bold">聯絡客服人員
-              </a>
+              </RouterLink>
             </div>
           </div>
       </div>
@@ -224,6 +231,8 @@ import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
 
 export default {
-  components: { Navbar, Footer },
+  components: {
+    Navbar, Footer,
+  },
 };
 </script>

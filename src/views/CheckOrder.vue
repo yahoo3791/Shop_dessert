@@ -1,8 +1,8 @@
 <template>
-  <loading v-model:active="isLoading" />
+  <Loading v-model:active="isLoading" />
   <Navbar />
   <div class="bg-dark"
-  :class="{'auto-height' : !getOrder}">
+  :class="{'auto-height': !getOrder}">
     <div class="container">
       <div class="row">
         <div
@@ -82,25 +82,27 @@
             <div class="col-12 tracking-widest text-lg">
               <p>訂單時間: {{ $filters.date(order.create_at)}}</p>
               <p class="py-1">訂單編號:</p>
-              <p>{{order.id}}</p>
+              <p>{{ order.id }}</p>
               <p class="py-1">金額 {{ Math.round($filters.currency(order.total)) }}$</p>
               <p class="py-1" v-if="order.is_paid === true">付款完成</p>
-              <p class="py-1" v-else-if="order.is_paid === false">尚未付款</p>
+              <p class="py-1" v-else>尚未付款</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <RouterLink to="/user/contact"
+  <RouterLink
+    to="/user/contact"
     class="position-fixed text-center
     end-0 bottom-0 cursor-pointer m-3 border chat-container">
-    <i
-    class="bi bi-chat-dots-fill chat-icon" />
-      <span class="position-absolute chat-span
-      badge rounded-pill bg-light text-black animated pulse infinite delay-5s">
+    <i class="bi bi-chat-dots-fill chat-icon" />
+    <span
+      class="position-absolute chat-span
+      badge rounded-pill bg-light text-black
+      animated pulse infinite delay-5s">
       有問題能幫助您嗎？
-  </span>
+    </span>
   </RouterLink>
   <Footer />
 </template>
@@ -109,20 +111,23 @@
 import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
 import Loading from '@/components/IsLoading.vue';
-import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
+
+const Swal = require('sweetalert2');
 
 export default {
   data() {
     return {
-      isLoading: false,
-      orderNumber: '',
       order: {},
       user: {},
       getOrder: false,
+      isLoading: false,
+      orderNumber: '',
     };
   },
-  components: { Navbar, Footer, Loading },
+  components: {
+    Navbar, Footer, Loading,
+  },
   methods: {
     search() {
       const id = this.orderNumber;

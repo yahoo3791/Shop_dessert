@@ -112,29 +112,27 @@
 
 <script>
 import Loading from 'vue-loading-overlay';
-import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import productModal from '@/components/back/ProductsModal.vue';
 import deleteModal from '@/components/back/DeleteProductsModal.vue';
 import 'vue-loading-overlay/dist/vue-loading.css';
 import pagination from '@/components/back/BackPagination.vue';
 
+const Swal = require('sweetalert2');
+
 export default {
   data() {
     return {
       Data: {},
       tempProduct: {},
-      isNew: false,
       deleteItem: {},
-      isLoading: false,
       Pagination: {},
+      isLoading: false,
+      isNew: false,
     };
   },
   components: {
-    productModal,
-    deleteModal,
-    Loading,
-    pagination,
+    productModal, deleteModal, Loading, pagination,
   },
   inject: ['emitter'],
   methods: {

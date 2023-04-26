@@ -8,10 +8,18 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb py-2 px-1 p-md-2 breadcrumb-style tracking-normal">
               <li class="breadcrumb-item">
-                <a class="text-white text-decoration-none" href="#">首頁</a>
+                <RouterLink
+                  to="/"
+                  class="text-white text-decoration-none">
+                  首頁
+                </RouterLink>
               </li>
               <li class="breadcrumb-item breadcrumb-item-none">
-                <a class="text-white text-decoration-none" href="/eshop/#/user/products">商品列表</a>
+                <RouterLink
+                  to="/user/products"
+                  class="text-white text-decoration-none">
+                  商品列表
+                </RouterLink>
               </li>
               <li class="breadcrumb-item breadcrumb-item-none">
                 內容
@@ -19,33 +27,31 @@
             </ol>
           </nav>
         </div>
-        <div class="col-12 text-center pt-5" :class="{ 'd-none': productLoading }">
+        <div class="col-12 text-center pt-5"
+          :class="{'d-none': productLoading}">
           <div class="spinner-border text-light spinner-border-3rem" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
       </div>
     </div>
-    <div class="container" :class="{ 'd-none': !productLoading }">
+    <div class="container"
+      :class="{'d-none': !productLoading}">
       <div class="row justify-content-center align-items-center">
         <div class="col-12 col-md-4">
-          <div
-            class="position-relative overflow-hidden"
-            @click="showSingle"
-            @keypress="showSingle"
-          >
             <img :src="product.imageUrl" class="w-100 h-100" alt="productImage" />
             <div class="position-absolute swiper-bg top-0" />
-          </div>
         </div>
         <div class="col-12 col-md-5 offset-md-1 d-flex flex-column justify-content-between">
           <div>
             <div>
               <h1 class="text-2xl font-bold tracking-wider my-4 mb-md-4 text-white">
-                <span class="badge bg-danger" v-if="product.num <= 5 && product.num >= 1"
+                <span class="badge bg-danger"
+                  v-if="product.num <= 5 && product.num >= 1"
                   >HOT
                 </span>
-                <span class="badge bg-secondary opacity-50" v-else-if="product.num === 0"
+                <span class="badge bg-secondary opacity-50"
+                  v-else-if="product.num === 0"
                   >SOLD OUT
                 </span>
                 {{ product.title }}
@@ -54,7 +60,7 @@
             <div class="p-01">
               <p class="mt-5 text-indent2rem">{{ product.content }}</p>
               <h5 class="mt-5">成份:</h5>
-              <p class="">{{ product.description }}</p>
+              <p>{{ product.description }}</p>
               <h5 class="mt-5">尺寸:</h5>
               <div class="productUnitBtn">{{ product.unit }}</div>
             </div>
@@ -90,12 +96,10 @@
               <div
                 class="fav text-red ms-auto me-3 cursor-pointer"
                 @click.stop="addFav(product)"
-                @keydown="addFav(product)"
-              >
+                @keydown="addFav(product)">
                 <i
                   class="bi mx-2 fs-1"
-                  :class="favoriteData.includes(product.id) ? 'bi-heart-fill' : 'bi-heart'"
-                >
+                  :class="favoriteData.includes(product.id) ? 'bi-heart-fill' : 'bi-heart'">
                 </i>
               </div>
               <div
@@ -104,8 +108,7 @@
                 @click="addCart(product.id, $event)"
                 @keydown="addCart(item, $event)"
                 :disabled="isLoading === true"
-                class="w-btn-product cursor-pointer"
-              >
+                class="w-btn-product cursor-pointer">
                 <div
                   @click.stop
                   class="d-none spinner-border spinner-border-sm"
@@ -168,12 +171,11 @@
                 </p>
                 <div
                   v-if="item.num >= 1"
-                  :class="{ 'opacity-75': isLoading === true }"
+                  :class="{'opacity-75': isLoading === true}"
                   :disabled="isLoading === true"
                   class="mt-2 w-btn-product"
                   @click.stop="addCart(item.id, $event)"
-                  @keydown="addCart(item.id, $event)"
-                >
+                  @keydown="addCart(item.id, $event)">
                   <div class="d-none spinner-border spinner-border-sm" role="status" />
                   加入購物車
                 </div>
@@ -194,10 +196,11 @@ import '@/assets/scss/swiper/productMoreSwiper.css';
 import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
 import Loading from '@/components/IsLoading.vue';
-import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 
 import emitter from '@/methods/emitter';
+
+const Swal = require('sweetalert2');
 
 register();
 
@@ -208,15 +211,13 @@ export default {
       product: {},
       favoriteData: [],
       sameProduct: [],
-      num: 1,
       isLoading: false,
       productLoading: true,
+      num: 1,
     };
   },
   components: {
-    Loading,
-    Navbar,
-    Footer,
+    Loading, Navbar, Footer,
   },
   methods: {
     getData() {

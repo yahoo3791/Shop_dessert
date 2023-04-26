@@ -39,7 +39,7 @@
           </label>
         </div>
       </div>
-      <div class="col-12 text-center pt-5" :class="{ 'd-none': productLoading }">
+      <div class="col-12 text-center pt-5" :class="{'d-none': productLoading}">
         <div class="spinner-border text-light spinner-border-3rem" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
@@ -99,10 +99,10 @@
                 </div>
                 <div
                   v-if="item.num >= 1"
-                  :class="{ 'opacity-75': isLoading === true }"
+                  :class="{'opacity-75': isLoading}"
                   @click.stop="addCart(item, $event)"
                   @keydown="addCart(item, $event)"
-                  :disabled="isLoading === true"
+                  :disabled="isLoading"
                   class="w-btn-product mt-2 w-100"
                 >
                   <div class="d-none spinner-border spinner-border-sm" role="status" />
@@ -116,19 +116,22 @@
       </div>
     </div>
   </div>
-  <RouterLink to="/user/contact"
-  class="position-fixed text-center
-  end-0 bottom-0 cursor-pointer m-3 border chat-container"
-  :class="{ 'translateY-70px':!scrollIcon }">
-  <i
-    class="bi bi-chat-dots-fill chat-icon" />
+  <RouterLink
+    to="/user/contact"
+    class="position-fixed text-center
+    end-0 bottom-0 cursor-pointer m-3 border chat-container"
+    :class="{'translateY-70px': !scrollIcon}">
+    <i class="bi bi-chat-dots-fill chat-icon" />
   </RouterLink>
   <div
-    :class="{ scrollIconMoveIn: !scrollIcon }"
+    :class="{'scrollIconMoveIn': !scrollIcon}"
     ref="scrollTop"
     class="scrollTop-container position-fixed text-center end-0 bottom-0 cursor-pointer m-3"
   >
-    <div @click="scrollToTop" @keydown="scrollToTop" class="scrollTop-btn d-block" />
+  <div
+    @click.prevent="scrollToTop"
+    @keydown="scrollToTop"
+    class="scrollTop-btn d-block" />
   </div>
   <Footer />
 </template>
@@ -137,26 +140,29 @@
 import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
 import Loading from '@/components/IsLoading.vue';
-import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import emitter from '@/methods/emitter';
 import scrollMixins from '../mixins/scroll';
+
+const Swal = require('sweetalert2');
 
 export default {
   data() {
     return {
       products: {},
-      isLoading: false,
-      cartsNum: 0,
       carts: {},
+      pagination: {},
       favoriteData: [],
       history: [],
       productLoading: true,
-      pagination: {},
+      isLoading: false,
+      cartsNum: 0,
       clickName: '',
     };
   },
-  components: { Navbar, Footer, Loading },
+  components: {
+    Navbar, Footer, Loading,
+  },
   mixins: [scrollMixins],
   methods: {
     getData() {
@@ -186,36 +192,6 @@ export default {
             title: '連線異常',
           });
         });
-    },
-    more(id) {
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`;
-      this.axios
-        .get(api)
-        .then(() => {
-          this.$router.push(`/user/product/${id}`);
-        })
-        .catch(() => {
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer);
-              toast.addEventListener('mouseleave', Swal.resumeTimer);
-            },
-          });
-          Toast.fire({
-            icon: 'error',
-            title: '連線異常',
-          });
-        });
-      this.productHistory(id);
-    },
-    productHistory(id) {
-      this.history.push(id);
-      this.history = localStorage.setItem('setHistory', JSON.stringify(this.history));
     },
     addCart(item, e) {
       e.target.childNodes[0].classList.remove('d-none');
@@ -266,36 +242,6 @@ export default {
       this.renderCarts();
       emitter.emit('updateCartsNum');
     },
-    renderCarts() {
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      this.axios
-        .get(api)
-        .then((response) => {
-          this.carts = response.data.data.carts;
-        })
-        .catch(() => {
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer);
-              toast.addEventListener('mouseleave', Swal.resumeTimer);
-            },
-          });
-          Toast.fire({
-            icon: 'error',
-            title: '連線異常',
-          });
-        });
-    },
-    onChange(e) {
-      const { value } = e.target;
-      this.clickName = value;
-      return value;
-    },
     addFav(item) {
       if (this.favoriteData.includes(item.id)) {
         this.favoriteData.splice(this.favoriteData.indexOf(item.id), 1);
@@ -335,8 +281,68 @@ export default {
       localStorage.setItem('fav', JSON.stringify(this.favoriteData));
       emitter.emit('updateNum');
     },
+    more(id) {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`;
+      this.axios
+        .get(api)
+        .then(() => {
+          this.$router.push(`/user/product/${id}`);
+        })
+        .catch(() => {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
+      this.productHistory(id);
+    },
+    renderCarts() {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
+      this.axios
+        .get(api)
+        .then((response) => {
+          this.carts = response.data.data.carts;
+        })
+        .catch(() => {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer);
+              toast.addEventListener('mouseleave', Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: 'error',
+            title: '連線異常',
+          });
+        });
+    },
+    productHistory(id) {
+      this.history.push(id);
+      this.history = localStorage.setItem('setHistory', JSON.stringify(this.history));
+    },
     updateFav() {
       this.favoriteData = JSON.parse(localStorage.getItem('fav')) || [];
+    },
+    onChange(e) {
+      const { value } = e.target;
+      this.clickName = value;
+      return value;
     },
   },
   watch: {
@@ -355,7 +361,7 @@ export default {
         arr.sort((a, b) => a.price - b.price);
       } else if (this.clickName === '價格排序高到低') {
         arr.sort((a, b) => b.price - a.price);
-      } else if (this.clickName === '熱銷商品') {
+      } else if (this.clickName === '熱銷商品1') {
         arr.sort((a, b) => a.num - b.num);
       }
       return arr;

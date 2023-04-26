@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <loading v-model:active="isLoading" />
+    <Loading v-model:active="isLoading" />
     <div
       class="modal fade" tabindex="-1"
       aria-labelledby="exampleModalLabel"
@@ -201,11 +201,12 @@
 </template>
 
 <script>
-import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import Modalmixin from '@/mixins/modalMixin';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
+
+const Swal = require('sweetalert2');
 
 export default {
   props: {

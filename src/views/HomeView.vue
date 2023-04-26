@@ -12,15 +12,25 @@
           </a>
           <div
             class="position-absolute top-50 start-50 translate-middle">
-            <span class="badge bg-warning text-dark fs-6">全站免運費中
+            <span
+              class="badge bg-warning text-dark fs-6">
+              全站免運費中
             </span>
-            <h1 class="font-bold text-nowrap pt-2">專業、健康、新鮮現做的甜點店
+            <h1
+              class="font-bold text-nowrap pt-2">
+              專業、健康、新鮮現做的甜點店
             </h1>
-            <h2 class="tracking-widest mb-5">軟在口中，甜在心上。
+            <h2
+              class="tracking-widest mb-5">
+              軟在口中，甜在心上。
             </h2>
-            <RouterLink to="/user/products" class="href-none d-block text-center">
-              <button type="button"
-                class="btn btn-light fw-bold">前往商店
+            <RouterLink
+              to="/user/products"
+              class="href-none d-block text-center">
+              <button
+                type="button"
+                class="btn btn-light fw-bold">
+                前往商店
               </button>
             </RouterLink>
           </div>
@@ -42,13 +52,15 @@
               <RouterLink
                 to="/user/products"
                 class="href-none">
-                <button type="button"
-                  class="btn btn-light fw-bold">前往商店
+                <button
+                  type="button"
+                  class="btn btn-light fw-bold">
+                  前往商店
                 </button>
               </RouterLink>
             </div>
         </div>
-        <div class="col-12 col-lg-6 my-2 position-relative "
+        <div class="col-12 col-lg-6 my-2 position-relative"
           data-aos="fade-left">
           <img
             src="../assets/pic/banner/grocery02.png"
@@ -61,8 +73,10 @@
             <RouterLink
               to="/user/products"
               class="href-none">
-              <button type="button"
-                class="btn btn-light fw-bold">前往商店
+              <button
+                type="button"
+                class="btn btn-light fw-bold">
+                前往商店
               </button>
             </RouterLink>
           </div>
@@ -74,7 +88,7 @@
           <h3 class="title-01">熱銷商品</h3>
         </div>
         <div class="col-12 text-center pt-5"
-          :class="{ 'd-none': productLoading }">
+          :class="{'d-none': productLoading}">
           <div
             class="spinner-border text-light spinner-border-3rem"
             role="status">
@@ -119,10 +133,10 @@
               </div>
               <div
                 v-if="item.num >= 1"
-                :class="{'opacity-75': isLoading === true }"
+                :class="{'opacity-75': isLoading === true}"
                 @click.stop="addCart(item, $event)"
                 @keydown="addCart(item, $event)"
-                :disabled="isLoading ===true"
+                :disabled="isLoading === true"
                 class="w-btn-product mt-2 w-100">
                 <div
                   @click.stop
@@ -144,9 +158,10 @@
           <RouterLink
             to="/user/products"
             class="href-none">
-              <button type="button"
-                class="btn btn-light fw-bold">看更多
-              </button>
+            <button
+              type="button"
+              class="btn btn-light fw-bold">看更多
+            </button>
           </RouterLink>
         </div>
       </div>
@@ -161,9 +176,11 @@
           <RouterLink
             to="/user/contact"
             class="href-none">
-              <button type="button"
-                class="btn btn-light fw-bold">聯絡我們
-              </button>
+            <button
+              type="button"
+              class="btn btn-light fw-bold">
+              聯絡我們
+            </button>
           </RouterLink>
         </div>
         <div class="col-12 col-lg-6">
@@ -185,22 +202,13 @@
             }"
             class="mySwiper position-relative customized-container">
             <div class="position-absolute swiper-bg top-0" />
-            <swiper-slide class="position-relative">
-              <img class="w-100" src="../assets/pic/homepage/母親節蛋糕.png" alt="母親節蛋糕">
+            <swiper-slide
+              class="position-relative"
+              v-for="item, key in customizedImage"
+              :key="key">
+              <img class="w-100" :src="item.url" :alt="item.name">
               <h2 class="position-absolute top-50 start-50 translate-middle
-                text-xl font-medium tracking-wider text-nowrap">母親節蛋糕
-              </h2>
-            </swiper-slide>
-            <swiper-slide class="position-relative">
-              <img class="w-100" src="@/assets/pic/homepage/聖誕節餅乾.png" alt="聖誕節餅乾圖片">
-              <h2 class="position-absolute top-50 start-50 translate-middle
-                text-xl font-medium tracking-wider">暖心餅乾
-              </h2>
-            </swiper-slide>
-            <swiper-slide class="position-relative">
-              <img class="w-100" src="@/assets/pic/homepage/萬聖節餅乾.png" alt="萬聖節餅乾圖片">
-              <h2 class="position-absolute top-50 start-50 translate-middle
-                text-xl font-medium tracking-wider">搞怪餅乾
+                text-xl font-medium tracking-wider text-nowrap"> {{ item.name }}
               </h2>
             </swiper-slide>
           </swiper-container>
@@ -272,8 +280,9 @@
             @submit="submitEmail"
             class="position-relative form-outline form-white my-5">
             <h2 class="font-medium tracking-widest text-3xl d-block">
-              訂閱甜點電子報<br>立馬獲得8折優惠卷
+              訂閱甜點電子報
             </h2>
+            <p>立馬獲得8折優惠卷</p>
             <div class="sub d-flex flex-wrap justify-content-center pt-3">
               <VField
                 v-model="subMail"
@@ -293,7 +302,7 @@
               </button>
               <ErrorMessage
                 class="text-orange"
-                :class="{ 'd-none': subMail == ''}"
+                :class="{'d-none': subMail == ''}"
                 name="email" />
             </div>
           </VForm>
@@ -304,12 +313,12 @@
   <RouterLink to="/user/contact"
     class="position-fixed text-center
     end-0 bottom-0 cursor-pointer m-3 border chat-container"
-    :class="{ 'translateY-70px':!scrollIcon }">
+    :class="{'translateY-70px': !scrollIcon}">
     <i
       class="bi bi-chat-dots-fill chat-icon" />
   </RouterLink>
   <div
-    :class="{ 'scrollIconMoveIn':!scrollIcon  }"
+    :class="{'scrollIconMoveIn': !scrollIcon}"
     ref="scrollTop"
     class="scrollTop-container position-fixed text-center
     end-0 bottom-0 cursor-pointer m-3">
@@ -333,6 +342,10 @@ import Navbar from '../components/FrontNavbar.vue';
 import Footer from '../components/FrontFooter.vue';
 import scrollMixins from '../mixins/scroll';
 
+import halloweenImg from '../assets/pic/homepage/萬聖節餅乾.png';
+import christmasImg from '../assets/pic/homepage/聖誕節餅乾.png';
+import motherImg from '../assets/pic/homepage/母親節蛋糕.png';
+
 register();
 
 export default {
@@ -346,6 +359,20 @@ export default {
       favoriteData: [],
       history: [],
       productLoading: true,
+      customizedImage: [
+        {
+          url: halloweenImg,
+          name: '萬聖節餅乾',
+        },
+        {
+          url: christmasImg,
+          name: '聖誕節餅乾',
+        },
+        {
+          url: motherImg,
+          name: '母親節蛋糕',
+        },
+      ],
     };
   },
   components: {

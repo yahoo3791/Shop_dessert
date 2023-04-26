@@ -27,8 +27,7 @@ export default {
     });
   },
   components: {
-    ToastMessages,
-    Navbar,
+    ToastMessages, Navbar,
   },
   provide() {
     return {

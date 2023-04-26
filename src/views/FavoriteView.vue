@@ -3,16 +3,20 @@
   <Loading v-model:active="isLoading" />
   <div class="bg-dark">
     <div class="container pt-utility"
-    :class="{ 'auto-height' : favoriteData.length == 0}">
+    :class="{'auto-height': favoriteData.length == 0}">
       <div class="row">
         <div class="col-12"
-        :class="{ 'd-none' : favoriteData.length == 0}">
+        :class="{'d-none': favoriteData.length == 0}">
           <nav aria-label="breadcrumb">
             <ol
               class="breadcrumb py-2 px-1 p-md-2
               breadcrumb-style tracking-wider">
               <li class="breadcrumb-item">
-                <a class="text-white text-decoration-none" href="#">首頁</a>
+                <RouterLink
+                  to="/"
+                  class="text-white text-decoration-none">
+                  首頁
+                </RouterLink>
               </li>
               <li class="breadcrumb-item breadcrumb-item-none">我的收藏
               </li>
@@ -21,7 +25,7 @@
         </div>
         <div
           class="col-12 d-n text-center"
-          :class="{ 'd-block' : favoriteData.length == 0}"
+          :class="{'d-block': favoriteData.length == 0}"
           style="padding:20vh 0;">
           <h1 class="title-01">
             目前無收藏商品
@@ -37,7 +41,7 @@
         </div>
         <div
           class="col-12 text-center pt-5"
-          :class="{ 'd-none': productLoading }"
+          :class="{'d-none': productLoading}"
           v-if="favoriteData.length !== 0">
           <div
             class="spinner-border text-light spinner-border-3rem"
@@ -79,7 +83,7 @@
                       @keydown="addFav(item,index)"
                       class="fav position-absolute end-0 top-0">
                       <i class="bi fs-1 mx-2"
-                      :class="favoriteData.includes(item.id) ? 'bi-heart-fill' : 'bi-heart'"></i>
+                      :class="favoriteData.includes(item.id) ? 'bi-heart-fill' : 'bi-heart'" />
                     </div>
                   </div>
                   <div class="product-content pt-1">
@@ -93,10 +97,10 @@
                       </p>
                     </div>
                     <div v-if="item.num >= 1"
-                      :class="{'opacity-75': isLoading === true }"
+                      :class="{'opacity-75': isLoading === true}"
                       @click.stop="addCart(item, $event)"
                       @keydown="addCart(item, $event)"
-                      :disabled="isLoading ===true"
+                      :disabled="isLoading === true"
                       class="w-btn-product mt-2">
                       <div
                       @click.stop
@@ -116,7 +120,7 @@
           </div>
           <div
             class="col-12 col-md-3"
-            :class="{ 'd-none' :favoriteData.length <= 1 }">
+            :class="{'d-none': favoriteData.length <= 1}">
             <div
               class="px-0 px-md-0 d-flex flex-wrap justify-content-end
               justify-content-md-center align-items-center mt-3">
@@ -126,7 +130,7 @@
                 <div
                   class="bg-white tracking-wide
                   font-medium d-inline-block"
-                  style="max-width:300px;border-radius: 5px;">
+                  style="max-width: 300px; border-radius: 5px;">
                   <select
                     name="sort"
                     id="sort"
@@ -164,9 +168,10 @@
 import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
 import Loading from '@/components/IsLoading.vue';
-import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import emitter from '@/methods/emitter';
+
+const Swal = require('sweetalert2');
 
 export default {
   data() {

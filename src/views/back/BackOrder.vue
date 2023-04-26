@@ -1,5 +1,5 @@
 <template>
-  <loading v-model:active="isLoading" />
+  <Loading v-model:active="isLoading" />
   <div
     class="container-fluid text-center text-black"
     style="padding:40vh 0; height: 100vh;"
@@ -108,10 +108,11 @@ import orderModal from '@/components/back/OrderModal.vue';
 import Pagination from '@/components/back/BackPagination.vue';
 import deleteModal from '@/components/back/DeleteOrderModal.vue';
 import deleteOrderAllModal from '@/components/back/DeleteOrderAllModal.vue';
-import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
+
+const Swal = require('sweetalert2');
 
 export default {
   data() {

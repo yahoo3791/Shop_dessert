@@ -4,11 +4,11 @@
     class="container-fluid fixed-top bg-dark navbar-height"
     style="z-index:10000">
     <div
-      :class="{'hideSubNavbar':scrollNavbar}"
+      :class="{'hideSubNavbar': scrollNavbar}"
       class="d-block d-md-none navbar-overlay position-absolute
       start-0 w-100 bg-dark tracking-wider">
         <div
-          :class="{'d-none': togglerOverlay }"
+          :class="{'d-none': togglerOverlay}"
           class="text-lg navbar-nav
           text-white text-center w-75 mx-auto tracking-wider">
             <RouterLink
@@ -40,7 +40,7 @@
                 <i class="bi bi-cart-fill me-1 position-relative"
                   style="font-size:18px">
                   <span
-                    :class="{'d-none': cartsNum == 0 }"
+                    :class="{'d-none': cartsNum == 0}"
                     ref="cartsNum"
                     class="d-block position-absolute navbar-badge navbar-badge-md
                     animated">{{ cartsNum }}
@@ -56,7 +56,7 @@
                 <i class="bi bi-heart-fill me-1 position-relative"
                   style="font-size:18px">
                   <span
-                    :class="{'d-none': favoriteData.length == 0 }"
+                    :class="{'d-none': favoriteData.length == 0}"
                     ref="fav"
                     class="d-block position-absolute navbar-badge navbar-badge-md
                     animated">{{ favoriteData.length }}
@@ -86,11 +86,11 @@
         </div>
     </div>
     <div class="d-flex align-items-center">
-      <a
-        href="#"
+      <RouterLink
+        to="/"
         class="d-block logo href-none logo_font text-4xl">
         DESSERT
-      </a>
+      </RouterLink>
       <div
         @click="openOverlay"
         @keydown="openOverlay"
@@ -131,7 +131,7 @@
           <i
             class="bi bi-cart-fill me-1 position-relative text-1em">
             <span
-              :class="{'d-none': cartsNum == 0 }"
+              :class="{'d-none': cartsNum == 0}"
               ref="cartsNum"
               class="d-block position-absolute navbar-badge navbar-badge-md
               animated">
@@ -148,7 +148,7 @@
           <i
             class="bi bi-heart-fill me-1 position-relative text-1em">
             <span
-              :class="{ 'd-none': favoriteData.length == 0 }"
+              :class="{'d-none': favoriteData.length == 0}"
               ref="fav"
               class="d-block position-absolute navbar-badge navbar-badge-md
               animated">
@@ -180,20 +180,21 @@
 </template>
 
 <script>
-import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import emitter from '@/methods/emitter';
 import LoginModal from '@/components/LoginModal.vue';
 
+const Swal = require('sweetalert2');
+
 export default {
   data() {
     return {
-      togglerOverlay: true,
-      lastScrollTop: 0,
-      scrollNavbar: false,
-      cartsNum: 0,
       cartsData: {},
       favoriteData: [],
+      togglerOverlay: true,
+      scrollNavbar: false,
+      lastScrollTop: 0,
+      cartsNum: 0,
     };
   },
   components: {

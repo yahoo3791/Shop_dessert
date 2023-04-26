@@ -6,7 +6,11 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb py-2 px-1 p-md-2 breadcrumb-style tracking-wider">
             <li class="breadcrumb-item">
-              <a class="text-white text-decoration-none" href="#">首頁</a>
+              <RouterLink
+                to="/"
+                class="text-white text-decoration-none"
+                >首頁
+              </RouterLink>
             </li>
             <li class="breadcrumb-item breadcrumb-item-none">聯絡方式</li>
           </ol>
@@ -80,7 +84,7 @@
             class="tracking-widest font-bold text-3xl pb-3 mt-5 border-bottom-404040">
             寄送表單聯絡我們
           </h4>
-          <VForm @submit="submitContact()">
+          <VForm @submit="submitContact">
             <div class="py-3 position-relative">
               <h3 class="d-block formData-label tracking-wide text-lg">*聯絡人姓名</h3>
               <VField
@@ -205,8 +209,9 @@
 <script>
 import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
-import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
+
+const Swal = require('sweetalert2');
 
 export default {
   data() {

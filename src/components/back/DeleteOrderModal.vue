@@ -58,9 +58,6 @@
 import modalMixin from '@/mixins/modalMixin';
 
 export default {
-  data() {
-    return {};
-  },
   methods: {
     checkDelete() {
       this.$emit('deleteItem');

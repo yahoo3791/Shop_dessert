@@ -94,9 +94,10 @@
 </template>
 
 <script>
-import Swal from 'sweetalert2/dist/sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import modalMixin from '../mixins/modalMixin';
+
+const Swal = require('sweetalert2');
 
 export default {
   data() {

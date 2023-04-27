@@ -106,6 +106,14 @@
                   +
                 </div>
               </div>
+              <a
+                class="d-inline-block ms-auto text-white text-decoration-none"
+                ref="shareFb"
+                href="#"
+                target="_blank">
+                <i class="bi bi-facebook fs-4" />
+                分享
+              </a>
               <div
                 class="fav text-red ms-auto me-3 cursor-pointer"
                 @click.stop="addFav(product)"
@@ -433,6 +441,8 @@ export default {
     this.getData();
     this.getDataAll();
     this.updateFav();
+    const fbHref = `https://www.facebook.com/sharer.php?u=${window.location.href}`;
+    this.$refs.shareFb.setAttribute('href', fbHref);
   },
 };
 </script>

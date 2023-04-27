@@ -62,16 +62,18 @@
             <div class="modal-footer border-0 p-0 mt-5">
               <div
                 class="me-auto">
-                <a
-                  href="#"
-                  class="text-decoration-none text-white">
+                <div
+                  class="d-inline-block cursor-pointer"
+                  @click="contact"
+                  @keypress="contact">
                   加入會員
-                </a> |
-                <a
-                  href="#"
-                  class="text-decoration-none text-white">
+                </div> |
+                <div
+                  class="d-inline-block cursor-pointer"
+                  @click="contact"
+                  @keypress="contact">
                   忘記密碼
-                </a> |
+                </div> |
                 <div
                   class="text-decoration-none text-white cursor-pointer d-inline-block"
                   @click="faq"

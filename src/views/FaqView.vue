@@ -19,7 +19,8 @@
         </div>
         <div class="col-12 col-md-6 offset-md-3 text-white">
           <i class="bi bi-megaphone fs-1" />
-          <a href="https://165.npa.gov.tw/#/"
+          <a
+            href="https://165.npa.gov.tw/#/"
             class="text-white text-decoration-none d-inline-block py-1">
             <span class="text-red font-semibold tracking-wide">
               【反詐騙提醒】
@@ -36,7 +37,10 @@
             2022年1月1日起已開始使用環保回收購物袋，如需使用紙袋將進行紙袋收費-我
             們與您一同實踐環保減廢活動
           </a>
-          <a href="#" class="text-white text-decoration-none d-inline-block py-1">
+          <a
+            href="#"
+            @click.prevent
+            class="text-white text-decoration-none d-inline-block py-1">
             <span class="text-red font-semibold tracking-wide">
               【活動】
             </span>

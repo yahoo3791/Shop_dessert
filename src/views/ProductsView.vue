@@ -17,7 +17,23 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-9 mx-auto p-0">
+      <div class="col-12 col-md-9 mx-auto p-0 d-flex
+        align-items-center justify-content-between">
+        <div>
+          <i
+            class="bi bi-search d-inline-block px-2 fs-4 cursor-pointer"
+            @click="search = !search;"
+            @keypress="search = !search" />
+          <label for="search">
+            <input
+              type="text"
+              name="search"
+              v-model="message"
+              :class="{'d-none': search}"
+              class="carts-input w-100 border-0 border-bottom text-white"
+            >
+          </label>
+        </div>
         <div class="ps-3 px-md-0 d-flex flex-wrap justify-content-end align-items-center my-3">
           <label
             for="sort"
@@ -171,12 +187,15 @@ export default {
     return {
       products: {},
       carts: {},
+      changeProducts: [],
       favoriteData: [],
       history: [],
       productLoading: true,
       isLoading: false,
+      search: true,
       cartsNum: 0,
       clickName: '',
+      message: '',
     };
   },
   components: {
@@ -191,8 +210,8 @@ export default {
         .get(api)
         .then((response) => {
           this.productLoading = true;
-          this.pagination = response.data.pagination;
           this.products = response.data.products;
+          this.changeProducts = response.data.products;
         })
         .catch(() => {
           const Toast = Swal.mixin({
@@ -362,11 +381,26 @@ export default {
       const { value } = e.target;
       this.clickName = value;
     },
+    searchProducts() {
+      if (this.message !== '') {
+        const keyword = this.message.trim();
+        const targetProduct = this.products.filter((item) => item.title.match(keyword));
+        this.products = targetProduct;
+      } else {
+        this.products = this.changeProducts;
+      }
+    },
   },
   watch: {
     cartsNum: {
       handler() {
         this.renderCarts();
+      },
+      immediate: true,
+    },
+    message: {
+      handler() {
+        this.searchProducts();
       },
       immediate: true,
     },
@@ -379,7 +413,7 @@ export default {
         arr.sort((a, b) => a.price - b.price);
       } else if (this.clickName === '價格排序高到低') {
         arr.sort((a, b) => b.price - a.price);
-      } else if (this.clickName === '熱銷商品1') {
+      } else if (this.clickName === '熱銷商品') {
         arr.sort((a, b) => a.num - b.num);
       }
       return arr;

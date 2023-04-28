@@ -13,7 +13,11 @@
           <div
             class="position-absolute top-50 translate-middle-y"
             style="right: 20%">
-            <h2 class="text-3xl font-medium tracking-widest">全部甜點</h2>
+            <h2
+              class="text-3xl font-medium tracking-widest logo_font">
+              healthy、simple、
+              <i class="bi bi-emoji-smile" />
+            </h2>
           </div>
         </div>
       </div>

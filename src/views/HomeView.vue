@@ -17,11 +17,11 @@
               全站免運費中
             </span>
             <h1
-              class="font-bold text-nowrap pt-2">
+              class="font-bold text-nowrap pt-2 banner-h1">
               專業、健康、新鮮現做的甜點店
             </h1>
             <h2
-              class="tracking-widest mb-5">
+              class="tracking-widest mb-5 banner-h2">
               軟在口中，甜在心上。
             </h2>
             <RouterLink

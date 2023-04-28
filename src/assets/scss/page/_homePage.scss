@@ -19,6 +19,31 @@
       rgba(123, 128, 129, 0.1) 80%,
       rgba(143, 143, 143, 0.1) 100%);
     }
+    .banner-h1,
+    .banner-h2 {
+      position: relative;
+      color: transparent;
+      animation-name: whiteText;
+      animation-duration: 3s;
+      animation-fill-mode: forwards !important;
+      -webkit-animation-fill-mode: forwards !important;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        height: 100%;
+        background: white;
+        animation-name: filpBg;
+        animation-duration: 0.5s;
+      }
+    }
+    .banner-h2 {
+      animation-delay: .5s;
+      &::before {
+        animation-duration: .5s;
+        animation-delay: .2s;
+      }
+    }
   }
 }
 // main
@@ -170,5 +195,19 @@
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+@keyframes filpBg {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes whiteText {
+  100% {
+    color: white;
   }
 }

@@ -11322,6 +11322,32 @@ a.router-link-active {
   height: 100%;
   background: radial-gradient(circle, rgba(233, 217, 217, 0.1) 0%, rgba(123, 128, 129, 0.1) 48%, rgba(123, 128, 129, 0.1) 80%, rgba(143, 143, 143, 0.1) 100%);
 }
+.homeContainer .homeBanner .banner-h1,
+.homeContainer .homeBanner .banner-h2 {
+  position: relative;
+  color: transparent;
+  animation-name: whiteText;
+  animation-duration: 3s;
+  animation-fill-mode: forwards !important;
+  -webkit-animation-fill-mode: forwards !important;
+}
+.homeContainer .homeBanner .banner-h1::before,
+.homeContainer .homeBanner .banner-h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  background: white;
+  animation-name: filpBg;
+  animation-duration: 0.5s;
+}
+.homeContainer .homeBanner .banner-h2 {
+  animation-delay: 0.5s;
+}
+.homeContainer .homeBanner .banner-h2::before {
+  animation-duration: 0.5s;
+  animation-delay: 0.2s;
+}
 
 .main {
   padding: 40px 10px 40px 10px;
@@ -11458,6 +11484,19 @@ a.router-link-active {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+@keyframes filpBg {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes whiteText {
+  100% {
+    color: white;
   }
 }
 .loginInput {

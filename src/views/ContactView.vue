@@ -22,13 +22,11 @@
             <div class="col-12">
               <a
                 href="mailto:mgzofficer@gmail.com"
-                class="salesServer-item d-block text-decoration-none text-white py-3 my-3"
-              >
+                class="salesServer-item d-block text-decoration-none text-white py-3 my-3">
                 <div
                   class="d-flex align-items-center"
                   data-aos="fade-up"
-                  data-aos-anchor-placement="bottom-bottom"
-                >
+                  data-aos-anchor-placement="bottom-bottom">
                   <i class="bi bi-envelope text-5xl text-end w-25" />
                   <div class="ps-4">
                     <p class="p-01">發送EMAIL給客服中心</p>
@@ -39,14 +37,12 @@
             <div class="col-12">
               <a
                 href="tel:+(02)1010101"
-                class="salesServer-item d-block text-decoration-none text-white py-3 my-3"
-              >
+                class="salesServer-item d-block text-decoration-none text-white py-3 my-3">
                 <div
                   class="d-flex align-items-center"
                   data-aos="fade-up"
                   data-aos-anchor-placement="bottom-bottom"
-                  data-aos-delay="200"
-                >
+                  data-aos-delay="200">
                   <i class="bi bi-telephone text-5xl text-end w-25" />
                   <div class="ps-4">
                     <h3 class="p-01">撥打電話(02)1010101</h3>
@@ -59,14 +55,12 @@
                 href="https://goo.gl/maps/115xT6CDWXH6J2kD6"
                 target="_blank"
                 rel="noreferrer noopenner"
-                class="salesServer-item d-block text-decoration-none text-white py-3 my-3"
-              >
+                class="salesServer-item d-block text-decoration-none text-white py-3 my-3">
                 <div
                   class="d-flex align-items-center"
                   data-aos="fade-up"
                   data-aos-anchor-placement="bottom-bottom"
-                  data-aos-delay="400"
-                >
+                  data-aos-delay="400">
                   <i class="bi bi-house text-5xl text-end w-25" />
                   <div class="ps-4">
                     <p class="p-01">客服中心：<br />台北市信義區市府路101號</p>
@@ -96,41 +90,40 @@
                 type="text"
                 class="carts-input w-100 p-2 border-0 border-bottom text-white"
                 placeholder="請輸入姓名"
-                v-model="formData.user.name"
-              />
-              <br />
+                v-model="formData.user.name" />
               <ErrorMessage
                 class="ps-2 position-absolute text-xs text-orange"
-                name="name"
-              />
+                name="name" />
             </div>
             <div class="py-3 position-relative">
               <h3 class="tracking-wide text-lg">*性別</h3>
               <div class="form-check">
-                <label class="form-check-label" for="male">
+                <label
+                  class="form-check-label"
+                  for="male">
                   <input
-                  class="form-check-input"
-                  type="radio"
-                  name="gendor"
-                  v-model="gendor"
-                  id="male"
-                  value="male"
-                  checked
-                  />
-                  男
+                    class="form-check-input"
+                    type="radio"
+                    name="gendor"
+                    v-model="gendor"
+                    id="male"
+                    value="male"
+                    checked />
+                    男
                 </label>
               </div>
               <div class="form-check">
-                <label class="form-check-label" for="female">
+                <label
+                  class="form-check-label"
+                  for="female">
                   <input
-                  class="form-check-input"
-                  type="radio"
-                  name="gendor"
-                  v-model="gendor"
-                  id="female"
-                  value="female"
-                  />
-                  女
+                    class="form-check-input"
+                    type="radio"
+                    name="gendor"
+                    v-model="gendor"
+                    id="female"
+                    value="female" />
+                    女
                 </label>
               </div>
             </div>
@@ -148,7 +141,6 @@
                 placeholder="請輸入電子信箱"
                 v-model="formData.user.email"
               />
-              <br />
               <ErrorMessage
                 class="ps-2 position-absolute text-xs text-orange"
                 name="email"
@@ -168,7 +160,6 @@
                 placeholder="請輸入手機號碼"
                 v-model="formData.user.tel"
               />
-              <br />
               <ErrorMessage
                 class="ps-2 position-absolute text-xs text-orange"
                 name="phone"
@@ -178,8 +169,8 @@
               <label
                 ref="formMessage"
                 class="d-block formData-label tracking-wide text-lg pb-2"
-                for="address"
-                >*留言區
+                for="address">
+                *留言區
                 <span class="text-sm tracking-wide opacity-75" />
                 <textarea
                   name=""
@@ -189,8 +180,7 @@
                   class="carts-textarea text-white border p-3 tracking-wide w-100"
                   placeholder="留下疑問或需求"
                   maxlength="300"
-                  v-model="formData.message"
-                />
+                  v-model="formData.message" />
               </label>
             </div>
             <div class="text-end mb-5 mt-3">

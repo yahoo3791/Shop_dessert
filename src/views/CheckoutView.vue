@@ -3,7 +3,8 @@
   <Navbar />
   <div class="bg-dark auto-height">
     <div class="container">
-      <div class="row pb-5"
+      <div
+        class="row pb-5"
         style="padding-top: 20vh">
         <div class="col-12 d-flex justify-content-around pb-2">
           <div class="p-01">
@@ -17,9 +18,12 @@
           <div class="progress">
             <div
               class="progress-bar progress-bar-striped progress-bar-animated w-100"
-              role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+              role="progressbar"
+              aria-valuenow="75"
+              aria-valuemin="0"
+              aria-valuemax="100">
             </div>
-            </div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -35,7 +39,9 @@
       <div class="row">
         <div class="col-10 col-md-6 mx-auto">
           <h3
-            class="tracking-widest font-bold text-3xl pb-3 mt-5 border-bottom-404040">訂購人資訊</h3>
+            class="tracking-widest font-bold text-3xl pb-3 mt-5 border-bottom-404040">
+            訂購人資訊
+          </h3>
           <div class="row">
             <div class="col-12 text-white mb-5 d-flex">
               <div class="tracking-widest text-lg">
@@ -53,52 +59,63 @@
             </div>
           </div>
           <div class="row">
-          <h3
-            class="pb-3 mt-3 tracking-widest font-bold text-3xl border-bottom-404040">商品資訊</h3>
-          <div class="col-12 text-white mb-5">
+            <h3
+              class="pb-3 mt-3 tracking-widest font-bold text-3xl border-bottom-404040">
+              商品資訊
+            </h3>
             <div
-              class="payCart-item border-bottom d-flex py-3"
-              v-for="item in details.products"
-              :key="item.id">
-              <img
-                :src="item.product.imageUrl"
-                class="d-block"
-                style="max-width: 100px;"
-                alt="cartImage">
-              <div class="text-sm d-flex flex-column justify-content-between ps-3">
-                <p class="text-2xl">
-                  {{ item.product.title }}
-                </p>
-                <p class="leading-7 tracking-wider text-lg">
-                  <i class="bi bi-x" />{{ item.qty }}
-                </p>
-                <p class="leading-7 d-block tracking-wider text-xl">
-                  {{ item.total }}<i class="bi bi-currency-dollar" />
-                </p>
+              class="col-12 text-white mb-5">
+              <div
+                class="payCart-item border-bottom d-flex py-3"
+                v-for="item in details.products"
+                :key="item.id">
+                <img
+                  :src="item.product.imageUrl"
+                  class="d-block"
+                  style="max-width: 100px;"
+                  alt="cartImage">
+                <div class="text-sm d-flex flex-column justify-content-between ps-3">
+                  <p class="text-2xl">
+                    {{ item.product.title }}
+                  </p>
+                  <p class="leading-7 tracking-wider text-lg">
+                    <i class="bi bi-x" />{{ item.qty }}
+                  </p>
+                  <p class="leading-7 d-block tracking-wider text-xl">
+                    {{ item.total }}<i class="bi bi-currency-dollar" />
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          </div>
           <div class="row">
-            <h3 class="pb-3 mt-3 tracking-widest font-bold text-3xl border-bottom-404040">付款資訊</h3>
+            <h3 class="pb-3 mt-3 tracking-widest font-bold text-3xl border-bottom-404040">
+              付款資訊
+            </h3>
             <div
               class="col-12 tracking-widest text-lg">
               <p
                 v-if="details.create_at">
                 訂單成立成功
               </p>
-              <p class="py-1">訂單編號:</p>
+              <p
+                class="py-1">
+                訂單編號:
+              </p>
               <p>{{ $route.params.orderId }}</p>
               <p>(查詢訂單時輸入此編號)</p>
-              <p class="py-1">總金額{{ Math.round($filters.currency(details.total)) }}$
+              <p
+                class="py-1">總金額{{ Math.round($filters.currency(details.total)) }}$
               </p>
-              <p class="py-1"
-              v-if="details.is_paid === true">
-              付款完成
+              <p
+                class="py-1"
+                v-if="details.is_paid === true">
+                付款完成
               </p>
-              <p class="py-1"
-              v-else>
-              尚未付款
+              <p
+                class="py-1"
+                v-else>
+                尚未付款
               </p>
             </div>
           </div>
@@ -106,14 +123,14 @@
             <button
               type="button"
               class="btn btn-light fw-bold me-2"
-              @click="$router.push('/user/checkOrder')"
-              >查詢訂單
+              @click="$router.push('/user/checkOrder')">
+              查詢訂單
             </button>
             <button
               type="button"
               class="btn btn-light fw-bold"
-              @click="$router.push('/user/products')"
-              >繼續購物
+              @click="$router.push('/user/products')">
+              繼續購物
             </button>
           </div>
         </div>

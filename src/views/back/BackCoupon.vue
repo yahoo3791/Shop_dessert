@@ -77,14 +77,8 @@
       </div>
     </div>
   </div>
-  <couponModal
-    ref="couponModal"
-    :coupon="tempCoupon"
-    @save-coupon="couponData" />
-  <deleteModal
-    ref="deleteModal"
-    :delete-item="deleteCoupon"
-    @delete-coupon="deleteItem" />
+  <couponModal ref="couponModal" :coupon="tempCoupon" @save-coupon="couponData" />
+  <deleteModal ref="deleteModal" :delete-item="deleteCoupon" @delete-coupon="deleteItem" />
 </template>
 
 <script>

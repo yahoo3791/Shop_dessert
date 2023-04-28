@@ -93,16 +93,9 @@
       :pages="pagination"
       @updatePage="getData" />
   </div>
-  <orderModal
-    ref="orderModal"
-    :change-data="changeData" />
-  <deleteModal
-    ref="deleteModal"
-    :delete-data="deleteData"
-    @delete-item="deleteItem" />
-  <deleteOrderAllModal
-    ref="deleteOrderAllModal"
-    @delete-all="deleteAll" />
+  <orderModal ref="orderModal" :change-data="changeData" />
+  <deleteModal ref="deleteModal" :delete-data="deleteData" @delete-item="deleteItem" />
+  <deleteOrderAllModal ref="deleteOrderAllModal" @delete-all="deleteAll" />
 </template>
 
 <script>

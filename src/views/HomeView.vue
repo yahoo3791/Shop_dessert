@@ -40,33 +40,38 @@
     <div class="container main"
       id="recommend">
       <div class="row">
-        <div class="col-12 col-lg-6 my-2 position-relative"
+        <div
+          class="col-12 col-lg-6 my-2 position-relative"
           data-aos="fade-right">
-            <img src="../assets/pic/banner/grocery01.png"
-              class="w-100 groceryImg"
-              alt="巧克力打折系列圖片">
-            <div class="position-absolute top-50
-              translate-middle-y ps-5 tracking-widest">
-              <h3>巧克力系列</h3>
-              <p class="mb-2 mb-md-3">現正7折優惠中！</p>
-              <RouterLink
-                to="/user/products"
-                class="href-none">
-                <button
-                  type="button"
-                  class="btn btn-light fw-bold">
-                  前往商店
-                </button>
-              </RouterLink>
-            </div>
+          <img
+            src="../assets/pic/banner/grocery01.png"
+            class="w-100 groceryImg"
+            alt="巧克力打折系列圖片">
+          <div
+            class="position-absolute top-50
+            translate-middle-y ps-5 tracking-widest">
+            <h3>巧克力系列</h3>
+            <p class="mb-2 mb-md-3">現正7折優惠中！</p>
+            <RouterLink
+              to="/user/products"
+              class="href-none">
+              <button
+                type="button"
+                class="btn btn-light fw-bold">
+                前往商店
+              </button>
+            </RouterLink>
+          </div>
         </div>
-        <div class="col-12 col-lg-6 my-2 position-relative"
+        <div
+          class="col-12 col-lg-6 my-2 position-relative"
           data-aos="fade-left">
           <img
             src="../assets/pic/banner/grocery02.png"
             class="w-100 groceryImg"
             alt="杯子蛋糕打折系列圖片">
-          <div class="position-absolute top-50
+          <div
+            class="position-absolute top-50
             translate-middle-y ps-5 tracking-widest">
             <h3>杯子蛋糕系列</h3>
             <p class="mb-2 mb-md-3">現正7折優惠中！</p>
@@ -87,7 +92,8 @@
         <div class="col-12 text-center my-5">
           <h3 class="title-01">熱銷商品</h3>
         </div>
-        <div class="col-12 text-center pt-5"
+        <div
+          class="col-12 text-center pt-5"
           :class="{'d-none': productLoading}">
           <div
             class="spinner-border text-light spinner-border-3rem"
@@ -95,33 +101,40 @@
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
-        <div class="col-6 col-md-6 col-lg-4 col-xl-3 mb-5"
+        <div
+          class="col-6 col-md-6 col-lg-4 col-xl-3 mb-5"
           v-for="item in products"
           :key="item.id">
-          <div class="text-white product-content-container
+          <div
+            class="text-white product-content-container
             mx-auto cursor-pointer position-relative"
             @click="more(item.id)"
             @keydown="more(item.id)">
-              <span class="badge bg-danger position-absolute badge-position">HOT
+              <span
+                class="badge bg-danger position-absolute badge-position">
+                HOT
               </span>
               <div class="product-item position-relative">
                 <img
                   :src="item.imageUrl"
                   class="position-relative w-100 h-100 product-img"
                   alt="商品圖片" />
-              <div class="w-100 productNotes-container position-absolute bottom-0 start-50">
-                <i class="productNotes-icon d-block bi bi-info-square text-4xl
-                  position-relative top-50 start-50 text-center" />
-              </div>
-              <div
-                class="fav position-absolute end-0 top-0"
-                @click.stop="addFav(item)"
-                @keydown="addFav(item)">
-                <i class="bi mx-2 fs-1"
-                :class="favoriteData.includes(item.id) ? 'bi-heart-fill' : 'bi-heart'" />
-              </div>
+                <div
+                  class="w-100 productNotes-container position-absolute bottom-0 start-50">
+                  <i class="productNotes-icon d-block bi bi-info-square text-4xl
+                    position-relative top-50 start-50 text-center" />
+                </div>
+                <div
+                  class="fav position-absolute end-0 top-0"
+                  @click.stop="addFav(item)"
+                  @keydown="addFav(item)">
+                  <i
+                    class="bi mx-2 fs-1"
+                    :class="favoriteData.includes(item.id) ? 'bi-heart-fill' : 'bi-heart'" />
+                </div>
             </div>
-            <div class="product-content pt-1">
+            <div
+              class="product-content pt-1">
               <h5 class="product-content-h5 text-base font-medium tracking-wide">
                 {{ item.title }}
               </h5>
@@ -154,7 +167,8 @@
             </div>
           </div>
         </div>
-        <div class="col-12 text-center my-5">
+        <div
+          class="col-12 text-center my-5">
           <RouterLink
             to="/user/products"
             class="href-none">
@@ -267,7 +281,7 @@
           </div>
         </div>
         <div
-        class="col-12 col-md-6 col-lg-3 d-flex my-3 py-3 my-md-0 markContainer"
+          class="col-12 col-md-6 col-lg-3 d-flex my-3 py-3 my-md-0 markContainer"
           data-aos="fade-left"
           data-aos-delay="300">
           <img
@@ -324,8 +338,7 @@
     class="position-fixed text-center
     end-0 bottom-0 cursor-pointer m-3 border chat-container"
     :class="{'translateY-70px': !scrollIcon}">
-    <i
-      class="bi bi-chat-dots-fill chat-icon" />
+    <i class="bi bi-chat-dots-fill chat-icon" />
   </RouterLink>
   <div
     :class="{'scrollIconMoveIn': !scrollIcon}"

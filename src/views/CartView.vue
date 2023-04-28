@@ -24,9 +24,13 @@
         :class="{'d-none': !cartsSwitch}">
         <div class="row mx-0">
           <div class="col-12 p-0 my-4">
-            <div class="d-flex justify-content-between
+            <div
+              class="d-flex justify-content-between
               align-items-center pb-3 border-bottom-404040">
-              <h1 class="mb-0 text-center tracking-widest font-bold text-3xl">購物車</h1>
+              <h1
+                class="mb-0 text-center tracking-widest font-bold text-3xl">
+                購物車
+              </h1>
               <div>
                 <button
                   type="button"
@@ -72,7 +76,8 @@
                     @keydown="add(item.id, key)">
                     +
                   </div>
-                  <label for="smNum">
+                  <label
+                    for="smNum">
                     <input
                       name="smNum"
                       id="smNum"

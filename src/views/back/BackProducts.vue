@@ -13,8 +13,7 @@
           </button>
         </div>
       </div>
-      <div
-        class="col-12"
+      <div class="col-12"
         v-if="Data.length === 0">
         <h2
           class="text-black text-center"
@@ -22,9 +21,7 @@
           尚未新增商品。
         </h2>
       </div>
-      <div
-        class="col-12 px-0 px-md-2"
-        v-else>
+      <div class="col-12 px-0 px-md-2" v-else>
         <table
           class="table mt-4 text-nowrap"
           style="table-layout: fixed">
@@ -103,15 +100,8 @@
       </div>
     </div>
   </div>
-  <productModal
-    ref="productModal"
-    :product="tempProduct"
-    @add="UpdateData"
-    :is-new="isNew" />
-  <deleteModal
-    ref="deleteModal"
-    :delete="deleteItem"
-    @delete-item="deleteProduct" />
+  <productModal ref="productModal" :product="tempProduct" @add="UpdateData" :is-new="isNew" />
+  <deleteModal ref="deleteModal" :delete="deleteItem" @delete-item="deleteProduct" />
 </template>
 
 <script>

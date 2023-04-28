@@ -105,25 +105,33 @@ a.router-link-active {
 }
 // 通用高
 .auto-height {
-  height: calc(100vh - 149px) !important;
+  min-height: 100vh !important;
+  margin-bottom: -149px;
+}
+.auto-height-content {
+  padding-bottom: 149px;
 }
 @media (max-width:375px) {
   .auto-height {
-    height: calc(100vh - 184px) !important;
+    margin-bottom: -184px;
+  }
+  .auto-height-content {
+    padding-bottom: 184px;
   }
 }
 @media (max-width:425px) {
   .auto-height {
-    height: calc(100vh - 205px) !important;
+    margin-bottom: -205px;
   }
-}
-@media (max-width:1023px) {
-  .auto-height {
-    height: calc(100vh - 237px) !important;
+  .auto-height-content {
+    padding-bottom: 205px;
   }
 }
 @media (min-width:1024px) {
   .auto-height {
-    height: calc(100vh - 237px) !important;
+    margin-bottom: -237px;
+  }
+  .auto-height-content {
+    padding-bottom: 237px;
   }
 }

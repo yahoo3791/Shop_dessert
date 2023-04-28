@@ -1,10 +1,9 @@
 <template>
   <Navbar />
   <Loading v-model:active="isLoading" />
-  <div class="bg-dark">
+  <div class="bg-dark auto-height">
     <div
-      class="container pt-utility"
-      :class="{'auto-height': favoriteData.length == 0}">
+      class="container pt-utility auto-height-content">
       <div class="row">
         <div class="col-12"
         :class="{'d-none': favoriteData.length == 0}">

@@ -1,7 +1,7 @@
 <template>
   <Loading v-model:active="isLoading" />
   <Navbar />
-  <div class="bg-dark">
+  <div class="bg-dark auto-height">
     <div class="container">
       <div class="row pb-5"
         style="padding-top: 20vh">
@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <div class="container text-white">
+    <div class="container text-white auto-height-content">
       <div class="row">
         <div class="col-10 col-md-6 mx-auto">
           <h3

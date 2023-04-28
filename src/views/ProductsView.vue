@@ -1,8 +1,8 @@
 <template>
   <Loading v-model:active="isLoading" />
   <Navbar />
-  <div class="container-fluid pt-utility">
-    <div class="row">
+  <div class="container-fluid pt-utility auto-height">
+    <div class="row auto-height-content">
       <div class="col-12 col-md-9 mx-auto p-0">
         <div class="position-relative">
           <img

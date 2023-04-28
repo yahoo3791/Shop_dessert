@@ -1,7 +1,7 @@
 <template>
   <Navbar />
-  <div class="container pt-utility pb-5">
-    <div class="row">
+  <div class="container pt-utility pb-5 auto-height">
+    <div class="row auto-height-content">
       <div class="col-12">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb py-2 px-1 p-md-2 breadcrumb-style tracking-wider">

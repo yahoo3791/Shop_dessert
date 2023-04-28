@@ -1,7 +1,7 @@
 <template>
   <Loading v-model:active="isLoading" />
   <Navbar />
-  <div class="bg-dark overflow-hidden ">
+  <div class="bg-dark overflow-hidden">
     <div class="container-fulid pt-utility">
       <div class="overflow-hidden homeContainer">
         <div class="homeBanner w-100 h-100 position-relative">

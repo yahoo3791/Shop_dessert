@@ -1,7 +1,7 @@
 <template>
   <Navbar />
-  <div class="pt-5">
-    <div class="container pt-utility">
+  <div class="pt-5 auto-height">
+    <div class="container pt-utility auto-height-content">
       <div class="row pb-5">
         <div class="col-12 d-flex justify-content-around pb-2">
           <div class="p-01">

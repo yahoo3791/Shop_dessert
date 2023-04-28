@@ -1,7 +1,7 @@
 <template>
   <Navbar />
-  <div class="bg-dark">
-    <div class="container pt-utility">
+  <div class="bg-dark auto-height">
+    <div class="container pt-utility auto-height-content">
       <div class="row">
         <div class="col-12">
           <nav aria-label="breadcrumb">

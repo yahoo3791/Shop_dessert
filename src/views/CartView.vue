@@ -1,9 +1,8 @@
 <template>
   <Loading v-model:active="isLoading" />
   <Navbar />
-  <div class="bg-dark w-100 h-100 overflow-hidden position-relative">
-    <div class="container pt-utility text-white position-relative"
-    :class="{'auto-height': !cartsSwitch}">
+  <div class="bg-dark w-100 h-100 overflow-hidden position-relative auto-height">
+    <div class="container pt-utility text-white position-relative auto-height-content">
       <div class="row">
         <div
           class="col-12 text-center"

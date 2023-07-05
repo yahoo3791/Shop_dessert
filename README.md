@@ -32,4 +32,4 @@
 </ul>
 
 <h2>DEMO</h2>
-<a href="https://yahoo3791.github.io/eshop/#/">DESSERT</a>
+<a href="https://yahoo3791.github.io/Shop_dessert/#/">DESSERT</a>

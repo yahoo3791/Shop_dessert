@@ -2,89 +2,87 @@
   <Navbar />
   <Loading v-model:active="isLoading" />
   <div class="bg-dark auto-height">
-    <div
-      class="container pt-utility auto-height-content">
+    <div class="container pt-utility auto-height-content">
       <div class="row">
-        <div class="col-12"
-        :class="{'d-none': favoriteData.length == 0}">
+        <div class="col-12" :class="{ 'd-none': favoriteData.length == 0 }">
           <nav aria-label="breadcrumb">
-            <ol
-              class="breadcrumb py-2 px-1 p-md-2
-              breadcrumb-style tracking-wider">
+            <ol class="breadcrumb py-2 px-1 p-md-2 breadcrumb-style tracking-wider">
               <li class="breadcrumb-item">
-                <RouterLink
-                  to="/"
-                  class="text-white text-decoration-none">
-                  首頁
-                </RouterLink>
+                <RouterLink to="/" class="text-white text-decoration-none"> 首頁 </RouterLink>
               </li>
-              <li class="breadcrumb-item breadcrumb-item-none">我的收藏
-              </li>
+              <li class="breadcrumb-item breadcrumb-item-none">我的收藏</li>
             </ol>
           </nav>
         </div>
         <div
           class="col-12 d-n text-center"
-          :class="{'d-block': favoriteData.length == 0}"
-          style="padding:20vh 0;">
-          <h1 class="title-01">
-            目前無收藏商品
-          </h1>
-          <RouterLink
-            to="/user/products"
-            class="text-decoration-none">
-            <button
-              type="button"
-              class="btn btn-light fw-bold mt-5"
-              >前往商城
-            </button>
+          :class="{ 'd-block': favoriteData.length == 0 }"
+          style="padding: 20vh 0"
+        >
+          <h1 class="title-01">目前無收藏商品</h1>
+          <RouterLink to="/user/products" class="text-decoration-none">
+            <button type="button" class="btn btn-light fw-bold mt-5">前往商城</button>
           </RouterLink>
         </div>
         <div
           class="col-12 text-center pt-5"
-          :class="{'d-none': productLoading}"
-          v-if="favoriteData.length !== 0">
-          <div
-            class="spinner-border text-light spinner-border-3rem"
-            role="status">
+          :class="{ 'd-none': productLoading }"
+          v-if="favoriteData.length !== 0"
+        >
+          <div class="spinner-border text-light spinner-border-3rem" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
         <div class="d-flex flex-column-reverse flex-md-row">
           <div
             class="col-12 col-md-9 text-white mt-3"
-            :class="{'d-none': favoriteData.length == 0}">
+            :class="{ 'd-none': favoriteData.length == 0 }"
+          >
             <div class="row d-flex flex-wrap align-items-center">
-              <div class="col-6 col-md-6 col-lg-4 mb-5"
+              <div
+                class="col-6 col-md-6 col-lg-4 mb-5"
                 v-for="item in updateProducts"
-                :key="item.id">
+                :key="item.id"
+              >
                 <div
-                  class="text-white product-content-container
-                  mx-auto cursor-pointer position-relative"
+                  class="text-white product-content-container mx-auto
+                  cursor-pointer position-relative"
                   @click="more(item.id)"
-                  @keydown="more(item.id)">
-                  <span class="badge bg-danger position-absolute badge-position"
-                    v-if="(item.num <= 5 && item.num >= 1)">HOT
+                  @keydown="more(item.id)"
+                >
+                  <span
+                    class="badge bg-danger position-absolute badge-position"
+                    v-if="item.num <= 5 && item.num >= 1"
+                    >HOT
                   </span>
-                  <span class="badge bg-dark opacity-50 position-absolute badge-position"
-                    v-else-if="(item.num === 0)">SOLD OUT
+                  <span
+                    class="badge bg-dark opacity-50 position-absolute badge-position"
+                    v-else-if="item.num === 0"
+                    >SOLD OUT
                   </span>
                   <div class="product-item position-relative">
-                    <img :src="item.imageUrl"
+                    <img
+                      :src="item.imageUrl"
                       class="position-relative w-100 h-100 product-img"
-                      alt="商品圖片" />
-                    <div class="w-100 productNotes-container position-absolute bottom-0 start-50">
+                      alt="商品圖片"
+                    />
+                    <div class="w-100 productNotes-container
+                    position-absolute bottom-0 start-50">
                       <i
-                        class="productNotes-icon d-block bi bi-info-square text-4xl
-                        position-relative top-50 start-50 text-center">
+                        class="productNotes-icon d-block bi bi-info-square
+                        text-4xl position-relative top-50 start-50 text-center"
+                      >
                       </i>
                     </div>
                     <div
-                      @click.stop="addFav(item,index)"
-                      @keydown="addFav(item,index)"
-                      class="fav position-absolute end-0 top-0">
-                      <i class="bi fs-1 mx-2"
-                      :class="favoriteData.includes(item.id) ? 'bi-heart-fill' : 'bi-heart'" />
+                      @click.stop="addFav(item, index)"
+                      @keydown="addFav(item, index)"
+                      class="fav position-absolute end-0 top-0"
+                    >
+                      <i
+                        class="bi fs-1 mx-2"
+                        :class="favoriteData.includes(item.id) ? 'bi-heart-fill' : 'bi-heart'"
+                      />
                     </div>
                   </div>
                   <div class="product-content pt-1">
@@ -93,69 +91,56 @@
                     </h5>
                     <div class="d-flex justify-content-between">
                       <p>
-                        <del>${{ item.origin_price }}</del>/
+                        <del>${{ item.origin_price }}</del
+                        >/
                         <span class="product-p">優惠價${{ item.price }}</span>
                       </p>
                     </div>
-                    <div v-if="item.num >= 1"
-                      :class="{'opacity-75': isLoading === true}"
+                    <div
+                      v-if="item.num >= 1"
+                      :class="{ 'opacity-75': isLoading === true }"
                       @click.stop="addCart(item, $event)"
                       @keydown="addCart(item, $event)"
                       :disabled="isLoading === true"
-                      class="w-btn-product mt-2">
+                      class="w-btn-product mt-2"
+                    >
                       <div
-                      @click.stop
-                      class="d-none spinner-border spinner-border-sm"
-                      role="status">
-                      </div>
+                        @click.stop
+                        class="d-none spinner-border spinner-border-sm"
+                        role="status"
+                      ></div>
                       加入購物車
                     </div>
-                    <div v-else
-                    class="w-btn-product mt-2 opacity-50">
-                      已售完
-                    </div>
+                    <div v-else class="w-btn-product mt-2 opacity-50">已售完</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div
-            class="col-12 col-md-3"
-            :class="{'d-none': favoriteData.length <= 1}">
+          <div class="col-12 col-md-3"
+          :class="{ 'd-none': favoriteData.length <= 1 }">
             <div
               class="px-0 px-md-0 d-flex flex-wrap justify-content-end
-              justify-content-md-center align-items-center mt-3">
-              <label
-                for="sort"
-                class="text-white ps-2 pb-md-2 d-inline-block">顯示方法
+              justify-content-md-center align-items-center mt-3"
+            >
+              <label for="sort" class="text-white ps-2 pb-md-2 d-inline-block"
+                >顯示方法
                 <div
-                  class="bg-white tracking-wide
-                  font-medium d-inline-block"
-                  style="max-width: 300px; border-radius: 5px;">
+                  class="bg-white tracking-wide font-medium d-inline-block"
+                  style="max-width: 300px; border-radius: 5px"
+                >
                   <select
                     name="sort"
                     id="sort"
-                    class="text-black tracking-wide
-                    font-medium px-4 py-1 border-0"
-                    @change="onChange($event)">
-                    <option
-                      selected="selected"
-                      disabled="disabled"
-                      class="d-n"
-                      value="">選擇顯示方法
+                    class="text-black tracking-wide font-medium px-4 py-1 border-0"
+                    @change="onChange($event)"
+                  >
+                    <option selected="selected" disabled="disabled" class="d-n" value="">
+                      選擇顯示方法
                     </option>
-                    <option
-                    value="熱銷商品">
-                    熱銷商品
-                    </option>
-                    <option
-                    value="價格排序低到高">
-                    價格排序低到高
-                    </option>
-                    <option
-                    value="價格排序高到低">
-                    價格排序高到低
-                    </option>
+                    <option value="熱銷商品">熱銷商品</option>
+                    <option value="價格排序低到高">價格排序低到高</option>
+                    <option value="價格排序高到低">價格排序高到低</option>
                   </select>
                 </div>
               </label>
@@ -169,6 +154,11 @@
 </template>
 
 <script>
+import { ref, onMounted, computed } from 'vue';
+import { useRouter } from 'vue-router';
+
+import axios from 'axios';
+
 import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
 import Loading from '@/components/IsLoading.vue';
@@ -178,26 +168,27 @@ import emitter from '@/methods/emitter';
 const Swal = require('sweetalert2');
 
 export default {
-  data() {
-    return {
-      favoriteData: [],
-      products: [],
-      filterData: [],
-      isLoading: false,
-      productLoading: true,
-      clickName: '',
+  setup() {
+    const router = useRouter();
+    const favoriteData = ref([]);
+    const products = ref([]);
+    const filterData = ref([]);
+    const isLoading = ref(false);
+    const productLoading = ref(true);
+    const clickName = ref('');
+
+    const getFavoriteData = () => {
+      filterData.value = products.value.filter((fav) => favoriteData.value.includes(fav.id));
     };
-  },
-  components: { Navbar, Footer, Loading },
-  methods: {
-    getData() {
+    const getData = () => {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
-      this.productLoading = false;
-      this.axios.get(api)
+      productLoading.value = false;
+      axios
+        .get(api)
         .then((response) => {
-          this.products = response.data.products;
-          this.productLoading = true;
-          this.getFavoriteData();
+          products.value = response.data.products;
+          productLoading.value = true;
+          getFavoriteData();
         })
         .catch(() => {
           const Toast = Swal.mixin({
@@ -216,23 +207,20 @@ export default {
             title: '連線異常',
           });
         });
-    },
-    updateFav() {
-      this.favoriteData = JSON.parse(localStorage.getItem('fav')) || [];
-    },
-    getFavoriteData() {
-      this.filterData = this.products.filter((fav) => this.favoriteData.includes(fav.id));
-    },
-    addCart(item, e) {
+    };
+    const updateFav = () => {
+      favoriteData.value = JSON.parse(localStorage.getItem('fav')) || [];
+    };
+    const addCart = (item, e) => {
       e.target.childNodes[0].classList.remove('d-none');
       const data = {
         product_id: item.id,
         qty: 1,
       };
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      this.isLoading = true;
+      isLoading.value = true;
       this.axios.post(api, { data }).then(() => {
-        this.isLoading = false;
+        isLoading.value = false;
         e.target.childNodes[0].classList.add('d-none');
         emitter.emit('updateCartsNum');
         const Toast = Swal.mixin({
@@ -251,12 +239,13 @@ export default {
           title: '成功加入購物車',
         });
       });
-    },
-    more(id) {
+    };
+    const more = (id) => {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`;
-      this.axios.get(api)
+      axios
+        .get(api)
         .then(() => {
-          this.$router.push(`/user/product/${id}`);
+          router.push(`/user/product/${id}`);
         })
         .catch(() => {
           const Toast = Swal.mixin({
@@ -275,10 +264,10 @@ export default {
             title: '連線異常',
           });
         });
-    },
-    addFav(item) {
-      if (this.favoriteData.includes(item.id)) {
-        this.favoriteData.splice(this.favoriteData.indexOf(item.id), 1);
+    };
+    const addFav = (item) => {
+      if (favoriteData.value.includes(item.id)) {
+        favoriteData.value.splice(favoriteData.value.indexOf(item.id), 1);
         const Toast = Swal.mixin({
           toast: true,
           position: 'top-end',
@@ -295,7 +284,7 @@ export default {
           title: '成功移除收藏',
         });
       } else {
-        this.favoriteData.push(item.id);
+        favoriteData.value.push(item.id);
         const Toast = Swal.mixin({
           toast: true,
           position: 'top-end',
@@ -312,33 +301,50 @@ export default {
           title: '成功加入收藏',
         });
       }
-      localStorage.setItem('fav', JSON.stringify(this.favoriteData));
+      localStorage.setItem('fav', JSON.stringify(favoriteData.value));
       emitter.emit('updateNum');
-      this.getFavoriteData();
-    },
-    onChange(e) {
+      getFavoriteData();
+    };
+    const onChange = (e) => {
       const { value } = e.target;
-      this.clickName = value;
-    },
-  },
-  computed: {
-    updateProducts() {
+      clickName.value = value;
+    };
+    const updateProducts = computed(() => {
       let arr = [];
-      arr = this.filterData;
-      if (this.clickName === '價格排序低到高') {
+      arr = filterData.value;
+      if (clickName.value === '價格排序低到高') {
         arr.sort((a, b) => a.price - b.price);
-      } else if (this.clickName === '價格排序高到低') {
+      } else if (clickName.value === '價格排序高到低') {
         arr.sort((a, b) => b.price - a.price);
-      } else if (this.clickName === '熱銷商品') {
+      } else if (clickName.value === '熱銷商品') {
         arr.sort((a, b) => a.num - b.num);
       }
       return arr;
-    },
+    });
+
+    onMounted(() => {
+      getData();
+      updateFav();
+      getFavoriteData();
+    });
+
+    return {
+      favoriteData,
+      products,
+      filterData,
+      isLoading,
+      productLoading,
+      clickName,
+      getData,
+      updateFav,
+      getFavoriteData,
+      addCart,
+      more,
+      addFav,
+      onChange,
+      updateProducts,
+    };
   },
-  mounted() {
-    this.getData();
-    this.updateFav();
-    this.getFavoriteData();
-  },
+  components: { Navbar, Footer, Loading },
 };
 </script>

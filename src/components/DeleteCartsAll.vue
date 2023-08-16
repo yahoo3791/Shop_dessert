@@ -42,12 +42,14 @@
 </template>
 
 <script>
+import { ref } from 'vue';
 import modalMixin from '@/mixins/modalMixin';
 
 export default {
-  data() {
+  setup() {
+    const modal = ref({});
     return {
-      modal: {},
+      modal,
     };
   },
   mixins: [modalMixin],

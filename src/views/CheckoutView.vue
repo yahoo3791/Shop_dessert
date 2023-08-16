@@ -3,16 +3,10 @@
   <Navbar />
   <div class="bg-dark auto-height">
     <div class="container">
-      <div
-        class="row pb-5"
-        style="padding-top: 20vh">
+      <div class="row pb-5" style="padding-top: 20vh">
         <div class="col-12 d-flex justify-content-around pb-2">
-          <div class="p-01">
-            1.確認商品並填寫資料
-          </div>
-          <div class="p-01">
-            2.完成訂單
-          </div>
+          <div class="p-01">1.確認商品並填寫資料</div>
+          <div class="p-01">2.完成訂單</div>
         </div>
         <div class="col-12">
           <div class="progress">
@@ -21,15 +15,13 @@
               role="progressbar"
               aria-valuenow="75"
               aria-valuemin="0"
-              aria-valuemax="100">
-            </div>
+              aria-valuemax="100"
+            ></div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div
-          class="col-12 text-white text-center"
-          style="padding-top: 10vh">
+        <div class="col-12 text-white text-center" style="padding-top: 10vh">
           <h1 class="tracking-widest font-bold">付款成功! 感謝您的惠顧</h1>
           <p>以下是您的訂單資訊</p>
         </div>
@@ -38,8 +30,7 @@
     <div class="container text-white auto-height-content">
       <div class="row">
         <div class="col-10 col-md-6 mx-auto">
-          <h3
-            class="tracking-widest font-bold text-3xl pb-3 mt-5 border-bottom-404040">
+          <h3 class="tracking-widest font-bold text-3xl pb-3 mt-5 border-bottom-404040">
             訂購人資訊
           </h3>
           <div class="row">
@@ -59,21 +50,21 @@
             </div>
           </div>
           <div class="row">
-            <h3
-              class="pb-3 mt-3 tracking-widest font-bold text-3xl border-bottom-404040">
+            <h3 class="pb-3 mt-3 tracking-widest font-bold text-3xl border-bottom-404040">
               商品資訊
             </h3>
-            <div
-              class="col-12 text-white mb-5">
+            <div class="col-12 text-white mb-5">
               <div
                 class="payCart-item border-bottom d-flex py-3"
                 v-for="item in details.products"
-                :key="item.id">
+                :key="item.id"
+              >
                 <img
                   :src="item.product.imageUrl"
                   class="d-block"
-                  style="max-width: 100px;"
-                  alt="cartImage">
+                  style="max-width: 100px"
+                  alt="cartImage"
+                />
                 <div class="text-sm d-flex flex-column justify-content-between ps-3">
                   <p class="text-2xl">
                     {{ item.product.title }}
@@ -92,44 +83,29 @@
             <h3 class="pb-3 mt-3 tracking-widest font-bold text-3xl border-bottom-404040">
               付款資訊
             </h3>
-            <div
-              class="col-12 tracking-widest text-lg">
-              <p
-                v-if="details.create_at">
-                訂單成立成功
-              </p>
-              <p
-                class="py-1">
-                訂單編號:
-              </p>
+            <div class="col-12 tracking-widest text-lg">
+              <p v-if="details.create_at">訂單成立成功</p>
+              <p class="py-1">訂單編號:</p>
               <p>{{ $route.params.orderId }}</p>
               <p>(查詢訂單時輸入此編號)</p>
-              <p
-                class="py-1">總金額{{ Math.round($filters.currency(details.total)) }}$
-              </p>
-              <p
-                class="py-1"
-                v-if="details.is_paid === true">
-                付款完成
-              </p>
-              <p
-                class="py-1"
-                v-else>
-                尚未付款
-              </p>
+              <p class="py-1">總金額{{ Math.round($filters.currency(details.total)) }}$</p>
+              <p class="py-1" v-if="details.is_paid === true">付款完成</p>
+              <p class="py-1" v-else>尚未付款</p>
             </div>
           </div>
           <div class="col-12 pt-2 pb-5 text-end my-5">
             <button
               type="button"
               class="btn btn-light fw-bold me-2"
-              @click="$router.push('/user/checkOrder')">
+              @click="$router.push('/user/checkOrder')"
+            >
               查詢訂單
             </button>
             <button
               type="button"
               class="btn btn-light fw-bold"
-              @click="$router.push('/user/products')">
+              @click="$router.push('/user/products')"
+            >
               繼續購物
             </button>
           </div>
@@ -141,6 +117,7 @@
 </template>
 
 <script>
+import { ref, onMounted } from 'vue';
 import Navbar from '@/components/FrontNavbar.vue';
 import Footer from '@/components/FrontFooter.vue';
 import Loading from '@/components/IsLoading.vue';
@@ -149,22 +126,17 @@ import 'sweetalert2/src/sweetalert2.scss';
 const Swal = require('sweetalert2');
 
 export default {
-  data() {
-    return {
-      details: {},
-      userData: {},
-      isLoading: false,
-    };
-  },
-  components: {
-    Navbar, Footer, Loading,
-  },
-  methods: {
-    payOrder() {
+  setup() {
+    const details = ref({});
+    const userData = ref({});
+    const isLoading = ref(false);
+
+    const payOrder = () => {
       const { orderId } = this.$route.params;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/pay/${orderId}`;
       this.isLoading = true;
-      this.axios.post(api)
+      this.axios
+        .post(api)
         .then(() => {
           this.isLoading = false;
           Swal.fire({
@@ -184,12 +156,13 @@ export default {
             text: '請聯絡我們客服人員',
           });
         });
-    },
-    render() {
+    };
+    const render = () => {
       const { orderId } = this.$route.params;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order/${orderId}`;
       this.isLoading = true;
-      this.axios.get(api)
+      this.axios
+        .get(api)
         .then((response) => {
           this.isLoading = false;
           this.details = response.data.order;
@@ -212,11 +185,23 @@ export default {
             title: '連線異常',
           });
         });
-    },
+    };
+    onMounted(() => {
+      render();
+      payOrder();
+    });
+    return {
+      details,
+      userData,
+      isLoading,
+      payOrder,
+      render,
+    };
   },
-  mounted() {
-    this.render();
-    this.payOrder();
+  components: {
+    Navbar,
+    Footer,
+    Loading,
   },
 };
 </script>

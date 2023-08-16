@@ -39,20 +39,22 @@
 </template>
 
 <script>
+import { ref } from 'vue';
 import Modalmixin from '@/mixins/modalMixin';
 
 export default {
-  data() {
+  setup() {
+    const modal = ref({});
+    const deleteItem = () => {
+      this.$emit('deleteItem');
+    };
+
     return {
-      modal: {},
+      modal,
+      deleteItem,
     };
   },
   props: ['delete'],
-  methods: {
-    deleteItem() {
-      this.$emit('deleteItem');
-    },
-  },
   mixins: [Modalmixin],
 };
 </script>

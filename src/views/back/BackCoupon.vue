@@ -1,32 +1,20 @@
 <template>
-<Loading :active="isLoading" />
+  <Loading :active="isLoading" />
   <div>
-    <div
-      class="container pt-utility"
-      style="height:100vh">
+    <div class="container pt-utility" style="height: 100vh">
       <div class="text-end">
-        <button
-          type="button"
-          class="btn btn-outline-primary"
-          @click="openCoupon(true)">
+        <button type="button" class="btn btn-outline-primary" @click="openCoupon(true)">
           新增優惠卷
         </button>
       </div>
       <div class="row">
-        <div
-          class="col-12"
-          v-if="getCoupons.length === 0">
-          <h2 class="text-black text-center"
-            style="padding:30vh 0">尚未新增優惠卷。
-          </h2>
+        <div class="col-12" v-if="getCoupons.length === 0">
+          <h2 class="text-black text-center" style="padding: 30vh 0">尚未新增優惠卷。</h2>
         </div>
-        <div
-          class="col-12"
-          v-else>
+        <div class="col-12" v-else>
           <table class="table mt-4">
             <thead>
-              <tr
-                class="font-medium tracking-wider">
+              <tr class="font-medium tracking-wider">
                 <th>名稱</th>
                 <th class="d-none d-md-table-cell">折扣百分比</th>
                 <th>到期日</th>
@@ -34,38 +22,29 @@
                 <th>編輯</th>
               </tr>
             </thead>
-            <tbody
-              v-for="item in getCoupons"
-              :key="item.id">
+            <tbody v-for="item in getCoupons" :key="item.id">
               <tr>
                 <td>{{ item.title }}</td>
                 <td class="d-none d-md-table-cell">{{ item.percent }}</td>
                 <td>{{ $filters.date(item.due_date) }}</td>
                 <td class="d-none d-md-table-cell">
-                  <span
-                    class="text-success"
-                    v-if="item.is_enabled===1">
-                    啟用
-                  </span>
-                  <span
-                    class="text-muted"
-                    v-else>
-                    未起用
-                  </span>
+                  <span class="text-success" v-if="item.is_enabled === 1"> 啟用 </span>
+                  <span class="text-muted" v-else> 未起用 </span>
                 </td>
                 <td class="p-0">
-                  <div
-                    class="btn-group">
+                  <div class="btn-group">
                     <button
                       type="button"
                       class="btn btn-outline-primary btn-sm"
-                      @click="openCoupon(false, item)">
+                      @click="openCoupon(false, item)"
+                    >
                       編輯
                     </button>
                     <button
                       type="button"
                       class="btn btn-outline-danger btn-sm"
-                      @click="openDeleteModal(item)">
+                      @click="openDeleteModal(item)"
+                    >
                       刪除
                     </button>
                   </div>
@@ -82,6 +61,7 @@
 </template>
 
 <script>
+import { ref, onMounted } from 'vue';
 import couponModal from '@/components/CouponModal.vue';
 import deleteModal from '@/components/back/DeleteCoupon.vue';
 import 'sweetalert2/src/sweetalert2.scss';
@@ -91,28 +71,23 @@ import 'vue-loading-overlay/dist/vue-loading.css';
 const Swal = require('sweetalert2');
 
 export default {
-  data() {
-    return {
-      tempCoupon: {},
-      pagination: {},
-      getCoupons: {},
-      deleteCoupon: {},
-      isLoading: false,
-      isNew: false,
-    };
-  },
-  inject: ['emitter'],
-  methods: {
-    openCoupon(isNew, item) {
+  setup() {
+    const tempCoupon = ref({});
+    const pagination = ref({});
+    const getCoupons = ref({});
+    const deleteCoupon = ref({});
+    const isLoading = ref(false);
+    const isNew = ref(false);
+    const openCoupon = (isNew2, item) => {
       this.$refs.couponModal.modalShow();
-      if (isNew === true) {
+      if (isNew2 === true) {
         this.tempCoupon = {};
       } else {
         this.tempCoupon = { ...item };
       }
-      this.isNew = isNew;
-    },
-    couponData(data) {
+      this.isNew = isNew2;
+    };
+    const couponData = (data) => {
       this.tempCoupon = data;
       this.tempCoupon.due_date = new Date(this.tempCoupon.due_date).getTime() / 1000;
       if (this.tempCoupon.is_enabled === true) {
@@ -153,11 +128,12 @@ export default {
             title: '連線異常',
           });
         });
-    },
-    updateData(page = 1) {
+    };
+    const updateData = (page = 1) => {
       this.isLoading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/coupons?page=${page}`;
-      this.axios.get(api)
+      this.axios
+        .get(api)
         .then((response) => {
           this.isLoading = false;
           this.getCoupons = response.data.coupons;
@@ -180,17 +156,18 @@ export default {
             title: '連線異常',
           });
         });
-    },
-    openDeleteModal(item) {
+    };
+    const openDeleteModal = (item) => {
       this.$refs.deleteModal.modalShow();
       this.deleteCoupon = item;
-    },
-    deleteItem(id) {
+    };
+    const deleteItem = (id) => {
       this.$refs.deleteModal.modalHide();
       this.isLoading = true;
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/coupon/${id}`;
       this.isLoading = false;
-      this.axios.delete(api)
+      this.axios
+        .delete(api)
         .then(() => {
           this.updateData();
           this.emitter.emit('push-message', {
@@ -215,15 +192,31 @@ export default {
             title: '連線異常',
           });
         });
-    },
+    };
+
+    onMounted(() => {
+      updateData();
+    });
+
+    return {
+      tempCoupon,
+      pagination,
+      getCoupons,
+      deleteCoupon,
+      isLoading,
+      isNew,
+      openCoupon,
+      couponData,
+      updateData,
+      openDeleteModal,
+      deleteItem,
+    };
   },
+  inject: ['emitter'],
   components: {
     couponModal,
     deleteModal,
     Loading,
-  },
-  mounted() {
-    this.updateData();
   },
 };
 </script>

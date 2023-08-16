@@ -5,23 +5,28 @@
 </template>
 
 <script>
+import { ref, onMounted } from 'vue';
 import Toast from '@/components/BackToast.vue';
+import emitter from '@/methods/emitter';
 
 export default {
+  setup() {
+    const messages = ref([]);
+
+    onMounted(() => {
+      emitter.on('push-message', (message) => {
+        const { style = 'success', title, content } = message;
+        messages.value.push({ style, title, content });
+      });
+    });
+
+    return {
+      messages,
+    };
+  },
   components: {
     Toast,
   },
-  data() {
-    return {
-      messages: [],
-    };
-  },
   inject: ['emitter'],
-  mounted() {
-    this.emitter.on('push-message', (message) => {
-      const { style = 'success', title, content } = message;
-      this.messages.push({ style, title, content });
-    });
-  },
 };
 </script>

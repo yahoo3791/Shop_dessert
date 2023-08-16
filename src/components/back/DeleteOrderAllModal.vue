@@ -40,18 +40,19 @@
 </template>
 
 <script>
+import { ref } from 'vue';
 import modalMixin from '@/mixins/modalMixin';
 
 export default {
-  data() {
-    return {
-      modal: {},
-    };
-  },
-  methods: {
-    deleteAll() {
+  setup() {
+    const modal = ref({});
+    const deleteAll = () => {
       this.$emit('deleteAll');
-    },
+    };
+    return {
+      modal,
+      deleteAll,
+    };
   },
   mixins: [modalMixin],
 };

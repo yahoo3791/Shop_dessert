@@ -8,26 +8,19 @@
             @click="openModal(true)"
             type="button"
             class="btn btn-outline-primary"
-            data-bs-target="#exampleModal">
+            data-bs-target="#exampleModal"
+          >
             新增
           </button>
         </div>
       </div>
-      <div class="col-12"
-        v-if="Data.length === 0">
-        <h2
-          class="text-black text-center"
-          style="padding:30vh 0">
-          尚未新增商品。
-        </h2>
+      <div class="col-12" v-if="Data.length === 0">
+        <h2 class="text-black text-center" style="padding: 30vh 0">尚未新增商品。</h2>
       </div>
       <div class="col-12 px-0 px-md-2" v-else>
-        <table
-          class="table mt-4 text-nowrap"
-          style="table-layout: fixed">
+        <table class="table mt-4 text-nowrap" style="table-layout: fixed">
           <thead>
-            <tr
-              class="font-medium tracking-wider">
+            <tr class="font-medium tracking-wider">
               <th>品名</th>
               <th class="d-none d-md-table-cell">分類</th>
               <th class="d-none d-md-table-cell">原價</th>
@@ -37,48 +30,37 @@
             </tr>
           </thead>
           <tbody>
-            <tr
-              v-for="item in Data"
-              :key="item.id">
-              <td class="overflow-hidden"
-                style="text-overflow:ellipsis">
+            <tr v-for="item in Data" :key="item.id">
+              <td class="overflow-hidden" style="text-overflow: ellipsis">
                 {{ item.title }}
               </td>
-              <td
-                class="d-none d-md-table-cell">
+              <td class="d-none d-md-table-cell">
                 {{ item.category }}
               </td>
-              <td
-                class="d-none d-md-table-cell">
+              <td class="d-none d-md-table-cell">
                 {{ $filters.currency(item.origin_price) }}
               </td>
               <td>
-                {{item.price}}
+                {{ item.price }}
               </td>
               <td>
-                <span
-                  class="text-success"
-                  v-if="item.is_enabled === 1">
-                  啟用
-                </span>
-                <span
-                  class="text-success"
-                  v-else>
-                  未啟用
-                </span>
+                <span class="text-success" v-if="item.is_enabled === 1"> 啟用 </span>
+                <span class="text-success" v-else> 未啟用 </span>
               </td>
               <td class="p-0">
                 <div class="btn-group">
                   <button
                     type="button"
                     class="btn btn-outline-primary btn-sm"
-                    @click="openModal(false, item)">
+                    @click="openModal(false, item)"
+                  >
                     編輯
                   </button>
                   <button
                     type="button"
                     class="btn btn-outline-danger btn-sm"
-                    @click="openDeleteModal(item)">
+                    @click="openDeleteModal(item)"
+                  >
                     刪除
                   </button>
                 </div>
@@ -88,23 +70,22 @@
         </table>
       </div>
     </div>
-    <div
-      class="row"
-      style="padding-top: calc(100vh-20vh)"
-      v-if="Data.length !== 0">
-      <div
-        class="col-12 position-fixed bottom-0 start-50 translate-middle-x">
-        <pagination
-          :pages="Pagination"
-          @update-page="getData" />
+    <div class="row" style="padding-top: calc(100vh-20vh)" v-if="Data.length !== 0">
+      <div class="col-12 position-fixed bottom-0 start-50 translate-middle-x">
+        <pagination :pages="Pagination" @update-page="getData" />
       </div>
     </div>
   </div>
-  <productModal ref="productModal" :product="tempProduct" @add="UpdateData" :is-new="isNew" />
-  <deleteModal ref="deleteModal" :delete="deleteItem" @delete-item="deleteProduct" />
+  <productModal ref="ProductModal" :product="tempProduct" @add="UpdateData" :is-new="isNew" />
+  <deleteModal ref="DeleteModal" :delete="deleteItem" @delete-item="deleteProduct" />
 </template>
 
 <script>
+import {
+  ref,
+  onMounted,
+} from 'vue';
+import axios from 'axios';
 import Loading from 'vue-loading-overlay';
 import 'sweetalert2/src/sweetalert2.scss';
 import productModal from '@/components/back/ProductsModal.vue';
@@ -115,29 +96,25 @@ import pagination from '@/components/back/BackPagination.vue';
 const Swal = require('sweetalert2');
 
 export default {
-  data() {
-    return {
-      Data: {},
-      tempProduct: {},
-      deleteItem: {},
-      Pagination: {},
-      isLoading: false,
-      isNew: false,
-    };
-  },
-  components: {
-    productModal, deleteModal, Loading, pagination,
-  },
-  inject: ['emitter'],
-  methods: {
-    getData(page = 1) {
+  setup() {
+    const Data = ref({});
+    const tempProduct = ref({});
+    const deleteItem = ref({});
+    const Pagination = ref({});
+    const isLoading = ref(false);
+    const isNew = ref(false);
+    const ProductModal = ref(null);
+    const DeleteModal = ref(null);
+
+    const getData = (page = 1) => {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products?page=${page}`;
-      this.isLoading = true;
-      this.axios.get(api)
+      isLoading.value = true;
+      axios
+        .get(api)
         .then((response) => {
-          this.isLoading = false;
-          this.Data = response.data.products;
-          this.Pagination = response.data.pagination;
+          isLoading.value = false;
+          Data.value = response.data.products;
+          Pagination.value = response.data.pagination;
         })
         .catch(() => {
           const Toast = Swal.mixin({
@@ -156,25 +133,25 @@ export default {
             title: '連線異常',
           });
         });
-    },
-    UpdateData(item) {
-      this.tempProduct = item;
+    };
+    const UpdateData = (item) => {
+      tempProduct.value = item;
       // 新增
       let api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product`;
       let httpMethod = 'post';
       // 編輯
-      if (!this.isNew) {
+      if (!isNew.value) {
         api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${item.id}`;
         httpMethod = 'put';
       }
       // 傳送
-      this.isLoading = true;
-      this.axios[httpMethod](api, { data: this.tempProduct })
+      isLoading.value = true;
+      axios[httpMethod](api, { data: tempProduct.value })
         .then(() => {
-          this.isLoading = false;
-          this.$refs.productModal.modalHide();
-          this.tempProduct = {};
-          this.getData();
+          isLoading.value = false;
+          ProductModal.value.modalHide();
+          tempProduct.value = {};
+          getData();
           this.emitter.emit('push-message', {
             style: 'success',
             title: '更新成功',
@@ -197,28 +174,30 @@ export default {
             title: '連線異常',
           });
         });
-    },
-    openModal(isNew, item) {
-      if (isNew) {
-        this.tempProduct = {};
+    };
+    const openModal = (isNew2, item) => {
+      if (isNew2) {
+        tempProduct.value = {};
       } else {
-        this.tempProduct = { ...item };
+        tempProduct.value = { ...item };
       }
-      this.$refs.productModal.modalShow();
-      this.isNew = isNew;
-    },
-    openDeleteModal(item) {
-      this.$refs.deleteModal.modalShow();
-      this.deleteItem = item;
-    },
-    deleteProduct() {
-      this.isLoading = true;
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${this.deleteItem.id}`;
-      this.axios.delete(api)
+      ProductModal.value.modalShow();
+      isNew.value = isNew2;
+    };
+    const openDeleteModal = (item) => {
+      console.log(item);
+      DeleteModal.value.modalShow();
+      deleteItem.value = item;
+    };
+    const deleteProduct = () => {
+      isLoading.value = true;
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/product/${deleteItem.value.id}`;
+      axios
+        .delete(api)
         .then(() => {
-          this.$refs.deleteModal.modalHide();
-          this.isLoading = false;
-          this.getData();
+          DeleteModal.value.modalHide();
+          isLoading.value = false;
+          getData();
           this.emitter.emit('push-message', {
             style: 'success',
             title: '刪除成功',
@@ -241,10 +220,31 @@ export default {
             title: '連線異常',
           });
         });
-    },
+    };
+
+    onMounted(() => {
+      getData();
+    });
+
+    return {
+      Data,
+      tempProduct,
+      deleteItem,
+      Pagination,
+      isLoading,
+      isNew,
+      UpdateData,
+      openModal,
+      openDeleteModal,
+      deleteProduct,
+    };
   },
-  created() {
-    this.getData();
+  components: {
+    productModal,
+    deleteModal,
+    Loading,
+    pagination,
   },
+  inject: ['emitter'],
 };
 </script>
